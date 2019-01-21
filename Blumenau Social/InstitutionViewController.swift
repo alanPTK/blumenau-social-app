@@ -2,6 +2,7 @@ import UIKit
 
 class InstitutionViewController: UIViewController {
 
+    @IBOutlet weak var lcAboutHeight: NSLayoutConstraint!
     @IBOutlet weak var lcVolunteersHeight: NSLayoutConstraint!
     @IBOutlet weak var lcDonationsHeight: NSLayoutConstraint!
     @IBOutlet weak var lcScopeHeight: NSLayoutConstraint!
@@ -18,7 +19,8 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var tvVolunteers: UITextView!
     @IBOutlet weak var vPictures: UIView!
     @IBOutlet weak var pcInstitutionPictures: UIPageControl!
-    
+    @IBOutlet weak var vAbout: UIView!
+    @IBOutlet weak var tvAbout: UITableView!
     var currentPage: Int = 0
     
     override func viewDidLoad() {
@@ -31,6 +33,7 @@ class InstitutionViewController: UIViewController {
         vDonations.layer.cornerRadius = 8
         vVolunteers.layer.cornerRadius = 8
         vPictures.layer.cornerRadius = 8
+        vAbout.layer.cornerRadius = 8
         
         tvWorkingHours.text = NSLocalizedString("about", comment: "")
         tvWorkingHours.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0);
@@ -43,6 +46,9 @@ class InstitutionViewController: UIViewController {
         
         pcInstitutionPictures.pageIndicatorTintColor = UIColor.descColor()
         pcInstitutionPictures.currentPageIndicatorTintColor = UIColor.titleColor()
+        
+        tvAbout.estimatedRowHeight = 100
+        tvAbout.rowHeight = UITableView.automaticDimension
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,6 +72,7 @@ class InstitutionViewController: UIViewController {
         lcScopeHeight.constant = tvScope.frame.size.height + tvScope.frame.origin.y + 16
         lcDonationsHeight.constant = tvDonations.contentSize.height + tvDonations.frame.origin.y + 16
         lcVolunteersHeight.constant = tvVolunteers.contentSize.height + tvVolunteers.frame.origin.y + 16
+        lcAboutHeight.constant = tvAbout.contentSize.height + 16
         
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
@@ -79,10 +86,13 @@ class InstitutionViewController: UIViewController {
         pcInstitutionPictures.currentPage = currentPage
     }
     
-    func resizeTextView(textView: UITextView) {
+    @discardableResult
+    func resizeTextView(textView: UITextView) -> CGSize {
         let fixedWidth = textView.frame.size.width
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        
+        return textView.frame.size
     }
     
     @IBAction func grow(_ sender: Any) {
@@ -93,37 +103,68 @@ class InstitutionViewController: UIViewController {
 extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
+        if tableView.tag == 0 {
+            return 10
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if tableView.tag == 0 {
+            return 1
+        } else {
+            return 10
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
-        
-        cell.contentView.backgroundColor = UIColor.titleColor()
-        cell.textLabel?.textColor = .white
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        cell.textLabel?.text = "Calçados"
-        cell.textLabel?.backgroundColor = .clear
-        cell.textLabel?.textAlignment = .center
-        cell.layer.cornerRadius = 8
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.titleColor().cgColor
-        
-        return cell
+        if tableView.tag == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+            
+            cell.contentView.backgroundColor = UIColor.titleColor()
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.textLabel?.text = "Calçados"
+            cell.textLabel?.backgroundColor = .clear
+            cell.textLabel?.textAlignment = .center
+            cell.layer.cornerRadius = 8
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.titleColor().cgColor
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as! AboutTableViewCell
+            
+            cell.tvDesc.text = NSLocalizedString("us", comment: "")
+            cell.tvDesc.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+            cell.lcAboutHeight.constant = resizeTextView(textView: cell.tvDesc).height
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 2
+        if tableView.tag == 0 {
+            return 2
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let v = UIView()
-        v.backgroundColor = .clear
-        return v
+        if tableView.tag == 0 {
+            let v = UIView()
+            v.backgroundColor = .clear
+            
+            return v
+        }
+        
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 }

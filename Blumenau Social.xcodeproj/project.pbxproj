@@ -19,6 +19,7 @@
 		DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F621F4C9BA00B7170F /* Preferences.swift */; };
 		DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */; };
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
+		DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */; };
 		DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */; };
 		DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */; };
 		DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */; };
@@ -53,6 +54,7 @@
 		DB3BE4F621F4C9BA00B7170F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNeighborhoodSelectionViewController.swift; sourceTree = "<group>"; };
 		DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvailabilityViewController.swift; sourceTree = "<group>"; };
 		DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */,
 				DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */,
 				DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */,
+				DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
+				DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */,
 				DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */,
 				DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */,
 				DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */,
