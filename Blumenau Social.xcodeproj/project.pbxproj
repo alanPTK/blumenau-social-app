@@ -21,6 +21,8 @@
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
 		DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */; };
 		DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */; };
+		DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */; };
+		DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */; };
 		DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */; };
 		DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */; };
 		DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */; };
@@ -57,6 +59,8 @@
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
 		DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDB.swift; sourceTree = "<group>"; };
+		DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionRepository.swift; sourceTree = "<group>"; };
+		DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNeighborhoodSelectionViewController.swift; sourceTree = "<group>"; };
 		DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvailabilityViewController.swift; sourceTree = "<group>"; };
 		DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */,
+				DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */,
 			);
 			name = repositories;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */,
 				DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */,
 				DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */,
+				DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */,
 				DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */,
 				DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */,
+				DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
 				DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */,
 				DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
@@ -389,6 +396,7 @@
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
 				DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */,
 				DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */,
+				DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */,
 				DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */,
 				DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */,
 				DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */,

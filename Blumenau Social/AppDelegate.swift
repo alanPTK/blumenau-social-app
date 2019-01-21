@@ -30,7 +30,7 @@ struct VolunteerX: Decodable {
 }
 
 struct InstitutionX: Decodable {
-    //let id: Int
+    let id: Int
     let title: String
     let subtitle: String
     let address: String
@@ -47,18 +47,22 @@ struct InstitutionX: Decodable {
 }
 
 struct DonationZ: Decodable {
+    let id: Int
     let title: String
 }
 
 struct CauseZ: Decodable {
+    let id: Int
     let title: String
 }
 
 struct PictureZ: Decodable {
+    let id: Int
     let link: String
 }
 
 struct AboutZ: Decodable {
+    let id: Int
     let title: String
     let information: String
 }
@@ -77,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
         //let url = URL(string: "https://dl.dropboxusercontent.com/s/dse0ddxn7ebd910/filters.json")
-        let url = URL(string: "https://dl.dropboxusercontent.com/s/35yvgeffik98r0c/institutions.json")
+        let url = URL(string: "https://dl.dropboxusercontent.com/s/gm3fhkh8lvwrp43/institutions.json")
         
         let task = session.dataTask(with: url!) {(data, response, error) in
             guard let data = data else {
@@ -93,7 +97,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
             
-            //print("id \(filters.id)")
+            let realm = try! Realm()
+            
+            let institution: Institution = Institution()
+            institution.id = filters.id
+            institution.title = filters.title
+            institution.subtitle = filters.subtitle
+            institution.address = filters.address
+            institution.phone = filters.phone
+            institution.mail = filters.mail
+            institution.responsible = filters.responsible
+            institution.workingHours = filters.working_hours
+            institution.scope = filters.scope
+            institution.volunteers = filters.volunteers
+            
+            print("id \(filters.id)")
             print("title \(filters.title)")
             print("subtitle \(filters.subtitle)")
             print("address \(filters.address)")
@@ -105,21 +123,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("volunteers \(filters.volunteers)")
 
             for donationResponse in filters.donations {
+                let donation = InstitutionDonation()
+                donation.id = donationResponse.id
+                donation.title = donationResponse.title
+                
+                institution.donations.append(donation)
+                
+                print("donationResponse.id \(donationResponse.id)")
                 print("donationResponse.title \(donationResponse.title)")
             }
 
             for causeResponse in filters.causes {
+                let cause = InstitutionCause()
+                cause.id = causeResponse.id
+                cause.title = causeResponse.title
+                
+                institution.causes.append(cause)
+                
+                print("causeResponse.id \(causeResponse.id)")
                 print("causeResponse.title \(causeResponse.title)")
             }
 
             for pictureResponse in filters.pictures {
+                let picture = InstitutionPicture()
+                picture.id = pictureResponse.id
+                picture.link = pictureResponse.link
+                
+                institution.pictures.append(picture)
+                
+                print("pictureResponse.id \(pictureResponse.id)")
                 print("pictureResponse.link \(pictureResponse.link)")
             }
 
             for aboutResponse in filters.about {
+                let about = InstitutionAbout()
+                about.id = aboutResponse.id
+                about.title = aboutResponse.title
+                about.information = aboutResponse.information
+                
+                institution.about.append(about)
+                
+                print("aboutResponse.id \(aboutResponse.id)")
                 print("aboutResponse.title \(aboutResponse.title)")
                 print("aboutResponse.information \(aboutResponse.information)")
             }
+            
+            self.saveInstitution(institution, realm: realm)
             
 //            for neighborhoodResponse in filters.neighborhoods {
 //                let neighborhood = Neighborhood()
@@ -225,27 +274,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func saveInstitution(_ institution: Institution, realm: Realm) {
+        try! realm.write {            
+            realm.add(institution, update: true)
+        }
+    }
+    
     func saveArea(_ area: Area, realm: Realm) {
         try! realm.write {
-            realm.add(area)
+            realm.add(area, update: true)
         }
     }
     
     func saveDonation(_ donation: Donation, realm: Realm) {
         try! realm.write {
-            realm.add(donation)
+            realm.add(donation, update: true)
         }
     }
     
     func saveVolunteer(_ volunteer: Volunteer, realm: Realm) {
         try! realm.write {
-            realm.add(volunteer)
+            realm.add(volunteer, update: true)
         }
     }
     
     func saveNeighborhood(_ neighborhood: Neighborhood, realm: Realm) {
         try! realm.write {
-            realm.add(neighborhood)
+            realm.add(neighborhood, update: true)
         }
     }
 

@@ -1,8 +1,17 @@
 import UIKit
+import RealmSwift
+import Nuke
 
 class InstitutionViewController: UIViewController {
-
+    
+    @IBOutlet weak var ivClose: UIImageView!
+    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbSubtitle: UILabel!
+    @IBOutlet weak var lbResponsible: UILabel!
+    @IBOutlet weak var lbEmail: UILabel!
+    @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var lcAboutHeight: NSLayoutConstraint!
+    @IBOutlet weak var lbAddress: UILabel!
     @IBOutlet weak var lcVolunteersHeight: NSLayoutConstraint!
     @IBOutlet weak var lcDonationsHeight: NSLayoutConstraint!
     @IBOutlet weak var lcScopeHeight: NSLayoutConstraint!
@@ -22,9 +31,13 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var vAbout: UIView!
     @IBOutlet weak var tvAbout: UITableView!
     var currentPage: Int = 0
+    var currentInstitution: Institution?
+    let institutionRepository = InstitutionRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        currentInstitution = institutionRepository.getAllInstitutions().first
         
         vMainInformation.layer.cornerRadius = 8
         vContactInformation.layer.cornerRadius = 8
@@ -35,20 +48,58 @@ class InstitutionViewController: UIViewController {
         vPictures.layer.cornerRadius = 8
         vAbout.layer.cornerRadius = 8
         
-        tvWorkingHours.text = NSLocalizedString("about", comment: "")
+        tvWorkingHours.text = currentInstitution?.workingHours
         tvWorkingHours.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0);
         
-        tvScope.text = NSLocalizedString("about", comment: "")
+        tvScope.text = currentInstitution?.scope
         tvScope.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0);
         
-        tvVolunteers.text = NSLocalizedString("about", comment: "")
+        tvVolunteers.text = currentInstitution?.volunteers
         tvVolunteers.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
         
         pcInstitutionPictures.pageIndicatorTintColor = UIColor.descColor()
         pcInstitutionPictures.currentPageIndicatorTintColor = UIColor.titleColor()
+        pcInstitutionPictures.numberOfPages = (currentInstitution?.pictures.count)!
         
         tvAbout.estimatedRowHeight = 100
         tvAbout.rowHeight = UITableView.automaticDimension
+        
+        lbAddress.text = currentInstitution?.address
+        lbPhone.text = currentInstitution?.phone
+        lbEmail.text = currentInstitution?.mail
+        lbResponsible.text = currentInstitution?.responsible
+        lbTitle.text = currentInstitution?.title
+        lbSubtitle.text = currentInstitution?.subtitle
+        
+        let closeTap = UITapGestureRecognizer(target: self, action: #selector(close))
+        ivClose.addGestureRecognizer(closeTap)
+        ivClose.isUserInteractionEnabled = true
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressGesture.minimumPressDuration = 0.5
+        //longPressGesture.delegate = self
+        //tvDonations.addGestureRecognizer(longPressGesture)
+    }
+    
+    @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
+        let p = longPressGesture.location(in: tvDonations)
+        let indexPath = tvDonations.indexPathForRow(at: p)
+        
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .destructive, handler: nil)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+        
+        if indexPath == nil {
+            print("Long press on table view, not row.")
+        } else if (longPressGesture.state == UIGestureRecognizer.State.began) {
+            print("Long press on row, at \(indexPath!.section)")
+        }
+    }
+    
+    @objc func close() {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,7 +131,6 @@ class InstitutionViewController: UIViewController {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
         currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
         
         pcInstitutionPictures.currentPage = currentPage
@@ -104,30 +154,42 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView.tag == 0 {
-            return 10
+            if let count = currentInstitution?.donations.count {
+                return count
+            }
         } else {
             return 1
         }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 0 {
             return 1
         } else {
-            return 10
+            if let count = currentInstitution?.about.count {
+                return count
+            }
         }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)            
+            let currentDonation = currentInstitution?.donations[indexPath.section]
             
             cell.contentView.backgroundColor = UIColor.titleColor()
+            
             cell.textLabel?.textColor = .white
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.textLabel?.text = "Calçados"
+            cell.textLabel?.text = currentDonation?.title
+            
             cell.textLabel?.backgroundColor = .clear
             cell.textLabel?.textAlignment = .center
+            
             cell.layer.cornerRadius = 8
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.titleColor().cgColor
@@ -135,8 +197,13 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as! AboutTableViewCell
+            let currentAbout = currentInstitution?.about[indexPath.row]
             
-            cell.tvDesc.text = NSLocalizedString("us", comment: "")
+            cell.lbTitle.text = currentAbout?.title
+            cell.lbTitle.adjustsFontSizeToFitWidth = true
+            cell.lbTitle.minimumScaleFactor = 0.5
+            
+            cell.tvDesc.text = currentAbout?.information
             cell.tvDesc.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
             cell.lcAboutHeight.constant = resizeTextView(textView: cell.tvDesc).height
             
@@ -167,23 +234,60 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.tag == 0 {
+            let currentDonation = currentInstitution?.donations[indexPath.section]
+            
+            let alertController = UIAlertController(title: "", message: currentDonation?.title, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .destructive, handler: nil)
+            alertController.addAction(okAction)
+            
+            present(alertController, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if collectionView.tag == 0 {
+            if let count = currentInstitution?.pictures.count {
+                return count
+            }
+        } else {
+            if let count = currentInstitution?.causes.count {
+                return count
+            }
+        }
+        
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ActionImageCollectionViewCell        
-        imageCell.ivAction.image = UIImage(named: "01")
-        
-        return imageCell
+        if collectionView.tag == 0 {
+            let currentPicture = currentInstitution?.pictures[indexPath.row]
+            let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ActionImageCollectionViewCell
+            
+            Nuke.loadImage(with: URL(string: (currentPicture?.link)!)!, into: imageCell.ivAction)                        
+            
+            return imageCell
+        } else {
+            let currentCause = currentInstitution?.causes[indexPath.row]
+            
+            let causeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "causeCell", for: indexPath) as! CauseCollectionViewCell
+            causeCell.lbCause.text = currentCause?.title
+            
+            return causeCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        if collectionView.tag == 0 {
+            return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        } else {
+            return CGSize(width: 100, height: 17)
+        }
     }
 
 }

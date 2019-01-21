@@ -26,6 +26,10 @@ extension ActionsViewController: UICollectionViewDelegate, UICollectionViewDataS
         let actionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "actionImageCell", for: indexPath) as! ActionImageCollectionViewCell
         actionImageCell.ivAction.image = actionsImages[indexPath.row]
         
+        actionImageCell.ivAction.layer.masksToBounds = true
+        actionImageCell.ivAction.layer.cornerRadius = 8
+        actionImageCell.ivAction.clipsToBounds = true
+        
         return actionImageCell
     }
     

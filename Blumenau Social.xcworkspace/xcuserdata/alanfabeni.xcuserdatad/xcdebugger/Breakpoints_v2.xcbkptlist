@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Blumenau Social/AppDelegate.swift"
-            timestampString = "569791197.156852"
+            filePath = "Blumenau Social/ActionImageCollectionViewCell.swift"
+            timestampString = "569805994.284192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
