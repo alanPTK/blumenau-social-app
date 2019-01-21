@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C423A9906CEC3694A6892A1 /* Pods_Blumenau_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */; };
+		DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */; };
+		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
+		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
+		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
+		DB2A7C2121F1066200C60B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1F21F1066200C60B32 /* LaunchScreen.storyboard */; };
+		DB2A7C2921F1142800C60B32 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */; };
+		DB2A7C2B21F115B500C60B32 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */; };
+		DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C3421F15C8100C60B32 /* Localizable.strings */; };
+		DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F621F4C9BA00B7170F /* Preferences.swift */; };
+		DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */; };
+		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
+		DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */; };
+		DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */; };
+		DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */; };
+		DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */; };
+		DB8EAB2121F37E9500E27F8D /* FilterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2021F37E9500E27F8D /* FilterOptionsViewController.swift */; };
+		DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */; };
+		DB8EAB2521F393CF00E27F8D /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2421F393CF00E27F8D /* MatchViewController.swift */; };
+		DB8EAB2F21F3A12400E27F8D /* FilterOptionsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2E21F3A12400E27F8D /* FilterOptionsDB.swift */; };
+		DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */; };
+		DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB3C21F3DF5A00E27F8D /* InitialProfileViewController.swift */; };
+		DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CC621F1EF7600E195D6 /* MissionViewController.swift */; };
+		DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCA21F2086C00E195D6 /* InformationViewController.swift */; };
+		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
+		DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */; };
+		DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */; };
+		DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.debug.xcconfig"; sourceTree = "<group>"; };
+		86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.release.xcconfig"; sourceTree = "<group>"; };
+		DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInterestsViewController.swift; sourceTree = "<group>"; };
+		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DB2A7C1D21F1066200C60B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB2A7C2021F1066200C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB2A7C2221F1066200C60B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		DB2A7C3421F15C8100C60B32 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		DB3BE4F621F4C9BA00B7170F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNeighborhoodSelectionViewController.swift; sourceTree = "<group>"; };
+		DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvailabilityViewController.swift; sourceTree = "<group>"; };
+		DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB8EAB2021F37E9500E27F8D /* FilterOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewController.swift; sourceTree = "<group>"; };
+		DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB8EAB2421F393CF00E27F8D /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		DB8EAB2E21F3A12400E27F8D /* FilterOptionsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsDB.swift; sourceTree = "<group>"; };
+		DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsRepository.swift; sourceTree = "<group>"; };
+		DB8EAB3C21F3DF5A00E27F8D /* InitialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialProfileViewController.swift; sourceTree = "<group>"; };
+		DB957CC621F1EF7600E195D6 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
+		DB957CCA21F2086C00E195D6 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
+		DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
+		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB2A7C0E21F1065F00C60B32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C423A9906CEC3694A6892A1 /* Pods_Blumenau_Social.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B4CF6F033581708D07D1C8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB19D04421F4B3D2004E835E /* profile section */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EAB3C21F3DF5A00E27F8D /* InitialProfileViewController.swift */,
+				DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */,
+				DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */,
+				DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */,
+			);
+			name = "profile section";
+			sourceTree = "<group>";
+		};
+		DB2A7C0821F1065F00C60B32 = {
+			isa = PBXGroup;
+			children = (
+				DB2A7C1321F1065F00C60B32 /* Blumenau Social */,
+				DB2A7C1221F1065F00C60B32 /* Products */,
+				DCA1837B7B6C1829D2B27F71 /* Pods */,
+				3B4CF6F033581708D07D1C8B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DB2A7C1221F1065F00C60B32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB2A7C1321F1065F00C60B32 /* Blumenau Social */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EAB3921F3D0AF00E27F8D /* about section */,
+				DB8EAB3521F3D03A00E27F8D /* cells */,
+				DB8EAB3221F3B40900E27F8D /* filter section */,
+				DB8EAB3A21F3D0D700E27F8D /* institution section */,
+				DB8EAB3821F3D08F00E27F8D /* internals */,
+				DB8EAB3B21F3D0EC00E27F8D /* match section */,
+				DB8EAB3321F3D02500E27F8D /* models */,
+				DB19D04421F4B3D2004E835E /* profile section */,
+				DB8EAB3421F3D03100E27F8D /* repositories */,
+				DB8EAB3621F3D05400E27F8D /* utils */,
+				DB8EAB3721F3D06E00E27F8D /* views */,
+			);
+			path = "Blumenau Social";
+			sourceTree = "<group>";
+		};
+		DB8EAB3221F3B40900E27F8D /* filter section */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EAB2021F37E9500E27F8D /* FilterOptionsViewController.swift */,
+				DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */,
+			);
+			name = "filter section";
+			sourceTree = "<group>";
+		};
+		DB8EAB3321F3D02500E27F8D /* models */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EAB2E21F3A12400E27F8D /* FilterOptionsDB.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		DB8EAB3421F3D03100E27F8D /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */,
+			);
+			name = repositories;
+			sourceTree = "<group>";
+		};
+		DB8EAB3521F3D03A00E27F8D /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */,
+				DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */,
+				DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */,
+				DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		DB8EAB3621F3D05400E27F8D /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */,
+				DB3BE4F621F4C9BA00B7170F /* Preferences.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		DB8EAB3721F3D06E00E27F8D /* views */ = {
+			isa = PBXGroup;
+			children = (
+				DB2A7C1F21F1066200C60B32 /* LaunchScreen.storyboard */,
+				DB2A7C1A21F1065F00C60B32 /* Main.storyboard */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		DB8EAB3821F3D08F00E27F8D /* internals */ = {
+			isa = PBXGroup;
+			children = (
+				DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */,
+				DB2A7C2221F1066200C60B32 /* Info.plist */,
+				DB2A7C3421F15C8100C60B32 /* Localizable.strings */,
+				DB2A7C1D21F1066200C60B32 /* Assets.xcassets */,
+			);
+			name = internals;
+			sourceTree = "<group>";
+		};
+		DB8EAB3921F3D0AF00E27F8D /* about section */ = {
+			isa = PBXGroup;
+			children = (
+				DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */,
+				DB957CCC21F223E700E195D6 /* ActionsViewController.swift */,
+				DB957CC621F1EF7600E195D6 /* MissionViewController.swift */,
+				DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */,
+			);
+			path = "about section";
+			sourceTree = "<group>";
+		};
+		DB8EAB3A21F3D0D700E27F8D /* institution section */ = {
+			isa = PBXGroup;
+			children = (
+				DB957CCA21F2086C00E195D6 /* InformationViewController.swift */,
+				DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */,
+				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
+			);
+			name = "institution section";
+			sourceTree = "<group>";
+		};
+		DB8EAB3B21F3D0EC00E27F8D /* match section */ = {
+			isa = PBXGroup;
+			children = (
+				DB8EAB2421F393CF00E27F8D /* MatchViewController.swift */,
+			);
+			name = "match section";
+			sourceTree = "<group>";
+		};
+		DCA1837B7B6C1829D2B27F71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */,
+				86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB2A7C1021F1065F00C60B32 /* Blumenau Social */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB2A7C2521F1066200C60B32 /* Build configuration list for PBXNativeTarget "Blumenau Social" */;
+			buildPhases = (
+				A6A15F9875D834812B9193F6 /* [CP] Check Pods Manifest.lock */,
+				DB2A7C0D21F1065F00C60B32 /* Sources */,
+				DB2A7C0E21F1065F00C60B32 /* Frameworks */,
+				DB2A7C0F21F1065F00C60B32 /* Resources */,
+				1640D52F45849271ADFA154D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Blumenau Social";
+			productName = "Blumenau Social";
+			productReference = DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB2A7C0921F1065F00C60B32 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Alan Filipe Cardozo Fabeni";
+				TargetAttributes = {
+					DB2A7C1021F1065F00C60B32 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = DB2A7C0C21F1065F00C60B32 /* Build configuration list for PBXProject "Blumenau Social" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DB2A7C0821F1065F00C60B32;
+			productRefGroup = DB2A7C1221F1065F00C60B32 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB2A7C1021F1065F00C60B32 /* Blumenau Social */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB2A7C0F21F1065F00C60B32 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB2A7C2121F1066200C60B32 /* LaunchScreen.storyboard in Resources */,
+				DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */,
+				DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */,
+				DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1640D52F45849271ADFA154D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6A15F9875D834812B9193F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Blumenau Social-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB2A7C0D21F1065F00C60B32 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB8EAB2F21F3A12400E27F8D /* FilterOptionsDB.swift in Sources */,
+				DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */,
+				DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */,
+				DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */,
+				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
+				DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */,
+				DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
+				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
+				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
+				DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */,
+				DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */,
+				DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */,
+				DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */,
+				DB8EAB2521F393CF00E27F8D /* MatchViewController.swift in Sources */,
+				DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */,
+				DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */,
+				DB2A7C2B21F115B500C60B32 /* AboutViewController.swift in Sources */,
+				DB2A7C2921F1142800C60B32 /* UIColor+Extension.swift in Sources */,
+				DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */,
+				DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */,
+				DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */,
+				DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */,
+				DB8EAB2121F37E9500E27F8D /* FilterOptionsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DB2A7C1A21F1065F00C60B32 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB2A7C1B21F1065F00C60B32 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DB2A7C1F21F1066200C60B32 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB2A7C2021F1066200C60B32 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB2A7C2321F1066200C60B32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DB2A7C2421F1066200C60B32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB2A7C2621F1066200C60B32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YYDNJLU64;
+				INFOPLIST_FILE = "Blumenau Social/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabeni.Blumenau-Social";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB2A7C2721F1066200C60B32 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YYDNJLU64;
+				INFOPLIST_FILE = "Blumenau Social/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fabeni.Blumenau-Social";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB2A7C0C21F1065F00C60B32 /* Build configuration list for PBXProject "Blumenau Social" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB2A7C2321F1066200C60B32 /* Debug */,
+				DB2A7C2421F1066200C60B32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB2A7C2521F1066200C60B32 /* Build configuration list for PBXNativeTarget "Blumenau Social" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB2A7C2621F1066200C60B32 /* Debug */,
+				DB2A7C2721F1066200C60B32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB2A7C0921F1065F00C60B32 /* Project object */;
+}

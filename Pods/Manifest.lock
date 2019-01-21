@@ -1,0 +1,34 @@
+PODS:
+  - IHKeyboardAvoiding (4.3)
+  - IQKeyboardManager (6.2.0)
+  - Nuke (7.5.1)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+
+DEPENDENCIES:
+  - IHKeyboardAvoiding
+  - IQKeyboardManager
+  - Nuke (~> 7.0)
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - IHKeyboardAvoiding
+    - IQKeyboardManager
+    - Nuke
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  IHKeyboardAvoiding: e6a8f06434baf4c3b45825c3eedb35cea5d0d76b
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  Nuke: 3814db501e55f17951451839c726ffd91641e9a5
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+
+PODFILE CHECKSUM: 3b4e7eb050068ddff59690ad5a331a0fbae42a1e
+
+COCOAPODS: 1.5.3
