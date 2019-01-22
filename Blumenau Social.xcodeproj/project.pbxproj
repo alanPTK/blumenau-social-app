@@ -23,6 +23,8 @@
 		DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */; };
 		DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */; };
 		DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */; };
+		DB3BE50521F692A900B7170F /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50421F692A900B7170F /* TestViewController.swift */; };
+		DB3BE50721F6974700B7170F /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50621F6974700B7170F /* CustomLayout.swift */; };
 		DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */; };
 		DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */; };
 		DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */; };
@@ -61,6 +63,8 @@
 		DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDB.swift; sourceTree = "<group>"; };
 		DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionRepository.swift; sourceTree = "<group>"; };
 		DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB3BE50421F692A900B7170F /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		DB3BE50621F6974700B7170F /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNeighborhoodSelectionViewController.swift; sourceTree = "<group>"; };
 		DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvailabilityViewController.swift; sourceTree = "<group>"; };
 		DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				DB8EAB3421F3D03100E27F8D /* repositories */,
 				DB8EAB3621F3D05400E27F8D /* utils */,
 				DB8EAB3721F3D06E00E27F8D /* views */,
+				DB3BE50421F692A900B7170F /* TestViewController.swift */,
+				DB3BE50621F6974700B7170F /* CustomLayout.swift */,
 			);
 			path = "Blumenau Social";
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/MSPeekCollectionViewDelegateImplementation/MSPeekCollectionViewDelegateImplementation.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -345,6 +352,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSPeekCollectionViewDelegateImplementation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -391,12 +399,14 @@
 				DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
 				DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */,
+				DB3BE50721F6974700B7170F /* CustomLayout.swift in Sources */,
 				DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
 				DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */,
 				DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */,
 				DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */,
+				DB3BE50521F692A900B7170F /* TestViewController.swift in Sources */,
 				DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */,
 				DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */,
 				DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */,

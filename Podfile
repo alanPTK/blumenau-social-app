@@ -10,4 +10,5 @@ target 'Blumenau Social' do
   pod 'IQKeyboardManager'
   pod 'IHKeyboardAvoiding'
   pod 'Nuke', '~> 7.0'
+  pod 'MSPeekCollectionViewDelegateImplementation'
 end
