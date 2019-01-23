@@ -396,7 +396,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="CGz-sY-yc4" kind="show" id="CsN-h5-6om"/>
+                                            <segue destination="CGz-sY-yc4" kind="show" identifier="showProfileAvailability" id="CsN-h5-6om"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -680,7 +680,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="0Sa-qj-WYZ" kind="show" id="GXF-JD-NJo"/>
+                                            <segue destination="0Sa-qj-WYZ" kind="show" identifier="showProfileInterests" id="GXF-JD-NJo"/>
                                         </connections>
                                     </button>
                                 </subviews>

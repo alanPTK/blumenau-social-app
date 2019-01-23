@@ -34,22 +34,22 @@ class InitialProfileViewController: UIViewController {
         
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
         
-        navigationItem.title = "Bem vindo ao Blumenau Social"
+        navigationItem.title = NSLocalizedString("Welcome to Blumenau Social", comment: "")
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showNextProfileInfo" {
-            if (tfName.text?.isEmpty)! {
-                showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
-            }
-            
-            if (tfAge.text?.isEmpty)! {
-                showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
-            }
-        }
+//        if segue.identifier == "showNextProfileInfo" {
+//            if (tfName.text?.isEmpty)! {
+//                showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+//            }
+//            
+//            if (tfAge.text?.isEmpty)! {
+//                showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+//            }
+//        }
     }
     
     func showMissingFields(field: String) {

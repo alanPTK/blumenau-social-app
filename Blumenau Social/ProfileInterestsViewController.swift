@@ -5,6 +5,7 @@ class ProfileInterestsViewController: UIViewController {
     
     var areas: Results<Area>?
     let filterOptionsRepository = FilterOptionsRepository()
+    var selectedAreas: [Area] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class ProfileInterestsViewController: UIViewController {
 
     @IBAction func finishProfile(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "initialViewController")
+        appDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "initialViewController")        
     }
 }
 
@@ -42,7 +43,14 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
         filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
         filterCell.layer.borderWidth = 2.0
         filterCell.layer.cornerRadius = 8
-        filterCell.alpha = 0.5
+        
+        let index = selectedAreas.firstIndex(of: currentArea)
+        
+        if (index != nil) {
+            filterCell.alpha = 1
+        } else {
+            filterCell.alpha = 0.5
+        }
         
         return filterCell
     }
@@ -53,11 +61,17 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
+        let selectedArea = areas![indexPath.row]
         
         if selectedCell.alpha <= CGFloat(0.5) {
             selectedCell.alpha = 1.0
+            
+            selectedAreas.append(selectedArea)
         } else {
             selectedCell.alpha = 0.5
+            
+            let index = selectedAreas.firstIndex(of: selectedArea)
+            selectedAreas.remove(at: index!)
         }
     }
     
