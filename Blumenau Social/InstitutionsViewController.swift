@@ -1,5 +1,6 @@
 import UIKit
 import MSPeekCollectionViewDelegateImplementation
+import AVFoundation
 
 class InstitutionsViewController: UIViewController {
 
@@ -9,33 +10,27 @@ class InstitutionsViewController: UIViewController {
     @IBOutlet weak var vTopBar: UIView!
     @IBOutlet weak var cvHighlightedInstitutions: UICollectionView!
     @IBOutlet weak var tvInstitutions: UITableView!
-    var peekImplementation: MSPeekCollectionViewDelegateImplementation!
+    @IBOutlet weak var tvInstitutions2: UICollectionView!
+    var currentLayout: MyCollectionViewLayout? = nil
+    let images = ["aLogo", "bLogo", "cLogo", "dLogo", "aLogo", "bLogo", "cLogo", "dLogo"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: "showInstitution"), object: nil)
-        
-        peekImplementation = XXX()
-        
-        cvHighlightedInstitutions.configureForPeekingDelegate()
-        cvHighlightedInstitutions.delegate = peekImplementation
-        cvHighlightedInstitutions.dataSource = self
-        
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
+        
+        if let layout = tvInstitutions2?.collectionViewLayout as? MyCollectionViewLayout {
+            layout.delegate = self
+            currentLayout = layout
+        }
     }
     
     @objc func searchInstitutions() {
         let filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
         present(filterViewController, animated: true, completion: nil)
-    }
-    
-    @objc func showInstitution() {
-        let info = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
-        present(info, animated: true, completion: nil)
-    }
+    }        
     
     override func viewDidAppear(_ animated: Bool) {
         if !Preferences.shared.profileCreationWasOpened {
@@ -51,7 +46,7 @@ class InstitutionsViewController: UIViewController {
 extension InstitutionsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return images.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -59,49 +54,38 @@ extension InstitutionsViewController: UICollectionViewDelegateFlowLayout, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionCollectionViewCell
+        let institutionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ActionImageCollectionViewCell
         
-        institutionCell.ivInstitution.image = UIImage(named: "01")
-        institutionCell.ivInstitution.layer.cornerRadius = 8
-//        institutionCell.layer.cornerRadius = 8
-//        institutionCell.layer.borderWidth = 0.4
-//        institutionCell.layer.borderColor = UIColor.titleColor().cgColor
-//        institutionCell.layer.borderWidth = 2.0
+        institutionImageCell.layer.cornerRadius = 4
+        institutionImageCell.layer.borderColor = UIColor.titleColor().cgColor
+        institutionImageCell.layer.borderWidth = 2
         
-        return institutionCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item Selected")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView.tag == 1 {
-            return CGSize(width: ((collectionView.frame.size.width / 2)-5), height: collectionView.frame.size.height)
+        if let image = UIImage(named: images[indexPath.row]) {
+            institutionImageCell.ivAction.image = image
+            institutionImageCell.ivAction.layer.borderColor = UIColor.titleColor().cgColor
+            institutionImageCell.ivAction.layer.cornerRadius = 8.0
         }
         
-        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        return institutionImageCell
     }
-    
-}
-
-extension InstitutionsViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "institutionCell", for: indexPath) as! InstitutionTableViewCell
-        return cell
-    }
-    
-}
-
-class XXX: MSPeekCollectionViewDelegateImplementation {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: nil)
+        let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
+        
+        present(institutionInformationViewController, animated: true, completion: nil)
     }
     
+}
+
+extension InstitutionsViewController : MyCollectionViewLayoutDelegate {
+    
+    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+        
+        let photo: UIImage = UIImage(named: images[indexPath.row])!
+        
+        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let rect  = AVMakeRect(aspectRatio: photo.size, insideRect: boundingRect)
+        
+        return rect.size.height
+    }
 }

@@ -1,11 +1,14 @@
 import UIKit
+import MSPeekCollectionViewDelegateImplementation
 
 class MatchViewController: UIViewController {
     
-    @IBOutlet weak var cvInstitutions: UICollectionView!
+    @IBOutlet weak var cvHighlightedInstitutions: UICollectionView!
     @IBOutlet weak var vTopBar: UIView!
     @IBOutlet weak var btUpdateProfile: UIButton!
     @IBOutlet weak var ivProfile: UIImageView!
+    
+    var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     
     override func viewDidLoad() {
         super.viewDidLoad()                
@@ -13,37 +16,64 @@ class MatchViewController: UIViewController {
         let showProfileTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showProfile))
         ivProfile.addGestureRecognizer(showProfileTapRecognizer)
         ivProfile.isUserInteractionEnabled = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: "showInstitution"), object: nil)
+        
+        peekImplementation = CustomPeekCollectionView()
+        
+        cvHighlightedInstitutions.configureForPeekingDelegate()
+        cvHighlightedInstitutions.delegate = peekImplementation
+        cvHighlightedInstitutions.dataSource = self
     }
     
     @objc func showProfile() {
         let initialProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController")
         
         let navigationController = UINavigationController(rootViewController: initialProfileViewController)
-        present(navigationController, animated: true, completion: nil)
+        present(navigationController, animated: true, completion: nil)                
+    }
+    
+    @objc func showInstitution() {
+        let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
         
-        //present(initialProfileViewController, animated: true, completion: nil)
+        present(institutionInformationViewController, animated: true, completion: nil)
     }
 
 }
 
-extension MatchViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: nil)
+    }
+    
+}
+
+
+extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionCollectionViewCell
         
         institutionCell.ivInstitution.image = UIImage(named: "01")
-        institutionCell.ivInstitution.layer.cornerRadius = 8
-        
-        institutionCell.layer.cornerRadius = 8
-        institutionCell.layer.borderWidth = 0.4
-        institutionCell.layer.borderColor = UIColor.titleColor().cgColor
-        institutionCell.layer.borderWidth = 2.0
         
         return institutionCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Item Selected")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: ((collectionView.frame.size.width / 2)-5), height: collectionView.frame.size.height)
     }
     
 }

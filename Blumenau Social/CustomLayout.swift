@@ -18,14 +18,15 @@ class CustomLayout: UICollectionViewFlowLayout {
         guard let collectionView = self.collectionView else{
             return
         }
-        self.itemSize = CGSize(width: collectionView.frame.size.width - ((self.minimumLineSpacing * 2) + ( self.peekLengthOfCell * 2)), height: collectionView.frame.size.height - 20)
-        self.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        scrollDirection = .horizontal        
+        itemSize = CGSize(width: collectionView.frame.size.width - ((self.minimumLineSpacing * 2) + ( self.peekLengthOfCell * 2)), height: collectionView.frame.size.height - 20)
+        sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        scrollDirection = .horizontal
+        //minimumLineSpacing = 10
     }
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard velocity != CGPoint.zero,let collectionView = self.collectionView else{
-            return self.latestOffset
+            return latestOffset
         }
         let bounds = collectionView.bounds
         let halfWidth = bounds.size.width * 0.5
@@ -48,7 +49,7 @@ class CustomLayout: UICollectionViewFlowLayout {
         guard let unwrappedElementAttributes = reqdElementAttributes else{
             return self.latestOffset
         }
-        self.latestOffset = CGPoint(x: floor(unwrappedElementAttributes.frame.origin.x - (self.peekLengthOfCell + self.minimumLineSpacing)), y: proposedContentOffset.y)
+        latestOffset = CGPoint(x: floor(unwrappedElementAttributes.frame.origin.x - (self.peekLengthOfCell + self.minimumLineSpacing)), y: proposedContentOffset.y)
         return latestOffset
     }
     

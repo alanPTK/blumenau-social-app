@@ -41,15 +41,15 @@ class InitialProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showNextProfileInfo" {
-//            if (tfName.text?.isEmpty)! {
-//                showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
-//            }
-//            
-//            if (tfAge.text?.isEmpty)! {
-//                showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
-//            }
-//        }
+        if segue.identifier == "showNextProfileInfo" {
+            if (tfName.text?.isEmpty)! {
+                showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+            }
+            
+            if (tfAge.text?.isEmpty)! {
+                showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+            }
+        }
     }
     
     func showMissingFields(field: String) {
