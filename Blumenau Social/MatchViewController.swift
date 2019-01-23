@@ -17,7 +17,11 @@ class MatchViewController: UIViewController {
     
     @objc func showProfile() {
         let initialProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController")
-        present(initialProfileViewController, animated: true, completion: nil)
+        
+        let navigationController = UINavigationController(rootViewController: initialProfileViewController)
+        present(navigationController, animated: true, completion: nil)
+        
+        //present(initialProfileViewController, animated: true, completion: nil)
     }
 
 }

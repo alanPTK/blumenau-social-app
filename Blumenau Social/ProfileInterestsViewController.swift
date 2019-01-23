@@ -10,6 +10,15 @@ class ProfileInterestsViewController: UIViewController {
         super.viewDidLoad()
         
         areas = filterOptionsRepository.getAllAreas()
+        
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
+        
+        let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
+        
+        navigationItem.title = "Quais são seus interesses ?"
+        navigationController?.navigationBar.titleTextAttributes = titleAttribute
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     @IBAction func finishProfile(_ sender: Any) {

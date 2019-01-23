@@ -10,6 +10,15 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         super.viewDidLoad()
         
         neighborhoods = filterOptionsRepository.getAllNeighborhoods()
+        
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
+        
+        let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
+        
+        navigationItem.title = "Em qual bairro você mora ?"
+        navigationController?.navigationBar.titleTextAttributes = titleAttribute
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
 }

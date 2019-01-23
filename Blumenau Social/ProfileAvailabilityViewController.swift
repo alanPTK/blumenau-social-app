@@ -122,6 +122,15 @@ class ProfileAvailabilityViewController: UIViewController {
             let touchPeriod = UITapGestureRecognizer(target: self, action: #selector(selectPeriod))
             period.label?.addGestureRecognizer(touchPeriod)
         }
+        
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
+        
+        let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
+        
+        navigationItem.title = "Qual a sua disponibilidade ?"
+        navigationController?.navigationBar.titleTextAttributes = titleAttribute
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @objc func selectDay(tapGesture: UITapGestureRecognizer) {

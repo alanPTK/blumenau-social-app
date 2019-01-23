@@ -28,7 +28,16 @@ class InitialProfileViewController: UIViewController {
         views.append(tfName)
         views.append(tfAge)
         
-        changeAlpha(view: views.first!)                
+        changeAlpha(view: views.first!)
+        
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
+        
+        let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
+        
+        navigationItem.title = "Bem vindo ao Blumenau Social"
+        navigationController?.navigationBar.titleTextAttributes = titleAttribute
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func changeAlpha(view: UIView) {
