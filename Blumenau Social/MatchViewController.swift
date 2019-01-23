@@ -4,6 +4,7 @@ import MSPeekCollectionViewDelegateImplementation
 class MatchViewController: UIViewController {
     
     @IBOutlet weak var cvHighlightedInstitutions: UICollectionView!
+    @IBOutlet weak var cvMoreHighlightedInstitutions: UICollectionView!
     @IBOutlet weak var vTopBar: UIView!
     @IBOutlet weak var btUpdateProfile: UIButton!
     @IBOutlet weak var ivProfile: UIImageView!
@@ -24,6 +25,10 @@ class MatchViewController: UIViewController {
         cvHighlightedInstitutions.configureForPeekingDelegate()
         cvHighlightedInstitutions.delegate = peekImplementation
         cvHighlightedInstitutions.dataSource = self
+        
+        cvMoreHighlightedInstitutions.configureForPeekingDelegate()
+        cvMoreHighlightedInstitutions.delegate = peekImplementation
+        cvMoreHighlightedInstitutions.dataSource = self
     }
     
     @objc func showProfile() {
@@ -62,7 +67,7 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionCollectionViewCell
-        
+                
         institutionCell.ivInstitution.image = UIImage(named: "01")
         
         return institutionCell
