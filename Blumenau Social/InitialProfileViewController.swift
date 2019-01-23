@@ -40,6 +40,26 @@ class InitialProfileViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showNextProfileInfo" {
+            if (tfName.text?.isEmpty)! {
+                showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+            }
+            
+            if (tfAge.text?.isEmpty)! {
+                showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+            }
+        }
+    }
+    
+    func showMissingFields(field: String) {
+        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: field, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     func changeAlpha(view: UIView) {
             UIView.animate(withDuration: 0.7, animations: {
                 view.alpha = 1
