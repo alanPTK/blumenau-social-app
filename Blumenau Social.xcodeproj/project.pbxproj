@@ -41,6 +41,7 @@
 		DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */; };
 		DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */; };
 		DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */; };
+		DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
 		DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
+		DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionTableViewCell.swift; sourceTree = "<group>"; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 				DB957CCA21F2086C00E195D6 /* InformationViewController.swift */,
 				DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */,
 				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
+				DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				DB2A7C2921F1142800C60B32 /* UIColor+Extension.swift in Sources */,
 				DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */,
 				DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */,
+				DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */,
 				DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */,
 				DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */,
 				DB8EAB2121F37E9500E27F8D /* FilterOptionsViewController.swift in Sources */,

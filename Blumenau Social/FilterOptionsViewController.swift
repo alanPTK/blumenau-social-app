@@ -45,6 +45,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         
         let currentFilterOption = filterOptions[indexPath.row]
         
+        filterCell.ivIcon.image = UIImage(named: "icon")
         filterCell.lbName.text = currentFilterOption.name
         filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
         filterCell.layer.borderWidth = 2.0

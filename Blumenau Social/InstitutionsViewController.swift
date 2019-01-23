@@ -3,29 +3,38 @@ import MSPeekCollectionViewDelegateImplementation
 
 class InstitutionsViewController: UIViewController {
 
-    @IBOutlet weak var btFilter: UIButton!
+    @IBOutlet weak var ivSearch: UIImageView!
+    @IBOutlet weak var vContainer: UIView!    
     @IBOutlet weak var cvInstitutions: UICollectionView!
     @IBOutlet weak var vTopBar: UIView!
     @IBOutlet weak var cvHighlightedInstitutions: UICollectionView!
-    
+    @IBOutlet weak var tvInstitutions: UITableView!
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vTopBar.backgroundColor = UIColor.backgroundColor()
-        vTopBar.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
-        vTopBar.layer.borderWidth = 2.0
-        vTopBar.layer.cornerRadius = 8
+        NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: "showInstitution"), object: nil)
         
-        btFilter.titleLabel?.adjustsFontSizeToFitWidth = true
-        
-        peekImplementation = MSPeekCollectionViewDelegateImplementation()
-//        peekImplementation.delegate = self
+        peekImplementation = XXX()
         
         cvHighlightedInstitutions.configureForPeekingDelegate()
         cvHighlightedInstitutions.delegate = peekImplementation
         cvHighlightedInstitutions.dataSource = self
+        
+        let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
+        ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
+        ivSearch.isUserInteractionEnabled = true
+    }
+    
+    @objc func searchInstitutions() {
+        let filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+        present(filterViewController, animated: true, completion: nil)
+    }
+    
+    @objc func showInstitution() {
+        let info = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
+        present(info, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,31 +72,36 @@ extension InstitutionsViewController: UICollectionViewDelegateFlowLayout, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let info = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
-        present(info, animated: true, completion: nil)
+        print("Item Selected")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView.tag == 1 {
+            return CGSize(width: ((collectionView.frame.size.width / 2)-5), height: collectionView.frame.size.height)
+        }
+        
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
     
 }
 
-//class TestViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MSPeekImplementationDelegate {
-//
-//    @IBOutlet weak var cvStuff: UICollectionView!
-//
-//
-//    func peekImplementation(_ peekImplementation: MSPeekCollectionViewDelegateImplementation, didChangeActiveIndexTo activeIndex: Int) {
-//        print("ok")
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 4
-//    }
-//
-//
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-//        let value =  (180 + CGFloat(indexPath.row)*20) / 255
-//        cell.contentView.backgroundColor = UIColor(red: value, green: value, blue: value, alpha: 1)
-//        return cell
-//    }
-//}
+extension InstitutionsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "institutionCell", for: indexPath) as! InstitutionTableViewCell
+        return cell
+    }
+    
+}
+
+class XXX: MSPeekCollectionViewDelegateImplementation {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: nil)
+    }
+    
+}
