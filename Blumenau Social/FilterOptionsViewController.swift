@@ -45,23 +45,23 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         
         let currentFilterOption = filterOptions[indexPath.row]
         
-        //filterCell.ivIcon.image = UIImage(named: "icon")
         filterCell.lbName.text = currentFilterOption.name
-        filterCell.lbName.isHidden = true
         filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
         filterCell.layer.borderWidth = 2.0
         filterCell.layer.cornerRadius = 8
         filterCell.alpha = 0.5
         
-        switch indexPath.row {
+        switch selectedOption {
             case 0:
-                filterCell.ivIcon.image = UIImage(named: "0x")
-            case 1:
                 filterCell.ivIcon.image = UIImage(named: "0z")
+            case 1:
+                filterCell.ivIcon.image = UIImage(named: "0x")
             case 2:
                 filterCell.ivIcon.image = UIImage(named: "0y")
+            case 3:
+                filterCell.ivIcon.image = UIImage(named: "0y")
             default:
-                print("")
+                print("hm")
         }
         
         return filterCell
@@ -74,17 +74,18 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
         
-        switch indexPath.row {
+        switch selectedOption {
             case 0:
-                selectedCell.ivIcon.image = UIImage(named: "0xrosa")
-            case 1:
                 selectedCell.ivIcon.image = UIImage(named: "0zrosa")
+            case 1:
+                selectedCell.ivIcon.image = UIImage(named: "0xrosa")
             case 2:
                 selectedCell.ivIcon.image = UIImage(named: "0yrosa")
+            case 3:
+                selectedCell.ivIcon.image = UIImage(named: "0yrosa")
             default:
-                print("")
+                print("hm")
         }
-        
         
         if selectedCell.alpha <= CGFloat(0.5) {
             selectedCell.alpha = 1.0

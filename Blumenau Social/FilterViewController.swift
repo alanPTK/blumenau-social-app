@@ -86,6 +86,19 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
                     print("hm")
             }
             
+            switch collectionView.tag {
+                case 0:
+                    filterCell.ivIcon.image = UIImage(named: "0z")
+                case 1:
+                    filterCell.ivIcon.image = UIImage(named: "0x")
+                case 2:
+                    filterCell.ivIcon.image = UIImage(named: "0y")
+                case 3:
+                    filterCell.ivIcon.image = UIImage(named: "0y")
+                default:
+                    print("hm")
+            }
+            
             filterCell.lbName.text = filterOption?.name
             filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
             filterCell.layer.borderWidth = 2.0
