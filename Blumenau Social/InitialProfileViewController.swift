@@ -38,16 +38,25 @@ class InitialProfileViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        tfName.text = Preferences.shared.userName
+        if Preferences.shared.userAge > 0 {
+            tfAge.text = String(format: "%d", Preferences.shared.userAge)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNextProfileInfo" {
             if (tfName.text?.isEmpty)! {
                 showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+            } else {
+                Preferences.shared.userName = tfName.text!
             }
             
             if (tfAge.text?.isEmpty)! {
                 showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+            } else {
+                Preferences.shared.userAge = Int(tfAge.text!)!
             }
         }
     }

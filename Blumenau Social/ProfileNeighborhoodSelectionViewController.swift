@@ -11,12 +11,13 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         super.viewDidLoad()
         
         neighborhoods = filterOptionsRepository.getAllNeighborhoods()
+        selectedNeighborhood = filterOptionsRepository.getNeighborhoodWithId(id: Preferences.shared.userNeighborhood)
         
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
         
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
         
-        navigationItem.title = "Em qual bairro você mora ?"
+        navigationItem.title = NSLocalizedString("In which neighborhood do you live ?", comment: "")
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -34,15 +35,18 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCell", for: indexPath) as! FilterCollectionViewCell
         let currentNeighborhood = neighborhoods![indexPath.row]
         
-        filterCell.lbName.text = currentNeighborhood.name        
+        filterCell.lbName.text = currentNeighborhood.name
         
         filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
         filterCell.layer.borderWidth = 2.0
         filterCell.layer.cornerRadius = 8
         
-        if selectedNeighborhood == currentNeighborhood {
+        //if selectedNeighborhood == currentNeighborhood || Preferences.shared.userNeighborhood == currentNeighborhood.id {
+        if Preferences.shared.userNeighborhood == currentNeighborhood.id {
+            filterCell.ivIcon.image = UIImage(named: "0zrosa")
             filterCell.alpha = 1
         } else {
+            filterCell.ivIcon.image = UIImage(named: "0z")
             filterCell.alpha = 0.5
         }
         
@@ -74,16 +78,22 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
         
         for indexPath in collectionView.indexPathsForVisibleItems {
-            let cell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
-            cell.alpha = 0.5
+            let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
+            
+            selectedCell.ivIcon.image = UIImage(named: "0z")
+            selectedCell.alpha = 0.5
         }
         
         if selectedCell.alpha <= CGFloat(0.5) {
             selectedCell.alpha = 1.0
             
             selectedNeighborhood = neighborhoods![indexPath.row]
+            selectedCell.ivIcon.image = UIImage(named: "0zrosa")
+            
+            Preferences.shared.userNeighborhood = (selectedNeighborhood?.id)!
         } else {
             selectedCell.alpha = 0.5
+            selectedCell.ivIcon.image = UIImage(named: "0z")
         }
     }
     

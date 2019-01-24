@@ -21,6 +21,10 @@ class FilterOptionsRepository: NSObject {
         return realm.objects(Neighborhood.self)
     }
     
+    func getNeighborhoodWithId(id: Int) -> Neighborhood? {
+        return realm.objects(Neighborhood.self).filter("id = \(id)").first        
+    }
+    
     func getAllVolunteers() -> Results<Volunteer> {
         return realm.objects(Volunteer.self)
     }

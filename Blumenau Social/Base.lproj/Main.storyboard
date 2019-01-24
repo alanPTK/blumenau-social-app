@@ -96,7 +96,7 @@
         <!--Match-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="MatchViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="matchViewController" id="8rJ-Kc-sve" customClass="MatchViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -415,11 +415,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7SR-Ta-Gqa">
-                                                    <rect key="frame" x="15" y="8" width="70" height="70"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7SR-Ta-Gqa">
+                                                    <rect key="frame" x="20" y="8" width="60" height="60"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garcia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ktZ-Pf-FfL">
-                                                    <rect key="frame" x="4" y="48" width="92" height="48"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garcia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ktZ-Pf-FfL">
+                                                    <rect key="frame" x="4" y="68" width="92" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" name="descColor"/>
                                                     <nil key="highlightedColor"/>
@@ -428,13 +428,13 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="7SR-Ta-Gqa" firstAttribute="centerX" secondItem="spk-as-aSY" secondAttribute="centerX" id="09o-sm-Ll8"/>
-                                            <constraint firstItem="ktZ-Pf-FfL" firstAttribute="top" secondItem="7SR-Ta-Gqa" secondAttribute="bottom" constant="-30" id="GRy-nJ-UIc"/>
-                                            <constraint firstItem="7SR-Ta-Gqa" firstAttribute="width" secondItem="spk-as-aSY" secondAttribute="width" multiplier="0.7" id="PPk-ye-DPl"/>
+                                            <constraint firstItem="ktZ-Pf-FfL" firstAttribute="top" secondItem="7SR-Ta-Gqa" secondAttribute="bottom" id="GRy-nJ-UIc"/>
+                                            <constraint firstItem="7SR-Ta-Gqa" firstAttribute="width" secondItem="spk-as-aSY" secondAttribute="width" multiplier="0.6" id="PPk-ye-DPl"/>
                                             <constraint firstItem="7SR-Ta-Gqa" firstAttribute="top" secondItem="spk-as-aSY" secondAttribute="top" constant="8" id="Woh-zX-DZ5"/>
                                             <constraint firstItem="ktZ-Pf-FfL" firstAttribute="leading" secondItem="spk-as-aSY" secondAttribute="leading" constant="4" id="YER-qa-bnD"/>
                                             <constraint firstAttribute="trailing" secondItem="ktZ-Pf-FfL" secondAttribute="trailing" constant="4" id="jfq-qV-tqg"/>
                                             <constraint firstAttribute="bottom" secondItem="ktZ-Pf-FfL" secondAttribute="bottom" constant="4" id="niB-ka-v7s"/>
-                                            <constraint firstItem="7SR-Ta-Gqa" firstAttribute="height" secondItem="spk-as-aSY" secondAttribute="height" multiplier="0.7" id="y9h-Me-DvP"/>
+                                            <constraint firstItem="7SR-Ta-Gqa" firstAttribute="height" secondItem="spk-as-aSY" secondAttribute="height" multiplier="0.6" id="y9h-Me-DvP"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="ivIcon" destination="7SR-Ta-Gqa" id="hp5-bq-F9x"/>
@@ -841,11 +841,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q0C-MF-RRp">
-                                                    <rect key="frame" x="15" y="8" width="70" height="70"/>
+                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q0C-MF-RRp">
+                                                    <rect key="frame" x="20" y="8" width="60" height="60"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garcia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0km-Un-chp">
-                                                    <rect key="frame" x="4" y="48" width="92" height="48"/>
+                                                    <rect key="frame" x="4" y="68" width="92" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" name="descColor"/>
                                                     <nil key="highlightedColor"/>
@@ -854,11 +854,11 @@
                                         </view>
                                         <constraints>
                                             <constraint firstItem="Q0C-MF-RRp" firstAttribute="top" secondItem="EQC-CM-Mzy" secondAttribute="top" constant="8" id="1G4-yv-z2b"/>
-                                            <constraint firstItem="Q0C-MF-RRp" firstAttribute="height" secondItem="EQC-CM-Mzy" secondAttribute="height" multiplier="0.7" id="6XE-Ab-5op"/>
-                                            <constraint firstItem="Q0C-MF-RRp" firstAttribute="width" secondItem="EQC-CM-Mzy" secondAttribute="width" multiplier="0.7" id="IQn-8k-dMB"/>
+                                            <constraint firstItem="Q0C-MF-RRp" firstAttribute="height" secondItem="EQC-CM-Mzy" secondAttribute="height" multiplier="0.6" id="6XE-Ab-5op"/>
+                                            <constraint firstItem="Q0C-MF-RRp" firstAttribute="width" secondItem="EQC-CM-Mzy" secondAttribute="width" multiplier="0.6" id="IQn-8k-dMB"/>
                                             <constraint firstAttribute="bottom" secondItem="0km-Un-chp" secondAttribute="bottom" constant="4" id="SuI-Qh-93e"/>
                                             <constraint firstAttribute="trailing" secondItem="0km-Un-chp" secondAttribute="trailing" constant="4" id="a5F-sw-468"/>
-                                            <constraint firstItem="0km-Un-chp" firstAttribute="top" secondItem="Q0C-MF-RRp" secondAttribute="bottom" constant="-30" id="dAe-8p-C8Z"/>
+                                            <constraint firstItem="0km-Un-chp" firstAttribute="top" secondItem="Q0C-MF-RRp" secondAttribute="bottom" id="dAe-8p-C8Z"/>
                                             <constraint firstItem="0km-Un-chp" firstAttribute="leading" secondItem="EQC-CM-Mzy" secondAttribute="leading" constant="4" id="hKH-ud-AUN"/>
                                             <constraint firstItem="Q0C-MF-RRp" firstAttribute="centerX" secondItem="EQC-CM-Mzy" secondAttribute="centerX" id="owu-Ug-CJG"/>
                                         </constraints>

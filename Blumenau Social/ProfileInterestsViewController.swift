@@ -16,7 +16,7 @@ class ProfileInterestsViewController: UIViewController {
         
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
         
-        navigationItem.title = "Quais são seus interesses ?"
+        navigationItem.title = NSLocalizedString("What are your interests ?", comment: "")
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
@@ -47,8 +47,10 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
         let index = selectedAreas.firstIndex(of: currentArea)
         
         if (index != nil) {
+            filterCell.ivIcon.image = UIImage(named: "0xrosa")
             filterCell.alpha = 1
         } else {
+            filterCell.ivIcon.image = UIImage(named: "0x")
             filterCell.alpha = 0.5
         }
         
@@ -67,11 +69,14 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
             selectedCell.alpha = 1.0
             
             selectedAreas.append(selectedArea)
+            selectedCell.ivIcon.image = UIImage(named: "0xrosa")
         } else {
             selectedCell.alpha = 0.5
             
             let index = selectedAreas.firstIndex(of: selectedArea)
             selectedAreas.remove(at: index!)
+            
+            selectedCell.ivIcon.image = UIImage(named: "0x")
         }
     }
     

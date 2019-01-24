@@ -150,7 +150,7 @@ class ProfileAvailabilityViewController: UIViewController {
         
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
         
-        navigationItem.title = "Qual a sua disponibilidade ?"
+        navigationItem.title = NSLocalizedString("What is your availability ?", comment: "")
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
