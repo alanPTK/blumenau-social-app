@@ -11,4 +11,5 @@ target 'Blumenau Social' do
   pod 'IHKeyboardAvoiding'
   pod 'Nuke', '~> 7.0'
   pod 'MSPeekCollectionViewDelegateImplementation'
+  pod 'JGProgressHUD'
 end

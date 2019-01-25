@@ -1,9 +1,13 @@
 import UIKit
+import JGProgressHUD
 
 class InstitutionsViewController: UIViewController {
     
     @IBOutlet weak var cvInstitutions: UICollectionView!
-    @IBOutlet weak var ivSearch: UIImageView!    
+    @IBOutlet weak var ivSearch: UIImageView!
+    
+    var synchronizationService = SynchronizationService()
+    let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -11,6 +15,49 @@ class InstitutionsViewController: UIViewController {
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
+        
+        hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
+        hud.show(in: self.view)
+        
+        synchronizationService.synchronizeFilterOptions { (result) in
+            if result {
+                let filterOptionsRepository = FilterOptionsRepository()
+                
+                let neighborhoods = filterOptionsRepository.getAllNeighborhoods()
+                let areas = filterOptionsRepository.getAllAreas()
+                let donations = filterOptionsRepository.getAllDonations()
+                let volunteers = filterOptionsRepository.getAllVolunteers()
+                
+                for neighborhood in neighborhoods {
+                    print(neighborhood.name)
+                }
+                
+                for area in areas {
+                    print(area.name)
+                }
+                
+                for donation in donations {
+                    print(donation.name)
+                }
+                
+                for volunteer in volunteers {
+                    print(volunteer.name)
+                }
+                
+                self.hud.dismiss(afterDelay: 3.0)
+            }
+        }
+        
+        synchronizationService.synchronizeInstitutions { (result) in
+            if result {
+                let institutionRepository = InstitutionRepository()
+                let institutions = institutionRepository.getAllInstitutions()
+                
+                for institution in institutions {
+                    print(institution.title)
+                }
+            }
+        }
     }
     
     @objc func searchInstitutions() {
@@ -19,12 +66,12 @@ class InstitutionsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if !Preferences.shared.profileCreationWasOpened {
-            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController") as! InitialProfileViewController
-            present(profileViewController, animated: true, completion: nil)
-            
-            Preferences.shared.profileCreationWasOpened = true
-        }
+//        if !Preferences.shared.profileCreationWasOpened {
+//            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController") as! InitialProfileViewController
+//            present(profileViewController, animated: true, completion: nil)
+//
+//            Preferences.shared.profileCreationWasOpened = true
+//        }
     }
 
 }

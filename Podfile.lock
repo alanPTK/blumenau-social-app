@@ -1,6 +1,7 @@
 PODS:
   - IHKeyboardAvoiding (4.3)
   - IQKeyboardManager (6.2.0)
+  - JGProgressHUD (2.0.3)
   - MSPeekCollectionViewDelegateImplementation (0.13.0)
   - Nuke (7.5.1)
   - Realm (3.11.1):
@@ -12,6 +13,7 @@ PODS:
 DEPENDENCIES:
   - IHKeyboardAvoiding
   - IQKeyboardManager
+  - JGProgressHUD
   - MSPeekCollectionViewDelegateImplementation
   - Nuke (~> 7.0)
   - RealmSwift
@@ -20,6 +22,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - IHKeyboardAvoiding
     - IQKeyboardManager
+    - JGProgressHUD
     - MSPeekCollectionViewDelegateImplementation
     - Nuke
     - Realm
@@ -28,11 +31,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   IHKeyboardAvoiding: e6a8f06434baf4c3b45825c3eedb35cea5d0d76b
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   MSPeekCollectionViewDelegateImplementation: 9141e80f032a831a5fc7d42b66bd3ba3f8fa3c1c
   Nuke: 3814db501e55f17951451839c726ffd91641e9a5
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: d5446f4bfe9f1a1dda69fa4433996e4a2b0aa29a
+PODFILE CHECKSUM: 308c56c72aba8be1fc4cf0f67df0ff69148b9571
 
 COCOAPODS: 1.5.3

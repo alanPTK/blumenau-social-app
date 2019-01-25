@@ -41,6 +41,7 @@
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
 		DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */; };
 		DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */; };
+		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
 		DBC93C7521FA8E5300056F34 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */; };
 		DBC93C7721FA92C400056F34 /* InstitutionXCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */; };
 		DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
+		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
 		DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionXCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				DB8EAB3721F3D06E00E27F8D /* views */,
 				DB3BE50421F692A900B7170F /* TestViewController.swift */,
 				DB3BE50621F6974700B7170F /* CustomLayout.swift */,
+				DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */,
 			);
 			path = "Blumenau Social";
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MSPeekCollectionViewDelegateImplementation/MSPeekCollectionViewDelegateImplementation.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -361,6 +365,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSPeekCollectionViewDelegateImplementation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -403,6 +408,7 @@
 				DB8EAB2F21F3A12400E27F8D /* FilterOptionsDB.swift in Sources */,
 				DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */,
 				DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */,
+				DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */,
 				DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */,
 				DBC93C7721FA92C400056F34 /* InstitutionXCollectionViewCell.swift in Sources */,
 				DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */,

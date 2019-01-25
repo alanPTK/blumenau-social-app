@@ -12,4 +12,10 @@ class InstitutionRepository: NSObject {
     func getAllInstitutions() -> Results<Institution> {
         return realm.objects(Institution.self)
     }
+    
+    func saveInstitution(_ institution: Institution) {
+        try! realm.write {
+            realm.add(institution, update: true)
+        }
+    }        
 }
