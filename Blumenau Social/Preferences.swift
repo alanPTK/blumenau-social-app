@@ -44,4 +44,31 @@ class Preferences {
             defaults.setValue(newValue, forKey: "userNeighborhood")
         }
     }
+    
+    var userDays: [Int]? {
+        get {
+            return defaults.array(forKey: "userDays") as? [Int]
+        }
+        set {
+            defaults.setValue(newValue, forKey: "userDays")
+        }
+    }
+    
+    var userPeriods: [Int]? {
+        get {
+            return defaults.array(forKey: "userPeriods") as? [Int]
+        }
+        set {
+            defaults.setValue(newValue, forKey: "userPeriods")
+        }
+    }
+    
+    var userInterests: [Int]? {
+        get {
+            return defaults.array(forKey: "userInterests") as? [Int]
+        }
+        set {
+            defaults.setValue(newValue, forKey: "userInterests")
+        }
+    }
 }

@@ -8,6 +8,8 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var vTopBar: UIView!
     @IBOutlet weak var btUpdateProfile: UIButton!
     @IBOutlet weak var ivProfile: UIImageView!
+    @IBOutlet weak var lbHighlightedInstitutions: UILabel!
+    @IBOutlet weak var lbMoreHighlightedInstitutions: UILabel!
     
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     
@@ -29,6 +31,12 @@ class MatchViewController: UIViewController {
         cvMoreHighlightedInstitutions.configureForPeekingDelegate()
         cvMoreHighlightedInstitutions.delegate = peekImplementation
         cvMoreHighlightedInstitutions.dataSource = self
+        
+        if !Preferences.shared.userName.isEmpty {
+            lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), Preferences.shared.userName)
+        }
+        
+        lbMoreHighlightedInstitutions.text = NSLocalizedString("Institutions close to you", comment: "")        
     }
     
     @objc func showProfile() {

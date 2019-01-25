@@ -154,12 +154,35 @@ class ProfileAvailabilityViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        for day in selectedDays {
+            if let index = Preferences.shared.userDays?.firstIndex(of: (day.container?.tag)!) {
+                day.container?.alpha = 1.0
+            }
+        }
+        
+        for period in selectedPeriods {
+            if let index = Preferences.shared.userPeriods?.firstIndex(of: (period.container?.tag)!) {
+                period.container?.alpha = 1.0
+            }
+        }
+        
+        if let selectedDays = Preferences.shared.userDays {
+            userSelectedDays = selectedDays
+        }
+        
+        if let selectedPeriods = Preferences.shared.userPeriods {
+            userSelectedPeriods = selectedPeriods
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProfileInterests" {
             if userSelectedDays.count == 0 || userSelectedPeriods.count == 0 {
                 showMissingAvailability()
+            } else {
+                Preferences.shared.userDays = userSelectedDays
+                Preferences.shared.userPeriods = userSelectedPeriods
             }
         }
     }

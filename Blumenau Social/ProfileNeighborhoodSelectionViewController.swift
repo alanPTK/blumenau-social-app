@@ -41,7 +41,6 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         filterCell.layer.borderWidth = 2.0
         filterCell.layer.cornerRadius = 8
         
-        //if selectedNeighborhood == currentNeighborhood || Preferences.shared.userNeighborhood == currentNeighborhood.id {
         if Preferences.shared.userNeighborhood == currentNeighborhood.id {
             filterCell.ivIcon.image = UIImage(named: "0zrosa")
             filterCell.alpha = 1

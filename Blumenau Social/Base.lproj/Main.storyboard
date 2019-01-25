@@ -37,7 +37,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="59K-m5-wa2">
-                                <rect key="frame" x="8" y="62" width="304" height="457"/>
+                                <rect key="frame" x="8" y="62" width="304" height="506"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="pgh-qb-j9h" customClass="MyCollectionViewLayout" customModule="Blumenau_Social" customModuleProvider="target"/>
                                 <cells>
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697.5" y="-689.78873239436621"/>
+            <point key="canvasLocation" x="1553" y="-1576"/>
         </scene>
         <!--Match-->
         <scene sceneID="wg7-f3-ORb">
@@ -265,6 +265,8 @@
                         <outlet property="cvHighlightedInstitutions" destination="PTR-TS-iKQ" id="9Q1-6p-ckv"/>
                         <outlet property="cvMoreHighlightedInstitutions" destination="TFS-st-Hng" id="lJw-Cr-jYY"/>
                         <outlet property="ivProfile" destination="6Cu-4R-gpZ" id="gQu-CP-esK"/>
+                        <outlet property="lbHighlightedInstitutions" destination="1Zs-tO-2Hg" id="Bs1-1k-FTE"/>
+                        <outlet property="lbMoreHighlightedInstitutions" destination="Szq-j3-7WO" id="620-HS-UZZ"/>
                         <outlet property="vTopBar" destination="zgj-BV-46X" id="Xle-uR-dXa"/>
                     </connections>
                 </viewController>
@@ -1345,7 +1347,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="etH-2U-Agk" kind="relationship" relationship="viewControllers" id="0XD-Aq-34b"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="NlI-zt-S6i" kind="relationship" relationship="viewControllers" id="VMq-LK-yr7"/>
                     </connections>
@@ -2489,7 +2491,7 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRd-C3-RLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646.875" y="-2014.4366197183099"/>
+            <point key="canvasLocation" x="699" y="-1915"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J3Y-DA-2Df">
@@ -2509,9 +2511,161 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
             </objects>
             <point key="canvasLocation" x="1554.375" y="15.845070422535212"/>
         </scene>
+        <!--Instituições-->
+        <scene sceneID="WqE-fv-O3i">
+            <objects>
+                <viewController id="etH-2U-Agk" customClass="InstitutionsViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="htq-si-sh3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gg-2l-puZ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="84"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="XZM-6E-zAS">
+                                        <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="OwK-eq-3Fz"/>
+                                            <constraint firstAttribute="width" constant="28" id="ius-2Y-vCR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="titleColor"/>
+                                <constraints>
+                                    <constraint firstItem="XZM-6E-zAS" firstAttribute="top" secondItem="2Gg-2l-puZ" secondAttribute="top" constant="8" id="RPq-Au-L5M"/>
+                                    <constraint firstItem="XZM-6E-zAS" firstAttribute="leading" secondItem="2Gg-2l-puZ" secondAttribute="leading" constant="8" id="bBX-PM-IXl"/>
+                                    <constraint firstAttribute="height" constant="84" id="iCy-DF-pak"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-VJ-Jeq">
+                                <rect key="frame" x="8" y="62" width="304" height="457"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="H7t-Eu-ynY">
+                                    <size key="itemSize" width="304" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="institutionCell" id="bPg-mr-fGG" customClass="InstitutionXCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="304" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="304" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-hY-8L4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="100"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bLogo" translatesAutoresizingMaskIntoConstraints="NO" id="IHd-Fh-H2h">
+                                                            <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="84" id="LRc-Uf-4Kv"/>
+                                                                <constraint firstAttribute="width" constant="84" id="Pj8-48-Lgq"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centro de proteção ao idoso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAw-BE-sFg">
+                                                            <rect key="frame" x="100" y="8" width="196" height="41"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <color key="textColor" name="titleColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-gy-L1p">
+                                                            <rect key="frame" x="100" y="49" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="Czl-we-Ng9"/>
+                                                                <constraint firstAttribute="width" constant="20" id="UDo-LQ-eig"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rua" translatesAutoresizingMaskIntoConstraints="NO" id="Zku-mS-DuH">
+                                                            <rect key="frame" x="100" y="72" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="FuI-sa-WbU"/>
+                                                                <constraint firstAttribute="width" constant="20" id="doZ-fy-Mea"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(47) 3327-0484" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdh-Bk-s1b">
+                                                            <rect key="frame" x="128" y="51.5" width="168" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua dos Caçadores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDp-BQ-N4R">
+                                                            <rect key="frame" x="128" y="74.5" width="168" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="PAw-BE-sFg" firstAttribute="leading" secondItem="IHd-Fh-H2h" secondAttribute="trailing" constant="8" id="0bQ-ow-Tlw"/>
+                                                        <constraint firstItem="n5R-gy-L1p" firstAttribute="leading" secondItem="IHd-Fh-H2h" secondAttribute="trailing" constant="8" id="2ZP-9w-GOG"/>
+                                                        <constraint firstItem="Zku-mS-DuH" firstAttribute="top" secondItem="n5R-gy-L1p" secondAttribute="bottom" constant="3" id="2jK-l0-0dg"/>
+                                                        <constraint firstItem="sdh-Bk-s1b" firstAttribute="leading" secondItem="n5R-gy-L1p" secondAttribute="trailing" constant="8" id="D0B-UW-vrT"/>
+                                                        <constraint firstItem="n5R-gy-L1p" firstAttribute="top" secondItem="PAw-BE-sFg" secondAttribute="bottom" id="FE3-y7-BJI"/>
+                                                        <constraint firstItem="vDp-BQ-N4R" firstAttribute="leading" secondItem="Zku-mS-DuH" secondAttribute="trailing" constant="8" id="GFR-lc-EOe"/>
+                                                        <constraint firstItem="IHd-Fh-H2h" firstAttribute="top" secondItem="eeV-hY-8L4" secondAttribute="top" constant="8" id="NAe-eT-7CM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vDp-BQ-N4R" secondAttribute="trailing" constant="8" id="Pkm-Sx-Vs9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PAw-BE-sFg" secondAttribute="trailing" constant="8" id="SPp-MC-Vq4"/>
+                                                        <constraint firstItem="vDp-BQ-N4R" firstAttribute="centerY" secondItem="Zku-mS-DuH" secondAttribute="centerY" id="bos-2C-Lm8"/>
+                                                        <constraint firstItem="Zku-mS-DuH" firstAttribute="leading" secondItem="IHd-Fh-H2h" secondAttribute="trailing" constant="8" id="dab-TX-kFR"/>
+                                                        <constraint firstItem="PAw-BE-sFg" firstAttribute="top" secondItem="eeV-hY-8L4" secondAttribute="top" constant="8" id="fyi-aW-Dtm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sdh-Bk-s1b" secondAttribute="trailing" constant="8" id="mga-L3-ttX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Zku-mS-DuH" secondAttribute="bottom" constant="8" id="rIe-t5-B7i"/>
+                                                        <constraint firstItem="sdh-Bk-s1b" firstAttribute="centerY" secondItem="n5R-gy-L1p" secondAttribute="centerY" id="vZC-om-pwf"/>
+                                                        <constraint firstItem="IHd-Fh-H2h" firstAttribute="leading" secondItem="eeV-hY-8L4" secondAttribute="leading" constant="8" id="w3B-Ub-7WC"/>
+                                                        <constraint firstAttribute="bottom" secondItem="IHd-Fh-H2h" secondAttribute="bottom" constant="8" id="y4R-Y8-lQR"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="eeV-hY-8L4" secondAttribute="bottom" id="52b-b7-hbh"/>
+                                            <constraint firstItem="eeV-hY-8L4" firstAttribute="top" secondItem="bPg-mr-fGG" secondAttribute="top" id="881-wg-m76"/>
+                                            <constraint firstAttribute="trailing" secondItem="eeV-hY-8L4" secondAttribute="trailing" id="U6P-j9-ljS"/>
+                                            <constraint firstItem="eeV-hY-8L4" firstAttribute="leading" secondItem="bPg-mr-fGG" secondAttribute="leading" id="jlL-Gg-NsE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="ivInstitutionImage" destination="IHd-Fh-H2h" id="mfF-39-nA3"/>
+                                            <outlet property="lbInstitutionAddress" destination="bos-2C-Lm8" id="IDl-fB-jAr"/>
+                                            <outlet property="lbInstitutionName" destination="PAw-BE-sFg" id="Ahg-7f-Vp8"/>
+                                            <outlet property="lbInstitutionPhone" destination="vZC-om-pwf" id="Nr0-eX-rjr"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="etH-2U-Agk" id="gqx-6i-Y2x"/>
+                                    <outlet property="delegate" destination="etH-2U-Agk" id="Kwz-gU-Exn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hmm-VJ-Jeq" firstAttribute="top" secondItem="JZO-7q-j8I" secondAttribute="top" constant="42" id="O2r-vB-MHM"/>
+                            <constraint firstItem="Hmm-VJ-Jeq" firstAttribute="leading" secondItem="JZO-7q-j8I" secondAttribute="leading" constant="8" id="a1g-rJ-f8z"/>
+                            <constraint firstItem="JZO-7q-j8I" firstAttribute="trailing" secondItem="2Gg-2l-puZ" secondAttribute="trailing" id="aAw-tf-n7Y"/>
+                            <constraint firstItem="2Gg-2l-puZ" firstAttribute="top" secondItem="JZO-7q-j8I" secondAttribute="top" id="bdq-KZ-Rrt"/>
+                            <constraint firstItem="JZO-7q-j8I" firstAttribute="trailing" secondItem="Hmm-VJ-Jeq" secondAttribute="trailing" constant="8" id="fqB-7m-RxQ"/>
+                            <constraint firstItem="JZO-7q-j8I" firstAttribute="bottom" secondItem="Hmm-VJ-Jeq" secondAttribute="bottom" id="qMV-j2-Lks"/>
+                            <constraint firstItem="2Gg-2l-puZ" firstAttribute="leading" secondItem="JZO-7q-j8I" secondAttribute="leading" id="s62-64-wO0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JZO-7q-j8I"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Instituições" image="institutions" selectedImage="institutions" id="lKI-V2-Byn"/>
+                    <connections>
+                        <outlet property="cvInstitutions" destination="Hmm-VJ-Jeq" id="DfY-hg-CCb"/>
+                        <outlet property="ivSearch" destination="XZM-6E-zAS" id="zsO-Sp-E8d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9DW-Uu-Onw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="-691"/>
+        </scene>
     </scenes>
     <resources>
         <image name="about" width="30" height="30"/>
+        <image name="bLogo" width="415" height="301"/>
         <image name="bridge" width="1081" height="196"/>
         <image name="checkmark" width="384" height="384"/>
         <image name="close" width="384" height="384"/>

@@ -22,7 +22,11 @@ class FilterOptionsRepository: NSObject {
     }
     
     func getNeighborhoodWithId(id: Int) -> Neighborhood? {
-        return realm.objects(Neighborhood.self).filter("id = \(id)").first        
+        return realm.objects(Neighborhood.self).filter("id = \(id)").first
+    }
+    
+    func getAreaWithId(id: Int) -> Area? {
+        return realm.objects(Area.self).filter("id = \(id)").first
     }
     
     func getAllVolunteers() -> Results<Volunteer> {

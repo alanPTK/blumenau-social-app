@@ -39,9 +39,10 @@
 		DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CC621F1EF7600E195D6 /* MissionViewController.swift */; };
 		DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCA21F2086C00E195D6 /* InformationViewController.swift */; };
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
-		DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */; };
 		DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */; };
 		DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */; };
+		DBC93C7521FA8E5300056F34 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */; };
+		DBC93C7721FA92C400056F34 /* InstitutionXCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */; };
 		DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,9 +82,10 @@
 		DB957CC621F1EF7600E195D6 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		DB957CCA21F2086C00E195D6 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
-		DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
 		DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
+		DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
+		DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionXCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionTableViewCell.swift; sourceTree = "<group>"; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 				DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */,
 				DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */,
 				DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */,
+				DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -241,10 +244,10 @@
 			isa = PBXGroup;
 			children = (
 				DB957CCA21F2086C00E195D6 /* InformationViewController.swift */,
-				DB957CCE21F2528D00E195D6 /* InstitutionsViewController.swift */,
 				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
 				DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */,
 				DB17EAD621F91293005E2958 /* MyCollectionViewLayout.swift */,
+				DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";
@@ -401,10 +404,10 @@
 				DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */,
 				DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */,
 				DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */,
+				DBC93C7721FA92C400056F34 /* InstitutionXCollectionViewCell.swift in Sources */,
 				DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */,
 				DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
-				DB957CCF21F2528D00E195D6 /* InstitutionsViewController.swift in Sources */,
 				DB3BE50721F6974700B7170F /* CustomLayout.swift in Sources */,
 				DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
@@ -413,6 +416,7 @@
 				DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */,
 				DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */,
 				DB3BE50521F692A900B7170F /* TestViewController.swift in Sources */,
+				DBC93C7521FA8E5300056F34 /* InstitutionsViewController.swift in Sources */,
 				DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */,
 				DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */,
 				DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */,
