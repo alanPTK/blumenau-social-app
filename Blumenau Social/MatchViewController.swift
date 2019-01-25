@@ -11,7 +11,6 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var lbHighlightedInstitutions: UILabel!
     @IBOutlet weak var lbMoreHighlightedInstitutions: UILabel!
     
-    
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     
     override func viewDidLoad() {
@@ -70,7 +69,11 @@ class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
 extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if Preferences.shared.profileIsCreated {
+            return 10
+        }
+        
+        return 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

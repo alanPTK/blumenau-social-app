@@ -89,4 +89,13 @@ class Preferences {
             defaults.setValue(newValue, forKey: "userInterests")
         }
     }
+    
+    var profileIsCreated: Bool {
+        get {
+            return defaults.bool(forKey: "profileIsCreated")
+        }
+        set {
+            defaults.set(newValue, forKey: "profileIsCreated")
+        }
+    }
 }

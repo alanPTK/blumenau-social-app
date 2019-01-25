@@ -78,10 +78,6 @@ class InstitutionViewController: UIViewController {
         longPressGesture.minimumPressDuration = 0.5
         //longPressGesture.delegate = self
         //tvDonations.addGestureRecognizer(longPressGesture)
-        
-        if currentInstitution?.pictures.count == 0 {
-            lcPicturesHeight.constant = 0
-        }
     }
     
     @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
@@ -128,6 +124,15 @@ class InstitutionViewController: UIViewController {
         lcVolunteersHeight.constant = tvVolunteers.contentSize.height + tvVolunteers.frame.origin.y + 16
         lcAboutHeight.constant = tvAbout.contentSize.height + 16
         
+        if currentInstitution?.pictures.count == 0 {
+            lcPicturesHeight.constant = 0
+        }
+        
+        if (currentInstitution?.volunteers.isEmpty)! {
+            vVolunteers.isHidden = true
+            lcVolunteersHeight.constant = 0
+        }
+        
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
@@ -148,9 +153,6 @@ class InstitutionViewController: UIViewController {
         return textView.frame.size
     }
     
-    @IBAction func grow(_ sender: Any) {
-        lcWorkingHoursHeight.constant += 1
-    }
 }
 
 extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate {

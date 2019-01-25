@@ -13,7 +13,7 @@ class InstitutionsViewController: UIViewController {
     let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()                
         
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
@@ -28,7 +28,7 @@ class InstitutionsViewController: UIViewController {
             synchronizationService.synchronizeInstitutions { (result) in
                 if result {
                     self.hud.dismiss(afterDelay: 3.0)
-                    Preferences.shared.institutionsAreSynchronized = true                    
+                    Preferences.shared.institutionsAreSynchronized = true
                 }
             }
         }

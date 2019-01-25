@@ -37,6 +37,7 @@ class ProfileInterestsViewController: UIViewController {
         let ids = selectedAreas.map { $0.id }
         
         Preferences.shared.userInterests = ids
+        Preferences.shared.profileIsCreated = true
     }
 }
 
