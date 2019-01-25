@@ -15,6 +15,11 @@ class FullImageViewController: UIViewController {
         
         let closeScreenTap = UITapGestureRecognizer(target: self, action: #selector(closeScreen))
         ivClose.addGestureRecognizer(closeScreenTap)
+        
+        let swipeDownGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(closeScreen))
+        swipeDownGestureRecognizer.direction = .down
+        
+        view.addGestureRecognizer(swipeDownGestureRecognizer)
     }
     
     @objc func closeScreen() {
@@ -40,7 +45,7 @@ extension FullImageViewController: UICollectionViewDataSource, UICollectionViewD
                 let currentPicture = pictures[indexPath.row]
                 if let pictureUrl = URL(string: currentPicture.link) {
                     Nuke.loadImage(with: pictureUrl, into: actionImageCell.ivAction)
-                }                
+                }
             }
         } else {
             actionImageCell.ivAction.image = actionsImages[indexPath.row]

@@ -163,17 +163,39 @@
                                     <constraint firstAttribute="trailing" secondItem="TFS-st-Hng" secondAttribute="trailing" constant="8" id="xw9-Ec-ehH"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2pV-2P-pEQ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toque aqui para criar um perfil e descobrir as instituições que mais se encaixam à ele" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQ7-3l-Yx5">
+                                        <rect key="frame" x="8" y="219" width="304" height="61"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" name="titleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="JQ7-3l-Yx5" firstAttribute="leading" secondItem="2pV-2P-pEQ" secondAttribute="leading" constant="8" id="9EE-XM-cXP"/>
+                                    <constraint firstItem="JQ7-3l-Yx5" firstAttribute="centerY" secondItem="2pV-2P-pEQ" secondAttribute="centerY" id="cdV-zt-pOc"/>
+                                    <constraint firstItem="JQ7-3l-Yx5" firstAttribute="centerX" secondItem="2pV-2P-pEQ" secondAttribute="centerX" id="guS-Wi-lqk"/>
+                                    <constraint firstAttribute="trailing" secondItem="JQ7-3l-Yx5" secondAttribute="trailing" constant="8" id="koy-Sk-Sg2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="zgj-BV-46X" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="IAn-Vr-Mel"/>
+                            <constraint firstItem="2pV-2P-pEQ" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="LQn-dA-jCc"/>
                             <constraint firstItem="wp3-eA-20l" firstAttribute="top" secondItem="zgj-BV-46X" secondAttribute="bottom" id="RoA-Db-Mt6"/>
                             <constraint firstItem="wp3-eA-20l" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="XEX-Ad-0cF"/>
                             <constraint firstItem="wp3-eA-20l" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="cfu-4t-7rS"/>
                             <constraint firstItem="wp3-eA-20l" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" id="eKd-7V-jOR"/>
+                            <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="2pV-2P-pEQ" secondAttribute="trailing" id="jEL-Vz-b6w"/>
                             <constraint firstItem="zgj-BV-46X" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="n4J-Ke-pVd"/>
                             <constraint firstItem="wp3-eA-20l" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="nZo-Jr-ey1"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="2pV-2P-pEQ" secondAttribute="bottom" id="oMF-g2-tAQ"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="zgj-BV-46X" secondAttribute="trailing" id="woM-ck-ZaO"/>
+                            <constraint firstItem="2pV-2P-pEQ" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="xl9-P3-b8S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
@@ -183,7 +205,9 @@
                         <outlet property="cvMoreHighlightedInstitutions" destination="TFS-st-Hng" id="lJw-Cr-jYY"/>
                         <outlet property="ivProfile" destination="6Cu-4R-gpZ" id="gQu-CP-esK"/>
                         <outlet property="lbHighlightedInstitutions" destination="1Zs-tO-2Hg" id="Bs1-1k-FTE"/>
+                        <outlet property="lbInfo" destination="JQ7-3l-Yx5" id="8Da-09-qi4"/>
                         <outlet property="lbMoreHighlightedInstitutions" destination="Szq-j3-7WO" id="620-HS-UZZ"/>
+                        <outlet property="vInfo" destination="2pV-2P-pEQ" id="6qa-AK-zJ7"/>
                         <outlet property="vTopBar" destination="zgj-BV-46X" id="Xle-uR-dXa"/>
                     </connections>
                 </viewController>

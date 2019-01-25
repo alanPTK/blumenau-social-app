@@ -38,6 +38,10 @@ class ProfileInterestsViewController: UIViewController {
         
         Preferences.shared.userInterests = ids
         Preferences.shared.profileIsCreated = true
+        
+        if let tabBarController = appDelegate.window?.rootViewController as? UITabBarController {
+            tabBarController.selectedIndex = 1
+        }
     }
 }
 

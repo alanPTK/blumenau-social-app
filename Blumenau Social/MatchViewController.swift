@@ -10,6 +10,8 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var ivProfile: UIImageView!
     @IBOutlet weak var lbHighlightedInstitutions: UILabel!
     @IBOutlet weak var lbMoreHighlightedInstitutions: UILabel!
+    @IBOutlet weak var vInfo: UIView!
+    @IBOutlet weak var lbInfo: UILabel!
     
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     
@@ -32,11 +34,18 @@ class MatchViewController: UIViewController {
         cvMoreHighlightedInstitutions.delegate = peekImplementation
         cvMoreHighlightedInstitutions.dataSource = self
         
+        lbInfo.isUserInteractionEnabled = true
+        
         if !Preferences.shared.userName.isEmpty {
             lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), Preferences.shared.userName)
         }
         
-        lbMoreHighlightedInstitutions.text = NSLocalizedString("Institutions close to you", comment: "")        
+        lbMoreHighlightedInstitutions.text = NSLocalizedString("Institutions close to you", comment: "")
+        
+        let createProfileTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfile))
+        lbInfo.addGestureRecognizer(createProfileTapGesture)
+        
+        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")        
     }
     
     @objc func showProfile() {
@@ -46,6 +55,12 @@ class MatchViewController: UIViewController {
         present(navigationController, animated: true, completion: nil)                
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if Preferences.shared.profileIsCreated {
+            vInfo.isHidden = true
+        }
+    }
+    
     @objc func showInstitution() {
         let i = InstitutionRepository()
         
@@ -53,7 +68,7 @@ class MatchViewController: UIViewController {
         institutionInformationViewController.currentInstitution = i.getAllInstitutions().first
         
         present(institutionInformationViewController, animated: true, completion: nil)
-    }
+    }        
 
 }
 
