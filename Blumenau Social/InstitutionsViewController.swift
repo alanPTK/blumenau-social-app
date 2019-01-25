@@ -19,7 +19,7 @@ class InstitutionsViewController: UIViewController {
         hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
         hud.show(in: self.view)
         
-        synchronizationService.synchronizeFilterOptions { (result) in
+        synchronizationService.synchronizeFilterOptions { (result) in            
             if result {
                 let filterOptionsRepository = FilterOptionsRepository()
                 
@@ -55,7 +55,13 @@ class InstitutionsViewController: UIViewController {
                 
                 for institution in institutions {
                     print(institution.title)
+                    
+                    for picture in institution.pictures {
+                        print(picture.link)
+                    }
                 }
+                
+                self.hud.dismiss(afterDelay: 3.0)
             }
         }
     }

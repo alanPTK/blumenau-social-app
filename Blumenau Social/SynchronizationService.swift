@@ -72,7 +72,7 @@ class SynchronizationService: NSObject {
     func synchronizeInstitutions(completion: @escaping (_ result: Bool) -> ()) {
         let session = URLSession(configuration: configuration)
         
-        if let url = URL(string: "https://dl.dropboxusercontent.com/s/gm3fhkh8lvwrp43/institutions.json") {
+        if let url = URL(string: Constants.INSTITUTIONS_DOWNLOAD_LINK) {
             let task = session.dataTask(with: url) {(data, response, error) in
                 let institutionRepository = InstitutionRepository()
                 
@@ -84,52 +84,7 @@ class SynchronizationService: NSObject {
                     return
                 }
                 
-                let institution: Institution = Institution()
-                institution.id = institutions.id
-                institution.title = institutions.title
-                institution.subtitle = institutions.subtitle
-                institution.address = institutions.address
-                institution.phone = institutions.phone
-                institution.mail = institutions.mail
-                institution.responsible = institutions.responsible
-                institution.workingHours = institutions.working_hours
-                institution.scope = institutions.scope
-                institution.volunteers = institutions.volunteers
-                
-                for donationResponse in institutions.donations {
-                    let donation = InstitutionDonation()
-                    donation.id = donationResponse.id
-                    donation.title = donationResponse.title
-                    
-                    institution.donations.append(donation)
-                }
-                
-                for causeResponse in institutions.causes {
-                    let cause = InstitutionCause()
-                    cause.id = causeResponse.id
-                    cause.title = causeResponse.title
-                    
-                    institution.causes.append(cause)
-                }
-                
-                for pictureResponse in institutions.pictures {
-                    let picture = InstitutionPicture()
-                    picture.id = pictureResponse.id
-                    picture.link = pictureResponse.link
-                    
-                    institution.pictures.append(picture)
-                }
-                
-                for aboutResponse in institutions.about {
-                    let about = InstitutionAbout()
-                    about.id = aboutResponse.id
-                    about.title = aboutResponse.title
-                    about.information = aboutResponse.information
-                    
-                    institution.about.append(about)
-                }
-                
-                institutionRepository.saveInstitution(institution)
+                institutionRepository.createInstitutionWithData(institutionData: institutions)                                
                 
                 completion(true)
             }
@@ -140,7 +95,7 @@ class SynchronizationService: NSObject {
     
     func synchronizeFilterOptions(completion: @escaping (_ result: Bool) -> ()) {
         let session = URLSession(configuration: configuration)
-        let url = URL(string: "https://dl.dropboxusercontent.com/s/dse0ddxn7ebd910/filters.json")
+        let url = URL(string: Constants.FILTERS_DOWNLOAD_LINK)
         
         let task = session.dataTask(with: url!) {(data, response, error) in
             let filterOptionsRepository = FilterOptionsRepository()
