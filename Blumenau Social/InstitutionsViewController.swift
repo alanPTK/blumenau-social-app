@@ -105,6 +105,9 @@ extension InstitutionsViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
+        let selectedInstitution = institutions[indexPath.row]
+        
+        institutionInformationViewController.currentInstitution = selectedInstitution
         
         present(institutionInformationViewController, animated: true, completion: nil)
     }

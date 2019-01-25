@@ -16,6 +16,7 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var lcDonationsHeight: NSLayoutConstraint!
     @IBOutlet weak var lcScopeHeight: NSLayoutConstraint!
     @IBOutlet weak var lcWorkingHoursHeight: NSLayoutConstraint!
+    @IBOutlet weak var lcPicturesHeight: NSLayoutConstraint!
     @IBOutlet weak var vWorkingHours: UIView!
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
@@ -36,8 +37,6 @@ class InstitutionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        currentInstitution = institutionRepository.getAllInstitutions().first
         
         vMainInformation.layer.cornerRadius = 8
         vContactInformation.layer.cornerRadius = 8
@@ -79,6 +78,10 @@ class InstitutionViewController: UIViewController {
         longPressGesture.minimumPressDuration = 0.5
         //longPressGesture.delegate = self
         //tvDonations.addGestureRecognizer(longPressGesture)
+        
+        if currentInstitution?.pictures.count == 0 {
+            lcPicturesHeight.constant = 0
+        }
     }
     
     @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
@@ -180,6 +183,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         if tableView.tag == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)            
             let currentDonation = currentInstitution?.donations[indexPath.section]
+            print(currentDonation?.title)
             
             cell.contentView.backgroundColor = UIColor.titleColor()
             

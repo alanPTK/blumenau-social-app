@@ -27,6 +27,10 @@ struct VolunteerX: Decodable {
     let name: String
 }
 
+struct Institutions: Decodable {
+    let institutions: [InstitutionX]
+}
+
 struct InstitutionX: Decodable {
     let id: Int
     let title: String
@@ -80,11 +84,11 @@ class SynchronizationService: NSObject {
                     return
                 }
                 
-                guard let institutions = try? JSONDecoder().decode(InstitutionX.self, from: data) else {
+                guard let institutions = try? JSONDecoder().decode(Institutions.self, from: data) else {
                     return
                 }
                 
-                institutionRepository.createInstitutionWithData(institutionData: institutions)                                
+                institutionRepository.createInstitutionWithData(institutionsData: institutions)                                
                 
                 completion(true)
             }
