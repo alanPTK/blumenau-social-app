@@ -1,5 +1,6 @@
 import UIKit
 import JGProgressHUD
+import RealmSwift
 
 class InstitutionsViewController: UIViewController {
     
@@ -7,6 +8,8 @@ class InstitutionsViewController: UIViewController {
     @IBOutlet weak var ivSearch: UIImageView!
     
     var synchronizationService = SynchronizationService()
+    let institutionRepository = InstitutionRepository()
+    var institutions: [Institution] = []
     let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
@@ -16,54 +19,53 @@ class InstitutionsViewController: UIViewController {
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
         
-        hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
-        hud.show(in: self.view)
+        if !Preferences.shared.institutionsAreSynchronized || !Preferences.shared.filtersAreSynchronized {
+            hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
+            hud.show(in: self.view)
+        }
         
-        synchronizationService.synchronizeFilterOptions { (result) in            
-            if result {
-                let filterOptionsRepository = FilterOptionsRepository()
-                
-                let neighborhoods = filterOptionsRepository.getAllNeighborhoods()
-                let areas = filterOptionsRepository.getAllAreas()
-                let donations = filterOptionsRepository.getAllDonations()
-                let volunteers = filterOptionsRepository.getAllVolunteers()
-                
-                for neighborhood in neighborhoods {
-                    print(neighborhood.name)
+        if !Preferences.shared.institutionsAreSynchronized {
+            synchronizationService.synchronizeInstitutions { (result) in
+                if result {
+                    self.hud.dismiss(afterDelay: 3.0)
+                    Preferences.shared.institutionsAreSynchronized = true
                 }
-                
-                for area in areas {
-                    print(area.name)
-                }
-                
-                for donation in donations {
-                    print(donation.name)
-                }
-                
-                for volunteer in volunteers {
-                    print(volunteer.name)
-                }
-                
-                self.hud.dismiss(afterDelay: 3.0)
             }
         }
         
-        synchronizationService.synchronizeInstitutions { (result) in
-            if result {
-                let institutionRepository = InstitutionRepository()
-                let institutions = institutionRepository.getAllInstitutions()
-                
-                for institution in institutions {
-                    print(institution.title)
+        if !Preferences.shared.filtersAreSynchronized {
+            synchronizationService.synchronizeFilterOptions { (result) in
+                if result {
+                    let filterOptionsRepository = FilterOptionsRepository()
                     
-                    for picture in institution.pictures {
-                        print(picture.link)
+                    let neighborhoods = filterOptionsRepository.getAllNeighborhoods()
+                    let areas = filterOptionsRepository.getAllAreas()
+                    let donations = filterOptionsRepository.getAllDonations()
+                    let volunteers = filterOptionsRepository.getAllVolunteers()
+                    
+                    for neighborhood in neighborhoods {
+                        print(neighborhood.name)
                     }
+                    
+                    for area in areas {
+                        print(area.name)
+                    }
+                    
+                    for donation in donations {
+                        print(donation.name)
+                    }
+                    
+                    for volunteer in volunteers {
+                        print(volunteer.name)
+                    }
+                    
+                    self.hud.dismiss(afterDelay: 3.0)
+                    Preferences.shared.filtersAreSynchronized = true
                 }
-                
-                self.hud.dismiss(afterDelay: 3.0)
             }
         }
+        
+        institutions = Array(institutionRepository.getAllInstitutions())
     }
     
     @objc func searchInstitutions() {
@@ -72,12 +74,12 @@ class InstitutionsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        if !Preferences.shared.profileCreationWasOpened {
-//            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController") as! InitialProfileViewController
-//            present(profileViewController, animated: true, completion: nil)
-//
-//            Preferences.shared.profileCreationWasOpened = true
-//        }
+        if !Preferences.shared.profileCreationWasOpened {
+            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController") as! InitialProfileViewController
+            present(profileViewController, animated: true, completion: nil)
+
+            Preferences.shared.profileCreationWasOpened = true
+        }
     }
 
 }
@@ -85,13 +87,18 @@ class InstitutionsViewController: UIViewController {
 extension InstitutionsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return institutions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionXCollectionViewCell
+        let currentInstitution = institutions[indexPath.row]
         
         cell.layer.cornerRadius = 8
+        
+        cell.lbInstitutionName.text = currentInstitution.title
+        cell.lbInstitutionPhone.text = currentInstitution.phone
+        cell.lbInstitutionAddress.text = currentInstitution.address        
         
         return cell
     }

@@ -2507,8 +2507,8 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua dos Caçadores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDp-BQ-N4R">
-                                                            <rect key="frame" x="128" y="74.5" width="168" height="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua dos Caçadores" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vDp-BQ-N4R">
+                                                            <rect key="frame" x="128" y="68" width="168" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -2519,6 +2519,7 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                                                         <constraint firstItem="PAw-BE-sFg" firstAttribute="leading" secondItem="IHd-Fh-H2h" secondAttribute="trailing" constant="8" id="0bQ-ow-Tlw"/>
                                                         <constraint firstItem="n5R-gy-L1p" firstAttribute="leading" secondItem="IHd-Fh-H2h" secondAttribute="trailing" constant="8" id="2ZP-9w-GOG"/>
                                                         <constraint firstItem="Zku-mS-DuH" firstAttribute="top" secondItem="n5R-gy-L1p" secondAttribute="bottom" constant="3" id="2jK-l0-0dg"/>
+                                                        <constraint firstAttribute="bottom" secondItem="vDp-BQ-N4R" secondAttribute="bottom" constant="4" id="3DL-Bi-Ygs"/>
                                                         <constraint firstItem="sdh-Bk-s1b" firstAttribute="leading" secondItem="n5R-gy-L1p" secondAttribute="trailing" constant="8" id="D0B-UW-vrT"/>
                                                         <constraint firstItem="n5R-gy-L1p" firstAttribute="top" secondItem="PAw-BE-sFg" secondAttribute="bottom" id="FE3-y7-BJI"/>
                                                         <constraint firstItem="vDp-BQ-N4R" firstAttribute="leading" secondItem="Zku-mS-DuH" secondAttribute="trailing" constant="8" id="GFR-lc-EOe"/>
@@ -2545,9 +2546,9 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                                         </constraints>
                                         <connections>
                                             <outlet property="ivInstitutionImage" destination="IHd-Fh-H2h" id="mfF-39-nA3"/>
-                                            <outlet property="lbInstitutionAddress" destination="bos-2C-Lm8" id="IDl-fB-jAr"/>
+                                            <outlet property="lbInstitutionAddress" destination="vDp-BQ-N4R" id="txH-HM-rxz"/>
                                             <outlet property="lbInstitutionName" destination="PAw-BE-sFg" id="Ahg-7f-Vp8"/>
-                                            <outlet property="lbInstitutionPhone" destination="vZC-om-pwf" id="Nr0-eX-rjr"/>
+                                            <outlet property="lbInstitutionPhone" destination="sdh-Bk-s1b" id="1AP-hc-Vmz"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

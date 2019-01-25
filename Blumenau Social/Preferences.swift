@@ -14,6 +14,24 @@ class Preferences {
         }
     }
     
+    var institutionsAreSynchronized: Bool {
+        get {
+            return defaults.bool(forKey: "institutionsAreSynchronized")
+        }
+        set {
+            defaults.set(newValue, forKey: "institutionsAreSynchronized")
+        }
+    }
+    
+    var filtersAreSynchronized: Bool {
+        get {
+            return defaults.bool(forKey: "filtersAreSynchronized")
+        }
+        set {
+            defaults.set(newValue, forKey: "filtersAreSynchronized")
+        }
+    }
+    
     var userName: String {
         get {
             if let userName = defaults.string(forKey: "userName") {
