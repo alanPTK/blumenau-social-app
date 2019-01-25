@@ -10,89 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Instituições-->
-        <scene sceneID="hNz-n2-bh7">
-            <objects>
-                <viewController id="9pv-A4-QxB" customClass="InstitutionsViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Op7-Qu-1s9">
-                                <rect key="frame" x="0.0" y="20" width="320" height="42"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="3Om-7b-bnZ">
-                                        <rect key="frame" x="284" y="7" width="28" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="28" id="w0U-fN-oaS"/>
-                                            <constraint firstAttribute="height" constant="28" id="zTk-mC-cUD"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" name="titleColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="3Om-7b-bnZ" secondAttribute="trailing" constant="8" id="0kD-O4-5GW"/>
-                                    <constraint firstAttribute="height" constant="42" id="Gwe-k4-IDm"/>
-                                    <constraint firstItem="3Om-7b-bnZ" firstAttribute="centerY" secondItem="Op7-Qu-1s9" secondAttribute="centerY" id="U3Q-Mb-VA7"/>
-                                </constraints>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="59K-m5-wa2">
-                                <rect key="frame" x="8" y="62" width="304" height="506"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="pgh-qb-j9h" customClass="MyCollectionViewLayout" customModule="Blumenau_Social" customModuleProvider="target"/>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="UaE-2b-1ke" customClass="ActionImageCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qzm-SG-rjn">
-                                                    <rect key="frame" x="4" y="4" width="42" height="42"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Qzm-SG-rjn" secondAttribute="trailing" constant="4" id="1tN-Gv-yPB"/>
-                                            <constraint firstItem="Qzm-SG-rjn" firstAttribute="top" secondItem="UaE-2b-1ke" secondAttribute="top" constant="4" id="4Ne-c9-0hT"/>
-                                            <constraint firstItem="Qzm-SG-rjn" firstAttribute="leading" secondItem="UaE-2b-1ke" secondAttribute="leading" constant="4" id="P8o-Im-fs0"/>
-                                            <constraint firstAttribute="bottom" secondItem="Qzm-SG-rjn" secondAttribute="bottom" constant="4" id="ryd-J0-59Z"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="ivAction" destination="Qzm-SG-rjn" id="KbU-FJ-70H"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="XFZ-bv-tE6"/>
-                                    <outlet property="delegate" destination="9pv-A4-QxB" id="CGm-Lr-Qja"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" name="backgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Op7-Qu-1s9" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="1oE-Xv-azA"/>
-                            <constraint firstItem="59K-m5-wa2" firstAttribute="top" secondItem="Op7-Qu-1s9" secondAttribute="bottom" id="F7N-5t-s4f"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="59K-m5-wa2" secondAttribute="bottom" id="IxU-92-ZxV"/>
-                            <constraint firstItem="59K-m5-wa2" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="8" id="bON-iG-fVA"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="59K-m5-wa2" secondAttribute="trailing" constant="8" id="fhW-eo-rcc"/>
-                            <constraint firstItem="Op7-Qu-1s9" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="uWr-6p-hKn"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Op7-Qu-1s9" secondAttribute="trailing" id="xRb-9F-mH6"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Instituições" image="institutions" selectedImage="institutions" id="acW-dT-cKf"/>
-                    <connections>
-                        <outlet property="ivSearch" destination="3Om-7b-bnZ" id="Fdo-Hb-nuK"/>
-                        <outlet property="tvInstitutions2" destination="59K-m5-wa2" id="Zjm-wF-OW8"/>
-                        <outlet property="vTopBar" destination="Op7-Qu-1s9" id="aKR-JP-mSq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1553" y="-1576"/>
-        </scene>
         <!--Match-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
@@ -105,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="42"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-4R-gpZ">
-                                        <rect key="frame" x="284" y="7" width="28" height="28"/>
+                                        <rect key="frame" x="8" y="7" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="3lg-db-Er2"/>
                                             <constraint firstAttribute="width" constant="28" id="D5X-qn-Jm1"/>
@@ -115,7 +32,7 @@
                                 <color key="backgroundColor" name="titleColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="570-NX-e2h"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Cu-4R-gpZ" secondAttribute="trailing" constant="8" id="IQg-N5-dlb"/>
+                                    <constraint firstItem="6Cu-4R-gpZ" firstAttribute="leading" secondItem="zgj-BV-46X" secondAttribute="leading" constant="8" id="mtm-mf-xoR"/>
                                     <constraint firstItem="6Cu-4R-gpZ" firstAttribute="centerY" secondItem="zgj-BV-46X" secondAttribute="centerY" id="t8Z-7K-v6b"/>
                                 </constraints>
                             </view>
