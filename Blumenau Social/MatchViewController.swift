@@ -11,6 +11,7 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var lbHighlightedInstitutions: UILabel!
     @IBOutlet weak var lbMoreHighlightedInstitutions: UILabel!
     
+    
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     
     override func viewDidLoad() {
@@ -47,7 +48,10 @@ class MatchViewController: UIViewController {
     }
     
     @objc func showInstitution() {
+        let i = InstitutionRepository()
+        
         let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
+        institutionInformationViewController.currentInstitution = i.getAllInstitutions().first
         
         present(institutionInformationViewController, animated: true, completion: nil)
     }

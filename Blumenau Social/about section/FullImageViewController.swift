@@ -1,10 +1,14 @@
 import UIKit
+import RealmSwift
+import Nuke
 
 class FullImageViewController: UIViewController {
 
     @IBOutlet weak var ivClose: UIImageView!
     
     let actionsImages: [UIImage] = [UIImage(named: "01")!, UIImage(named: "02")!, UIImage(named: "03")!, UIImage(named: "04")!, UIImage(named: "05")!]
+    var institutionPictures: List<InstitutionPicture>?
+    var showInstitutionPictures: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +26,25 @@ class FullImageViewController: UIViewController {
 extension FullImageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return actionsImages.count
+        if showInstitutionPictures {
+            return (institutionPictures?.count)!
+        } else {
+            return actionsImages.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let actionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "actionImageCell", for: indexPath) as! ActionImageCollectionViewCell
-        actionImageCell.ivAction.image = actionsImages[indexPath.row]
+        if showInstitutionPictures {
+            if let pictures = institutionPictures {
+                let currentPicture = pictures[indexPath.row]
+                if let pictureUrl = URL(string: currentPicture.link) {
+                    Nuke.loadImage(with: pictureUrl, into: actionImageCell.ivAction)
+                }                
+            }
+        } else {
+            actionImageCell.ivAction.image = actionsImages[indexPath.row]
+        }
         
         return actionImageCell
     }

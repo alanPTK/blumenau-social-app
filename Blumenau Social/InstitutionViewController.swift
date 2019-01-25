@@ -183,7 +183,6 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         if tableView.tag == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)            
             let currentDonation = currentInstitution?.donations[indexPath.section]
-            print(currentDonation?.title)
             
             cell.contentView.backgroundColor = UIColor.titleColor()
             
@@ -283,6 +282,16 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
             causeCell.lbCause.text = currentCause?.title
             
             return causeCell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag == 0 {
+            let fullImageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FullImageViewController") as! FullImageViewController
+            fullImageViewController.showInstitutionPictures = true
+            fullImageViewController.institutionPictures = currentInstitution?.pictures
+            
+            present(fullImageViewController, animated: true, completion: nil)
         }
     }
     

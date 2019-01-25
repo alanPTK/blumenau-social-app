@@ -31,51 +31,91 @@ class InstitutionRepository: NSObject {
             for donationData in institutionData.donations {
                 let donation = InstitutionDonation()
                 
-                donation.id = donationData.id
+                donation.id = institutionDonationNextID()
                 donation.title = donationData.title
                 
                 institution.donations.append(donation)
+                saveDonation(donation)
             }
             
             for causeData in institutionData.causes {
                 let cause = InstitutionCause()
                 
-                cause.id = causeData.id
+                cause.id = institutionCauseNextID()
                 cause.title = causeData.title
                 
                 institution.causes.append(cause)
+                saveCause(cause)
             }
             
             for pictureData in institutionData.pictures {
                 let picture = InstitutionPicture()
                 
-                picture.id = pictureData.id
+                picture.id = institutionPictureNextID()
                 picture.link = pictureData.link
                 
                 institution.pictures.append(picture)
+                savePicture(picture)
             }
             
             for aboutData in institutionData.about {
                 let about = InstitutionAbout()
                 
-                about.id = aboutData.id
+                about.id = institutionAboutNextID()
                 about.title = aboutData.title
                 about.information = aboutData.information
                 
                 institution.about.append(about)
+                saveAbout(about)
             }
             
             saveInstitution(institution)
         }
     }
     
-    func createInstitutionDonationWithData(institutionDonationData: DonationX) {
-        
+    func institutionDonationNextID() -> Int {
+        return (realm.objects(InstitutionDonation.self).max(ofProperty: "id") as Int? ?? 0) + 1
+    }
+    
+    func institutionCauseNextID() -> Int {
+        return (realm.objects(InstitutionCause.self).max(ofProperty: "id") as Int? ?? 0) + 1
+    }
+    
+    func institutionPictureNextID() -> Int {
+        return (realm.objects(InstitutionPicture.self).max(ofProperty: "id") as Int? ?? 0) + 1
+    }
+    
+    func institutionAboutNextID() -> Int {
+        return (realm.objects(InstitutionAbout.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
     
     func saveInstitution(_ institution: Institution) {
         try! realm.write {
             realm.add(institution, update: true)
         }
-    }        
+    }
+    
+    func saveDonation(_ donation: InstitutionDonation) {
+        try! realm.write {
+            realm.add(donation, update: true)
+        }
+    }
+    
+    func savePicture(_ picture: InstitutionPicture) {
+        try! realm.write {
+            realm.add(picture, update: true)
+        }
+    }
+    
+    func saveAbout(_ about: InstitutionAbout) {
+        try! realm.write {
+            realm.add(about, update: true)
+        }
+    }
+    
+    func saveCause(_ cause: InstitutionCause) {
+        try! realm.write {
+            realm.add(cause, update: true)
+        }
+    }
 }

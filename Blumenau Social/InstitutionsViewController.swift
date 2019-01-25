@@ -28,7 +28,7 @@ class InstitutionsViewController: UIViewController {
             synchronizationService.synchronizeInstitutions { (result) in
                 if result {
                     self.hud.dismiss(afterDelay: 3.0)
-                    Preferences.shared.institutionsAreSynchronized = true
+                    Preferences.shared.institutionsAreSynchronized = true                    
                 }
             }
         }
@@ -66,6 +66,10 @@ class InstitutionsViewController: UIViewController {
         }
         
         institutions = Array(institutionRepository.getAllInstitutions())
+    }
+    
+    func reloadInstitutions() {
+        cvInstitutions.reloadData()
     }
     
     @objc func searchInstitutions() {
