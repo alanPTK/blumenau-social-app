@@ -8,6 +8,7 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
     var missionViewController: MissionViewController?
     var informationViewController: InformationViewController?
     var actionsViewController: ActionsViewController?
+    var contactViewController: ContactViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +54,16 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
             actionsViewController?.tvAbout.text = NSLocalizedString("us", comment: "")
         }
         
+        contactViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContactViewController") as? ContactViewController
+        if let contactView = contactViewController?.view {
+            slides.append(contactView)
+        }
+        
         svAbout.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        svAbout.contentSize = CGSize(width: view.frame.width * 3, height: view.frame.height)
+        svAbout.contentSize = CGSize(width: view.frame.width * 4, height: view.frame.height)
         svAbout.isPagingEnabled = true
+        
+        pcAbout.numberOfPages = slides.count
         
         for i in 0 ..< slides.count {
             slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)

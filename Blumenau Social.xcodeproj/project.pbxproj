@@ -17,6 +17,7 @@
 		DB2A7C2921F1142800C60B32 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */; };
 		DB2A7C2B21F115B500C60B32 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */; };
 		DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C3421F15C8100C60B32 /* Localizable.strings */; };
+		DB373E1021FFB56900FE02E0 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */; };
 		DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F621F4C9BA00B7170F /* Preferences.swift */; };
 		DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */; };
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
@@ -61,6 +62,7 @@
 		DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DB2A7C3421F15C8100C60B32 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		DB3BE4F621F4C9BA00B7170F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				DB957CCC21F223E700E195D6 /* ActionsViewController.swift */,
 				DB957CC621F1EF7600E195D6 /* MissionViewController.swift */,
 				DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */,
+				DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */,
 			);
 			path = "about section";
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				DB8EAB2F21F3A12400E27F8D /* FilterOptionsDB.swift in Sources */,
 				DBC6D71421FB36D600147097 /* Constants.swift in Sources */,
 				DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */,
+				DB373E1021FFB56900FE02E0 /* ContactViewController.swift in Sources */,
 				DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */,
 				DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */,
 				DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */,
