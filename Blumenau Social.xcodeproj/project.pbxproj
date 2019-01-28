@@ -190,6 +190,7 @@
 		DB8EAB3521F3D03A00E27F8D /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */,
 				DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */,
 				DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */,
 				DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */,
@@ -248,7 +249,6 @@
 			children = (
 				DB957CCA21F2086C00E195D6 /* InformationViewController.swift */,
 				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
-				DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */,
 				DB17EAD621F91293005E2958 /* MyCollectionViewLayout.swift */,
 				DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */,
 			);

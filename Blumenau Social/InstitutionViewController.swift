@@ -13,7 +13,10 @@ class InstitutionViewController: UIViewController {
     var workingHoursOriginalHeight: CGFloat = 0
     
     //about
+    @IBOutlet weak var vAbout: UIView!
     @IBOutlet weak var lcAboutHeight: NSLayoutConstraint!
+    @IBOutlet weak var tvAbout: UITableView!
+    var aboutOriginalHeight: CGFloat = 0
     
     //donation
     @IBOutlet weak var vDonations: UIView!
@@ -40,6 +43,14 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var cvPictures: UICollectionView!
     var picturesOriginalHeight: CGFloat = 0
     
+    //scope
+    @IBOutlet weak var vScope: UIView!
+    @IBOutlet weak var btToggleScope: UIButton!
+    @IBOutlet weak var lbScope: UILabel!
+    @IBOutlet weak var lcScopeHeight: NSLayoutConstraint!
+    @IBOutlet weak var tvScope: UITextView!
+    var scopeOriginalHeight: CGFloat = 0
+    
     @IBOutlet weak var ivClose: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbSubtitle: UILabel!
@@ -48,13 +59,9 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var lbAddress: UILabel!
     
-    @IBOutlet weak var lcScopeHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
-    @IBOutlet weak var tvScope: UITextView!
-    @IBOutlet weak var vScope: UIView!
-    @IBOutlet weak var vAbout: UIView!
-    @IBOutlet weak var tvAbout: UITableView!
     
     var currentPage: Int = 0
     var currentInstitution: Institution?
@@ -103,6 +110,8 @@ class InstitutionViewController: UIViewController {
         longPressGesture.minimumPressDuration = 0.5
         //longPressGesture.delegate = self
         //tvDonations.addGestureRecognizer(longPressGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
     }
     
     @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
@@ -184,11 +193,13 @@ class InstitutionViewController: UIViewController {
         if btTogglePictures.tag == 0 {
             btTogglePictures.tag = 1
             lcPicturesHeight.constant = cvPictures.frame.origin.y + 8
+            pcInstitutionPictures.isHidden = true
             
             toggleButtonImage(button: btTogglePictures, expand: true)
         } else {
             btTogglePictures.tag = 0
             lcPicturesHeight.constant = picturesOriginalHeight
+            pcInstitutionPictures.isHidden = false
             
             toggleButtonImage(button: btTogglePictures, expand: false)
         }
@@ -198,9 +209,48 @@ class InstitutionViewController: UIViewController {
         }
     }
     
+    @IBAction func toggleScopeVisibility(_ sender: Any) {
+        if btToggleScope.tag == 0 {
+            btToggleScope.tag = 1
+            lcScopeHeight.constant = cvPictures.frame.origin.y + 8
+            
+            toggleButtonImage(button: btToggleScope, expand: true)
+        } else {
+            btToggleScope.tag = 0
+            lcScopeHeight.constant = scopeOriginalHeight
+            
+            toggleButtonImage(button: btToggleScope, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func toggleAboutVisibility(notification: Notification) {
+        let btToggleAbout = notification.object as! UIButton
+        print("lcAboutHeight.constant \(lcAboutHeight.constant)")
+        
+        if btToggleAbout.tag == 0 {
+            btToggleAbout.tag = 1
+            lcAboutHeight.constant = tvAbout.frame.origin.y + 40
+
+            toggleButtonImage(button: btToggleAbout, expand: true)
+        } else {
+            btToggleAbout.tag = 0
+            lcAboutHeight.constant = aboutOriginalHeight
+
+            toggleButtonImage(button: btToggleAbout, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     func toggleButtonImage(button: UIButton, expand: Bool) {
         let image = expand ? UIImage(named: "expand") : UIImage(named: "collapse")
-        UIView.transition(with: button, duration: 1.0, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: button, duration: 0.5, options: .transitionFlipFromBottom, animations: {
             button.setImage(image, for: .normal)
         }, completion: nil)
     }
@@ -226,6 +276,7 @@ class InstitutionViewController: UIViewController {
         workingHoursOriginalHeight = lcWorkingHoursHeight.constant
         
         lcScopeHeight.constant = tvScope.frame.size.height + tvScope.frame.origin.y + 16
+        scopeOriginalHeight = lcScopeHeight.constant
         
         lcDonationsHeight.constant = tvDonations.contentSize.height + tvDonations.frame.origin.y + 16
         donationOriginalHeight = lcDonationsHeight.constant
@@ -234,15 +285,19 @@ class InstitutionViewController: UIViewController {
         volunteersOriginalHeight = lcVolunteersHeight.constant
         
         lcAboutHeight.constant = tvAbout.contentSize.height + 16
+        aboutOriginalHeight = lcAboutHeight.constant
         
         if currentInstitution?.pictures.count == 0 {
             lcPicturesHeight.constant = 0
+        } else {
+            picturesOriginalHeight = lcPicturesHeight.constant
         }
         
         if (currentInstitution?.volunteers.isEmpty)! {
             vVolunteers.isHidden = true
             lcVolunteersHeight.constant = 0
         }
+        
         
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
