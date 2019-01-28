@@ -298,7 +298,6 @@ class InstitutionViewController: UIViewController {
             lcVolunteersHeight.constant = 0
         }
         
-        
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
@@ -377,6 +376,12 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             cell.tvDesc.text = currentAbout?.information
             cell.tvDesc.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
             cell.lcAboutHeight.constant = resizeTextView(textView: cell.tvDesc).height
+            
+            if indexPath.row == 0 {
+                cell.btToggleVisibility.isHidden = false
+            } else {
+                cell.btToggleVisibility.isHidden = true
+            }
             
             return cell
         }
