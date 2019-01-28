@@ -4,33 +4,58 @@ import Nuke
 
 class InstitutionViewController: UIViewController {
     
+    //working hours
+    @IBOutlet weak var vWorkingHours: UIView!
+    @IBOutlet weak var btToggleWorkingHours: UIButton!
+    @IBOutlet weak var lbWorkingHours: UILabel!
+    @IBOutlet weak var lcWorkingHoursHeight: NSLayoutConstraint!
+    @IBOutlet weak var tvWorkingHours: UITextView!
+    var workingHoursOriginalHeight: CGFloat = 0
+    
+    //about
+    @IBOutlet weak var lcAboutHeight: NSLayoutConstraint!
+    
+    //donation
+    @IBOutlet weak var vDonations: UIView!
+    @IBOutlet weak var btToggleDonation: UIButton!
+    @IBOutlet weak var lbDonation: UILabel!
+    @IBOutlet weak var lcDonationsHeight: NSLayoutConstraint!
+    @IBOutlet weak var tvDonations: UITableView!
+    var donationOriginalHeight: CGFloat = 0
+    
+    //volunteers
+    @IBOutlet weak var vVolunteers: UIView!
+    @IBOutlet weak var btToggleVolunteers: UIButton!
+    @IBOutlet weak var lbVolunteers: UILabel!
+    @IBOutlet weak var tvVolunteers: UITextView!
+    @IBOutlet weak var lcVolunteersHeight: NSLayoutConstraint!
+    var volunteersOriginalHeight: CGFloat = 0
+    
+    //pictures
+    @IBOutlet weak var vPictures: UIView!
+    @IBOutlet weak var btTogglePictures: UIButton!
+    @IBOutlet weak var lbPictures: UILabel!
+    @IBOutlet weak var lcPicturesHeight: NSLayoutConstraint!
+    @IBOutlet weak var pcInstitutionPictures: UIPageControl!
+    @IBOutlet weak var cvPictures: UICollectionView!
+    var picturesOriginalHeight: CGFloat = 0
+    
     @IBOutlet weak var ivClose: UIImageView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var lbSubtitle: UILabel!
     @IBOutlet weak var lbResponsible: UILabel!
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
-    @IBOutlet weak var lcAboutHeight: NSLayoutConstraint!
     @IBOutlet weak var lbAddress: UILabel!
-    @IBOutlet weak var lcVolunteersHeight: NSLayoutConstraint!
-    @IBOutlet weak var lcDonationsHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var lcScopeHeight: NSLayoutConstraint!
-    @IBOutlet weak var lcWorkingHoursHeight: NSLayoutConstraint!
-    @IBOutlet weak var lcPicturesHeight: NSLayoutConstraint!
-    @IBOutlet weak var vWorkingHours: UIView!
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
-    @IBOutlet weak var tvWorkingHours: UITextView!
     @IBOutlet weak var tvScope: UITextView!
     @IBOutlet weak var vScope: UIView!
-    @IBOutlet weak var vDonations: UIView!
-    @IBOutlet weak var tvDonations: UITableView!
-    @IBOutlet weak var vVolunteers: UIView!
-    @IBOutlet weak var tvVolunteers: UITextView!
-    @IBOutlet weak var vPictures: UIView!
-    @IBOutlet weak var pcInstitutionPictures: UIPageControl!
     @IBOutlet weak var vAbout: UIView!
     @IBOutlet weak var tvAbout: UITableView!
+    
     var currentPage: Int = 0
     var currentInstitution: Institution?
     let institutionRepository = InstitutionRepository()
@@ -101,6 +126,85 @@ class InstitutionViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func toggleWorkingHoursVisibility(_ sender: Any) {
+        if btToggleWorkingHours.tag == 0 {
+            btToggleWorkingHours.tag = 1
+            lcWorkingHoursHeight.constant = tvWorkingHours.frame.origin.y + 8
+            
+            toggleButtonImage(button: btToggleWorkingHours, expand: true)
+        } else {
+            btToggleWorkingHours.tag = 0
+            lcWorkingHoursHeight.constant = workingHoursOriginalHeight
+            
+            toggleButtonImage(button: btToggleWorkingHours, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func toggleDonationVisibility(_ sender: Any) {
+        if btToggleDonation.tag == 0 {
+            btToggleDonation.tag = 1
+            lcDonationsHeight.constant = tvDonations.frame.origin.y + 8
+            
+            toggleButtonImage(button: btToggleDonation, expand: true)
+        } else {
+            btToggleDonation.tag = 0
+            lcDonationsHeight.constant = donationOriginalHeight
+            
+            toggleButtonImage(button: btToggleDonation, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func toggleVolunteersVisibility(_ sender: Any) {
+        if btToggleVolunteers.tag == 0 {
+            btToggleVolunteers.tag = 1
+            lcVolunteersHeight.constant = tvDonations.frame.origin.y + 8
+            
+            toggleButtonImage(button: btToggleVolunteers, expand: true)
+        } else {
+            btToggleDonation.tag = 0
+            lcVolunteersHeight.constant = volunteersOriginalHeight
+            
+            toggleButtonImage(button: btToggleVolunteers, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBAction func togglePicturesVisibility(_ sender: Any) {
+        if btTogglePictures.tag == 0 {
+            btTogglePictures.tag = 1
+            lcPicturesHeight.constant = cvPictures.frame.origin.y + 8
+            
+            toggleButtonImage(button: btTogglePictures, expand: true)
+        } else {
+            btTogglePictures.tag = 0
+            lcPicturesHeight.constant = picturesOriginalHeight
+            
+            toggleButtonImage(button: btTogglePictures, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func toggleButtonImage(button: UIButton, expand: Bool) {
+        let image = expand ? UIImage(named: "expand") : UIImage(named: "collapse")
+        UIView.transition(with: button, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            button.setImage(image, for: .normal)
+        }, completion: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         tvWorkingHours.setContentOffset(.zero, animated: false)
         tvWorkingHours.scrollRangeToVisible(NSRange(location:0, length:0))
@@ -119,9 +223,16 @@ class InstitutionViewController: UIViewController {
         resizeTextView(textView: tvVolunteers)
         
         lcWorkingHoursHeight.constant = tvWorkingHours.frame.size.height + tvWorkingHours.frame.origin.y + 16
+        workingHoursOriginalHeight = lcWorkingHoursHeight.constant
+        
         lcScopeHeight.constant = tvScope.frame.size.height + tvScope.frame.origin.y + 16
+        
         lcDonationsHeight.constant = tvDonations.contentSize.height + tvDonations.frame.origin.y + 16
+        donationOriginalHeight = lcDonationsHeight.constant
+        
         lcVolunteersHeight.constant = tvVolunteers.contentSize.height + tvVolunteers.frame.origin.y + 16
+        volunteersOriginalHeight = lcVolunteersHeight.constant
+        
         lcAboutHeight.constant = tvAbout.contentSize.height + 16
         
         if currentInstitution?.pictures.count == 0 {

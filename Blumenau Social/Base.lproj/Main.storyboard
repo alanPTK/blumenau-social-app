@@ -2022,7 +2022,7 @@
                                         <rect key="frame" x="8" y="334" width="304" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horário de funcionamento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="904-8x-KDQ">
-                                                <rect key="frame" x="8" y="8" width="288" height="20.5"/>
+                                                <rect key="frame" x="8" y="8" width="255" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" name="titleColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2030,20 +2030,31 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLq-O6-aQb">
                                                 <rect key="frame" x="8" y="36.5" width="288" height="83.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">24 horas no ABRIGO 1 e 2.  
-
-O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda à quinta e das 13:00h às 16:00h nas sextas-feiras.</string>
+                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLx-Lv-lFq">
+                                                <rect key="frame" x="271" y="8" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="4PC-fV-5WM"/>
+                                                    <constraint firstAttribute="width" constant="25" id="Rgv-Hc-pUE"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="collapse"/>
+                                                <connections>
+                                                    <action selector="toggleWorkingHoursVisibility:" destination="9QF-Oo-w86" eventType="touchUpInside" id="xj6-EV-lsN"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="904-8x-KDQ" firstAttribute="leading" secondItem="T7v-UE-Ddh" secondAttribute="leading" constant="8" id="2WY-IR-ug4"/>
+                                            <constraint firstItem="gLx-Lv-lFq" firstAttribute="top" secondItem="T7v-UE-Ddh" secondAttribute="top" constant="8" id="9MT-Bm-WPa"/>
+                                            <constraint firstItem="gLx-Lv-lFq" firstAttribute="leading" secondItem="904-8x-KDQ" secondAttribute="trailing" constant="8" id="M7m-RW-B9i"/>
                                             <constraint firstAttribute="trailing" secondItem="dLq-O6-aQb" secondAttribute="trailing" constant="8" id="O4d-L9-BFD"/>
+                                            <constraint firstAttribute="trailing" secondItem="gLx-Lv-lFq" secondAttribute="trailing" constant="8" id="Y5L-k2-gtg"/>
                                             <constraint firstItem="dLq-O6-aQb" firstAttribute="leading" secondItem="T7v-UE-Ddh" secondAttribute="leading" constant="8" id="ZQv-Ua-Zq2"/>
-                                            <constraint firstAttribute="trailing" secondItem="904-8x-KDQ" secondAttribute="trailing" constant="8" id="bDB-be-cTo"/>
                                             <constraint firstAttribute="height" constant="128" id="oqi-ho-gLU"/>
                                             <constraint firstItem="904-8x-KDQ" firstAttribute="top" secondItem="T7v-UE-Ddh" secondAttribute="top" constant="8" id="uBb-7U-Aw9"/>
                                             <constraint firstItem="dLq-O6-aQb" firstAttribute="top" secondItem="904-8x-KDQ" secondAttribute="bottom" constant="8" id="vDA-ao-SUJ"/>
@@ -2066,7 +2077,7 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxs-SK-JXc">
-                                                                    <rect key="frame" x="0.0" y="11" width="273" height="13.5"/>
+                                                                    <rect key="frame" x="0.0" y="11" width="49" height="13.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <color key="textColor" name="titleColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -2089,7 +2100,7 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                                                 <constraint firstItem="uxs-SK-JXc" firstAttribute="leading" secondItem="dOC-sv-3Mq" secondAttribute="leading" id="Ru2-ff-wSY"/>
                                                                 <constraint firstItem="m2r-7L-Wle" firstAttribute="leading" secondItem="dOC-sv-3Mq" secondAttribute="leading" id="ay5-hK-Y8v"/>
                                                                 <constraint firstItem="m2r-7L-Wle" firstAttribute="top" secondItem="uxs-SK-JXc" secondAttribute="bottom" constant="4" id="dUJ-VM-N7d"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="uxs-SK-JXc" secondAttribute="trailing" id="iYw-bQ-S9d"/>
+                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uxs-SK-JXc" secondAttribute="trailing" constant="20" symbolic="YES" id="jPk-6i-uVD"/>
                                                                 <constraint firstAttribute="trailing" secondItem="m2r-7L-Wle" secondAttribute="trailing" id="xj6-dh-Ga6"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
@@ -2133,7 +2144,7 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D75-yu-FR2">
                                                 <rect key="frame" x="8" y="87" width="288" height="33"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">Bairro Escola Agrícola, mas também recebemos acolhimentos outros bairros, encaminhados pelo Juizado da Infância e Adolescência. </string>
+                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2213,7 +2224,7 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                         <rect key="frame" x="8" y="764" width="304" height="256"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doações" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIu-9I-agA">
-                                                <rect key="frame" x="8" y="8" width="288" height="20.5"/>
+                                                <rect key="frame" x="8" y="8" width="255" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" name="titleColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2246,12 +2257,25 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                                     <outlet property="delegate" destination="9QF-Oo-w86" id="4Hv-cK-58T"/>
                                                 </connections>
                                             </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Iu-Cb-UUY">
+                                                <rect key="frame" x="271" y="8" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="lvs-0x-mHW"/>
+                                                    <constraint firstAttribute="width" constant="25" id="vRw-5a-1VE"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="collapse"/>
+                                                <connections>
+                                                    <action selector="toggleDonationVisibility:" destination="9QF-Oo-w86" eventType="touchUpInside" id="PdB-pZ-qhT"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="6Iu-Cb-UUY" firstAttribute="top" secondItem="g3k-Jd-f9u" secondAttribute="top" constant="8" id="4bI-Uq-Egn"/>
                                             <constraint firstItem="ZcE-C8-Ks7" firstAttribute="top" secondItem="FIu-9I-agA" secondAttribute="bottom" constant="8" id="8OB-lA-ZfU"/>
                                             <constraint firstAttribute="bottom" secondItem="ZcE-C8-Ks7" secondAttribute="bottom" constant="8" id="Ef9-gj-LyQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="FIu-9I-agA" secondAttribute="trailing" constant="8" id="ipr-VF-VNX"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Iu-Cb-UUY" secondAttribute="trailing" constant="8" id="HfF-xG-VtF"/>
+                                            <constraint firstItem="6Iu-Cb-UUY" firstAttribute="leading" secondItem="FIu-9I-agA" secondAttribute="trailing" constant="8" id="XOe-4j-lkb"/>
                                             <constraint firstItem="FIu-9I-agA" firstAttribute="top" secondItem="g3k-Jd-f9u" secondAttribute="top" constant="8" id="iug-oS-0k2"/>
                                             <constraint firstItem="FIu-9I-agA" firstAttribute="leading" secondItem="g3k-Jd-f9u" secondAttribute="leading" constant="8" id="pcg-wE-19f"/>
                                             <constraint firstAttribute="trailing" secondItem="ZcE-C8-Ks7" secondAttribute="trailing" constant="8" id="sWf-dT-klk"/>
@@ -2263,7 +2287,7 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                         <rect key="frame" x="8" y="1028" width="304" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precisamos de voluntários" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdm-I8-ed5">
-                                                <rect key="frame" x="8" y="8" width="288" height="20.5"/>
+                                                <rect key="frame" x="8" y="8" width="255" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" name="titleColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2271,22 +2295,33 @@ O setor administrativo das 07:00h às 12:00h e das 13:00h às 17:00h de segunda 
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xjX-Rg-jLF">
                                                 <rect key="frame" x="8" y="36.5" width="288" height="83.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">Auxiliar nos eventos que a ABAM realiza e participa como Feira da Amizade, Feijoada da ABAM, no Pedágio.
-Auxiliar nas atividades escolares, como matemática, química, alfabetização.
-Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudióloga, psicóloga, psiquiatra, ortodondista, sendo atendimento fora da ABAM.</string>
+                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rH4-Fy-8vE">
+                                                <rect key="frame" x="271" y="8" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="BbQ-ie-euH"/>
+                                                    <constraint firstAttribute="width" constant="25" id="Q0q-pO-jh7"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="collapse"/>
+                                                <connections>
+                                                    <action selector="toggleVolunteersVisibility:" destination="9QF-Oo-w86" eventType="touchUpInside" id="TzI-sY-Ttn"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="xjX-Rg-jLF" firstAttribute="top" secondItem="Sdm-I8-ed5" secondAttribute="bottom" constant="8" id="15s-Yg-ki9"/>
+                                            <constraint firstAttribute="trailing" secondItem="rH4-Fy-8vE" secondAttribute="trailing" constant="8" id="1Hv-4m-IOg"/>
                                             <constraint firstItem="xjX-Rg-jLF" firstAttribute="leading" secondItem="igq-N0-lOQ" secondAttribute="leading" constant="8" id="6ZN-bc-UdT"/>
                                             <constraint firstItem="Sdm-I8-ed5" firstAttribute="top" secondItem="igq-N0-lOQ" secondAttribute="top" constant="8" id="MCP-LX-R1j"/>
+                                            <constraint firstItem="rH4-Fy-8vE" firstAttribute="leading" secondItem="Sdm-I8-ed5" secondAttribute="trailing" constant="8" id="NMJ-0S-yq5"/>
                                             <constraint firstAttribute="height" constant="128" id="VT3-KZ-AeU"/>
+                                            <constraint firstItem="rH4-Fy-8vE" firstAttribute="top" secondItem="igq-N0-lOQ" secondAttribute="top" constant="8" id="brH-Ws-Xfx"/>
                                             <constraint firstAttribute="bottom" secondItem="xjX-Rg-jLF" secondAttribute="bottom" constant="8" id="eJD-WQ-hxA"/>
-                                            <constraint firstAttribute="trailing" secondItem="Sdm-I8-ed5" secondAttribute="trailing" constant="8" id="eTo-z9-q5f"/>
                                             <constraint firstItem="Sdm-I8-ed5" firstAttribute="leading" secondItem="igq-N0-lOQ" secondAttribute="leading" constant="8" id="ngl-XW-nLc"/>
                                             <constraint firstAttribute="trailing" secondItem="xjX-Rg-jLF" secondAttribute="trailing" constant="8" id="tbt-n8-qgp"/>
                                         </constraints>
@@ -2295,7 +2330,7 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                                         <rect key="frame" x="8" y="1164" width="304" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotos da instituição" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPV-5o-b0e">
-                                                <rect key="frame" x="8" y="8" width="288" height="20.5"/>
+                                                <rect key="frame" x="8" y="8" width="255" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" name="titleColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2345,18 +2380,31 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                                                 <color key="pageIndicatorTintColor" name="titleColor"/>
                                                 <color key="currentPageIndicatorTintColor" name="descColor"/>
                                             </pageControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAG-bR-EQO">
+                                                <rect key="frame" x="271" y="8" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="4gC-6L-eGj"/>
+                                                    <constraint firstAttribute="height" constant="25" id="QiK-aP-Upj"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="collapse"/>
+                                                <connections>
+                                                    <action selector="togglePicturesVisibility:" destination="9QF-Oo-w86" eventType="touchUpInside" id="QDz-mj-PtX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="VoR-cW-Byc" secondAttribute="bottom" id="59b-y8-k6S"/>
                                             <constraint firstAttribute="trailing" secondItem="XAz-a9-M6P" secondAttribute="trailing" id="GGX-Wt-uFF"/>
                                             <constraint firstItem="OPV-5o-b0e" firstAttribute="leading" secondItem="wAH-dV-XdX" secondAttribute="leading" constant="8" id="Hwj-bl-otb"/>
-                                            <constraint firstAttribute="trailing" secondItem="OPV-5o-b0e" secondAttribute="trailing" constant="8" id="PkP-X7-ZXX"/>
                                             <constraint firstItem="XAz-a9-M6P" firstAttribute="leading" secondItem="wAH-dV-XdX" secondAttribute="leading" id="U9E-QT-u47"/>
+                                            <constraint firstItem="cAG-bR-EQO" firstAttribute="leading" secondItem="OPV-5o-b0e" secondAttribute="trailing" constant="8" id="Vlt-2X-kZ1"/>
                                             <constraint firstItem="XAz-a9-M6P" firstAttribute="top" secondItem="OPV-5o-b0e" secondAttribute="bottom" constant="8" id="hf5-ML-9q3"/>
                                             <constraint firstItem="VoR-cW-Byc" firstAttribute="top" secondItem="XAz-a9-M6P" secondAttribute="bottom" id="lQU-dC-JmF"/>
+                                            <constraint firstItem="cAG-bR-EQO" firstAttribute="top" secondItem="wAH-dV-XdX" secondAttribute="top" constant="8" id="lhZ-cH-y29"/>
                                             <constraint firstAttribute="height" constant="230" id="mG6-3f-IXB"/>
                                             <constraint firstItem="OPV-5o-b0e" firstAttribute="top" secondItem="wAH-dV-XdX" secondAttribute="top" constant="8" id="t4U-46-vGV"/>
+                                            <constraint firstAttribute="trailing" secondItem="cAG-bR-EQO" secondAttribute="trailing" constant="8" id="yxe-F6-Nwd"/>
                                             <constraint firstItem="VoR-cW-Byc" firstAttribute="centerX" secondItem="wAH-dV-XdX" secondAttribute="centerX" id="yyE-G8-oRf"/>
                                         </constraints>
                                     </view>
@@ -2402,13 +2450,22 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
                     </view>
                     <size key="freeformSize" width="320" height="1500"/>
                     <connections>
+                        <outlet property="btToggleDonation" destination="6Iu-Cb-UUY" id="04S-zi-Oc6"/>
+                        <outlet property="btTogglePictures" destination="cAG-bR-EQO" id="3Jn-Zs-qul"/>
+                        <outlet property="btToggleVolunteers" destination="rH4-Fy-8vE" id="Jpu-yK-h1r"/>
+                        <outlet property="btToggleWorkingHours" destination="gLx-Lv-lFq" id="9Ka-Qa-4Uy"/>
+                        <outlet property="cvPictures" destination="XAz-a9-M6P" id="ivC-Mw-PDn"/>
                         <outlet property="ivClose" destination="Ih8-hr-8Ke" id="Ih8-jf-PNR"/>
                         <outlet property="lbAddress" destination="HBo-T0-wgv" id="w31-tT-cP5"/>
+                        <outlet property="lbDonation" destination="FIu-9I-agA" id="G1D-hy-swp"/>
                         <outlet property="lbEmail" destination="ah0-7c-ixw" id="0aU-nG-LHk"/>
                         <outlet property="lbPhone" destination="67Z-D3-D16" id="aTF-kZ-8oo"/>
+                        <outlet property="lbPictures" destination="OPV-5o-b0e" id="Cgg-z9-G39"/>
                         <outlet property="lbResponsible" destination="nmn-t2-VVx" id="DIn-Xn-st6"/>
                         <outlet property="lbSubtitle" destination="adM-eg-Ugy" id="9wA-tr-4Bq"/>
                         <outlet property="lbTitle" destination="iXE-BV-Zyj" id="LEc-p9-19O"/>
+                        <outlet property="lbVolunteers" destination="Sdm-I8-ed5" id="sZq-sx-E68"/>
+                        <outlet property="lbWorkingHours" destination="904-8x-KDQ" id="oWX-HQ-zQZ"/>
                         <outlet property="lcAboutHeight" destination="Wnv-M3-8J0" id="wNe-u9-TGy"/>
                         <outlet property="lcDonationsHeight" destination="zI3-au-CsL" id="H62-LD-5rS"/>
                         <outlet property="lcPicturesHeight" destination="mG6-3f-IXB" id="7im-62-HOV"/>
@@ -2612,6 +2669,7 @@ Profissionais para dar atendimento em psicopedagogia, oftalmologista, fonoaudió
         <image name="bridge" width="1081" height="196"/>
         <image name="checkmark" width="384" height="384"/>
         <image name="close" width="384" height="384"/>
+        <image name="collapse" width="384" height="384"/>
         <image name="image" width="900" height="600"/>
         <image name="institutions" width="30" height="30"/>
         <image name="mail" width="20" height="20"/>
