@@ -58,8 +58,7 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var lbAddress: UILabel!
-    
-    
+        
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
     
@@ -298,7 +297,7 @@ class InstitutionViewController: UIViewController {
             lcVolunteersHeight.constant = 0
         }
         
-        UIView.animate(withDuration: 1.0) {
+        UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
         }
     }

@@ -23,6 +23,7 @@ class MatchViewController: UIViewController {
         ivProfile.isUserInteractionEnabled = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: "showInstitution"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showEvent), name: Notification.Name(rawValue: "showEvent"), object: nil)
         
         peekImplementation = CustomPeekCollectionView()
         
@@ -68,14 +69,24 @@ class MatchViewController: UIViewController {
         institutionInformationViewController.currentInstitution = i.getAllInstitutions().first
         
         present(institutionInformationViewController, animated: true, completion: nil)
-    }        
+    }
+    
+    @objc func showEvent() {
+        let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        
+        present(eventViewController, animated: true, completion: nil)
+    }
 
 }
 
 class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: nil)
+        if collectionView.tag == 0 {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: nil)
+        } else {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "showEvent"), object: nil)
+        }
     }
     
 }

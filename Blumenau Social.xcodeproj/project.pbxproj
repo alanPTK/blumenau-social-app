@@ -41,6 +41,7 @@
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
 		DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */; };
 		DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */; };
+		DB9F31262200DA2E00B3E7D8 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */; };
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
 		DBC6D71421FB36D600147097 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71321FB36D600147097 /* Constants.swift */; };
 		DBC93C7521FA8E5300056F34 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */; };
@@ -86,6 +87,7 @@
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
+		DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		DBC6D71321FB36D600147097 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
 				DB17EAD621F91293005E2958 /* MyCollectionViewLayout.swift */,
 				DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */,
+				DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */,
 				DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */,
 				DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */,
+				DB9F31262200DA2E00B3E7D8 /* EventViewController.swift in Sources */,
 				DB17EAD721F91293005E2958 /* MyCollectionViewLayout.swift in Sources */,
 				DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */,
 				DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */,
