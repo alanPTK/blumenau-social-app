@@ -40,7 +40,7 @@ class MatchViewController: UIViewController {
             lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), Preferences.shared.userName)
         }
         
-        lbMoreHighlightedInstitutions.text = NSLocalizedString("Institutions close to you", comment: "")
+        lbMoreHighlightedInstitutions.text = NSLocalizedString("Events from the institutions that we think you would like", comment: "")
         
         let createProfileTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfile))
         lbInfo.addGestureRecognizer(createProfileTapGesture)

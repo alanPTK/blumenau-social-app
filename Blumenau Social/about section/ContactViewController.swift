@@ -13,6 +13,8 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tvText.layer.cornerRadius = 8
     }
 
     @IBAction func sendMail(_ sender: Any) {
@@ -21,11 +23,24 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
             let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
             
             alertController.addAction(okAction)
+            
             present(alertController, animated: true, completion: nil)
         } else {
             var body = ""
             guard let name = tfName.text, let email = tfEmail.text, let phone = tfPhone.text else {
                 return
+            }
+            
+            if name.isEmpty {
+                showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""))
+            }
+            
+            if email.isEmpty {
+                showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""))
+            }
+            
+            if phone.isEmpty {
+                showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
             }
             
             body.append(name)
@@ -73,5 +88,13 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
             let webURL = URL(string: "https://instagram.com/blumenausocial")!
             application.open(webURL)
         }
+    }
+    
+    func showAlertControllerWithMessage(message: String) {
+        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
