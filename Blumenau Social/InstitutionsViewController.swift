@@ -2,10 +2,11 @@ import UIKit
 import JGProgressHUD
 import RealmSwift
 
-class InstitutionsViewController: UIViewController {
+class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cvInstitutions: UICollectionView!
     @IBOutlet weak var ivSearch: UIImageView!
+    @IBOutlet weak var tfSearchInstitutes: UITextField!
     
     var synchronizationService = SynchronizationService()
     let institutionRepository = InstitutionRepository()
@@ -18,6 +19,9 @@ class InstitutionsViewController: UIViewController {
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
+        
+        tfSearchInstitutes.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search institutions", comment: ""), attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.5)])
+        tfSearchInstitutes.delegate = self
         
         if !Preferences.shared.institutionsAreSynchronized || !Preferences.shared.filtersAreSynchronized {
             hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
@@ -66,6 +70,12 @@ class InstitutionsViewController: UIViewController {
         }
         
         institutions = Array(institutionRepository.getAllInstitutions())
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        
+        return true
     }
     
     func reloadInstitutions() {

@@ -10,11 +10,20 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var btSend: UIButton!
     @IBOutlet weak var btInstagram: UIButton!
     @IBOutlet weak var btFacebook: UIButton!
+    @IBOutlet weak var lbDeveloperName: UILabel!
+    @IBOutlet weak var lbArtistName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tvText.layer.cornerRadius = 8
+        
+        tfName.placeholder = NSLocalizedString("Your name", comment: "")
+        tfPhone.placeholder = NSLocalizedString("Your phone", comment: "")
+        tfEmail.placeholder = NSLocalizedString("Your email", comment: "")
+        
+        lbDeveloperName.text = NSLocalizedString("Developer", comment: "")
+        lbArtistName.text = NSLocalizedString("Artist", comment: "")
     }
 
     @IBAction func sendMail(_ sender: Any) {
@@ -87,6 +96,27 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         } else {
             let webURL = URL(string: "https://instagram.com/blumenausocial")!
             application.open(webURL)
+        }
+    }
+    
+    @IBAction func goToLinkedin(_ sender: UIButton) {
+        var appURL: URL?
+        var webURL: URL?
+        
+        if sender.tag == 0 {
+            appURL = URL(string: "linkedin://profile/alan-filipe-cardozo-fabeni-102502142")!
+            webURL = URL(string: "https://www.linkedin.com/in/alan-filipe-cardozo-fabeni-102502142/")!
+        } else {
+            appURL = URL(string: "linkedin://profile/thiago-krepsky-bennertz-785a67162")!
+            webURL = URL(string: "https://www.linkedin.com/in/thiago-krepsky-bennertz-785a67162/")!
+        }
+        
+        let application = UIApplication.shared
+        
+        if application.canOpenURL(appURL!) {
+            application.open(appURL!)
+        } else {
+            application.open(webURL!)
         }
     }
     
