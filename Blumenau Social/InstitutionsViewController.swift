@@ -22,6 +22,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         
         tfSearchInstitutes.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search institutions", comment: ""), attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.5)])
         tfSearchInstitutes.delegate = self
+        tfSearchInstitutes.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         
         if !Preferences.shared.institutionsAreSynchronized || !Preferences.shared.filtersAreSynchronized {
             hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
@@ -74,16 +75,14 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
                         print(volunteer.name)
                     }
                     
-                    self.hud.dismiss(afterDelay: 3.0)
+                    DispatchQueue.main.async {
+                        self.hud.dismiss(afterDelay: 1.0)
+                    }
                     Preferences.shared.filtersAreSynchronized = true
                 }
             }
         }
         
-        institutions = Array(institutionRepository.getAllInstitutions())
-    }
-    
-    @objc func reload() {
         institutions = Array(institutionRepository.getAllInstitutions())
     }
     
@@ -93,7 +92,20 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    func reloadInstitutions() {
+    @objc func textDidChange(textField: UITextField) {
+        if (textField.text?.isEmpty)! {
+            institutions = Array(institutionRepository.getAllInstitutions())
+            
+            view.endEditing(true)
+        } else {
+            institutions = Array(institutionRepository.searchInstitutions(text: textField.text!))
+        }
+        
+        cvInstitutions.reloadData()
+    }
+    
+    @IBAction func cleanFilters(_ sender: Any) {
+        institutions = Array(institutionRepository.getAllInstitutions())
         cvInstitutions.reloadData()
     }
     

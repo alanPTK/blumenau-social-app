@@ -2972,20 +2972,33 @@
                                         </constraints>
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Buscar instituições" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-r8-XZa">
-                                        <rect key="frame" x="44" y="13.5" width="268" height="17"/>
+                                        <rect key="frame" x="44" y="13.5" width="232" height="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSK-V8-NtT">
+                                        <rect key="frame" x="284" y="8" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="5e8-1H-ifF"/>
+                                            <constraint firstAttribute="width" constant="28" id="N8t-dd-ThZ"/>
+                                        </constraints>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="cleanFilters:" destination="etH-2U-Agk" eventType="touchUpInside" id="JDV-4h-fPO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="titleColor"/>
                                 <constraints>
                                     <constraint firstItem="e8b-r8-XZa" firstAttribute="leading" secondItem="XZM-6E-zAS" secondAttribute="trailing" constant="8" id="6RX-o8-hWc"/>
+                                    <constraint firstAttribute="trailing" secondItem="OSK-V8-NtT" secondAttribute="trailing" constant="8" id="FvJ-3G-llq"/>
                                     <constraint firstItem="XZM-6E-zAS" firstAttribute="top" secondItem="2Gg-2l-puZ" secondAttribute="top" constant="8" id="RPq-Au-L5M"/>
+                                    <constraint firstItem="OSK-V8-NtT" firstAttribute="top" secondItem="2Gg-2l-puZ" secondAttribute="top" constant="8" id="Xvg-do-t2f"/>
                                     <constraint firstItem="XZM-6E-zAS" firstAttribute="leading" secondItem="2Gg-2l-puZ" secondAttribute="leading" constant="8" id="bBX-PM-IXl"/>
+                                    <constraint firstItem="OSK-V8-NtT" firstAttribute="leading" secondItem="e8b-r8-XZa" secondAttribute="trailing" constant="8" id="bSg-Qb-ATz"/>
                                     <constraint firstAttribute="height" constant="84" id="iCy-DF-pak"/>
                                     <constraint firstItem="e8b-r8-XZa" firstAttribute="centerY" secondItem="XZM-6E-zAS" secondAttribute="centerY" id="sCo-Td-dq2"/>
-                                    <constraint firstAttribute="trailing" secondItem="e8b-r8-XZa" secondAttribute="trailing" constant="8" id="snF-iY-yV8"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hmm-VJ-Jeq">

@@ -36,25 +36,25 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
         
         var slides: [UIView] = []
         
-        informationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InformationViewController") as? InformationViewController
+        informationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.INFORMATION_VIEW_STORYBOARD_ID) as? InformationViewController
         
         if let infoView = informationViewController?.view {
             slides.append(infoView)
             informationViewController?.tvAbout.text = NSLocalizedString("about", comment: "")
         }
                 
-        missionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MissionViewController") as? MissionViewController
+        missionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.MISSION_VIEW_STORYBOARD_ID) as? MissionViewController
         if let missionView = missionViewController?.view {
             slides.append(missionView)
         }
         
-        actionsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ActionsViewController") as? ActionsViewController
+        actionsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.ACTIONS_VIEW_STORYBOARD_ID) as? ActionsViewController
         if let actionsView = actionsViewController?.view {
             slides.append(actionsView)
             actionsViewController?.tvAbout.text = NSLocalizedString("us", comment: "")
         }
         
-        contactViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContactViewController") as? ContactViewController
+        contactViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.CONTACT_VIEW_STORYBOARD_ID) as? ContactViewController
         if let contactView = contactViewController?.view {
             slides.append(contactView)
         }

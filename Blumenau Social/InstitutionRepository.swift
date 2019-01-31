@@ -163,5 +163,11 @@ class InstitutionRepository: NSObject {
         
         return realm.objects(Institution.self).filter(fullPredicate)
     }
+    
+    func searchInstitutions(text: String) -> Results<Institution> {
+        let predicate = NSPredicate(format: "title contains [c] %@", text)
+        
+        return realm.objects(Institution.self).filter(predicate)
+    }
 
 }

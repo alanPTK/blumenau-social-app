@@ -59,7 +59,7 @@ class MatchViewController: UIViewController {
     }
     
     @objc func showProfile() {
-        let initialProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController")
+        let initialProfileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID)
         
         let navigationController = UINavigationController(rootViewController: initialProfileViewController)
         present(navigationController, animated: true, completion: nil)                
@@ -74,14 +74,14 @@ class MatchViewController: UIViewController {
     @objc func showInstitution() {
         let i = InstitutionRepository()
         
-        let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
+        let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         institutionInformationViewController.currentInstitution = i.getAllInstitutions().first
         
         present(institutionInformationViewController, animated: true, completion: nil)
     }
     
     @objc func showEvent() {
-        let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EventViewController") as! EventViewController
+        let eventViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController                
         
         present(eventViewController, animated: true, completion: nil)
     }
@@ -116,9 +116,8 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionCollectionViewCell
+        let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
         let currentInstitution = matchingInstitutions[indexPath.row]
-        
         institutionCell.lbInstitutionName.text = currentInstitution.title
         institutionCell.ivInstitution.image = UIImage(named: "01")
         
