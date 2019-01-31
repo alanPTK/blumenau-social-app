@@ -7,7 +7,7 @@ class FullImageViewController: UIViewController {
     @IBOutlet weak var ivClose: UIImageView!
     
     let actionsImages: [UIImage] = [UIImage(named: "01")!, UIImage(named: "02")!, UIImage(named: "03")!, UIImage(named: "04")!, UIImage(named: "05")!]
-    var institutionPictures: List<InstitutionPicture>?
+    var institutionPictures: List<String>?
     var showInstitutionPictures: Bool = false
     
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ extension FullImageViewController: UICollectionViewDataSource, UICollectionViewD
         if showInstitutionPictures {
             if let pictures = institutionPictures {
                 let currentPicture = pictures[indexPath.row]
-                if let pictureUrl = URL(string: currentPicture.link) {
+                if let pictureUrl = URL(string: currentPicture) {
                     Nuke.loadImage(with: pictureUrl, into: actionImageCell.ivAction)
                 }
             }

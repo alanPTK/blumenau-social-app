@@ -11,37 +11,15 @@ class Institution: Object {
     @objc dynamic var workingHours: String = ""
     @objc dynamic var scope: String = ""
     @objc dynamic var volunteers: String = ""
-    var donations = List<InstitutionDonation>()
+    @objc dynamic var neighborhood: Int = 0
+    var days = List<InstitutionWorkingDay>()
+    var periods = List<InstitutionWorkingPeriod>()
+    var donations = List<String>()
+    var pictures = List<String>()
     var causes = List<InstitutionCause>()
-    var pictures = List<InstitutionPicture>()
+    var donationType = List<InstitutionDonationType>()
+    var volunteerType = List<InstitutionVolunteerType>()
     var about = List<InstitutionAbout>()
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-class InstitutionDonation: Object {
-    @objc dynamic var id: Int = 0
-    @objc dynamic var title: String = ""
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-class InstitutionCause: Object {
-    @objc dynamic var id: Int = 0
-    @objc dynamic var title: String = ""
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-class InstitutionPicture: Object {
-    @objc dynamic var id: Int = 0
-    @objc dynamic var link: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -55,5 +33,50 @@ class InstitutionAbout: Object {
     
     override static func primaryKey() -> String? {
         return "id"
+    }
+}
+
+class InstitutionCause: Object {
+    @objc dynamic var internalId: String = ""
+    @objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "internalId"
+    }
+}
+
+class InstitutionVolunteerType: Object {
+    @objc dynamic var internalId: String = ""
+    @objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "internalId"
+    }
+}
+
+class InstitutionDonationType: Object {
+    @objc dynamic var internalId: String = ""
+    @objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "internalId"
+    }
+}
+
+class InstitutionWorkingDay: Object {
+    @objc dynamic var internalId: String = ""
+    @objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "internalId"
+    }
+}
+
+class InstitutionWorkingPeriod: Object {
+    @objc dynamic var internalId: String = ""
+    @objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "internalId"
     }
 }

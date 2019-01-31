@@ -354,7 +354,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             
             cell.textLabel?.textColor = .white
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.textLabel?.text = currentDonation?.title
+            cell.textLabel?.text = currentDonation
             
             cell.textLabel?.backgroundColor = .clear
             cell.textLabel?.textAlignment = .center
@@ -413,7 +413,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         if tableView.tag == 0 {
             let currentDonation = currentInstitution?.donations[indexPath.section]
             
-            let alertController = UIAlertController(title: "", message: currentDonation?.title, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "", message: currentDonation, preferredStyle: .alert)
             let okAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .destructive, handler: nil)
             alertController.addAction(okAction)
             
@@ -444,14 +444,16 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
             let currentPicture = currentInstitution?.pictures[indexPath.row]
             let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ActionImageCollectionViewCell
             
-            Nuke.loadImage(with: URL(string: (currentPicture?.link)!)!, into: imageCell.ivAction)                        
+            if let pictureURL = URL(string: currentPicture!) {
+                Nuke.loadImage(with: pictureURL, into: imageCell.ivAction)
+            }
             
             return imageCell
         } else {
             let currentCause = currentInstitution?.causes[indexPath.row]
             
             let causeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "causeCell", for: indexPath) as! CauseCollectionViewCell
-            causeCell.lbCause.text = currentCause?.title
+            causeCell.lbCause.text = String(format: "%d", currentCause!)
             
             return causeCell
         }

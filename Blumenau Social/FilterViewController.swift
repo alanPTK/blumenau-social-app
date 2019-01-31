@@ -6,6 +6,14 @@ struct FilterOption {
     var id: Int = 0
 }
 
+extension FilterOption: Equatable {}
+
+func ==(lhs: FilterOption, rhs: FilterOption) -> Bool {
+    let areEqual = lhs.id == rhs.id
+    
+    return areEqual
+}
+
 class FilterViewController: UIViewController {
     
     @IBOutlet weak var btShowInstitutions: UIButton!
@@ -18,6 +26,13 @@ class FilterViewController: UIViewController {
     var donations: [FilterOption] = []
     var volunteers: [FilterOption] = []
     var neighborhoods: [FilterOption] = []
+    var selectedAreas: [FilterOption] = []
+    var selectedDonations: [FilterOption] = []
+    var selectedVolunteers: [FilterOption] = []
+    var selectedNeighborhoods: [FilterOption] = []
+    var filterOptionsViewController: FilterOptionsViewController?
+    
+    var onDone:((_ selectedNeighborhoods: [FilterOption], _ selectedVolunteers: [FilterOption], _ selectedDonations: [FilterOption], _ selectedAreas: [FilterOption]) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +57,31 @@ class FilterViewController: UIViewController {
     }
 
     @IBAction func showInstitutions(_ sender: Any) {
+        onDone?(selectedNeighborhoods, selectedVolunteers, selectedDonations, selectedAreas)
+        
         dismiss(animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let filterOptionsViewController = segue.destination as! FilterOptionsViewController
+        filterOptionsViewController = segue.destination as? FilterOptionsViewController
         
-        filterOptionsViewController.filterOptions = filterOptions
-        filterOptionsViewController.selectedOption = selectedOption
+        filterOptionsViewController?.filterOptions = filterOptions
+        filterOptionsViewController?.selectedOption = selectedOption
+        
+        filterOptionsViewController?.onDone = {(selectedFilterOptions: [FilterOption], selectedOption: Int) -> () in
+            switch selectedOption {
+                case 0:
+                    self.selectedNeighborhoods = selectedFilterOptions
+                case 1:
+                    self.selectedAreas = selectedFilterOptions
+                case 2:
+                    self.selectedDonations = selectedFilterOptions
+                case 3:
+                    self.selectedVolunteers = selectedFilterOptions
+                default:
+                    print("")
+            }
+        }
     }
 }
 

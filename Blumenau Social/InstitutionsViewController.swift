@@ -14,7 +14,9 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
-        super.viewDidLoad()                
+        super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reload"), object: nil)
         
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
@@ -31,8 +33,19 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         if !Preferences.shared.institutionsAreSynchronized {
             synchronizationService.synchronizeInstitutions { (result) in
                 if result {
-                    self.hud.dismiss(afterDelay: 3.0)
+                    let i = InstitutionRepository()
+                    for ix in i.getAllInstitutions() {
+                        for d in ix.days {
+                            print(d)
+                        }
+                    }
                     Preferences.shared.institutionsAreSynchronized = true
+                    
+                    DispatchQueue.main.async {
+                        self.hud.dismiss(afterDelay: 1.0)
+                        self.institutions = Array(self.institutionRepository.getAllInstitutions())
+                        self.cvInstitutions.reloadData()
+                    }
                 }
             }
         }
@@ -65,10 +78,21 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
                     
                     self.hud.dismiss(afterDelay: 3.0)
                     Preferences.shared.filtersAreSynchronized = true
+                    
+                    
+                    //NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
                 }
             }
         }
         
+        institutions = Array(institutionRepository.getAllInstitutions())
+//        institutions = Array(institutionRepository.searchInstitutions(neighborhoods: [1], causes: [1], donationType: [1], volunteerType: [1], days: [1], periods: [1]))
+//        for i in institutions {
+//            print(i.title)
+//        }
+    }
+    
+    @objc func reload() {
         institutions = Array(institutionRepository.getAllInstitutions())
     }
     
@@ -85,6 +109,17 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     @objc func searchInstitutions() {
         let filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
         present(filterViewController, animated: true, completion: nil)
+        
+        filterViewController.onDone = {(selectedNeighborhoods: [FilterOption], selectedVolunteers: [FilterOption], selectedDonations: [FilterOption], selectedAreas: [FilterOption]) -> () in                        
+            
+            let neighborhoodsToFilter = selectedNeighborhoods.map{ $0.id }
+            let volunteersToFilter = selectedVolunteers.map{ $0.id }
+            let donationsToFilter = selectedDonations.map{ $0.id }
+            let areasToFilter = selectedAreas.map{ $0.id }
+            
+            self.institutions = Array(self.institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [1], periods: [1]))
+            self.cvInstitutions.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

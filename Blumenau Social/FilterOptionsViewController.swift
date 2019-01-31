@@ -9,6 +9,9 @@ class FilterOptionsViewController: UIViewController {
     @IBOutlet weak var cvFilterOptions: UICollectionView!
     var filterOptions: [FilterOption] = []
     var selectedOption: Int = 0
+    var selectedFiltersOptions: [FilterOption] = []
+    
+    var onDone:((_ selectedFilterOptions: [FilterOption], _ selectedOption: Int) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,8 @@ class FilterOptionsViewController: UIViewController {
     }
     
     @IBAction func finishSelection(_ sender: Any) {
+        onDone?(selectedFiltersOptions, selectedOption)
+        
         dismiss(animated: true, completion: nil)
     }
 }
@@ -73,6 +78,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
+        let selectedFilterOption = filterOptions[indexPath.row]
         
         switch selectedOption {
             case 0:
@@ -88,8 +94,18 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         }
         
         if selectedCell.alpha <= CGFloat(0.5) {
+            let index = selectedFiltersOptions.firstIndex(of: selectedFilterOption)
+            if index == nil {
+                selectedFiltersOptions.append(selectedFilterOption)
+            }
+            
             selectedCell.alpha = 1.0
         } else {
+            let index = selectedFiltersOptions.firstIndex(of: selectedFilterOption)
+            if index != nil {
+                selectedFiltersOptions.remove(at: index!)
+            }
+            
             selectedCell.alpha = 0.5
         }
     }

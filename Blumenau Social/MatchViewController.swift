@@ -14,6 +14,8 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var lbInfo: UILabel!
     
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
+    var matchingInstitutions: [Institution] = []
+    let institutionRepository = InstitutionRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()                
@@ -38,7 +40,9 @@ class MatchViewController: UIViewController {
         lbInfo.isUserInteractionEnabled = true
         
         if !Preferences.shared.userName.isEmpty {
-            lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), Preferences.shared.userName)
+            let firstNameIndex = Preferences.shared.userName.firstIndex(of: " ")
+            let firstName = Preferences.shared.userName.prefix(upTo: firstNameIndex!)
+            lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), String(firstName))
         }
         
         lbMoreHighlightedInstitutions.text = NSLocalizedString("Events from the institutions that we think you would like", comment: "")
@@ -46,7 +50,12 @@ class MatchViewController: UIViewController {
         let createProfileTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfile))
         lbInfo.addGestureRecognizer(createProfileTapGesture)
         
-        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")        
+        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")
+        
+        print(Preferences.shared.userNeighborhood)
+        print(Preferences.shared.userInterests!)
+        
+        matchingInstitutions = Array(institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests!, donationType: [], volunteerType: [], days: [], periods: []))
     }
     
     @objc func showProfile() {
@@ -96,7 +105,7 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if Preferences.shared.profileIsCreated {
-            return 10
+            return matchingInstitutions.count
         }
         
         return 0
@@ -108,7 +117,9 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionCollectionViewCell
-                
+        let currentInstitution = matchingInstitutions[indexPath.row]
+        
+        institutionCell.lbInstitutionName.text = currentInstitution.title
         institutionCell.ivInstitution.image = UIImage(named: "01")
         
         return institutionCell

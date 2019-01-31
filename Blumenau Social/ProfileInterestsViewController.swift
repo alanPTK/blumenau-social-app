@@ -91,7 +91,9 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
             selectedCell.alpha = 0.5
             
             let index = selectedAreas.firstIndex(of: selectedArea)
-            selectedAreas.remove(at: index!)
+            if (index != nil) {
+                selectedAreas.remove(at: index!)
+            }
             
             selectedCell.ivIcon.image = UIImage(named: "0x")
         }

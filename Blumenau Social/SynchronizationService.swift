@@ -40,11 +40,16 @@ struct InstitutionX: Decodable {
     let mail: String
     let responsible: String
     let working_hours: String
-    let donations: [DonationZ]
-    let causes: [CauseZ]
+    let days: [Int]
+    let periods: [Int]
+    let causes: [Int]
+    let donation_type: [Int]
+    let volunteer_type: [Int]
+    let neighborhood: Int
     let scope: String
+    let donations: [String]
     let volunteers: String
-    let pictures: [PictureZ]
+    let pictures: [String]
     let about: [AboutZ]
 }
 
@@ -55,7 +60,6 @@ struct DonationZ: Decodable {
 
 struct CauseZ: Decodable {
     let id: Int
-    let title: String
 }
 
 struct PictureZ: Decodable {
@@ -64,7 +68,6 @@ struct PictureZ: Decodable {
 }
 
 struct AboutZ: Decodable {
-    let id: Int
     let title: String
     let information: String
 }
@@ -88,7 +91,7 @@ class SynchronizationService: NSObject {
                     return
                 }
                 
-                institutionRepository.createInstitutionWithData(institutionsData: institutions)                                
+                institutionRepository.createInstitutionWithData(institutionsData: institutions)
                 
                 completion(true)
             }

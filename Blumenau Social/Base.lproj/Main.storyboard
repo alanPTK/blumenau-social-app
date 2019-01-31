@@ -88,6 +88,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="ivInstitution" destination="aX4-7p-n8h" id="e9N-br-grj"/>
+                                                    <outlet property="lbInstitutionName" destination="puU-La-onY" id="tEY-Lt-ecb"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -98,7 +99,7 @@
                                         <color key="textColor" name="descColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TFS-st-Hng">
+                                    <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TFS-st-Hng">
                                         <rect key="frame" x="8" y="293.5" width="296" height="200"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -141,6 +142,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="ivInstitution" destination="7Ol-RO-eNj" id="Vcz-zo-UUW"/>
+                                                    <outlet property="lbInstitutionName" destination="KQT-RJ-c42" id="SdC-uU-mjy"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

@@ -27,62 +27,80 @@ class InstitutionRepository: NSObject {
             institution.workingHours = institutionData.working_hours
             institution.scope = institutionData.scope
             institution.volunteers = institutionData.volunteers
+            institution.neighborhood = institutionData.neighborhood
             
-            for donationData in institutionData.donations {
-                let donation = InstitutionDonation()
-                
-                donation.id = institutionDonationNextID()
-                donation.title = donationData.title
-                
+            for donation in institutionData.donations {
                 institution.donations.append(donation)
-                saveDonation(donation)
             }
             
-            for causeData in institutionData.causes {
-                let cause = InstitutionCause()
-                
-                cause.id = institutionCauseNextID()
-                cause.title = causeData.title
-                
-                institution.causes.append(cause)
-                saveCause(cause)
-            }
-            
-            for pictureData in institutionData.pictures {
-                let picture = InstitutionPicture()
-                
-                picture.id = institutionPictureNextID()
-                picture.link = pictureData.link
-                
+            for picture in institutionData.pictures {
                 institution.pictures.append(picture)
-                savePicture(picture)
             }
             
+            for cause in institutionData.causes {
+                let institutionCause = InstitutionCause()
+                
+                institutionCause.internalId = UUID().uuidString
+                institutionCause.id = cause
+                
+                saveCause(institutionCause)
+                
+                institution.causes.append(institutionCause)
+            }
+
             for aboutData in institutionData.about {
                 let about = InstitutionAbout()
-                
+
                 about.id = institutionAboutNextID()
                 about.title = aboutData.title
                 about.information = aboutData.information
-                
+
                 institution.about.append(about)
                 saveAbout(about)
             }
             
+            for day in institutionData.days {
+                let institutionWorkingDay = InstitutionWorkingDay()
+                
+                institutionWorkingDay.internalId = UUID().uuidString
+                institutionWorkingDay.id = day
+                
+                institution.days.append(institutionWorkingDay)
+                saveWorkingDay(institutionWorkingDay)
+            }
+            
+            for period in institutionData.periods {
+                let institutionWorkingPeriod = InstitutionWorkingPeriod()
+                
+                institutionWorkingPeriod.internalId = UUID().uuidString
+                institutionWorkingPeriod.id = period
+                
+                institution.periods.append(institutionWorkingPeriod)
+                saveWorkingPeriod(institutionWorkingPeriod)
+            }
+            
+            for donationType in institutionData.donation_type {
+                let institutionDonationType = InstitutionDonationType()
+                
+                institutionDonationType.internalId = UUID().uuidString
+                institutionDonationType.id = donationType
+                
+                institution.donationType.append(institutionDonationType)
+                saveDonationType(institutionDonationType)
+            }
+            
+            for volunteerType in institutionData.volunteer_type {
+                let institutionVolunteerType = InstitutionVolunteerType()
+                
+                institutionVolunteerType.internalId = UUID().uuidString
+                institutionVolunteerType.id = volunteerType
+                
+                institution.volunteerType.append(institutionVolunteerType)
+                saveVolunteerType(institutionVolunteerType)
+            }
+            
             saveInstitution(institution)
         }
-    }
-    
-    func institutionDonationNextID() -> Int {
-        return (realm.objects(InstitutionDonation.self).max(ofProperty: "id") as Int? ?? 0) + 1
-    }
-    
-    func institutionCauseNextID() -> Int {
-        return (realm.objects(InstitutionCause.self).max(ofProperty: "id") as Int? ?? 0) + 1
-    }
-    
-    func institutionPictureNextID() -> Int {
-        return (realm.objects(InstitutionPicture.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
     
     func institutionAboutNextID() -> Int {
@@ -92,18 +110,6 @@ class InstitutionRepository: NSObject {
     func saveInstitution(_ institution: Institution) {
         try! realm.write {
             realm.add(institution, update: true)
-        }
-    }
-    
-    func saveDonation(_ donation: InstitutionDonation) {
-        try! realm.write {
-            realm.add(donation, update: true)
-        }
-    }
-    
-    func savePicture(_ picture: InstitutionPicture) {
-        try! realm.write {
-            realm.add(picture, update: true)
         }
     }
     
@@ -118,4 +124,44 @@ class InstitutionRepository: NSObject {
             realm.add(cause, update: true)
         }
     }
+    
+    func saveVolunteerType(_ volunteerType: InstitutionVolunteerType) {
+        try! realm.write {
+            realm.add(volunteerType, update: true)
+        }
+    }
+    
+    func saveDonationType(_ donationType: InstitutionDonationType) {
+        try! realm.write {
+            realm.add(donationType, update: true)
+        }
+    }
+    
+    func saveWorkingDay(_ workingDay: InstitutionWorkingDay) {
+        try! realm.write {
+            realm.add(workingDay, update: true)
+        }
+    }
+    
+    func saveWorkingPeriod(_ workingPeriod: InstitutionWorkingPeriod) {
+        try! realm.write {
+            realm.add(workingPeriod, update: true)
+        }
+    }
+    
+    func searchInstitutions(neighborhoods: [Int], causes: [Int], donationType: [Int], volunteerType: [Int], days: [Int], periods: [Int]) -> Results<Institution> {
+        let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
+        let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
+        let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
+        let volunteerPredicate = NSPredicate(format: "ANY volunteerType.id IN %@", volunteerType)
+        
+        //let daysPredicate = NSPredicate(format: "ANY %@", days)
+        //let periodsPredicate = NSPredicate(format: "ANY %@", periods)
+        //let workingTimePredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
+        
+        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate])
+        
+        return realm.objects(Institution.self).filter(fullPredicate)
+    }
+
 }
