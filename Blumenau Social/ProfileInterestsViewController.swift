@@ -32,7 +32,7 @@ class ProfileInterestsViewController: UIViewController {
 
     @IBAction func finishProfile(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_VIEW_STORYBOARD_ID)        
+        appDelegate.window?.rootViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_VIEW_STORYBOARD_ID)
                 
         let ids = selectedAreas.map { $0.id }
         
