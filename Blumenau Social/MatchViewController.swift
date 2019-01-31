@@ -118,6 +118,7 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
         let currentInstitution = matchingInstitutions[indexPath.row]
+        
         institutionCell.lbInstitutionName.text = currentInstitution.title
         institutionCell.ivInstitution.image = UIImage(named: "01")
         
