@@ -16,8 +16,6 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reload"), object: nil)
-        
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
@@ -78,18 +76,11 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
                     
                     self.hud.dismiss(afterDelay: 3.0)
                     Preferences.shared.filtersAreSynchronized = true
-                    
-                    
-                    //NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
                 }
             }
         }
         
         institutions = Array(institutionRepository.getAllInstitutions())
-//        institutions = Array(institutionRepository.searchInstitutions(neighborhoods: [1], causes: [1], donationType: [1], volunteerType: [1], days: [1], periods: [1]))
-//        for i in institutions {
-//            print(i.title)
-//        }
     }
     
     @objc func reload() {
@@ -107,24 +98,26 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func searchInstitutions() {
-        let filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FilterViewController") as! FilterViewController
+        let filterViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FILTER_VIEW_STORYBOARD_ID) as! FilterViewController
         present(filterViewController, animated: true, completion: nil)
         
-        filterViewController.onDone = {(selectedNeighborhoods: [FilterOption], selectedVolunteers: [FilterOption], selectedDonations: [FilterOption], selectedAreas: [FilterOption]) -> () in                        
+        filterViewController.onDone = {(selectedNeighborhoods: [FilterOption], selectedVolunteers: [FilterOption], selectedDonations: [FilterOption], selectedAreas: [FilterOption]) -> () in
             
-            let neighborhoodsToFilter = selectedNeighborhoods.map{ $0.id }
-            let volunteersToFilter = selectedVolunteers.map{ $0.id }
-            let donationsToFilter = selectedDonations.map{ $0.id }
-            let areasToFilter = selectedAreas.map{ $0.id }
+            let neighborhoodsToFilter = selectedNeighborhoods.map { $0.id }
+            let volunteersToFilter = selectedVolunteers.map { $0.id }
+            let donationsToFilter = selectedDonations.map { $0.id }
+            let areasToFilter = selectedAreas.map { $0.id }
             
-            self.institutions = Array(self.institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [1], periods: [1]))
-            self.cvInstitutions.reloadData()
+            if neighborhoodsToFilter.count > 0 || volunteersToFilter.count > 0 || donationsToFilter.count > 0 || areasToFilter.count > 0 {
+                self.institutions = Array(self.institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [], periods: []))
+                self.cvInstitutions.reloadData()
+            }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if !Preferences.shared.profileCreationWasOpened {
-            let profileViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InitialProfileViewController") as! InitialProfileViewController
+            let profileViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
             present(profileViewController, animated: true, completion: nil)
 
             Preferences.shared.profileCreationWasOpened = true
@@ -140,7 +133,7 @@ extension InstitutionsViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "institutionCell", for: indexPath) as! InstitutionXCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CELL_IDENTIFIER, for: indexPath) as! InstitutionXCollectionViewCell
         let currentInstitution = institutions[indexPath.row]
         
         cell.layer.cornerRadius = 8
@@ -153,7 +146,7 @@ extension InstitutionsViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let institutionInformationViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InstitutionViewController") as! InstitutionViewController
+        let institutionInformationViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         let selectedInstitution = institutions[indexPath.row]
         
         institutionInformationViewController.currentInstitution = selectedInstitution
