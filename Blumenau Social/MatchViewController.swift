@@ -50,12 +50,9 @@ class MatchViewController: UIViewController {
         let createProfileTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfile))
         lbInfo.addGestureRecognizer(createProfileTapGesture)
         
-        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")
+        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")                
         
-        print(Preferences.shared.userNeighborhood)
-        print(Preferences.shared.userInterests!)
-        
-        matchingInstitutions = Array(institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests!, donationType: [], volunteerType: [], days: [], periods: []))
+        matchingInstitutions = Array(institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests!, donationType: [], volunteerType: [], days: Preferences.shared.userDays!, periods: Preferences.shared.userPeriods!))
     }
     
     @objc func showProfile() {

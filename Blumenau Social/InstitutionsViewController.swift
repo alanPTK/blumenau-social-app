@@ -84,6 +84,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         }
         
         institutions = Array(institutionRepository.getAllInstitutions())
+        //institutions = Array(self.institutionRepository.searchInstitutions(neighborhoods: [], causes: [], donationType: [], volunteerType: [], days: [1], periods: [4]))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

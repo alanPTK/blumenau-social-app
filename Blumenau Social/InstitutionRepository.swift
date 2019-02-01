@@ -155,11 +155,11 @@ class InstitutionRepository: NSObject {
         let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
         let volunteerPredicate = NSPredicate(format: "ANY volunteerType.id IN %@", volunteerType)
         
-        //let daysPredicate = NSPredicate(format: "ANY %@", days)
-        //let periodsPredicate = NSPredicate(format: "ANY %@", periods)
-        //let workingTimePredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
+        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
+        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
+        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
         
-        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate])
+        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate, workingTimePredicate])
         
         return realm.objects(Institution.self).filter(fullPredicate)
     }

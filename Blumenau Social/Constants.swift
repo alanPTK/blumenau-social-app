@@ -25,4 +25,14 @@ struct Constants {
     
     //cell identifiers
     static let INSTITUTION_CELL_IDENTIFIER = "institutionCell"
+    
+    //social network profiles
+    static let FACEBOOK_APP_URL = "fb://profile/249674518521338";
+    static let FACEBOOK_WEB_URL = "https://www.facebook.com/BlumenauSocial/";
+    static let INSTAGRAM_APP_URL = "instagram://user?username=blumenausocial";
+    static let INSTAGRAM_WEB_URL = "https://instagram.com/blumenausocial";
+    static let ALAN_LINKEDIN_APP_URL = "linkedin://profile/alan-filipe-cardozo-fabeni-102502142";
+    static let ALAN_LINKEDIN_WEB_URL = "https://www.linkedin.com/in/alan-filipe-cardozo-fabeni-102502142/";
+    static let THIAGO_LINKEDIN_APP_URL = "linkedin://profile/thiago-krepsky-bennertz-785a67162";
+    static let THIAGO_LINKEDIN_WEB_URL = "https://www.linkedin.com/in/thiago-krepsky-bennertz-785a67162/";
 }

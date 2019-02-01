@@ -1,7 +1,7 @@
 import UIKit
 import MessageUI
 
-class ContactViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class ContactViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPhone: UITextField!
@@ -19,11 +19,30 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         tvText.layer.cornerRadius = 8
         
         tfName.placeholder = NSLocalizedString("Your name", comment: "")
+        tfName.delegate = self
         tfPhone.placeholder = NSLocalizedString("Your phone", comment: "")
+        tfPhone.delegate = self
         tfEmail.placeholder = NSLocalizedString("Your email", comment: "")
+        tfEmail.delegate = self
         
         lbDeveloperName.text = NSLocalizedString("Developer", comment: "")
         lbArtistName.text = NSLocalizedString("Artist", comment: "")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == tfName {
+            tfPhone.becomeFirstResponder()
+        }
+        
+        if textField == tfPhone {
+            tfEmail.becomeFirstResponder()
+        }
+        
+        if textField == tfEmail {
+            tvText.becomeFirstResponder()
+        }
+        
+        return true
     }
 
     @IBAction func sendMail(_ sender: Any) {
@@ -76,25 +95,25 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     @IBAction func goToFacebook(_ sender: Any) {
-        let appURL = URL(string: "fb://profile/249674518521338")!
+        let appURL = URL(string: Constants.FACEBOOK_APP_URL)!
         let application = UIApplication.shared
         
         if application.canOpenURL(appURL) {
             application.open(appURL)
         } else {
-            let webURL = URL(string: "https://www.facebook.com/BlumenauSocial/")!
+            let webURL = URL(string: Constants.FACEBOOK_WEB_URL)!
             application.open(webURL)
         }
     }
     
     @IBAction func goToInstagram(_ sender: Any) {
-        let appURL = URL(string: "instagram://user?username=blumenausocial")!
+        let appURL = URL(string: Constants.INSTAGRAM_APP_URL)!
         let application = UIApplication.shared
         
         if application.canOpenURL(appURL) {
             application.open(appURL)
         } else {
-            let webURL = URL(string: "https://instagram.com/blumenausocial")!
+            let webURL = URL(string: Constants.INSTAGRAM_WEB_URL)!
             application.open(webURL)
         }
     }
@@ -104,11 +123,11 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         var webURL: URL?
         
         if sender.tag == 0 {
-            appURL = URL(string: "linkedin://profile/alan-filipe-cardozo-fabeni-102502142")!
-            webURL = URL(string: "https://www.linkedin.com/in/alan-filipe-cardozo-fabeni-102502142/")!
+            appURL = URL(string: Constants.ALAN_LINKEDIN_APP_URL)!
+            webURL = URL(string: Constants.ALAN_LINKEDIN_WEB_URL)!
         } else {
-            appURL = URL(string: "linkedin://profile/thiago-krepsky-bennertz-785a67162")!
-            webURL = URL(string: "https://www.linkedin.com/in/thiago-krepsky-bennertz-785a67162/")!
+            appURL = URL(string: Constants.THIAGO_LINKEDIN_APP_URL)!
+            webURL = URL(string: Constants.THIAGO_LINKEDIN_WEB_URL)!
         }
         
         let application = UIApplication.shared

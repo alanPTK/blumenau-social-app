@@ -9,11 +9,6 @@ class ActionsViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    //https://dl.dropboxusercontent.com/s/owjvi419ou8cisq/01.png
-    //https://dl.dropboxusercontent.com/s/1cs8yxksscrksq6/02.png
-    //https://dl.dropboxusercontent.com/s/dtgq3wt2seawu14/03.png
-    //https://dl.dropboxusercontent.com/s/6lcbmuwqimn9f6c/04.png
-    //https://dl.dropboxusercontent.com/s/l2jvxi7ieplf0zl/05.png
 }
 
 extension ActionsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
