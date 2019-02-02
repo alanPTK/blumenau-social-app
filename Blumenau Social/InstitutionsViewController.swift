@@ -101,10 +101,12 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         if !Preferences.shared.profileCreationWasOpened {
-            let profileViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
-            present(profileViewController, animated: true, completion: nil)
-
-            Preferences.shared.profileCreationWasOpened = true
+            if Preferences.shared.institutionsAreSynchronized {
+                let profileViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
+                present(profileViewController, animated: true, completion: nil)
+                
+                Preferences.shared.profileCreationWasOpened = true
+            }
         }
     }
 

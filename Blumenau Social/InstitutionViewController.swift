@@ -1,8 +1,9 @@
 import UIKit
 import RealmSwift
 import Nuke
+import MessageUI
 
-class InstitutionViewController: UIViewController {
+class InstitutionViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     //working hours
     @IBOutlet weak var vWorkingHours: UIView!
@@ -96,8 +97,23 @@ class InstitutionViewController: UIViewController {
         tvAbout.rowHeight = UITableView.automaticDimension
         
         lbAddress.text = currentInstitution?.address
+        
         lbPhone.text = currentInstitution?.phone
+        lbPhone.textColor = UIColor.descColor()
+        lbPhone.font = UIFont.boldSystemFont(ofSize: lbPhone.font.pointSize)
+        lbPhone.isUserInteractionEnabled = true
+        
+        let underlinePhoneText = NSAttributedString(string: (currentInstitution?.phone)!, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+        lbPhone.attributedText = underlinePhoneText
+        
         lbEmail.text = currentInstitution?.mail
+        lbEmail.textColor = UIColor.descColor()
+        lbEmail.isUserInteractionEnabled = true
+        lbEmail.font = UIFont.boldSystemFont(ofSize: lbEmail.font.pointSize)
+        
+        let underlineEmailText = NSAttributedString(string: (currentInstitution?.mail)!, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+        lbEmail.attributedText = underlineEmailText
+        
         lbResponsible.text = currentInstitution?.responsible
         lbTitle.text = currentInstitution?.title
         lbSubtitle.text = currentInstitution?.subtitle
@@ -111,7 +127,46 @@ class InstitutionViewController: UIViewController {
         //longPressGesture.delegate = self
         //tvDonations.addGestureRecognizer(longPressGesture)
         
+        let phoneTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(callInstitution))
+        lbPhone.addGestureRecognizer(phoneTapGestureRecognizer)
+        
+        let emailTapGestureRecognize = UITapGestureRecognizer(target: self, action: #selector(sendEmailToInstitution))
+        lbEmail.addGestureRecognizer(emailTapGestureRecognize)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
+    }
+    
+    @objc func callInstitution() {
+        guard let number = URL(string: "tel://" + lbPhone.text!) else { return }
+        UIApplication.shared.open(number)
+    }
+    
+    @objc func sendEmailToInstitution() {
+        if !MFMailComposeViewController.canSendMail() {
+            let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""), preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+            
+            alertController.addAction(okAction)
+            
+            present(alertController, animated: true, completion: nil)
+        } else {
+            let body = ""
+            
+            let composeEmailViewController = MFMailComposeViewController()
+            
+            composeEmailViewController.mailComposeDelegate = self
+            if let email = lbEmail.text {
+                composeEmailViewController.setToRecipients([email])
+            }
+            composeEmailViewController.setSubject("")
+            composeEmailViewController.setMessageBody(body, isHTML: false)
+            
+            present(composeEmailViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
