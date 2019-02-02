@@ -13,7 +13,35 @@ class InstitutionRepository: NSObject {
         return realm.objects(Institution.self)
     }
     
-    func createInstitutionWithData(institutionsData: Institutions) {
+    func getInstitutionWithId(id: Int) -> Institution? {
+        return realm.objects(Institution.self).filter("id = \(id)").first
+    }
+    
+    func getAllEvents() -> [InstitutionEvent] {
+        return Array(realm.objects(InstitutionEvent.self))
+    }
+    
+    func createEventWithData(eventData: EventsDecodable) {
+        for event in eventData.events {
+            if let institution = getInstitutionWithId(id: event.institution_id) {
+                let institutionEvent: InstitutionEvent = InstitutionEvent()
+                
+                institutionEvent.id = event.id
+                institutionEvent.address = event.address
+                institutionEvent.date = event.date
+                institutionEvent.time = event.time
+                institutionEvent.title = event.title
+                institutionEvent.desc = event.desc
+                
+                //institution.events.append(institutionEvent)
+                
+                saveEvent(institutionEvent)
+                //saveInstitution(institution)
+            }
+        }
+    }
+    
+    func createInstitutionWithData(institutionsData: InstitutionsDecodable) {
         for institutionData in institutionsData.institutions {
             let institution: Institution = Institution()
             
@@ -129,6 +157,12 @@ class InstitutionRepository: NSObject {
     func saveCause(_ cause: InstitutionCause) {
         try! realm.write {
             realm.add(cause, update: true)
+        }
+    }
+    
+    func saveEvent(_ event: InstitutionEvent) {
+        try! realm.write {
+            realm.add(event, update: true)
         }
     }
     

@@ -54,6 +54,15 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+//        synchronizationService.synchronizeEvents(completion: { (result) in
+//            let i = InstitutionRepository()
+//            let events = i.getAllEvents()
+//            
+//            for e in events {
+//                print(e.title)
+//            }
+//        })
+        
         institutions = Array(institutionRepository.getAllInstitutions())        
     }
     

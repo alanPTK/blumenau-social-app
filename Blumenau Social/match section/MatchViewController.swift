@@ -15,6 +15,7 @@ class MatchViewController: UIViewController {
     
     var peekImplementation: MSPeekCollectionViewDelegateImplementation!
     var matchingInstitutions: [Institution] = []
+    var events: [InstitutionEvent] = []
     let institutionRepository = InstitutionRepository()
     
     override func viewDidLoad() {
@@ -58,6 +59,9 @@ class MatchViewController: UIViewController {
         lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")                
         
         matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests, donationType: [], volunteerType: [], days: Preferences.shared.userDays, periods: Preferences.shared.userPeriods, limit: 5)
+        
+        events = institutionRepository.getAllEvents()
+        print(events)
     }
     
     @objc func showProfile() {
@@ -83,8 +87,12 @@ class MatchViewController: UIViewController {
         present(institutionInformationViewController, animated: true, completion: nil)
     }
     
-    @objc func showEvent() {
-        let eventViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController                
+    @objc func showEvent(notification: Notification) {
+        let indexPath = notification.object as! IndexPath
+        let selectedEvent = events[indexPath.row]
+        
+        let eventViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController
+        eventViewController.selectedEvent = selectedEvent
         
         present(eventViewController, animated: true, completion: nil)
     }
@@ -97,7 +105,7 @@ class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
         if collectionView.tag == 0 {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: indexPath)
         } else {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "showEvent"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "showEvent"), object: indexPath)
         }
     }
     
@@ -107,8 +115,12 @@ class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
 extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if Preferences.shared.profileIsCreated {
-            return matchingInstitutions.count
+        if collectionView.tag == 0 {
+            if Preferences.shared.profileIsCreated {
+                return matchingInstitutions.count
+            }
+        } else {
+            return events.count
         }
         
         return 0
@@ -120,12 +132,22 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
-        let currentInstitution = matchingInstitutions[indexPath.row]
         
-        institutionCell.lbInstitutionName.text = currentInstitution.title
-        institutionCell.ivInstitution.image = UIImage(named: "01")
-        
-        return institutionCell
+        if collectionView.tag == 0 {
+            let currentInstitution = matchingInstitutions[indexPath.row]
+            
+            institutionCell.lbInstitutionName.text = currentInstitution.title
+            institutionCell.ivInstitution.image = UIImage(named: "01")
+            
+            return institutionCell
+        } else {
+            let currentEvent = events[indexPath.row]
+            
+            institutionCell.lbInstitutionName.text = currentEvent.title
+            institutionCell.ivInstitution.image = UIImage(named: "01")
+            
+            return institutionCell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

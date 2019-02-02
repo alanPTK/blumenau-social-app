@@ -16,11 +16,18 @@ class EventViewController: UIViewController {
     @IBOutlet weak var lbAttendanceTitle: UILabel!
     @IBOutlet weak var mvEventLocation: MKMapView!
     @IBOutlet weak var lcEvenDescriptionHeight: NSLayoutConstraint!
+    var selectedEvent: InstitutionEvent?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tvEventDescription.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+        
+        lbTitle.text = selectedEvent?.title
+        lbEventDate.text = selectedEvent?.date
+        lbEventAddress.text = selectedEvent?.address
+        lbEventTime.text = selectedEvent?.time
+        tvEventDescription.text = selectedEvent?.desc
     }
     
     @IBAction func close(_ sender: Any) {

@@ -1,37 +1,37 @@
 import UIKit
 
-struct FilterX: Decodable {
-    let neighborhoods: [NeighborhoodX]
-    let areas: [AreaX]
-    let donations: [DonationX]
-    let volunteers: [VolunteerX]
+struct FilterDecodable: Decodable {
+    let neighborhoods: [NeighborhoodDecodable]
+    let areas: [AreaDecodable]
+    let donations: [DonationDecodablex]
+    let volunteers: [VolunteerDecodable]
 }
 
-struct NeighborhoodX: Decodable {
+struct NeighborhoodDecodable: Decodable {
     let id: Int
     let name: String
 }
 
-struct AreaX: Decodable {
+struct AreaDecodable: Decodable {
     let id: Int
     let name: String
 }
 
-struct DonationX: Decodable {
+struct DonationDecodablex: Decodable {
     let id: Int
     let name: String
 }
 
-struct VolunteerX: Decodable {
+struct VolunteerDecodable: Decodable {
     let id: Int
     let name: String
 }
 
-struct Institutions: Decodable {
-    let institutions: [InstitutionX]
+struct InstitutionsDecodable: Decodable {
+    let institutions: [InstitutionDecodable]
 }
 
-struct InstitutionX: Decodable {
+struct InstitutionDecodable: Decodable {
     let id: Int
     let title: String
     let subtitle: String
@@ -50,26 +50,40 @@ struct InstitutionX: Decodable {
     let donations: [String]
     let volunteers: String
     let pictures: [String]
-    let about: [AboutZ]
+    let about: [AboutDecodable]
 }
 
-struct DonationZ: Decodable {
+struct DonationDecodable: Decodable {
     let id: Int
     let title: String
 }
 
-struct CauseZ: Decodable {
+struct CauseDecodable: Decodable {
     let id: Int
 }
 
-struct PictureZ: Decodable {
+struct PictureDecodable: Decodable {
     let id: Int
     let link: String
 }
 
-struct AboutZ: Decodable {
+struct AboutDecodable: Decodable {
     let title: String
     let information: String
+}
+
+struct EventsDecodable: Decodable {
+    let events: [EventDecodable]
+}
+
+struct EventDecodable: Decodable {
+    let id: Int
+    let desc: String
+    let title: String
+    let address: String
+    let time: String
+    let date: String
+    let institution_id: Int
 }
 
 class SynchronizationService: NSObject {
@@ -87,11 +101,35 @@ class SynchronizationService: NSObject {
                     return
                 }
                 
-                guard let institutions = try? JSONDecoder().decode(Institutions.self, from: data) else {
+                guard let institutions = try? JSONDecoder().decode(InstitutionsDecodable.self, from: data) else {
                     return
                 }
                 
                 institutionRepository.createInstitutionWithData(institutionsData: institutions)
+                
+                completion(true)
+            }
+            
+            task.resume()
+        }
+    }
+    
+    func synchronizeEvents(completion: @escaping (_ result: Bool) -> ()) {
+        let session = URLSession(configuration: configuration)
+        
+        if let url = URL(string: Constants.EVENTS_DOWNLOAD_LINK) {
+            let task = session.dataTask(with: url) {(data, response, error) in
+                let institutionRepository = InstitutionRepository()
+                
+                guard let data = data else {
+                    return
+                }
+                
+                guard let events = try? JSONDecoder().decode(EventsDecodable.self, from: data) else {
+                    return
+                }
+                
+                institutionRepository.createEventWithData(eventData: events)
                 
                 completion(true)
             }
@@ -111,7 +149,7 @@ class SynchronizationService: NSObject {
                 return
             }
             
-            guard let filters = try? JSONDecoder().decode(FilterX.self, from: data) else {
+            guard let filters = try? JSONDecoder().decode(FilterDecodable.self, from: data) else {
                 return
             }
             
