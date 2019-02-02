@@ -50,6 +50,11 @@ class EventViewController: UIViewController {
         let activityViewController = UIActivityViewController(activityItems: toShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = view
         activityViewController.excludedActivityTypes = [.addToReadingList, .airDrop, .assignToContact, .copyToPasteboard, .openInIBooks, .postToFlickr, .postToTencentWeibo, .postToVimeo, .print, .saveToCameraRoll]
+        activityViewController.completionWithItemsHandler = {activity, success, items, error in
+            if success {
+                activityViewController.dismiss(animated: true, completion: nil)
+            }            
+        }
         
         present(activityViewController, animated: true, completion: nil)
     }
