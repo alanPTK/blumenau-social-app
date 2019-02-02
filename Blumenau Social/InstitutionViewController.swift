@@ -547,7 +547,11 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
         if collectionView.tag == 0 {
             return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         } else {
-            return CGSize(width: 100, height: 17)
+            let currentCause = currentInstitution?.causes[indexPath.row]
+            let cause = filterRepository.getAreaWithId(id: (currentCause?.id)!)
+            let textSize = cause?.name.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)])            
+            
+            return CGSize(width: (textSize?.width)! + 30, height: 17)
         }
     }
 

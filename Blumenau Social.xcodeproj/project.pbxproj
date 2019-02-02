@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C423A9906CEC3694A6892A1 /* Pods_Blumenau_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */; };
-		DB17EAD721F91293005E2958 /* MyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB17EAD621F91293005E2958 /* MyCollectionViewLayout.swift */; };
 		DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
@@ -52,7 +51,6 @@
 /* Begin PBXFileReference section */
 		020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.debug.xcconfig"; sourceTree = "<group>"; };
 		86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.release.xcconfig"; sourceTree = "<group>"; };
-		DB17EAD621F91293005E2958 /* MyCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewLayout.swift; sourceTree = "<group>"; };
 		DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInterestsViewController.swift; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 			children = (
 				DB957CCA21F2086C00E195D6 /* InformationViewController.swift */,
 				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
-				DB17EAD621F91293005E2958 /* MyCollectionViewLayout.swift */,
 				DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */,
 				DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */,
 			);
@@ -450,7 +447,6 @@
 				DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */,
 				DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */,
 				DB9F31262200DA2E00B3E7D8 /* EventViewController.swift in Sources */,
-				DB17EAD721F91293005E2958 /* MyCollectionViewLayout.swift in Sources */,
 				DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */,
 				DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */,
 				DB8EAB2121F37E9500E27F8D /* FilterOptionsViewController.swift in Sources */,
