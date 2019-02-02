@@ -97,6 +97,12 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         tvAbout.rowHeight = UITableView.automaticDimension
         
         lbAddress.text = currentInstitution?.address
+        lbAddress.textColor = UIColor.descColor()
+        lbAddress.font = UIFont.boldSystemFont(ofSize: lbAddress.font.pointSize)
+        lbAddress.isUserInteractionEnabled = true
+        
+        let underlineLocationText = NSAttributedString(string: (currentInstitution?.address)!, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+        lbAddress.attributedText = underlineLocationText
         
         lbPhone.text = currentInstitution?.phone
         lbPhone.textColor = UIColor.descColor()
@@ -130,15 +136,27 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         let phoneTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(callInstitution))
         lbPhone.addGestureRecognizer(phoneTapGestureRecognizer)
         
-        let emailTapGestureRecognize = UITapGestureRecognizer(target: self, action: #selector(sendEmailToInstitution))
-        lbEmail.addGestureRecognizer(emailTapGestureRecognize)
+        let emailTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sendEmailToInstitution))
+        lbEmail.addGestureRecognizer(emailTapGestureRecognizer)
+        
+        let locationTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showInstitutionLocation))
+        lbAddress.addGestureRecognizer(locationTapGestureRecognizer)
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
     }
     
+    @objc func showInstitutionLocation() {
+        let location = String(format: "http://maps.apple.com/?address=%@", lbAddress.text!)        
+        
+        if let locationURL = URL(string: location) {
+            UIApplication.shared.open(locationURL)
+        }
+    }
+    
     @objc func callInstitution() {
-        guard let number = URL(string: "tel://" + lbPhone.text!) else { return }
-        UIApplication.shared.open(number)
+        if let number = URL(string: "tel://" + lbPhone.text!) {
+            UIApplication.shared.open(number)
+        }
     }
     
     @objc func sendEmailToInstitution() {
