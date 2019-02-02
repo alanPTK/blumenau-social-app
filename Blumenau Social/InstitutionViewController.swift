@@ -146,7 +146,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     }
     
     @objc func showInstitutionLocation() {
-        let location = String(format: "http://maps.apple.com/?address=%@", lbAddress.text!)        
+        let location = String(format: "http://maps.apple.com/?address=%@", lbAddress.text!)
         
         if let locationURL = URL(string: location) {
             UIApplication.shared.open(locationURL)
@@ -302,7 +302,6 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     
     @objc func toggleAboutVisibility(notification: Notification) {
         let btToggleAbout = notification.object as! UIButton
-        print("lcAboutHeight.constant \(lcAboutHeight.constant)")
         
         if btToggleAbout.tag == 0 {
             btToggleAbout.tag = 1
