@@ -8,89 +8,89 @@
 
 /* Begin PBXBuildFile section */
 		4C423A9906CEC3694A6892A1 /* Pods_Blumenau_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */; };
-		DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */; };
+		DB029F4822061C5D0073A4E7 /* FilterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4622061C5D0073A4E7 /* FilterOptionsViewController.swift */; };
+		DB029F4922061C5D0073A4E7 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4722061C5D0073A4E7 /* FilterViewController.swift */; };
+		DB029F5222061C6D0073A4E7 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4A22061C6C0073A4E7 /* AboutTableViewCell.swift */; };
+		DB029F5322061C6D0073A4E7 /* ActionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4B22061C6C0073A4E7 /* ActionImageCollectionViewCell.swift */; };
+		DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */; };
+		DB029F5522061C6D0073A4E7 /* CauseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4D22061C6C0073A4E7 /* CauseCollectionViewCell.swift */; };
+		DB029F5622061C6D0073A4E7 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4E22061C6D0073A4E7 /* InstitutionCollectionViewCell.swift */; };
+		DB029F5722061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4F22061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift */; };
+		DB029F5822061C6D0073A4E7 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */; };
+		DB029F5922061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */; };
+		DB029F5E22061C8A0073A4E7 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5A22061C890073A4E7 /* EventViewController.swift */; };
+		DB029F5F22061C8A0073A4E7 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5B22061C890073A4E7 /* InformationViewController.swift */; };
+		DB029F6022061C8A0073A4E7 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */; };
+		DB029F6122061C8A0073A4E7 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */; };
+		DB029F6422061C990073A4E7 /* InstitutionDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6222061C980073A4E7 /* InstitutionDB.swift */; };
+		DB029F6522061C990073A4E7 /* FilterOptionsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6322061C980073A4E7 /* FilterOptionsDB.swift */; };
+		DB029F6A22061CA60073A4E7 /* ProfileInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6622061CA60073A4E7 /* ProfileInterestsViewController.swift */; };
+		DB029F6B22061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6722061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift */; };
+		DB029F6C22061CA60073A4E7 /* InitialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6822061CA60073A4E7 /* InitialProfileViewController.swift */; };
+		DB029F6D22061CA60073A4E7 /* ProfileAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6922061CA60073A4E7 /* ProfileAvailabilityViewController.swift */; };
+		DB029F7022061CB20073A4E7 /* InstitutionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6E22061CB20073A4E7 /* InstitutionRepository.swift */; };
+		DB029F7122061CB20073A4E7 /* FilterOptionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F6F22061CB20073A4E7 /* FilterOptionsRepository.swift */; };
+		DB029F7622061CF90073A4E7 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7222061CF90073A4E7 /* CustomLayout.swift */; };
+		DB029F7722061CF90073A4E7 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7322061CF90073A4E7 /* Preferences.swift */; };
+		DB029F7822061CF90073A4E7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */; };
+		DB029F7922061CF90073A4E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7522061CF90073A4E7 /* Constants.swift */; };
+		DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7A22061D070073A4E7 /* MatchViewController.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
 		DB2A7C2121F1066200C60B32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1F21F1066200C60B32 /* LaunchScreen.storyboard */; };
-		DB2A7C2921F1142800C60B32 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */; };
 		DB2A7C2B21F115B500C60B32 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */; };
 		DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C3421F15C8100C60B32 /* Localizable.strings */; };
 		DB373E1021FFB56900FE02E0 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */; };
-		DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F621F4C9BA00B7170F /* Preferences.swift */; };
-		DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */; };
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
-		DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */; };
-		DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */; };
-		DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */; };
-		DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */; };
-		DB3BE50721F6974700B7170F /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE50621F6974700B7170F /* CustomLayout.swift */; };
-		DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */; };
-		DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */; };
-		DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */; };
-		DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */; };
-		DB8EAB2121F37E9500E27F8D /* FilterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2021F37E9500E27F8D /* FilterOptionsViewController.swift */; };
-		DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */; };
-		DB8EAB2521F393CF00E27F8D /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2421F393CF00E27F8D /* MatchViewController.swift */; };
-		DB8EAB2F21F3A12400E27F8D /* FilterOptionsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB2E21F3A12400E27F8D /* FilterOptionsDB.swift */; };
-		DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */; };
-		DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8EAB3C21F3DF5A00E27F8D /* InitialProfileViewController.swift */; };
 		DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CC621F1EF7600E195D6 /* MissionViewController.swift */; };
-		DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCA21F2086C00E195D6 /* InformationViewController.swift */; };
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
-		DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */; };
-		DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */; };
-		DB9F31262200DA2E00B3E7D8 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */; };
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
-		DBC6D71421FB36D600147097 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71321FB36D600147097 /* Constants.swift */; };
-		DBC93C7521FA8E5300056F34 /* InstitutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */; };
-		DBC93C7721FA92C400056F34 /* InstitutionXCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */; };
-		DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.debug.xcconfig"; sourceTree = "<group>"; };
 		86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.release.xcconfig"; sourceTree = "<group>"; };
-		DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInterestsViewController.swift; sourceTree = "<group>"; };
+		DB029F4622061C5D0073A4E7 /* FilterOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterOptionsViewController.swift; path = "filter section/FilterOptionsViewController.swift"; sourceTree = "<group>"; };
+		DB029F4722061C5D0073A4E7 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = "filter section/FilterViewController.swift"; sourceTree = "<group>"; };
+		DB029F4A22061C6C0073A4E7 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutTableViewCell.swift; path = cells/AboutTableViewCell.swift; sourceTree = "<group>"; };
+		DB029F4B22061C6C0073A4E7 /* ActionImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionImageCollectionViewCell.swift; path = cells/ActionImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionTableViewCell.swift; path = cells/InstitutionTableViewCell.swift; sourceTree = "<group>"; };
+		DB029F4D22061C6C0073A4E7 /* CauseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CauseCollectionViewCell.swift; path = cells/CauseCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F4E22061C6D0073A4E7 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionCollectionViewCell.swift; path = cells/InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F4F22061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionXCollectionViewCell.swift; path = cells/InstitutionXCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCollectionViewCell.swift; path = cells/FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeMoreCollectionViewCell.swift; path = cells/SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F5A22061C890073A4E7 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = "institution section/EventViewController.swift"; sourceTree = "<group>"; };
+		DB029F5B22061C890073A4E7 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationViewController.swift; path = "institution section/InformationViewController.swift"; sourceTree = "<group>"; };
+		DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionViewController.swift; path = "institution section/InstitutionViewController.swift"; sourceTree = "<group>"; };
+		DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionsViewController.swift; path = "institution section/InstitutionsViewController.swift"; sourceTree = "<group>"; };
+		DB029F6222061C980073A4E7 /* InstitutionDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionDB.swift; path = models/InstitutionDB.swift; sourceTree = "<group>"; };
+		DB029F6322061C980073A4E7 /* FilterOptionsDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterOptionsDB.swift; path = models/FilterOptionsDB.swift; sourceTree = "<group>"; };
+		DB029F6622061CA60073A4E7 /* ProfileInterestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileInterestsViewController.swift; path = "profile section/ProfileInterestsViewController.swift"; sourceTree = "<group>"; };
+		DB029F6722061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileNeighborhoodSelectionViewController.swift; path = "profile section/ProfileNeighborhoodSelectionViewController.swift"; sourceTree = "<group>"; };
+		DB029F6822061CA60073A4E7 /* InitialProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialProfileViewController.swift; path = "profile section/InitialProfileViewController.swift"; sourceTree = "<group>"; };
+		DB029F6922061CA60073A4E7 /* ProfileAvailabilityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileAvailabilityViewController.swift; path = "profile section/ProfileAvailabilityViewController.swift"; sourceTree = "<group>"; };
+		DB029F6E22061CB20073A4E7 /* InstitutionRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionRepository.swift; path = repository/InstitutionRepository.swift; sourceTree = "<group>"; };
+		DB029F6F22061CB20073A4E7 /* FilterOptionsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterOptionsRepository.swift; path = repository/FilterOptionsRepository.swift; sourceTree = "<group>"; };
+		DB029F7222061CF90073A4E7 /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLayout.swift; path = utils/CustomLayout.swift; sourceTree = "<group>"; };
+		DB029F7322061CF90073A4E7 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = utils/Preferences.swift; sourceTree = "<group>"; };
+		DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "utils/UIColor+Extension.swift"; sourceTree = "<group>"; };
+		DB029F7522061CF90073A4E7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = utils/Constants.swift; sourceTree = "<group>"; };
+		DB029F7A22061D070073A4E7 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB2A7C1D21F1066200C60B32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB2A7C2021F1066200C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB2A7C2221F1066200C60B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		DB2A7C3421F15C8100C60B32 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		DB3BE4F621F4C9BA00B7170F /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
-		DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
-		DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDB.swift; sourceTree = "<group>"; };
-		DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionRepository.swift; sourceTree = "<group>"; };
-		DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB3BE50621F6974700B7170F /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
-		DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNeighborhoodSelectionViewController.swift; sourceTree = "<group>"; };
-		DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAvailabilityViewController.swift; sourceTree = "<group>"; };
-		DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB8EAB2021F37E9500E27F8D /* FilterOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewController.swift; sourceTree = "<group>"; };
-		DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB8EAB2421F393CF00E27F8D /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
-		DB8EAB2E21F3A12400E27F8D /* FilterOptionsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsDB.swift; sourceTree = "<group>"; };
-		DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterOptionsRepository.swift; sourceTree = "<group>"; };
-		DB8EAB3C21F3DF5A00E27F8D /* InitialProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialProfileViewController.swift; sourceTree = "<group>"; };
 		DB957CC621F1EF7600E195D6 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
-		DB957CCA21F2086C00E195D6 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
-		DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionViewController.swift; sourceTree = "<group>"; };
-		DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
-		DBC6D71321FB36D600147097 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsViewController.swift; sourceTree = "<group>"; };
-		DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionXCollectionViewCell.swift; sourceTree = "<group>"; };
-		DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionTableViewCell.swift; sourceTree = "<group>"; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,10 +117,10 @@
 		DB19D04421F4B3D2004E835E /* profile section */ = {
 			isa = PBXGroup;
 			children = (
-				DB8EAB3C21F3DF5A00E27F8D /* InitialProfileViewController.swift */,
-				DB4D3BC221F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift */,
-				DB4D3BC421F4A6F700885A58 /* ProfileAvailabilityViewController.swift */,
-				DB19D04221F4B395004E835E /* ProfileInterestsViewController.swift */,
+				DB029F6822061CA60073A4E7 /* InitialProfileViewController.swift */,
+				DB029F6922061CA60073A4E7 /* ProfileAvailabilityViewController.swift */,
+				DB029F6622061CA60073A4E7 /* ProfileInterestsViewController.swift */,
+				DB029F6722061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift */,
 			);
 			name = "profile section";
 			sourceTree = "<group>";
@@ -165,8 +165,8 @@
 		DB8EAB3221F3B40900E27F8D /* filter section */ = {
 			isa = PBXGroup;
 			children = (
-				DB8EAB2021F37E9500E27F8D /* FilterOptionsViewController.swift */,
-				DB8EAB1C21F371B700E27F8D /* FilterViewController.swift */,
+				DB029F4622061C5D0073A4E7 /* FilterOptionsViewController.swift */,
+				DB029F4722061C5D0073A4E7 /* FilterViewController.swift */,
 			);
 			name = "filter section";
 			sourceTree = "<group>";
@@ -174,8 +174,8 @@
 		DB8EAB3321F3D02500E27F8D /* models */ = {
 			isa = PBXGroup;
 			children = (
-				DB8EAB2E21F3A12400E27F8D /* FilterOptionsDB.swift */,
-				DB3BE4FE21F6531000B7170F /* InstitutionDB.swift */,
+				DB029F6322061C980073A4E7 /* FilterOptionsDB.swift */,
+				DB029F6222061C980073A4E7 /* InstitutionDB.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -183,8 +183,8 @@
 		DB8EAB3421F3D03100E27F8D /* repositories */ = {
 			isa = PBXGroup;
 			children = (
-				DB8EAB3021F3A8D700E27F8D /* FilterOptionsRepository.swift */,
-				DB3BE50021F65F8700B7170F /* InstitutionRepository.swift */,
+				DB029F6F22061CB20073A4E7 /* FilterOptionsRepository.swift */,
+				DB029F6E22061CB20073A4E7 /* InstitutionRepository.swift */,
 			);
 			name = repositories;
 			sourceTree = "<group>";
@@ -192,14 +192,14 @@
 		DB8EAB3521F3D03A00E27F8D /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				DBF4556321F7CF7200A8F634 /* InstitutionTableViewCell.swift */,
-				DB957CD021F254A400E195D6 /* InstitutionCollectionViewCell.swift */,
-				DB8EAB2221F3880500E27F8D /* SeeMoreCollectionViewCell.swift */,
-				DB8EAB1E21F3748100E27F8D /* FilterCollectionViewCell.swift */,
-				DB3BE4F821F4DE7000B7170F /* ActionImageCollectionViewCell.swift */,
-				DB3BE4FC21F6158B00B7170F /* AboutTableViewCell.swift */,
-				DB3BE50221F6777200B7170F /* CauseCollectionViewCell.swift */,
-				DBC93C7621FA92C400056F34 /* InstitutionXCollectionViewCell.swift */,
+				DB029F4A22061C6C0073A4E7 /* AboutTableViewCell.swift */,
+				DB029F4B22061C6C0073A4E7 /* ActionImageCollectionViewCell.swift */,
+				DB029F4D22061C6C0073A4E7 /* CauseCollectionViewCell.swift */,
+				DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */,
+				DB029F4E22061C6D0073A4E7 /* InstitutionCollectionViewCell.swift */,
+				DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */,
+				DB029F4F22061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift */,
+				DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -207,10 +207,10 @@
 		DB8EAB3621F3D05400E27F8D /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				DB3BE50621F6974700B7170F /* CustomLayout.swift */,
-				DB2A7C2821F1142800C60B32 /* UIColor+Extension.swift */,
-				DB3BE4F621F4C9BA00B7170F /* Preferences.swift */,
-				DBC6D71321FB36D600147097 /* Constants.swift */,
+				DB029F7522061CF90073A4E7 /* Constants.swift */,
+				DB029F7222061CF90073A4E7 /* CustomLayout.swift */,
+				DB029F7322061CF90073A4E7 /* Preferences.swift */,
+				DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -250,10 +250,10 @@
 		DB8EAB3A21F3D0D700E27F8D /* institution section */ = {
 			isa = PBXGroup;
 			children = (
-				DB957CCA21F2086C00E195D6 /* InformationViewController.swift */,
-				DB957CD221F26A9500E195D6 /* InstitutionViewController.swift */,
-				DBC93C7421FA8E5300056F34 /* InstitutionsViewController.swift */,
-				DB9F31252200DA2E00B3E7D8 /* EventViewController.swift */,
+				DB029F5A22061C890073A4E7 /* EventViewController.swift */,
+				DB029F5B22061C890073A4E7 /* InformationViewController.swift */,
+				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
+				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";
@@ -261,7 +261,7 @@
 		DB8EAB3B21F3D0EC00E27F8D /* match section */ = {
 			isa = PBXGroup;
 			children = (
-				DB8EAB2421F393CF00E27F8D /* MatchViewController.swift */,
+				DB029F7A22061D070073A4E7 /* MatchViewController.swift */,
 			);
 			name = "match section";
 			sourceTree = "<group>";
@@ -416,40 +416,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB8EAB2F21F3A12400E27F8D /* FilterOptionsDB.swift in Sources */,
-				DBC6D71421FB36D600147097 /* Constants.swift in Sources */,
-				DB4D3BC521F4A6F700885A58 /* ProfileAvailabilityViewController.swift in Sources */,
+				DB029F6A22061CA60073A4E7 /* ProfileInterestsViewController.swift in Sources */,
+				DB029F7922061CF90073A4E7 /* Constants.swift in Sources */,
+				DB029F7622061CF90073A4E7 /* CustomLayout.swift in Sources */,
 				DB373E1021FFB56900FE02E0 /* ContactViewController.swift in Sources */,
-				DB8EAB2321F3880500E27F8D /* SeeMoreCollectionViewCell.swift in Sources */,
+				DB029F7822061CF90073A4E7 /* UIColor+Extension.swift in Sources */,
+				DB029F5822061C6D0073A4E7 /* FilterCollectionViewCell.swift in Sources */,
 				DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */,
-				DB8EAB3D21F3DF5A00E27F8D /* InitialProfileViewController.swift in Sources */,
-				DBC93C7721FA92C400056F34 /* InstitutionXCollectionViewCell.swift in Sources */,
-				DB3BE4FF21F6531000B7170F /* InstitutionDB.swift in Sources */,
-				DB3BE50321F6777200B7170F /* CauseCollectionViewCell.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
-				DB3BE50721F6974700B7170F /* CustomLayout.swift in Sources */,
-				DB4D3BC321F3EEF600885A58 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
+				DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */,
+				DB029F5722061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift in Sources */,
+				DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */,
+				DB029F6C22061CA60073A4E7 /* InitialProfileViewController.swift in Sources */,
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
-				DB3BE4FD21F6158B00B7170F /* AboutTableViewCell.swift in Sources */,
-				DB19D04321F4B395004E835E /* ProfileInterestsViewController.swift in Sources */,
-				DB3BE50121F65F8700B7170F /* InstitutionRepository.swift in Sources */,
-				DBC93C7521FA8E5300056F34 /* InstitutionsViewController.swift in Sources */,
-				DB8EAB1F21F3748100E27F8D /* FilterCollectionViewCell.swift in Sources */,
-				DB3BE4F921F4DE7000B7170F /* ActionImageCollectionViewCell.swift in Sources */,
-				DB8EAB3121F3A8D700E27F8D /* FilterOptionsRepository.swift in Sources */,
-				DB8EAB2521F393CF00E27F8D /* MatchViewController.swift in Sources */,
-				DB957CD121F254A400E195D6 /* InstitutionCollectionViewCell.swift in Sources */,
-				DB8EAB1D21F371B700E27F8D /* FilterViewController.swift in Sources */,
+				DB029F5222061C6D0073A4E7 /* AboutTableViewCell.swift in Sources */,
+				DB029F5322061C6D0073A4E7 /* ActionImageCollectionViewCell.swift in Sources */,
+				DB029F4822061C5D0073A4E7 /* FilterOptionsViewController.swift in Sources */,
+				DB029F4922061C5D0073A4E7 /* FilterViewController.swift in Sources */,
+				DB029F6D22061CA60073A4E7 /* ProfileAvailabilityViewController.swift in Sources */,
 				DB2A7C2B21F115B500C60B32 /* AboutViewController.swift in Sources */,
-				DB2A7C2921F1142800C60B32 /* UIColor+Extension.swift in Sources */,
+				DB029F6522061C990073A4E7 /* FilterOptionsDB.swift in Sources */,
+				DB029F5E22061C8A0073A4E7 /* EventViewController.swift in Sources */,
+				DB029F5622061C6D0073A4E7 /* InstitutionCollectionViewCell.swift in Sources */,
 				DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */,
-				DB3BE4F721F4C9BA00B7170F /* Preferences.swift in Sources */,
-				DBF4556421F7CF7200A8F634 /* InstitutionTableViewCell.swift in Sources */,
-				DB9F31262200DA2E00B3E7D8 /* EventViewController.swift in Sources */,
-				DB957CCB21F2086C00E195D6 /* InformationViewController.swift in Sources */,
-				DB957CD321F26A9500E195D6 /* InstitutionViewController.swift in Sources */,
-				DB8EAB2121F37E9500E27F8D /* FilterOptionsViewController.swift in Sources */,
+				DB029F6B22061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
+				DB029F7122061CB20073A4E7 /* FilterOptionsRepository.swift in Sources */,
+				DB029F5922061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift in Sources */,
+				DB029F6422061C990073A4E7 /* InstitutionDB.swift in Sources */,
+				DB029F6122061C8A0073A4E7 /* InstitutionsViewController.swift in Sources */,
+				DB029F5522061C6D0073A4E7 /* CauseCollectionViewCell.swift in Sources */,
+				DB029F7022061CB20073A4E7 /* InstitutionRepository.swift in Sources */,
+				DB029F5F22061C8A0073A4E7 /* InformationViewController.swift in Sources */,
+				DB029F7722061CF90073A4E7 /* Preferences.swift in Sources */,
+				DB029F6022061C8A0073A4E7 /* InstitutionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
