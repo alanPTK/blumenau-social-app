@@ -20,7 +20,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
         
-        tfSearchInstitutes.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search institutions", comment: ""), attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.5)])
+        tfSearchInstitutes.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search institutions, necessary donations, necessary volunteers, etc", comment: ""), attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.5)])
         tfSearchInstitutes.delegate = self
         tfSearchInstitutes.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         
@@ -32,12 +32,6 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         if !Preferences.shared.institutionsAreSynchronized {
             synchronizationService.synchronizeInstitutions { (result) in
                 if result {
-                    let i = InstitutionRepository()
-                    for ix in i.getAllInstitutions() {
-                        for d in ix.days {
-                            print(d)
-                        }
-                    }
                     Preferences.shared.institutionsAreSynchronized = true
                     
                     DispatchQueue.main.async {
@@ -52,29 +46,6 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         if !Preferences.shared.filtersAreSynchronized {
             synchronizationService.synchronizeFilterOptions { (result) in
                 if result {
-                    let filterOptionsRepository = FilterOptionsRepository()
-                    
-                    let neighborhoods = filterOptionsRepository.getAllNeighborhoods()
-                    let areas = filterOptionsRepository.getAllAreas()
-                    let donations = filterOptionsRepository.getAllDonations()
-                    let volunteers = filterOptionsRepository.getAllVolunteers()
-                    
-                    for neighborhood in neighborhoods {
-                        print(neighborhood.name)
-                    }
-                    
-                    for area in areas {
-                        print(area.name)
-                    }
-                    
-                    for donation in donations {
-                        print(donation.name)
-                    }
-                    
-                    for volunteer in volunteers {
-                        print(volunteer.name)
-                    }
-                    
                     DispatchQueue.main.async {
                         self.hud.dismiss(afterDelay: 1.0)
                     }
@@ -83,8 +54,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        institutions = Array(institutionRepository.getAllInstitutions())
-        //institutions = Array(self.institutionRepository.searchInstitutions(neighborhoods: [], causes: [], donationType: [], volunteerType: [], days: [1], periods: [4]))
+        institutions = Array(institutionRepository.getAllInstitutions())        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -106,6 +76,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cleanFilters(_ sender: Any) {
+        tfSearchInstitutes.text = ""
         institutions = Array(institutionRepository.getAllInstitutions())
         cvInstitutions.reloadData()
     }
@@ -122,7 +93,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
             let areasToFilter = selectedAreas.map { $0.id }
             
             if neighborhoodsToFilter.count > 0 || volunteersToFilter.count > 0 || donationsToFilter.count > 0 || areasToFilter.count > 0 {
-                self.institutions = Array(self.institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [], periods: []))
+                self.institutions = self.institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [], periods: [], limit: 0)
                 self.cvInstitutions.reloadData()
             }
         }
@@ -180,7 +151,7 @@ extension UICollectionView {
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
-        messageLabel.textColor = .black
+        messageLabel.textColor = UIColor.titleColor()
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = .center;
         messageLabel.sizeToFit()

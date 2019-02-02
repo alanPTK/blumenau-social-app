@@ -65,6 +65,7 @@ class InstitutionViewController: UIViewController {
     var currentPage: Int = 0
     var currentInstitution: Institution?
     let institutionRepository = InstitutionRepository()
+    let filterRepository = FilterOptionsRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -354,7 +355,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             
             cell.textLabel?.textColor = .white
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.textLabel?.text = currentDonation
+            cell.textLabel?.text = currentDonation?.desc
             
             cell.textLabel?.backgroundColor = .clear
             cell.textLabel?.textAlignment = .center
@@ -413,7 +414,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         if tableView.tag == 0 {
             let currentDonation = currentInstitution?.donations[indexPath.section]
             
-            let alertController = UIAlertController(title: "", message: currentDonation, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "", message: currentDonation?.desc, preferredStyle: .alert)
             let okAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .destructive, handler: nil)
             alertController.addAction(okAction)
             
@@ -451,9 +452,10 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
             return imageCell
         } else {
             let currentCause = currentInstitution?.causes[indexPath.row]
+            let cause = filterRepository.getAreaWithId(id: (currentCause?.id)!)
             
             let causeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "causeCell", for: indexPath) as! CauseCollectionViewCell
-            causeCell.lbCause.text = String(format: "%d", currentCause!)
+            causeCell.lbCause.text = String(format: "%@", (cause?.name)!)
             
             return causeCell
         }

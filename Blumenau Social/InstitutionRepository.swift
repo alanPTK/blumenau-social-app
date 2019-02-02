@@ -30,7 +30,14 @@ class InstitutionRepository: NSObject {
             institution.neighborhood = institutionData.neighborhood
             
             for donation in institutionData.donations {
-                institution.donations.append(donation)
+                let institutionDonation = InstitutionDonation()
+                
+                institutionDonation.internalId = UUID().uuidString
+                institutionDonation.desc = donation
+                
+                saveDonation(institutionDonation)
+                
+                institution.donations.append(institutionDonation)
             }
             
             for picture in institutionData.pictures {
@@ -137,6 +144,12 @@ class InstitutionRepository: NSObject {
         }
     }
     
+    func saveDonation(_ donation: InstitutionDonation) {
+        try! realm.write {
+            realm.add(donation, update: true)
+        }
+    }
+    
     func saveWorkingDay(_ workingDay: InstitutionWorkingDay) {
         try! realm.write {
             realm.add(workingDay, update: true)
@@ -149,7 +162,7 @@ class InstitutionRepository: NSObject {
         }
     }
     
-    func searchInstitutions(neighborhoods: [Int], causes: [Int], donationType: [Int], volunteerType: [Int], days: [Int], periods: [Int]) -> Results<Institution> {
+    func searchInstitutions(neighborhoods: [Int], causes: [Int], donationType: [Int], volunteerType: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
         let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
         let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
         let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
@@ -161,13 +174,27 @@ class InstitutionRepository: NSObject {
         
         let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate, workingTimePredicate])
         
-        return realm.objects(Institution.self).filter(fullPredicate)
+        if limit == 0 {
+            return Array(realm.objects(Institution.self).filter(fullPredicate))
+        } else {
+            let institutions = realm.objects(Institution.self).filter(fullPredicate)
+            if institutions.count > limit {
+                return Array(institutions[0..<limit])
+            } else {
+                return Array(institutions)
+            }
+        }
     }
     
     func searchInstitutions(text: String) -> Results<Institution> {
-        let predicate = NSPredicate(format: "title contains [c] %@", text)
+        let titlePredicate = NSPredicate(format: "title contains [c] %@", text)
+        let volunteerPredicate = NSPredicate(format: "volunteers contains [c] %@", text)
+        let scopePredicate = NSPredicate(format: "scope contains [c] %@", text)
+        let donationPredicate = NSPredicate(format: "ANY donations.desc contains [c] %@", text)
         
-        return realm.objects(Institution.self).filter(predicate)
+        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titlePredicate, volunteerPredicate, donationPredicate, scopePredicate])
+        
+        return realm.objects(Institution.self).filter(fullPredicate)
     }
 
 }

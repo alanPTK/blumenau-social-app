@@ -41,7 +41,12 @@ class MatchViewController: UIViewController {
         
         if !Preferences.shared.userName.isEmpty {
             let firstNameIndex = Preferences.shared.userName.firstIndex(of: " ")
-            let firstName = Preferences.shared.userName.prefix(upTo: firstNameIndex!)
+            var firstName = ""
+            if firstNameIndex != nil {
+                firstName = String(Preferences.shared.userName.prefix(upTo: firstNameIndex!))
+            } else {
+                firstName = Preferences.shared.userName
+            }
             lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), String(firstName))
         }
         
@@ -52,7 +57,7 @@ class MatchViewController: UIViewController {
         
         lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")                
         
-        matchingInstitutions = Array(institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests!, donationType: [], volunteerType: [], days: Preferences.shared.userDays!, periods: Preferences.shared.userPeriods!))
+        matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests, donationType: [], volunteerType: [], days: Preferences.shared.userDays, periods: Preferences.shared.userPeriods, limit: 5)
     }
     
     @objc func showProfile() {
@@ -68,11 +73,12 @@ class MatchViewController: UIViewController {
         }
     }
     
-    @objc func showInstitution() {
-        let i = InstitutionRepository()
+    @objc func showInstitution(notification: Notification) {
+        let indexPath = notification.object as! IndexPath
+        let selectedInstitution = matchingInstitutions[indexPath.row]
         
         let institutionInformationViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
-        institutionInformationViewController.currentInstitution = i.getAllInstitutions().first
+        institutionInformationViewController.currentInstitution = selectedInstitution
         
         present(institutionInformationViewController, animated: true, completion: nil)
     }
@@ -89,7 +95,7 @@ class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "showInstitution"), object: indexPath)
         } else {
             NotificationCenter.default.post(name: Notification.Name(rawValue: "showEvent"), object: nil)
         }
@@ -120,10 +126,6 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         institutionCell.ivInstitution.image = UIImage(named: "01")
         
         return institutionCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Item Selected")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

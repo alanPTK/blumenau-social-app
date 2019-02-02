@@ -20,12 +20,10 @@ class ProfileInterestsViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        if let interests = Preferences.shared.userInterests {
-            for areaId in interests {
-                if let area = filterOptionsRepository.getAreaWithId(id: areaId) {
-                    selectedAreas.append(area)
-                }
+                
+        for areaId in Preferences.shared.userInterests {
+            if let area = filterOptionsRepository.getAreaWithId(id: areaId) {
+                selectedAreas.append(area)
             }
         }
     }

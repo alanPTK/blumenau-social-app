@@ -14,10 +14,10 @@ class Institution: Object {
     @objc dynamic var neighborhood: Int = 0
     var days = List<InstitutionWorkingDay>()
     var periods = List<InstitutionWorkingPeriod>()
-    var donations = List<String>()
-    var pictures = List<String>()
-    var causes = List<InstitutionCause>()
+    var donations = List<InstitutionDonation>()
     var donationType = List<InstitutionDonationType>()
+    var pictures = List<String>()
+    var causes = List<InstitutionCause>()    
     var volunteerType = List<InstitutionVolunteerType>()
     var about = List<InstitutionAbout>()
     
@@ -48,6 +48,15 @@ class InstitutionCause: Object {
 class InstitutionVolunteerType: Object {
     @objc dynamic var internalId: String = ""
     @objc dynamic var id: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "internalId"
+    }
+}
+
+class InstitutionDonation: Object {
+    @objc dynamic var internalId: String = ""
+    @objc dynamic var desc: String = ""
     
     override static func primaryKey() -> String? {
         return "internalId"

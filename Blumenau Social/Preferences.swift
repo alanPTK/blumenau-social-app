@@ -37,7 +37,6 @@ class Preferences {
             if let userName = defaults.string(forKey: "userName") {
                 return userName
             }
-            
             return ""
         }
         set {
@@ -63,27 +62,36 @@ class Preferences {
         }
     }
     
-    var userDays: [Int]? {
+    var userDays: [Int] {
         get {
-            return defaults.array(forKey: "userDays") as? [Int]
+            if let userDays = defaults.array(forKey: "userDays") {
+                return userDays as! [Int]
+            }
+            return []
         }
         set {
             defaults.setValue(newValue, forKey: "userDays")
         }
     }
     
-    var userPeriods: [Int]? {
+    var userPeriods: [Int] {
         get {
-            return defaults.array(forKey: "userPeriods") as? [Int]
+            if let userPeriods = defaults.array(forKey: "userPeriods") {
+                return userPeriods as! [Int]
+            }
+            return []
         }
         set {
             defaults.setValue(newValue, forKey: "userPeriods")
         }
     }
     
-    var userInterests: [Int]? {
+    var userInterests: [Int] {
         get {
-            return defaults.array(forKey: "userInterests") as? [Int]
+            if let userInterests = defaults.array(forKey: "userInterests") {
+                return userInterests as! [Int]
+            }
+            return []            
         }
         set {
             defaults.setValue(newValue, forKey: "userInterests")
