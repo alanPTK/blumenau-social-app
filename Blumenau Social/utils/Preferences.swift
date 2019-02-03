@@ -106,4 +106,13 @@ class Preferences {
             defaults.set(newValue, forKey: "profileIsCreated")
         }
     }
+    
+    var eventRouteTipViewWasShown: Bool {
+        get {
+            return defaults.bool(forKey: "eventRouteTipViewWasShown")
+        }
+        set {
+            defaults.set(newValue, forKey: "eventRouteTipViewWasShown")
+        }
+    }
 }

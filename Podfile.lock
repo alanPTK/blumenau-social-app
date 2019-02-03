@@ -1,4 +1,5 @@
 PODS:
+  - EasyTipView (2.0.1)
   - IHKeyboardAvoiding (4.3)
   - IQKeyboardManager (6.2.0)
   - JGProgressHUD (2.0.3)
@@ -11,6 +12,7 @@ PODS:
     - Realm (= 3.11.1)
 
 DEPENDENCIES:
+  - EasyTipView (~> 2.0.0)
   - IHKeyboardAvoiding
   - IQKeyboardManager
   - JGProgressHUD
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - EasyTipView
     - IHKeyboardAvoiding
     - IQKeyboardManager
     - JGProgressHUD
@@ -29,6 +32,7 @@ SPEC REPOS:
     - RealmSwift
 
 SPEC CHECKSUMS:
+  EasyTipView: 1515544456d6e943240012e9be5d25d1bb766603
   IHKeyboardAvoiding: e6a8f06434baf4c3b45825c3eedb35cea5d0d76b
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
   RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
 
-PODFILE CHECKSUM: 308c56c72aba8be1fc4cf0f67df0ff69148b9571
+PODFILE CHECKSUM: 7d31c2461162c4afc6b4982da7768c848acdfd8f
 
 COCOAPODS: 1.5.3

@@ -72,5 +72,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Precisamos da sua autorização para adicionar eventos importantes ao seu calendário.</string>
 </dict>
 </plist>

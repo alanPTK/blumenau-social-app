@@ -12,4 +12,5 @@ target 'Blumenau Social' do
   pod 'Nuke', '~> 7.0'
   pod 'MSPeekCollectionViewDelegateImplementation'
   pod 'JGProgressHUD'
+  pod 'EasyTipView', '~> 2.0.0'
 end
