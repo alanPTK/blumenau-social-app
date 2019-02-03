@@ -1597,7 +1597,7 @@
                                     <constraint firstAttribute="width" constant="30" id="CxG-ca-6X7"/>
                                     <constraint firstAttribute="height" constant="30" id="UFu-7p-Lvo"/>
                                 </constraints>
-                                <state key="normal" image="confirm"/>
+                                <state key="normal" image="star"/>
                                 <connections>
                                     <action selector="confirmAttendance:" destination="ase-Je-uDy" eventType="touchUpInside" id="jn8-y9-dMn"/>
                                 </connections>
@@ -3155,7 +3155,6 @@
         <image name="close" width="384" height="384"/>
         <image name="closeRed" width="384" height="384"/>
         <image name="collapse" width="384" height="384"/>
-        <image name="confirm" width="384" height="384"/>
         <image name="facebook" width="326.2301025390625" height="326.2301025390625"/>
         <image name="image" width="900" height="600"/>
         <image name="instagram" width="438.85714721679688" height="438.85714721679688"/>
@@ -3169,6 +3168,7 @@
         <image name="rua" width="20" height="20"/>
         <image name="search" width="115.5" height="115.5"/>
         <image name="share" width="384" height="384"/>
+        <image name="star" width="384" height="384"/>
         <namedColor name="backgroundColor">
             <color red="0.9100000262260437" green="0.88999998569488525" blue="0.87999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -118,13 +118,16 @@ class EventViewController: UIViewController {
         guard let eventFromUser = userEvent else { return }
         
         if eventFromUser.confirmed {
-            userRepository.changeAttendanceStatusForEvent(event: selectedEvent!, attendance: false)
-
-            lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
-            
             let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("This event will be removed from your notifications and calendar.", comment: ""), preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .destructive, handler: nil)
+            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .destructive) { (alert) in
+                self.userRepository.changeAttendanceStatusForEvent(event: self.selectedEvent!, attendance: false)
+                
+                self.lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
+                
+                self.removeAllEventsMatchingPredicate()
+                self.btConfirmAttendance.setImage(UIImage(named: "star"), for: .normal)
+            }
             
             alertController.addAction(okAction)
             
@@ -133,8 +136,10 @@ class EventViewController: UIViewController {
             userRepository.changeAttendanceStatusForEvent(event: selectedEvent!, attendance: true)
 
             lbAttendanceTitle.text = NSLocalizedString("I will go!", comment: "")
+            self.btConfirmAttendance.setImage(UIImage(named: "confirm"), for: .normal)
             
             addToCalendarAlert()
+            
         }
     }
     
@@ -202,6 +207,37 @@ class EventViewController: UIViewController {
                 }
             } else {
                 self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Did you allowed us to add events ? Please, check and try again.", comment: ""))
+            }
+        }
+    }
+    
+    func removeAllEventsMatchingPredicate() {
+        let eventRef = ThreadSafeReference(to: selectedEvent!)
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event) { granted, error in
+            let realm = try! Realm()
+            let event = realm.resolve(eventRef)
+            
+            guard let day = event?.day, let month = event?.month, let year = event?.year, let startHour = event?.startHour, let endHour = event?.endHour else {
+                
+                self.showAlertWithMessage(message: NSLocalizedString("Error removing the event from you calendar. Please, try again later.", comment: ""))
+                
+                return
+            }
+            
+            let startDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: startHour)
+            let endDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: endHour)
+            
+            let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
+            let eventFromStore = eventStore.events(matching: predicate)
+            
+            if eventFromStore.first != nil {
+                do {
+                    try eventStore.remove(eventFromStore.first!, span: .thisEvent)
+                } catch _ {
+                    self.showAlertWithMessage(message: NSLocalizedString("Error removing the event from you calendar. Please, try again later.", comment: ""))
+                }
             }
         }
     }
