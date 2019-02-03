@@ -3,7 +3,8 @@ import RealmSwift
 
 class InstitutionRepository: NSObject {
     
-    private var realm: Realm    
+    private var realm: Realm
+    let userRepository = UserRepository()
     
     override init() {
         realm = try! Realm()
@@ -32,10 +33,16 @@ class InstitutionRepository: NSObject {
                 institutionEvent.time = event.time
                 institutionEvent.title = event.title
                 institutionEvent.desc = event.desc
+                institutionEvent.day = event.day
+                institutionEvent.month = event.month
+                institutionEvent.year = event.year
+                institutionEvent.startHour = event.start_hour
+                institutionEvent.endHour = event.end_hour
                 
                 //institution.events.append(institutionEvent)
                 
                 saveEvent(institutionEvent)
+                userRepository.createUserEvent(event: institutionEvent, attendance: false)
                 //saveInstitution(institution)
             }
         }

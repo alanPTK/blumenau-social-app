@@ -84,6 +84,11 @@ struct EventDecodable: Decodable {
     let time: String
     let date: String
     let institution_id: Int
+    let day: Int
+    let month: Int
+    let year: Int
+    let start_hour: Int
+    let end_hour: Int
 }
 
 class SynchronizationService: NSObject {

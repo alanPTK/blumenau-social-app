@@ -3,6 +3,7 @@ import MapKit
 import CoreLocation
 import EventKit
 import EasyTipView
+import RealmSwift
 
 class EventViewController: UIViewController {
     
@@ -22,6 +23,8 @@ class EventViewController: UIViewController {
     @IBOutlet weak var lcEvenDescriptionHeight: NSLayoutConstraint!
     var selectedEvent: InstitutionEvent?
     let userPreferences = Preferences.shared
+    let userRepository = UserRepository()
+    var userEvent: UserEvent?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +74,15 @@ class EventViewController: UIViewController {
             
             userPreferences.eventRouteTipViewWasShown = true
         }
+        
+        userEvent = userRepository.getUserEvent(selectedEvent!)
+        if let eventFromUser = userEvent {
+            if eventFromUser.confirmed {
+                lbAttendanceTitle.text = NSLocalizedString("I will go!", comment: "")
+            } else {
+                lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
+            }
+        }
     }
     
     @IBAction func close(_ sender: Any) {
@@ -103,9 +115,34 @@ class EventViewController: UIViewController {
     }
     
     @IBAction func confirmAttendance(_ sender: Any) {
-        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Do you want to add this event to your calendar ?", comment: ""), preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { (alert) in
+        guard let eventFromUser = userEvent else { return }
+        
+        if eventFromUser.confirmed {
+            userRepository.changeAttendanceStatusForEvent(event: selectedEvent!, attendance: false)
+
+            lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
             
+            let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("This event will be removed from your notifications and calendar.", comment: ""), preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .destructive, handler: nil)
+            
+            alertController.addAction(okAction)
+            
+            present(alertController, animated: true, completion: nil)
+        } else {
+            userRepository.changeAttendanceStatusForEvent(event: selectedEvent!, attendance: true)
+
+            lbAttendanceTitle.text = NSLocalizedString("I will go!", comment: "")
+            
+            addToCalendarAlert()
+        }
+    }
+    
+    
+    func addToCalendarAlert() {
+        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("You will be notified when the event is coming. Do you want to add this event to your calendar ?", comment: ""), preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { (alert) in
+            self.addEventToCalendar()
         }
         
         let noAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .destructive, handler: nil)
@@ -129,59 +166,53 @@ class EventViewController: UIViewController {
         mapItem.openInMaps(launchOptions: options)
     }
     
-    /*func addEventToCalendar() {
+    func addEventToCalendar() {
+        let eventRef = ThreadSafeReference(to: selectedEvent!)
         let eventStore = EKEventStore()
         
         eventStore.requestAccess(to: .event) { granted, error in
             if granted && error == nil {
+                let realm = try! Realm()
+                let event = realm.resolve(eventRef)
+
+                let calendarEvent = EKEvent(eventStore: eventStore)
                 
-                var eventStartDate: Date = Date()
-                var eventEndDate: Date = Date()
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yy HH:mm"
-                
-                if let startDay = self.selectedEvent?.start, let startHour = self.selectedEvent?.startHour {
-                    let fullDate: String = String(format: "%@ %@", startDay, startHour)
+                guard let day = event?.day, let month = event?.month, let year = event?.year, let startHour = event?.startHour, let endHour = event?.endHour else {
                     
-                    if let startDate = dateFormatter.date(from: fullDate) {
-                        eventStartDate = startDate
-                        print(startDate)
-                    }
+                    self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Please, try again later.", comment: ""))
+                    
+                    return
                 }
                 
-                if let endDay = self.selectedEvent?.end, let endHour = self.selectedEvent?.endHour {
-                    let fullDate: String = String(format: "%@ %@", endDay, endHour)
-                    
-                    if let endDate = dateFormatter.date(from: fullDate) {
-                        eventEndDate = endDate
-                        print(endDate)
-                    }
-                }
+                let startDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: startHour)
+                let endDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: endHour)
                 
-                let event: EKEvent = EKEvent(eventStore: eventStore)
-                
-                event.title = self.selectedEvent?.title
-                event.startDate = eventStartDate
-                event.endDate = eventEndDate
-                event.notes = self.selectedEvent?.desc
-                event.calendar = eventStore.defaultCalendarForNewEvents
-                
+                calendarEvent.title = event?.title
+                calendarEvent.startDate = startDate
+                calendarEvent.endDate = endDate
+                calendarEvent.notes = event!.desc
+                calendarEvent.calendar = eventStore.defaultCalendarForNewEvents
+
                 do {
-                    try eventStore.save(event, span: .thisEvent)
-                    
-//                    if let name = self.selectedEvent?.name, let pk = self.selectedEvent?.pk {
-//                        LogController.sharedLogController.saveLogWith(type: Constants.LogTypes.user, event: Constants.EventTypes.addEventToCalendar, location: Constants.LocationTypes.eventDetail, payload: "Evento \(name)", pk: pk)
-//                    }
-                    
-//                    self.showDefaultAlertWithTitle(title: NSLocalizedString("Attention", comment: ""), andMessage: NSLocalizedString("Event added successfully. We wait for you there !", comment: ""), andActionTitle: NSLocalizedString("OK", comment: ""))
+                    try eventStore.save(calendarEvent, span: .thisEvent)
+
+                    self.showAlertWithMessage(message: NSLocalizedString("Event added successfully. We wait for you there !", comment: ""))
                 } catch _ as NSError {
-//                    self.showDefaultAlertWithTitle(title: NSLocalizedString("Attention", comment: ""), andMessage: NSLocalizedString("Error adding the event to you calendar. Please, try again later.", comment: ""), andActionTitle: NSLocalizedString("OK", comment: ""))
+                    self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Please, try again later.", comment: ""))
                 }
             } else {
-//                self.showDefaultAlertWithTitle(title: NSLocalizedString("Attention", comment: ""), andMessage: NSLocalizedString("Error adding the event to you calendar. Did you allowed us to add events ? Please, check and try again.", comment: ""), andActionTitle: NSLocalizedString("OK", comment: ""))
+                self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Did you allowed us to add events ? Please, check and try again.", comment: ""))
             }
         }
-    }*/
+    }
+    
+    func showAlertWithMessage(message: String) {
+        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
 }

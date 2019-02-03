@@ -98,6 +98,11 @@ class InstitutionEvent: Object {
     @objc dynamic var address: String = ""
     @objc dynamic var time: String = ""
     @objc dynamic var date: String = ""
+    @objc dynamic var day: Int = 0
+    @objc dynamic var month: Int = 0
+    @objc dynamic var year: Int = 0    
+    @objc dynamic var startHour: Int = 0
+    @objc dynamic var endHour: Int = 0
     
     override static func primaryKey() -> String? {
         return "id"

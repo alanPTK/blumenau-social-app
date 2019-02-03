@@ -35,6 +35,9 @@
 		DB029F7822061CF90073A4E7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */; };
 		DB029F7922061CF90073A4E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7522061CF90073A4E7 /* Constants.swift */; };
 		DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7A22061D070073A4E7 /* MatchViewController.swift */; };
+		DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7C22073BE10073A4E7 /* UserDB.swift */; };
+		DB029F7F22073C780073A4E7 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7E22073C780073A4E7 /* UserRepository.swift */; };
+		DB029F812207685B0073A4E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F802207685B0073A4E7 /* Utils.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "utils/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DB029F7522061CF90073A4E7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = utils/Constants.swift; sourceTree = "<group>"; };
 		DB029F7A22061D070073A4E7 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
+		DB029F7C22073BE10073A4E7 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDB.swift; path = models/UserDB.swift; sourceTree = "<group>"; };
+		DB029F7E22073C780073A4E7 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = repository/UserRepository.swift; sourceTree = "<group>"; };
+		DB029F802207685B0073A4E7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			children = (
 				DB029F6322061C980073A4E7 /* FilterOptionsDB.swift */,
 				DB029F6222061C980073A4E7 /* InstitutionDB.swift */,
+				DB029F7C22073BE10073A4E7 /* UserDB.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 			children = (
 				DB029F6F22061CB20073A4E7 /* FilterOptionsRepository.swift */,
 				DB029F6E22061CB20073A4E7 /* InstitutionRepository.swift */,
+				DB029F7E22073C780073A4E7 /* UserRepository.swift */,
 			);
 			name = repositories;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 				DB029F7222061CF90073A4E7 /* CustomLayout.swift */,
 				DB029F7322061CF90073A4E7 /* Preferences.swift */,
 				DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */,
+				DB029F802207685B0073A4E7 /* Utils.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -420,6 +429,7 @@
 			files = (
 				DB029F6A22061CA60073A4E7 /* ProfileInterestsViewController.swift in Sources */,
 				DB029F7922061CF90073A4E7 /* Constants.swift in Sources */,
+				DB029F7F22073C780073A4E7 /* UserRepository.swift in Sources */,
 				DB029F7622061CF90073A4E7 /* CustomLayout.swift in Sources */,
 				DB373E1021FFB56900FE02E0 /* ContactViewController.swift in Sources */,
 				DB029F7822061CF90073A4E7 /* UIColor+Extension.swift in Sources */,
@@ -430,6 +440,7 @@
 				DB029F5722061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift in Sources */,
 				DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */,
 				DB029F6C22061CA60073A4E7 /* InitialProfileViewController.swift in Sources */,
+				DB029F812207685B0073A4E7 /* Utils.swift in Sources */,
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
 				DB029F5222061C6D0073A4E7 /* AboutTableViewCell.swift in Sources */,
@@ -449,6 +460,7 @@
 				DB029F6122061C8A0073A4E7 /* InstitutionsViewController.swift in Sources */,
 				DB029F5522061C6D0073A4E7 /* CauseCollectionViewCell.swift in Sources */,
 				DB029F7022061CB20073A4E7 /* InstitutionRepository.swift in Sources */,
+				DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */,
 				DB029F5F22061C8A0073A4E7 /* InformationViewController.swift in Sources */,
 				DB029F7722061CF90073A4E7 /* Preferences.swift in Sources */,
 				DB029F6022061C8A0073A4E7 /* InstitutionViewController.swift in Sources */,

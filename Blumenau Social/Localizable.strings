@@ -42,3 +42,7 @@
 "Error adding the event to you calendar. Please, try again later." = "Erro ao adicionar o evento ao seu calendário. Por favor, tente novamente mais tarde.";
 "Error adding the event to you calendar. Did you allowed us to add events ? Please, check and try again." = "Erro ao adicionar o evento ao seu calendário. Você nos deu permissão para isso ? Por favor, verifique e tente novamente.";
 "Touch here to open the Maps application and get routes to the event." = "Toque aqui para abrir os Mapas e visualizar as direções para o evento";
+"I want to go!" = "Eu quero ir!";
+"I will go!" = "Eu vou ir!";
+"You will be notified when the event is coming. Do you want to add this event to your calendar ?" = "Você será notificado quando este evento estiver chegando. Você deseja adicionar este evento ao seu calendário ?";
+"This event will be removed from your notifications and calendar." = "Este evento será removido das suas notificações e do seu calendário.";
