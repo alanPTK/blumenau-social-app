@@ -63,14 +63,14 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         }
         
         synchronizationService.synchronizeEvents(completion: { (result) in
-            let i = InstitutionRepository()
-            let u = UserRepository()
-
-            let userEvents = u.getUserEvents()
-            for userEvent in userEvents {
-                print(userEvent.id)
-                print(userEvent.confirmed)
-            }
+//            let i = InstitutionRepository()
+//            let u = UserRepository()
+//
+//            let userEvents = u.getUserEvents()
+//            for userEvent in userEvents {
+//                print(userEvent.id)
+//                print(userEvent.confirmed)
+//            }
 
 //            let events = i.getAllEvents()
 //

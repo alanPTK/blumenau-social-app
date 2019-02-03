@@ -128,11 +128,6 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         ivClose.addGestureRecognizer(closeTap)
         ivClose.isUserInteractionEnabled = true
         
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-        longPressGesture.minimumPressDuration = 0.5
-        //longPressGesture.delegate = self
-        //tvDonations.addGestureRecognizer(longPressGesture)
-        
         let phoneTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(callInstitution))
         lbPhone.addGestureRecognizer(phoneTapGestureRecognizer)
         
@@ -480,18 +475,6 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView.tag == 0 {
-            let currentDonation = currentInstitution?.donations[indexPath.section]
-            
-            let alertController = UIAlertController(title: "", message: currentDonation?.desc, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .destructive, handler: nil)
-            alertController.addAction(okAction)
-            
-            present(alertController, animated: true, completion: nil)
-        }
     }
     
 }

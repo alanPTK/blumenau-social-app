@@ -156,13 +156,13 @@ class ProfileAvailabilityViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         for day in selectedDays {
-            if let index = Preferences.shared.userDays.firstIndex(of: (day.container?.tag)!) {
+            if Preferences.shared.userDays.firstIndex(of: (day.container?.tag)!) != nil {
                 day.container?.alpha = 1.0
             }
         }
         
         for period in selectedPeriods {
-            if let index = Preferences.shared.userPeriods.firstIndex(of: (period.container?.tag)!) {
+            if Preferences.shared.userPeriods.firstIndex(of: (period.container?.tag)!) != nil {
                 period.container?.alpha = 1.0
             }
         }

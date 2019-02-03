@@ -26,8 +26,8 @@ public protocol MSPeekImplementationDelegate: AnyObject {
 }
 
 extension UICollectionView {
-    public func configureForPeekingDelegate(scrollDirection: UICollectionViewScrollDirection = .horizontal) {
-        self.decelerationRate = UIScrollViewDecelerationRateFast
+    public func configureForPeekingDelegate(scrollDirection: UICollectionView.ScrollDirection = .horizontal) {
+        self.decelerationRate = UIScrollView.DecelerationRate.fast
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         //Keeping this to support older versions
@@ -43,7 +43,7 @@ open class MSPeekCollectionViewDelegateImplementation: NSObject, UICollectionVie
     public let scrollThreshold: CGFloat
     public let maximumItemsToScroll: Int
     public let numberOfItemsToShow: Int
-    public let scrollDirection: UICollectionViewScrollDirection
+    public let scrollDirection: UICollectionView.ScrollDirection
     
     public weak var delegate: MSPeekImplementationDelegate?
     
@@ -118,7 +118,7 @@ open class MSPeekCollectionViewDelegateImplementation: NSObject, UICollectionVie
         }
     }
     
-    public init(cellSpacing: CGFloat = 20, cellPeekWidth: CGFloat = 20, scrollThreshold: CGFloat = 50, maximumItemsToScroll: Int = 1, numberOfItemsToShow: Int = 1, scrollDirection: UICollectionViewScrollDirection = .horizontal) {
+    public init(cellSpacing: CGFloat = 20, cellPeekWidth: CGFloat = 20, scrollThreshold: CGFloat = 50, maximumItemsToScroll: Int = 1, numberOfItemsToShow: Int = 1, scrollDirection: UICollectionView.ScrollDirection = .horizontal) {
         self.cellSpacing = cellSpacing
         self.cellPeekWidth = cellPeekWidth
         self.scrollThreshold = scrollThreshold

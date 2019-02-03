@@ -2952,7 +2952,7 @@
         <!--Navigation Controller-->
         <scene sceneID="J3Y-DA-2Df">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y8W-k4-K5Y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="y8W-k4-K5Y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JzD-EM-aef">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
