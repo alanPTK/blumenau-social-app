@@ -71,12 +71,10 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
                 showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
             }
             
-            body.append(name)
-            body.append("\n")
-            body.append(email)
-            body.append("\n")
-            body.append(phone)
-            body.append("\n")
+            let initialBody = String(format: "%@ - %@ - %@", name, email, phone)
+            
+            body.append(initialBody)
+            body.append("\n \n")
             body.append(tvText.text)
             
             let composeEmailViewController = MFMailComposeViewController()

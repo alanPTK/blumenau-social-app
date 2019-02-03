@@ -53,10 +53,10 @@ class MissionViewController: UIViewController {
     }
     
     func animateView(viewToAnimate: UIView) {
-        var duration = 0.6
+        var duration = 0.4
         
         if currentIndex >= 5 {
-            duration = 0.4
+            duration = 0.3
         }
         
         UIView.animate(withDuration: duration, animations: {

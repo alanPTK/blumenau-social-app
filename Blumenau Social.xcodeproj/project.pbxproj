@@ -38,6 +38,8 @@
 		DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7C22073BE10073A4E7 /* UserDB.swift */; };
 		DB029F7F22073C780073A4E7 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7E22073C780073A4E7 /* UserRepository.swift */; };
 		DB029F812207685B0073A4E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F802207685B0073A4E7 /* Utils.swift */; };
+		DB029F832207A3150073A4E7 /* InstitutionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */; };
+		DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		DB029F7C22073BE10073A4E7 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDB.swift; path = models/UserDB.swift; sourceTree = "<group>"; };
 		DB029F7E22073C780073A4E7 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = repository/UserRepository.swift; sourceTree = "<group>"; };
 		DB029F802207685B0073A4E7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
+		DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsDelegate.swift; path = "institution section/InstitutionsDelegate.swift"; sourceTree = "<group>"; };
+		DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsPresenter.swift; path = "institution section/InstitutionsPresenter.swift"; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -261,8 +265,10 @@
 			children = (
 				DB029F5A22061C890073A4E7 /* EventViewController.swift */,
 				DB029F5B22061C890073A4E7 /* InformationViewController.swift */,
-				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
 				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
+				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
+				DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */,
+				DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
 				DB029F5222061C6D0073A4E7 /* AboutTableViewCell.swift in Sources */,
+				DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */,
 				DB029F5322061C6D0073A4E7 /* ActionImageCollectionViewCell.swift in Sources */,
 				DB029F4822061C5D0073A4E7 /* FilterOptionsViewController.swift in Sources */,
 				DB029F4922061C5D0073A4E7 /* FilterViewController.swift in Sources */,
@@ -460,6 +467,7 @@
 				DB029F6122061C8A0073A4E7 /* InstitutionsViewController.swift in Sources */,
 				DB029F5522061C6D0073A4E7 /* CauseCollectionViewCell.swift in Sources */,
 				DB029F7022061CB20073A4E7 /* InstitutionRepository.swift in Sources */,
+				DB029F832207A3150073A4E7 /* InstitutionsDelegate.swift in Sources */,
 				DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */,
 				DB029F5F22061C8A0073A4E7 /* InformationViewController.swift in Sources */,
 				DB029F7722061CF90073A4E7 /* Preferences.swift in Sources */,

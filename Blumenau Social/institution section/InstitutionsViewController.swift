@@ -8,13 +8,15 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ivSearch: UIImageView!
     @IBOutlet weak var tfSearchInstitutes: UITextField!
     
+    var presenter: InstitutionsPresenter?
     var synchronizationService = SynchronizationService()
-    let institutionRepository = InstitutionRepository()
     var institutions: [Institution] = []
     let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter = InstitutionsPresenter(delegate: self)
         
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
@@ -36,8 +38,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
                     
                     DispatchQueue.main.async {
                         self.hud.dismiss(afterDelay: 1.0)
-                        self.institutions = Array(self.institutionRepository.getAllInstitutions())
-                        self.cvInstitutions.reloadData()
+                        self.presenter?.getAllInstitutions()
                     }
                 }
             }
@@ -54,32 +55,16 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        let u = UserRepository()
-        
-        let userEvents = u.getUserEvents()
-        for userEvent in userEvents {
-            print(userEvent.id)
-            print(userEvent.confirmed)
-        }
-        
         synchronizationService.synchronizeEvents(completion: { (result) in
-//            let i = InstitutionRepository()
-//            let u = UserRepository()
-//
-//            let userEvents = u.getUserEvents()
-//            for userEvent in userEvents {
-//                print(userEvent.id)
-//                print(userEvent.confirmed)
-//            }
-
-//            let events = i.getAllEvents()
-//
-//            for e in events {
-//                print(e.title)
-//            }
+            if result {
+                DispatchQueue.main.async {
+                    self.hud.dismiss(afterDelay: 1.0)
+                }
+                Preferences.shared.eventsAreSynchronized = true
+            }
         })
-        
-        institutions = Array(institutionRepository.getAllInstitutions())        
+                
+        presenter?.getAllInstitutions()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -90,20 +75,19 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func textDidChange(textField: UITextField) {
         if (textField.text?.isEmpty)! {
-            institutions = Array(institutionRepository.getAllInstitutions())
+            presenter?.getAllInstitutions()
             
             view.endEditing(true)
         } else {
-            institutions = Array(institutionRepository.searchInstitutions(text: textField.text!))
+            if let text = textField.text {
+                presenter?.searchInstitutions(text: text)
+            }
         }
-        
-        cvInstitutions.reloadData()
     }
     
     @IBAction func cleanFilters(_ sender: Any) {
         tfSearchInstitutes.text = ""
-        institutions = Array(institutionRepository.getAllInstitutions())
-        cvInstitutions.reloadData()
+        presenter?.getAllInstitutions()
     }
     
     @objc func searchInstitutions() {
@@ -112,15 +96,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         
         filterViewController.onDone = {(selectedNeighborhoods: [FilterOption], selectedVolunteers: [FilterOption], selectedDonations: [FilterOption], selectedAreas: [FilterOption]) -> () in
             
-            let neighborhoodsToFilter = selectedNeighborhoods.map { $0.id }
-            let volunteersToFilter = selectedVolunteers.map { $0.id }
-            let donationsToFilter = selectedDonations.map { $0.id }
-            let areasToFilter = selectedAreas.map { $0.id }
-            
-            if neighborhoodsToFilter.count > 0 || volunteersToFilter.count > 0 || donationsToFilter.count > 0 || areasToFilter.count > 0 {
-                self.institutions = self.institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [], periods: [], limit: 0)
-                self.cvInstitutions.reloadData()
-            }
+            self.presenter?.searchInstitutions(selectedNeighborhoods: selectedNeighborhoods, selectedAreas: selectedAreas, selectedDonations: selectedDonations, selectedVolunteers: selectedVolunteers, days: [], periods: [], limit: 0)
         }
     }
     
@@ -179,15 +155,24 @@ extension UICollectionView {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
         messageLabel.textColor = UIColor.titleColor()
-        messageLabel.numberOfLines = 0;
-        messageLabel.textAlignment = .center;
+        messageLabel.numberOfLines = 0
+        messageLabel.textAlignment = .center
         messageLabel.sizeToFit()
         
-        self.backgroundView = messageLabel;
+        self.backgroundView = messageLabel
     }
     
     func restore() {
         self.backgroundView = nil
+    }
+    
+}
+
+extension InstitutionsViewController: InstitutionsDelegate {
+    
+    func showInstitutions(institutions: [Institution]) {
+        self.institutions = institutions
+        cvInstitutions.reloadData()
     }
     
 }

@@ -83,10 +83,10 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         vAbout.layer.cornerRadius = 8
         
         tvWorkingHours.text = currentInstitution?.workingHours
-        tvWorkingHours.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0);
+        tvWorkingHours.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
         
         tvScope.text = currentInstitution?.scope
-        tvScope.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0);
+        tvScope.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
         
         tvVolunteers.text = currentInstitution?.volunteers
         tvVolunteers.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)

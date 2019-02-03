@@ -32,6 +32,15 @@ class Preferences {
         }
     }
     
+    var eventsAreSynchronized: Bool {
+        get {
+            return defaults.bool(forKey: "eventsAreSynchronized")
+        }
+        set {
+            defaults.set(newValue, forKey: "eventsAreSynchronized")
+        }
+    }
+    
     var userName: String {
         get {
             if let userName = defaults.string(forKey: "userName") {
