@@ -2924,7 +2924,9 @@
                         <outlet property="lbVolunteers" destination="Sdm-I8-ed5" id="sZq-sx-E68"/>
                         <outlet property="lbWorkingHours" destination="904-8x-KDQ" id="oWX-HQ-zQZ"/>
                         <outlet property="lcAboutHeight" destination="Wnv-M3-8J0" id="wNe-u9-TGy"/>
+                        <outlet property="lcContactInformationHeight" destination="s48-Tz-bR6" id="WFz-Ys-GJP"/>
                         <outlet property="lcDonationsHeight" destination="zI3-au-CsL" id="H62-LD-5rS"/>
+                        <outlet property="lcMainInformationHeight" destination="ZIg-bi-93l" id="7re-Tx-Zta"/>
                         <outlet property="lcPicturesHeight" destination="mG6-3f-IXB" id="7im-62-HOV"/>
                         <outlet property="lcScopeHeight" destination="PYq-uT-1lr" id="Rel-5j-2SW"/>
                         <outlet property="lcVolunteersHeight" destination="VT3-KZ-AeU" id="7TQ-i4-VYi"/>

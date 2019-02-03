@@ -62,6 +62,8 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
+    @IBOutlet weak var lcMainInformationHeight: NSLayoutConstraint!
+    @IBOutlet weak var lcContactInformationHeight: NSLayoutConstraint!
     
     var currentPage: Int = 0
     var currentInstitution: Institution?
@@ -365,7 +367,10 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
             lcVolunteersHeight.constant = 0
         }
         
-        UIView.animate(withDuration: 0.1) {
+        lcMainInformationHeight.constant = lbSubtitle.frame.origin.y + lbSubtitle.frame.size.height + 8
+        lcContactInformationHeight.constant = lbResponsible.frame.origin.y + lbResponsible.frame.size.height + 8
+        
+        UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
     }
