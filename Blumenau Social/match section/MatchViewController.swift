@@ -131,7 +131,7 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
+        let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_GENERAL_INFORMATION_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
         
         if collectionView.tag == 0 {
             let currentInstitution = matchingInstitutions[indexPath.row]

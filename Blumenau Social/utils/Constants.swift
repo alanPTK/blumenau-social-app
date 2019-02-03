@@ -25,7 +25,7 @@ struct Constants {
     static let MAIN_STORYBOARD_NAME = "Main"
     
     //cell identifiers
-    static let INSTITUTION_CELL_IDENTIFIER = "institutionCell"
+    static let INSTITUTION_GENERAL_INFORMATION_CELL_IDENTIFIER = "InstitutionGeneralInformationCell"
     
     //social network profiles
     static let FACEBOOK_APP_URL = "fb://profile/249674518521338";

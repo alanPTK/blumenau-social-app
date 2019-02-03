@@ -15,7 +15,7 @@
 		DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */; };
 		DB029F5522061C6D0073A4E7 /* CauseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4D22061C6C0073A4E7 /* CauseCollectionViewCell.swift */; };
 		DB029F5622061C6D0073A4E7 /* InstitutionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4E22061C6D0073A4E7 /* InstitutionCollectionViewCell.swift */; };
-		DB029F5722061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4F22061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift */; };
+		DB029F5722061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4F22061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift */; };
 		DB029F5822061C6D0073A4E7 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */; };
 		DB029F5922061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */; };
 		DB029F5E22061C8A0073A4E7 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F5A22061C890073A4E7 /* EventViewController.swift */; };
@@ -63,7 +63,7 @@
 		DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionTableViewCell.swift; path = cells/InstitutionTableViewCell.swift; sourceTree = "<group>"; };
 		DB029F4D22061C6C0073A4E7 /* CauseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CauseCollectionViewCell.swift; path = cells/CauseCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB029F4E22061C6D0073A4E7 /* InstitutionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionCollectionViewCell.swift; path = cells/InstitutionCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB029F4F22061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionXCollectionViewCell.swift; path = cells/InstitutionXCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB029F4F22061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionGeneralInformationCollectionViewCell.swift; path = cells/InstitutionGeneralInformationCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCollectionViewCell.swift; path = cells/FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeMoreCollectionViewCell.swift; path = cells/SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB029F5A22061C890073A4E7 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = "institution section/EventViewController.swift"; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 				DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */,
 				DB029F4E22061C6D0073A4E7 /* InstitutionCollectionViewCell.swift */,
 				DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */,
-				DB029F4F22061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift */,
+				DB029F4F22061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift */,
 				DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */,
 			);
 			name = cells;
@@ -443,7 +443,7 @@
 				DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
 				DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */,
-				DB029F5722061C6D0073A4E7 /* InstitutionXCollectionViewCell.swift in Sources */,
+				DB029F5722061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift in Sources */,
 				DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */,
 				DB029F6C22061CA60073A4E7 /* InitialProfileViewController.swift in Sources */,
 				DB029F812207685B0073A4E7 /* Utils.swift in Sources */,

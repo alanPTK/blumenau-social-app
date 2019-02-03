@@ -8,16 +8,33 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ivSearch: UIImageView!
     @IBOutlet weak var tfSearchInstitutes: UITextField!
     
-    var presenter: InstitutionsPresenter?
-    var synchronizationService = SynchronizationService()
-    var institutions: [Institution] = []
-    let hud = JGProgressHUD(style: .dark)
+    private let preferences = Preferences.shared
+    private var presenter: InstitutionsPresenter?
+    private var institutions: [Institution] = []
+    private let hud = JGProgressHUD(style: .dark)
     
+    /* Initialize all the necessary information for the view and load the information from the API */
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
         presenter = InstitutionsPresenter(delegate: self)
         
+        if !preferences.institutionsAreSynchronized || !preferences.filtersAreSynchronized {
+            hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
+            hud.show(in: view)
+        }
+        
+        presenter?.getInstitutionsFromApi()
+        presenter?.getFiltersFromApi()
+        presenter?.getEventsFromApi()
+                
+        presenter?.getAllInstitutions()
+    }
+    
+    /* Initialize the view components */
+    func setupView() {
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)
         ivSearch.isUserInteractionEnabled = true
@@ -25,54 +42,16 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         tfSearchInstitutes.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search institutions, necessary donations, necessary volunteers, etc", comment: ""), attributes: [NSAttributedString.Key.foregroundColor : UIColor.white.withAlphaComponent(0.5)])
         tfSearchInstitutes.delegate = self
         tfSearchInstitutes.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        
-        if !Preferences.shared.institutionsAreSynchronized || !Preferences.shared.filtersAreSynchronized {
-            hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
-            hud.show(in: self.view)
-        }
-        
-        if !Preferences.shared.institutionsAreSynchronized {
-            synchronizationService.synchronizeInstitutions { (result) in
-                if result {
-                    Preferences.shared.institutionsAreSynchronized = true
-                    
-                    DispatchQueue.main.async {
-                        self.hud.dismiss(afterDelay: 1.0)
-                        self.presenter?.getAllInstitutions()
-                    }
-                }
-            }
-        }
-        
-        if !Preferences.shared.filtersAreSynchronized {
-            synchronizationService.synchronizeFilterOptions { (result) in
-                if result {
-                    DispatchQueue.main.async {
-                        self.hud.dismiss(afterDelay: 1.0)
-                    }
-                    Preferences.shared.filtersAreSynchronized = true
-                }
-            }
-        }
-        
-        synchronizationService.synchronizeEvents(completion: { (result) in
-            if result {
-                DispatchQueue.main.async {
-                    self.hud.dismiss(afterDelay: 1.0)
-                }
-                Preferences.shared.eventsAreSynchronized = true
-            }
-        })
-                
-        presenter?.getAllInstitutions()
     }
     
+    /* Hide the keyboard when the user press the return button */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         
         return true
     }
     
+    /* When the user types something in the textfield, search institutions that matches the criteria */
     @objc func textDidChange(textField: UITextField) {
         if (textField.text?.isEmpty)! {
             presenter?.getAllInstitutions()
@@ -85,11 +64,13 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /* Clean the filters and reload all institutions */
     @IBAction func cleanFilters(_ sender: Any) {
         tfSearchInstitutes.text = ""
         presenter?.getAllInstitutions()
     }
     
+    /* Presents the institution search view */
     @objc func searchInstitutions() {
         let filterViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FILTER_VIEW_STORYBOARD_ID) as! FilterViewController
         present(filterViewController, animated: true, completion: nil)
@@ -100,6 +81,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /* When the view appears, show the profile creation screen if necessary */
     override func viewDidAppear(_ animated: Bool) {
         if !Preferences.shared.profileCreationWasOpened {
             if Preferences.shared.institutionsAreSynchronized {
@@ -115,8 +97,9 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
 
 extension InstitutionsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    /* If there ano institutions, show a view with the information for the user */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if (institutions.count == 0) {
+        if institutions.count == 0 {
             cvInstitutions.setEmptyMessage(NSLocalizedString("No institution found", comment: ""))            
         } else {
             cvInstitutions.restore()
@@ -125,19 +108,19 @@ extension InstitutionsViewController: UICollectionViewDataSource, UICollectionVi
         return institutions.count
     }
     
+    /* Load the cells with the institution information */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CELL_IDENTIFIER, for: indexPath) as! InstitutionXCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_GENERAL_INFORMATION_CELL_IDENTIFIER, for: indexPath) as! InstitutionGeneralInformationCollectionViewCell
+        
         let currentInstitution = institutions[indexPath.row]
         
-        cell.layer.cornerRadius = 8
-        
-        cell.lbInstitutionName.text = currentInstitution.title
-        cell.lbInstitutionPhone.text = currentInstitution.phone
-        cell.lbInstitutionAddress.text = currentInstitution.address        
+        cell.setupCell()
+        cell.loadInformation(institution: currentInstitution)
         
         return cell
     }
     
+    /* When the user selects an institution, show the institution profile view */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let institutionInformationViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         let selectedInstitution = institutions[indexPath.row]
@@ -151,6 +134,7 @@ extension InstitutionsViewController: UICollectionViewDataSource, UICollectionVi
 
 extension UICollectionView {
     
+    /* Create a background view with a label to show to the user that there are no institutions */
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
@@ -162,6 +146,7 @@ extension UICollectionView {
         self.backgroundView = messageLabel
     }
     
+    /* Hides the background view from the collection view */
     func restore() {
         self.backgroundView = nil
     }
@@ -170,6 +155,12 @@ extension UICollectionView {
 
 extension InstitutionsViewController: InstitutionsDelegate {
     
+    /* Hides the progress hud */
+    func hideProgressHud() {
+        hud.dismiss(afterDelay: 1.0, animated: true)
+    }
+    
+    /* Reload the collection view to show all the institutions found */
     func showInstitutions(institutions: [Institution]) {
         self.institutions = institutions
         cvInstitutions.reloadData()

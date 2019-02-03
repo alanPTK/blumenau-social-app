@@ -4,6 +4,8 @@ class InstitutionsPresenter {
     
     private var delegate: InstitutionsDelegate
     private let institutionRepository = InstitutionRepository()
+    private let synchronizationService = SynchronizationService()
+    private let preferences = Preferences.shared
     
     init(delegate: InstitutionsDelegate) {
         self.delegate = delegate
@@ -29,6 +31,47 @@ class InstitutionsPresenter {
         if neighborhoodsToFilter.count > 0 || volunteersToFilter.count > 0 || donationsToFilter.count > 0 || areasToFilter.count > 0 {
             let institutions = institutionRepository.searchInstitutions(neighborhoods: neighborhoodsToFilter, causes: areasToFilter, donationType: donationsToFilter, volunteerType: volunteersToFilter, days: [], periods: [], limit: 0)
             delegate.showInstitutions(institutions: institutions)
+        }
+    }
+    
+    func getInstitutionsFromApi() {
+        if !preferences.institutionsAreSynchronized {
+            synchronizationService.synchronizeInstitutions { (result) in
+                if result {
+                    Preferences.shared.institutionsAreSynchronized = true
+                    
+                    DispatchQueue.main.async {
+                        self.getAllInstitutions()
+                        self.delegate.hideProgressHud()
+                    }
+                }
+            }
+        }
+    }
+    
+    func getFiltersFromApi() {
+        if !preferences.filtersAreSynchronized {
+            synchronizationService.synchronizeFilterOptions { (result) in
+                if result {
+                    DispatchQueue.main.async {
+                        self.delegate.hideProgressHud()
+                    }
+                    self.preferences.filtersAreSynchronized = true
+                }
+            }
+        }
+    }
+    
+    func getEventsFromApi() {
+        if !preferences.eventsAreSynchronized {
+            synchronizationService.synchronizeEvents(completion: { (result) in
+                if result {
+                    DispatchQueue.main.async {
+                        self.delegate.hideProgressHud()
+                    }
+                    self.preferences.eventsAreSynchronized = true
+                }
+            })
         }
     }
     

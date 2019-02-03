@@ -3030,7 +3030,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="institutionCell" id="bPg-mr-fGG" customClass="InstitutionXCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="InstitutionGeneralInformationCell" id="bPg-mr-fGG" customClass="InstitutionGeneralInformationCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
