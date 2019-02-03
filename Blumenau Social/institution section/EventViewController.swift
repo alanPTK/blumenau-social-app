@@ -1,5 +1,6 @@
 import UIKit
 import MapKit
+import CoreLocation
 
 class EventViewController: UIViewController {
 
@@ -30,6 +31,26 @@ class EventViewController: UIViewController {
         tvEventDescription.text = selectedEvent?.desc
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let location = lbEventAddress.text!
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(location) { [weak self] placemarks, error in
+            if let placemark = placemarks?.first, let location = placemark.location {
+                let mark = MKPlacemark(placemark: placemark)
+                
+                if var region = self?.mvEventLocation.region {
+                    let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+                    region.center = location.coordinate
+                    region.span = span
+                    
+                    self?.mvEventLocation.setRegion(region, animated: true)
+                    self?.mvEventLocation.addAnnotation(mark)
+                }
+            }
+        }
+    }
+    
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -53,7 +74,7 @@ class EventViewController: UIViewController {
         activityViewController.completionWithItemsHandler = {activity, success, items, error in
             if success {
                 activityViewController.dismiss(animated: true, completion: nil)
-            }            
+            }
         }
         
         present(activityViewController, animated: true, completion: nil)
