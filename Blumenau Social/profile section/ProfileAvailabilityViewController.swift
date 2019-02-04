@@ -100,7 +100,7 @@ class ProfileAvailabilityViewController: UIViewController {
         setupView()
     }
     
-    /* Initialize the visual aspects of the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
         

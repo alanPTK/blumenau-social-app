@@ -27,6 +27,7 @@ struct Constants {
     //cell identifiers
     static let INSTITUTION_GENERAL_INFORMATION_CELL_IDENTIFIER = "InstitutionGeneralInformationCell"
     static let INSTITUTION_MATCH_CELL_IDENTIFIER = "InstitutionMatchCell"
+    static let FILTER_CELL_IDENTIFIER = "filterCell"
     
     //social network profiles
     static let FACEBOOK_APP_URL = "fb://profile/249674518521338";

@@ -19,16 +19,16 @@ class FilterOptionsViewController: UIViewController {
         btFinishSelection.titleLabel?.adjustsFontSizeToFitWidth = true
         
         switch selectedOption {
-            case 0:
+            case FilterConstants.NEIGHBORHOODS:
                 lbTitle.text = NSLocalizedString("Blumenau neighborhoods", comment: "")
-            case 1:
+            case FilterConstants.AREAS:
                 lbTitle.text = NSLocalizedString("Areas of activity", comment: "")
-            case 2:
+            case FilterConstants.DONATIONS:
                 lbTitle.text = NSLocalizedString("Donations", comment: "")
-            case 3:
+            case FilterConstants.VOLUNTEERS:
                 lbTitle.text = NSLocalizedString("Volunteers", comment: "")
             default:
-                lbTitle.text = ""
+                break
         }
     }
     

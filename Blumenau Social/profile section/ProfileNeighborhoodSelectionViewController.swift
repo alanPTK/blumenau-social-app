@@ -18,7 +18,7 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         selectedNeighborhood = filterOptionsRepository.getNeighborhoodWithId(id: Preferences.shared.userNeighborhood)
     }
     
-    /* Initialize the visual aspects of the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
         

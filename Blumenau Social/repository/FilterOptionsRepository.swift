@@ -29,6 +29,7 @@ class FilterOptionsRepository: NSObject {
         return realm.objects(Area.self).filter("id = \(id)").first
     }
     
+    /* Get all the volunteers from the database */
     func getAllVolunteers() -> Results<Volunteer> {
         return realm.objects(Volunteer.self)
     }
@@ -41,23 +42,31 @@ class FilterOptionsRepository: NSObject {
         saveArea(area)
     }
     
+    /* Save or update the area to the database */
     func saveArea(_ area: Area) {
         try! realm.write {
             realm.add(area, update: true)
         }
     }
     
-    func createDonationWithId(id: Int, name: String) {
-        let donation = Donation()
-        donation.id = id
-        donation.name = name
-        
-        saveDonation(donation)
-    }
-    
+    /* Save or update the donation to the database */
     func saveDonation(_ donation: Donation) {
         try! realm.write {
             realm.add(donation, update: true)
+        }
+    }
+    
+    /* Save or update the volunteer to the database */
+    func saveVolunteer(_ volunteer: Volunteer) {
+        try! realm.write {
+            realm.add(volunteer, update: true)
+        }
+    }
+    
+    /* Save or update the neighborhood to the database */
+    func saveNeighborhood(_ neighborhood: Neighborhood) {
+        try! realm.write {
+            realm.add(neighborhood, update: true)
         }
     }
     
@@ -69,12 +78,6 @@ class FilterOptionsRepository: NSObject {
         saveVolunteer(volunteer)
     }
     
-    func saveVolunteer(_ volunteer: Volunteer) {
-        try! realm.write {
-            realm.add(volunteer, update: true)
-        }
-    }
-    
     func createNeighborhoodWithId(id: Int, name: String) {
         let neighborhood = Neighborhood()
         neighborhood.id = id
@@ -83,10 +86,12 @@ class FilterOptionsRepository: NSObject {
         saveNeighborhood(neighborhood)
     }
     
-    func saveNeighborhood(_ neighborhood: Neighborhood) {
-        try! realm.write {
-            realm.add(neighborhood, update: true)
-        }
+    func createDonationWithId(id: Int, name: String) {
+        let donation = Donation()
+        donation.id = id
+        donation.name = name
+        
+        saveDonation(donation)
     }
     
 }

@@ -16,7 +16,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     func setupCell() {
         layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
         layer.borderWidth = 2.0
-        layer.cornerRadius = 8
+        layer.cornerRadius = 8                
     }
     
     func loadAreaInformation(area: Area, selected: Bool) {
@@ -43,6 +43,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
             ivIcon.image = UIImage(named: "0z")
             alpha = 0.5
         }
+    }
+    
+    func loadFilterInformation(filter: FilterOption) {
+        lbName.text = filter.name
     }
     
 }

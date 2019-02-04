@@ -35,7 +35,7 @@ class InitialProfileViewController: UIViewController {
         }
     }
     
-    /* Initialize the visual aspects of the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         tvInfo.alpha = 0
         lbNameAndAge.alpha = 0
