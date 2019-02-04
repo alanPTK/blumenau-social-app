@@ -1,9 +1,4 @@
-//
-//  AdvertisementFlowLayout.swift
-//  DemoApp
-//
 //  Created by Shashank on 10/11/17.
-//
 
 import UIKit
 

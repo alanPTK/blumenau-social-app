@@ -1,4 +1,5 @@
 import UIKit
+import Nuke
 
 class ActionImageCollectionViewCell: UICollectionViewCell {
     
@@ -20,5 +21,11 @@ class ActionImageCollectionViewCell: UICollectionViewCell {
     
     func loadInformation(image: UIImage) {
         ivAction.image = image
+    }
+    
+    func loadInformationFromWeb(image: String) {
+        if let pictureUrl = URL(string: image) {
+            Nuke.loadImage(with: pictureUrl, into: ivAction)
+        }
     }
 }

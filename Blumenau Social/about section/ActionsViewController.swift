@@ -12,12 +12,14 @@ class ActionsViewController: UIViewController {
 }
 
 extension ActionsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+    
+    /* Return the amount of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return actionsImages.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {        
+    /* Show the information in the cell */
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let actionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.ACTION_IMAGE_CELL_IDENTIFIER, for: indexPath) as! ActionImageCollectionViewCell
         
         actionImageCell.setupCell()
@@ -26,6 +28,7 @@ extension ActionsViewController: UICollectionViewDelegate, UICollectionViewDataS
         return actionImageCell
     }
     
+    /* When the user selects an image, show the images in full screen */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let fullImageViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FULL_IMAGE_VIEW_STORYBOARD_ID)
         present(fullImageViewController, animated: true, completion: nil)

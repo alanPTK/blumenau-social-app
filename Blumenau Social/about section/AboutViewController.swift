@@ -31,7 +31,7 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
         pcAbout.currentPage = currentPage
     }
 
-    /* Initialize the view components */
+    /* Initialize the view components and load the views in the scrollview */
     func setupView() {
         view.backgroundColor = UIColor.backgroundColor()
         pcAbout.pageIndicatorTintColor = UIColor.descColor()

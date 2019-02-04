@@ -58,7 +58,7 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
         return (areas?.count)!
     }
     
-    /* Show the cell information */
+    /* Show the information in the cell */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.FILTER_CELL_IDENTIFIER, for: indexPath) as! FilterCollectionViewCell
         let currentArea = areas![indexPath.row]

@@ -69,7 +69,7 @@ class FilterViewController: UIViewController {
         btShowInstitutions.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
-    /* When the user touches the button to finish the filtering */
+    /* When the user touches the button to finish the filtering calls the method onDone to pass the information */
     @IBAction func showInstitutions(_ sender: Any) {
         onDone?(selectedNeighborhoods, selectedVolunteers, selectedDonations, selectedAreas)
         
@@ -121,7 +121,6 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
             var filterOption: FilterOption?
             
             filterCell.setupCell()
-            filterCell.loadFilterInformation(filter: filterOption!)
             
             switch collectionView.tag {
                 case FilterConstants.NEIGHBORHOODS:
@@ -148,6 +147,8 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 default:
                     break
             }
+            
+            filterCell.loadFilterInformation(filter: filterOption!)
             
             return filterCell
         }
