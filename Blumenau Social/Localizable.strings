@@ -2,42 +2,16 @@
 
 "us" = "O Blumenau Social é desenvolvido por pessoas apaixonadas pelo voluntariado e que desejam ajudar as ONGs na cidade de Blumenau. Lançado em março de 2014, o projeto já ajudou dezenas de instituições na cidade a receberem doações, captar voluntários e assim melhorarem o seu impacto social. \n \n Idealizado pelo Rotaract Club de Blumenau, que atua há mais de 40 anos na cidade, reunindo pessoas entre 18 e 30 anos, com intenção de desenvolver e executar serviços e projetos em prol da comunidade.";
 
-"Blumenau neighborhoods" = "Bairros de Blumenau";
-"Areas of activity" = "Áreas de atuação";
-"Donations" = "Doações";
-"Volunteers" = "Voluntários";
-"Go Back" = "Voltar";
-"Please, fill your name before continuing" = "Por favor, preencha seu nome antes de continuar.";
-"Please, fill your age before continuing" = "Por favor, preencha sua idade antes de continuar.";
-"Attention" = "Atenção";
-"Welcome to Blumenau Social" = "Bem vindo ao Blumenau Social";
-"Please, select your neighborhood before continuing" = "Por favor, selecione o seu bairro antes de continuar.";
-"Please, select at least a day before continuing" = "Por favor, selecione pelo menos um dia antes de continuar.";
-"Please, select at least a period of the day before continuing" = "Por favor, selecione pelo menos um período do dia antes de continuar.";
-"In which neighborhood do you live ?" = "Em qual bairro você mora ?";
-"What is your availability ?" = "Qual a sua disponibilidade ?";
-"What are your interests ?" = "Quais são seus interesses ?";
-"Institutions close to you" = "Instituições perto de você...";
-"These are the institutions that fit your profile" = "%@, essas são as instituições que mais se encaixam no seu perfil...";
 "Loading information, please wait..." = "Buscando as informações, por favor, aguarde...";
-"Close" = "Fechar";
-"Touch here to create a profile and find out which institutions that fit it" = "Toque aqui para criar um perfil e descobrir as instituições que mais se encaixam à ele";
-"Contact via app" = "Contato via aplicativo";
-"We can't send the email. Please, check if you have an email configured in your settings." = "Não podemos enviar o email. Por favor, verifique se você tem um email configurado nos seus ajustes.";
-"Please, fill your name." = "Por favor, preencha o seu nome.";
-"Please, fill your email." = "Por favor, preencha o seu email.";
-"Please, fill your phone." = "Por favor, preencha o seu telefone.";
-"Events from the institutions that we think you would like" = "Eventos das instituições que achamos que você vai gostar de participar...";
-"Your name" = "Seu nome";
-"Your phone" = "Seu telefone";
-"Your email" = "Seu email";
 "Search institutions, necessary donations, necessary volunteers, etc" = "Buscar instituições, doações necessárias, voluntários necessários, etc";
-"Developer" = "Alan Fabeni / Programador";
-"Artist" = "Thiago Bennertz / Ilustrador";
 "No institution found" = "Nenhuma instituição encontrada";
-"Do you want to add this event to your calendar ?" = "Você quer adicionar este evento ao seu calendário ?";
+
+//generics
 "Yes" = "Sim";
 "No" = "Não";
+"Go Back" = "Voltar";
+"Attention" = "Atenção";
+"Close" = "Fechar";
 
 //events
 "Event added successfully. We wait for you there !" = "Evento adicionado com sucesso. Esperamos você lá!";
@@ -46,6 +20,44 @@
 "Touch here to open the Maps application and get routes to the event." = "Toque aqui para abrir os Mapas e visualizar as direções para o evento";
 "I want to go!" = "Eu quero ir!";
 "I will go!" = "Eu vou ir!";
+"See more" = "Veja \n mais";
 "You will be notified when the event is coming. Do you want to add this event to your calendar ?" = "Você será notificado quando este evento estiver chegando. Você deseja adicionar este evento ao seu calendário ?";
 "This event will be removed from your notifications and calendar." = "Este evento será removido das suas notificações e do seu calendário.";
-"See more" = "Veja \n mais";
+"Do you want to add this event to your calendar ?" = "Você quer adicionar este evento ao seu calendário ?";
+
+//contact
+"Contact via app" = "Contato via aplicativo";
+"We can't send the email. Please, check if you have an email configured in your settings." = "Não podemos enviar o email. Por favor, verifique se você tem um email configurado nos seus ajustes.";
+"Please, fill your name." = "Por favor, preencha o seu nome.";
+"Please, fill your email." = "Por favor, preencha o seu email.";
+"Please, fill your phone." = "Por favor, preencha o seu telefone.";
+"Your name" = "Seu nome";
+"Your phone" = "Seu telefone";
+"Your email" = "Seu email";
+
+//filters
+"Blumenau neighborhoods" = "Bairros de Blumenau";
+"Areas of activity" = "Áreas de atuação";
+"Donations" = "Doações";
+"Volunteers" = "Voluntários";
+
+//profile
+"Touch here to create a profile and find out which institutions that fit it" = "Toque aqui para criar um perfil e descobrir as instituições que mais se encaixam à ele";
+"Welcome to Blumenau Social" = "Bem vindo ao Blumenau Social";
+"Please, select your neighborhood before continuing" = "Por favor, selecione o seu bairro antes de continuar.";
+"Please, select at least a day before continuing" = "Por favor, selecione pelo menos um dia antes de continuar.";
+"Please, select at least a period of the day before continuing" = "Por favor, selecione pelo menos um período do dia antes de continuar.";
+"In which neighborhood do you live ?" = "Em qual bairro você mora ?";
+"What is your availability ?" = "Qual a sua disponibilidade ?";
+"What are your interests ?" = "Quais são seus interesses ?";
+"Please, fill your name before continuing" = "Por favor, preencha seu nome antes de continuar.";
+"Please, fill your age before continuing" = "Por favor, preencha sua idade antes de continuar.";
+
+//match
+"Institutions close to you" = "Instituições perto de você...";
+"These are the institutions that fit your profile" = "%@, essas são as instituições que mais se encaixam no seu perfil...";
+"Events from the institutions that we think you would like" = "Eventos das instituições que achamos que você vai se interessar...";
+
+//others
+"Developer" = "Alan Fabeni / Programador";
+"Artist" = "Thiago Bennertz / Ilustrador";
