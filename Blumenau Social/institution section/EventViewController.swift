@@ -40,7 +40,7 @@ class EventViewController: UIViewController {
         tvEventDescription.text = selectedEvent?.desc
     }
     
-    /* Initialize the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         tvEventDescription.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }

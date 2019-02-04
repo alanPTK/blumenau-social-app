@@ -33,7 +33,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         presenter?.getAllInstitutions()
     }
     
-    /* Initialize the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         let searchInstitutionsTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchInstitutions))
         ivSearch.addGestureRecognizer(searchInstitutionsTapRecognizer)

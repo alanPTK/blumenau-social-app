@@ -23,7 +23,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         lbArtistName.text = NSLocalizedString("Artist", comment: "")
     }
     
-    /* Initialize the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         tvText.layer.cornerRadius = 8
         

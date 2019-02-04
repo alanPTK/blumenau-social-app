@@ -1,140 +1,72 @@
 import UIKit
-import MSPeekCollectionViewDelegateImplementation
-
 
 struct MatchConstants {
     static let MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER = 0
     static let EVENT_COLLECTION_VIEW_IDENTIFIER = 1
 }
-//TODO, comentar
 
 class MatchViewController: UIViewController {
     
-    @IBOutlet weak var cvHighlightedInstitutions: UICollectionView!
-    @IBOutlet weak var cvMoreHighlightedInstitutions: UICollectionView!
-    @IBOutlet weak var vTopBar: UIView!
-    @IBOutlet weak var btUpdateProfile: UIButton!
-    @IBOutlet weak var ivProfile: UIImageView!
-    @IBOutlet weak var lbHighlightedInstitutions: UILabel!
-    @IBOutlet weak var lbMoreHighlightedInstitutions: UILabel!
-    @IBOutlet weak var vInfo: UIView!
-    @IBOutlet weak var lbInfo: UILabel!
+    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var pcMatchingInstitutions: UIPageControl!
+    @IBOutlet weak var cvMatchingInstitutions: UICollectionView!
     
-    var peekImplementation: MSPeekCollectionViewDelegateImplementation!
-    var matchingInstitutions: [Institution] = []
-    var events: [InstitutionEvent] = []
-    let institutionRepository = InstitutionRepository()
+    private var currentPage = 0
+    private var matchingInstitutions: [Institution] = []
+    private var events: [InstitutionEvent] = []
+    private let institutionRepository = InstitutionRepository()
     private var preferences = Preferences.shared
     
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
-        super.viewDidLoad()                
+        super.viewDidLoad()
         
-        setupView()
-        
-        peekImplementation = CustomPeekCollectionView()
-        
-        cvHighlightedInstitutions.configureForPeekingDelegate()
-        cvHighlightedInstitutions.delegate = peekImplementation
-        cvHighlightedInstitutions.dataSource = self
-        
-        cvMoreHighlightedInstitutions.configureForPeekingDelegate()
-        cvMoreHighlightedInstitutions.delegate = peekImplementation
-        cvMoreHighlightedInstitutions.dataSource = self
-                        
-        NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: Constants.SHOW_INSTITUTION_NOTIFICATION_NAME), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showEvent), name: Notification.Name(rawValue: Constants.SHOW_EVENT_NOTIFICATION_NAME), object: nil)
-        
-        matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
+        //matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
+        matchingInstitutions = Array(institutionRepository.getAllInstitutions())
         
         events = institutionRepository.getAllEvents()
         
         setupView()
     }
     
-    /* Initialize the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
-        let showProfileTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showProfile))
-        ivProfile.addGestureRecognizer(showProfileTapRecognizer)
-        ivProfile.isUserInteractionEnabled = true
-        
-        lbMoreHighlightedInstitutions.text = NSLocalizedString("Events from the institutions that we think you would like", comment: "")
-        
-        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")
-        lbInfo.isUserInteractionEnabled = true
-        
-        let createProfileTapGesture = UITapGestureRecognizer(target: self, action: #selector(showProfile))
-        lbInfo.addGestureRecognizer(createProfileTapGesture)
-        
-        if !preferences.userName.isEmpty {
-            let firstNameIndex = preferences.userName.firstIndex(of: " ")
-            var firstName = ""
-            if firstNameIndex != nil {
-                firstName = String(preferences.userName.prefix(upTo: firstNameIndex!))
-            } else {
-                firstName = preferences.userName
-            }
-            lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), String(firstName))
+        if matchingInstitutions.count < 2 {
+            pcMatchingInstitutions.isHidden = true
         }
+        
+        pcMatchingInstitutions.numberOfPages = matchingInstitutions.count
+        pcMatchingInstitutions.pageIndicatorTintColor = UIColor.descColor()
+        pcMatchingInstitutions.currentPageIndicatorTintColor = UIColor.titleColor()
+        lbTitle.text = NSLocalizedString("Institutions and events", comment: "")
+        
+        cvMatchingInstitutions.layer.cornerRadius = 8
     }
     
+    /* When the scrolling is finished, update the page control */
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
+        
+        pcMatchingInstitutions.currentPage = currentPage
+    }
+
     /* Show the profile screen */
-    @objc func showProfile() {
+    @IBAction func showProfile(_ sender: Any) {
         let initialProfileViewController = UIStoryboard(name: Constants.PROFILE_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID)
         
         let navigationController = UINavigationController(rootViewController: initialProfileViewController)
-        present(navigationController, animated: true, completion: nil)                
+        present(navigationController, animated: true, completion: nil)
     }
     
     /* When the view appears, hide the info view if the profile is already created */
     override func viewWillAppear(_ animated: Bool) {
         if preferences.profileIsCreated {
-            vInfo.isHidden = true
+            //vInfo.isHidden = true
         }
     }
-    
-    /* Show the institution screen with the selected institution */
-    @objc func showInstitution(notification: Notification) {
-        let indexPath = notification.object as! IndexPath
-        let selectedInstitution = matchingInstitutions[indexPath.row]
-        
-        let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
-        institutionInformationViewController.currentInstitution = selectedInstitution
-        
-        present(institutionInformationViewController, animated: true, completion: nil)
-    }
-    
-    /* Show the event screen with the selected event */
-    @objc func showEvent(notification: Notification) {
-        let indexPath = notification.object as! IndexPath
-        let selectedEvent = events[indexPath.row]
-        
-        let eventViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController
-        eventViewController.selectedEvent = selectedEvent
-        
-        present(eventViewController, animated: true, completion: nil)
-    }
-
 }
 
-class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
-    
-    /* When the user selects an item in the collectionview, show the event or the institution accordingly */
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var notificationName = ""
-        
-        if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
-            notificationName = Constants.SHOW_INSTITUTION_NOTIFICATION_NAME
-        } else {
-            notificationName = Constants.SHOW_EVENT_NOTIFICATION_NAME
-        }
-        
-        NotificationCenter.default.post(name: Notification.Name(rawValue: notificationName), object: indexPath)
-    }
-    
-}
-
-extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
+extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     /* Returns the number of items that the collection view should show. If there is no profile, the number is zero */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -149,33 +81,38 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         return 0
     }
     
-    /* Returns the number of sections that the collection view should show */
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     /* Returns the cell content */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_MATCH_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
-        
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InstitutionCardCollectionViewCell
+            
             let currentInstitution = matchingInstitutions[indexPath.row]
             
-            institutionCell.loadInformation(institution: currentInstitution)
+            cell.setupCell()
+            cell.loadInformation(institution: currentInstitution)
             
-            return institutionCell
-        } else {
-            let currentEvent = events[indexPath.row]
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
+    
+    /* Show the institution screen with the selected institution */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
+            let selectedInstitution = matchingInstitutions[indexPath.row]
             
-            institutionCell.loadEvent(event: currentEvent)
+            let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
+            institutionInformationViewController.currentInstitution = selectedInstitution
             
-            return institutionCell
+            present(institutionInformationViewController, animated: true, completion: nil)
         }
     }
     
     /* Returns the size of the collection view item */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: ((collectionView.frame.size.width / 2)-5), height: collectionView.frame.size.height)
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
+    
     
 }

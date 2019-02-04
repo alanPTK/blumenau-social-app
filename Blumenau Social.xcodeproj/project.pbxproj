@@ -34,7 +34,6 @@
 		DB029F7722061CF90073A4E7 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7322061CF90073A4E7 /* Preferences.swift */; };
 		DB029F7822061CF90073A4E7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */; };
 		DB029F7922061CF90073A4E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7522061CF90073A4E7 /* Constants.swift */; };
-		DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7A22061D070073A4E7 /* MatchViewController.swift */; };
 		DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7C22073BE10073A4E7 /* UserDB.swift */; };
 		DB029F7F22073C780073A4E7 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F7E22073C780073A4E7 /* UserRepository.swift */; };
 		DB029F812207685B0073A4E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F802207685B0073A4E7 /* Utils.swift */; };
@@ -57,6 +56,8 @@
 		DBA593022208B6B800224267 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593012208B6B800224267 /* Filter.storyboard */; };
 		DBA593042208B73200224267 /* Institution.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593032208B73200224267 /* Institution.storyboard */; };
 		DBA593062208B7CB00224267 /* Dialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593052208B7CB00224267 /* Dialog.storyboard */; };
+		DBA5930E2208F4C300224267 /* InstitutionCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */; };
+		DBA593102209068200224267 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930F2209068100224267 /* MatchViewController.swift */; };
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +90,6 @@
 		DB029F7322061CF90073A4E7 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = utils/Preferences.swift; sourceTree = "<group>"; };
 		DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "utils/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		DB029F7522061CF90073A4E7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = utils/Constants.swift; sourceTree = "<group>"; };
-		DB029F7A22061D070073A4E7 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
 		DB029F7C22073BE10073A4E7 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDB.swift; path = models/UserDB.swift; sourceTree = "<group>"; };
 		DB029F7E22073C780073A4E7 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = repository/UserRepository.swift; sourceTree = "<group>"; };
 		DB029F802207685B0073A4E7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
@@ -114,6 +114,8 @@
 		DBA593012208B6B800224267 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
 		DBA593032208B73200224267 /* Institution.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Institution.storyboard; sourceTree = "<group>"; };
 		DBA593052208B7CB00224267 /* Dialog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dialog.storyboard; sourceTree = "<group>"; };
+		DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionCardCollectionViewCell.swift; path = cells/InstitutionCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBA5930F2209068100224267 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -237,6 +239,7 @@
 				DB029F4C22061C6C0073A4E7 /* InstitutionTableViewCell.swift */,
 				DB029F4F22061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift */,
 				DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */,
+				DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -305,7 +308,7 @@
 		DB8EAB3B21F3D0EC00E27F8D /* match section */ = {
 			isa = PBXGroup;
 			children = (
-				DB029F7A22061D070073A4E7 /* MatchViewController.swift */,
+				DBA5930F2209068100224267 /* MatchViewController.swift */,
 			);
 			name = "match section";
 			sourceTree = "<group>";
@@ -476,7 +479,6 @@
 				DB029F5822061C6D0073A4E7 /* FilterCollectionViewCell.swift in Sources */,
 				DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
-				DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */,
 				DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */,
 				DB029F5722061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift in Sources */,
 				DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */,
@@ -489,6 +491,7 @@
 				DB029F5322061C6D0073A4E7 /* ActionImageCollectionViewCell.swift in Sources */,
 				DB029F4822061C5D0073A4E7 /* FilterOptionsViewController.swift in Sources */,
 				DB029F4922061C5D0073A4E7 /* FilterViewController.swift in Sources */,
+				DBA5930E2208F4C300224267 /* InstitutionCardCollectionViewCell.swift in Sources */,
 				DB029F6D22061CA60073A4E7 /* ProfileAvailabilityViewController.swift in Sources */,
 				DB2A7C2B21F115B500C60B32 /* AboutViewController.swift in Sources */,
 				DB029F6522061C990073A4E7 /* FilterOptionsDB.swift in Sources */,
@@ -497,6 +500,7 @@
 				DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */,
 				DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */,
 				DB029F6B22061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
+				DBA593102209068200224267 /* MatchViewController.swift in Sources */,
 				DB029F7122061CB20073A4E7 /* FilterOptionsRepository.swift in Sources */,
 				DB029F5922061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift in Sources */,
 				DB029F6422061C990073A4E7 /* InstitutionDB.swift in Sources */,

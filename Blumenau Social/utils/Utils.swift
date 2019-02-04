@@ -44,4 +44,25 @@ class Utils {
         }
     }
     
+    func applyBlurTo(image: UIImage) -> UIImage {
+        if let imageToBlur = image.cgImage {
+            let radius: CGFloat = 20
+            let context = CIContext(options: nil)
+            let inputImage = CIImage(cgImage: imageToBlur)
+            let filter = CIFilter(name: "CIGaussianBlur")
+            
+            filter?.setValue(inputImage, forKey: kCIInputImageKey)
+            filter?.setValue(20, forKey: kCIInputRadiusKey)
+            
+            let result = filter?.value(forKey: kCIOutputImageKey) as! CIImage
+            let rect = CGRect(x: radius * 2, y: radius * 2, width: image.size.width - radius * 4, height: image.size.height - radius * 4)
+            let cgImage = context.createCGImage(result, from: rect)
+            let returnImage = UIImage(cgImage: cgImage!)
+            
+            return returnImage
+        }
+        
+        return UIImage(named: "initial")!
+    }
+    
 }

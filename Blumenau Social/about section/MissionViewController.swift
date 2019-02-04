@@ -40,7 +40,7 @@ class MissionViewController: UIViewController {
         viewsToAnimate.append(lbPlurality)
     }
     
-    /* Initialize the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         lbOurVision.alpha = 0
         tvOurVision.alpha = 0

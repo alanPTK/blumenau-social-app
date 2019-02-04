@@ -11,7 +11,7 @@ class InstitutionCollectionViewCell: UICollectionViewCell {
     }
     
     func loadEvent(event: InstitutionEvent) {
-        lbInstitutionName.text = event.title
+        //lbInstitutionName.text = event.title
         ivInstitution.image = UIImage(named: "01") //TODO
     }
 }

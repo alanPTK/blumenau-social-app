@@ -86,7 +86,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
     }
     
-    /* Initialize the view components */
+    /* Configure the visual aspects of the view components */
     func setupView() {
         vMainInformation.layer.cornerRadius = 8
         vContactInformation.layer.cornerRadius = 8
