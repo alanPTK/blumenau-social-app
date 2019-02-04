@@ -91,6 +91,7 @@ struct EventDecodable: Decodable {
     let end_hour: Int
 }
 
+//TODO, comentar
 class SynchronizationService: NSObject {
     
     let configuration = URLSessionConfiguration.default

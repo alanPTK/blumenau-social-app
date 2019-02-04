@@ -1,5 +1,5 @@
 import UIKit
-
+//TODO, comentar
 class FilterOptionsViewController: UIViewController {
 
     @IBOutlet weak var lbTitle: UILabel!

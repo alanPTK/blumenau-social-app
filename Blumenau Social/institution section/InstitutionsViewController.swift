@@ -83,12 +83,12 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     
     /* When the view appears, show the profile creation screen if necessary */
     override func viewDidAppear(_ animated: Bool) {
-        if !Preferences.shared.profileCreationWasOpened {
+        if !preferences.profileCreationWasOpened {
             if Preferences.shared.institutionsAreSynchronized {
                 let profileViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
                 present(profileViewController, animated: true, completion: nil)
                 
-                Preferences.shared.profileCreationWasOpened = true
+                preferences.profileCreationWasOpened = true
             }
         }
     }

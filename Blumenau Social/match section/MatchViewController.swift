@@ -1,6 +1,8 @@
 import UIKit
 import MSPeekCollectionViewDelegateImplementation
 
+//TODO, comentar
+
 class MatchViewController: UIViewController {
     
     @IBOutlet weak var cvHighlightedInstitutions: UICollectionView!

@@ -98,6 +98,7 @@ class InitialProfileViewController: UIViewController {
 
 extension InitialProfileViewController: UITextFieldDelegate {
     
+    /* When the user touches the return button, go to the next text field */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == tfName {
             tfAge.becomeFirstResponder()

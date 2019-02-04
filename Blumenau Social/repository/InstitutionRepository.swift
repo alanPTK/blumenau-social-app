@@ -10,18 +10,22 @@ class InstitutionRepository: NSObject {
         realm = try! Realm()
     }
 
+    /* Get all the institutions from the database */
     func getAllInstitutions() -> Results<Institution> {
         return realm.objects(Institution.self)
     }
     
+    /* Get a institution with the id from the database */
     func getInstitutionWithId(id: Int) -> Institution? {
         return realm.objects(Institution.self).filter("id = \(id)").first
     }
     
+    /* Get all the events from the database */
     func getAllEvents() -> [InstitutionEvent] {
         return Array(realm.objects(InstitutionEvent.self))
     }
     
+    /* Create a new event and save it in the database */
     func createEventWithData(eventData: EventsDecodable) {
         for event in eventData.events {
             if let institution = getInstitutionWithId(id: event.institution_id) {
@@ -48,6 +52,7 @@ class InstitutionRepository: NSObject {
         }
     }
     
+    /* Create a new institution and save it in the database */
     func createInstitutionWithData(institutionsData: InstitutionsDecodable) {
         for institutionData in institutionsData.institutions {
             let institution: Institution = Institution()
@@ -145,64 +150,75 @@ class InstitutionRepository: NSObject {
         }
     }
     
+    /* Get the next ID for institution about */
     func institutionAboutNextID() -> Int {
         return (realm.objects(InstitutionAbout.self).max(ofProperty: "id") as Int? ?? 0) + 1
     }
     
+    /* Save or update the institution in the database */
     func saveInstitution(_ institution: Institution) {
         try! realm.write {
             realm.add(institution, update: true)
         }
     }
     
+    /* Save or update the about in the database */
     func saveAbout(_ about: InstitutionAbout) {
         try! realm.write {
             realm.add(about, update: true)
         }
     }
     
+    /* Save or update the cause in the database */
     func saveCause(_ cause: InstitutionCause) {
         try! realm.write {
             realm.add(cause, update: true)
         }
     }
     
+    /* Save or update the event in the database */
     func saveEvent(_ event: InstitutionEvent) {
         try! realm.write {
             realm.add(event, update: true)
         }
     }
     
+    /* Save or update the volunteer type in the database */
     func saveVolunteerType(_ volunteerType: InstitutionVolunteerType) {
         try! realm.write {
             realm.add(volunteerType, update: true)
         }
     }
     
+    /* Save or update the donation type in the database */
     func saveDonationType(_ donationType: InstitutionDonationType) {
         try! realm.write {
             realm.add(donationType, update: true)
         }
     }
     
+    /* Save or update the donation in the database */
     func saveDonation(_ donation: InstitutionDonation) {
         try! realm.write {
             realm.add(donation, update: true)
         }
     }
     
+    /* Save or update the working day in the database */
     func saveWorkingDay(_ workingDay: InstitutionWorkingDay) {
         try! realm.write {
             realm.add(workingDay, update: true)
         }
     }
     
+    /* Save or update the working period in the database */
     func saveWorkingPeriod(_ workingPeriod: InstitutionWorkingPeriod) {
         try! realm.write {
             realm.add(workingPeriod, update: true)
         }
     }
     
+    /* Search institutions with the neighborhoods, causes, donation type, volunteer type, days or periods */
     func searchInstitutions(neighborhoods: [Int], causes: [Int], donationType: [Int], volunteerType: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
         let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
         let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
@@ -227,6 +243,7 @@ class InstitutionRepository: NSObject {
         }
     }
     
+    /* Search institutions with the title, donation, volunteers that are in the text parameter */
     func searchInstitutions(text: String) -> Results<Institution> {
         let titlePredicate = NSPredicate(format: "title contains [c] %@", text)
         let volunteerPredicate = NSPredicate(format: "volunteers contains [c] %@", text)

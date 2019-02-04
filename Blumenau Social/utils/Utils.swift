@@ -4,6 +4,7 @@ class Utils {
 
     static var shared: Utils = Utils()
     
+    /* Create a Date object with the components */
     func createDateWithValues(day: Int, month: Int, year: Int, hour: Int) -> Date {
         var dateComponents = DateComponents()
         dateComponents.year = year
@@ -18,6 +19,7 @@ class Utils {
         return date!
     }
     
+    /* Resize the text view accordingly to its size */
     @discardableResult
     func resizeTextView(textView: UITextView) -> CGSize {
         let fixedWidth = textView.frame.size.width
