@@ -508,7 +508,7 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == 0 {
-            let fullImageViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FULL_IMAGE_VIEW_STORYBOARD_ID) as! FullImageViewController
+            let fullImageViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.DIALOG_STORYBOARD_NAME) as! FullImageViewController
             fullImageViewController.showInstitutionPictures = true
             fullImageViewController.institutionPictures = currentInstitution?.pictures
             

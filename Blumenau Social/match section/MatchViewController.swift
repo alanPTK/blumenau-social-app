@@ -65,7 +65,7 @@ class MatchViewController: UIViewController {
     }
     
     @objc func showProfile() {
-        let initialProfileViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID)
+        let initialProfileViewController = UIStoryboard(name: Constants.PROFILE_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID)
         
         let navigationController = UINavigationController(rootViewController: initialProfileViewController)
         present(navigationController, animated: true, completion: nil)                
@@ -81,7 +81,7 @@ class MatchViewController: UIViewController {
         let indexPath = notification.object as! IndexPath
         let selectedInstitution = matchingInstitutions[indexPath.row]
         
-        let institutionInformationViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
+        let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         institutionInformationViewController.currentInstitution = selectedInstitution
         
         present(institutionInformationViewController, animated: true, completion: nil)
@@ -91,7 +91,7 @@ class MatchViewController: UIViewController {
         let indexPath = notification.object as! IndexPath
         let selectedEvent = events[indexPath.row]
         
-        let eventViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController
+        let eventViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController
         eventViewController.selectedEvent = selectedEvent
         
         present(eventViewController, animated: true, completion: nil)

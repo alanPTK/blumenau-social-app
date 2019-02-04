@@ -23,6 +23,11 @@ struct Constants {
     
     //storyboard identifiers
     static let MAIN_STORYBOARD_NAME = "Main"
+    static let ABOUT_STORYBOARD_NAME = "About"
+    static let PROFILE_STORYBOARD_NAME = "Profile"
+    static let FILTER_STORYBOARD_NAME = "Filter"
+    static let INSTITUTION_STORYBOARD_NAME = "Institution"
+    static let DIALOG_STORYBOARD_NAME = "Dialog"
     
     //cell identifiers
     static let INSTITUTION_GENERAL_INFORMATION_CELL_IDENTIFIER = "InstitutionGeneralInformationCell"

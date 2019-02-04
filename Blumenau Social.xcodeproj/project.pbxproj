@@ -52,6 +52,11 @@
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
 		DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CC621F1EF7600E195D6 /* MissionViewController.swift */; };
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
+		DBA592FE2208B4AA00224267 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA592FD2208B4AA00224267 /* Profile.storyboard */; };
+		DBA593002208B57C00224267 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA592FF2208B57C00224267 /* About.storyboard */; };
+		DBA593022208B6B800224267 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593012208B6B800224267 /* Filter.storyboard */; };
+		DBA593042208B73200224267 /* Institution.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593032208B73200224267 /* Institution.storyboard */; };
+		DBA593062208B7CB00224267 /* Dialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593052208B7CB00224267 /* Dialog.storyboard */; };
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +109,11 @@
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
 		DB957CC621F1EF7600E195D6 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		DBA592FD2208B4AA00224267 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		DBA592FF2208B57C00224267 /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		DBA593012208B6B800224267 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
+		DBA593032208B73200224267 /* Institution.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Institution.storyboard; sourceTree = "<group>"; };
+		DBA593052208B7CB00224267 /* Dialog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dialog.storyboard; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -248,6 +258,11 @@
 			children = (
 				DB2A7C1F21F1066200C60B32 /* LaunchScreen.storyboard */,
 				DB2A7C1A21F1065F00C60B32 /* Main.storyboard */,
+				DBA592FD2208B4AA00224267 /* Profile.storyboard */,
+				DBA592FF2208B57C00224267 /* About.storyboard */,
+				DBA593012208B6B800224267 /* Filter.storyboard */,
+				DBA593032208B73200224267 /* Institution.storyboard */,
+				DBA593052208B7CB00224267 /* Dialog.storyboard */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -373,9 +388,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2A7C2121F1066200C60B32 /* LaunchScreen.storyboard in Resources */,
+				DBA593062208B7CB00224267 /* Dialog.storyboard in Resources */,
+				DBA593022208B6B800224267 /* Filter.storyboard in Resources */,
 				DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */,
+				DBA593002208B57C00224267 /* About.storyboard in Resources */,
+				DBA592FE2208B4AA00224267 /* Profile.storyboard in Resources */,
 				DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */,
 				DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */,
+				DBA593042208B73200224267 /* Institution.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

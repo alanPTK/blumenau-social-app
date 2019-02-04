@@ -72,7 +72,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     
     /* Presents the institution search view */
     @objc func searchInstitutions() {
-        let filterViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FILTER_VIEW_STORYBOARD_ID) as! FilterViewController
+        let filterViewController = UIStoryboard(name: Constants.FILTER_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FILTER_VIEW_STORYBOARD_ID) as! FilterViewController
         present(filterViewController, animated: true, completion: nil)
         
         filterViewController.onDone = {(selectedNeighborhoods: [FilterOption], selectedVolunteers: [FilterOption], selectedDonations: [FilterOption], selectedAreas: [FilterOption]) -> () in
@@ -122,7 +122,7 @@ extension InstitutionsViewController: UICollectionViewDataSource, UICollectionVi
     
     /* When the user selects an institution, show the institution profile view */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let institutionInformationViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
+        let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         let selectedInstitution = institutions[indexPath.row]
         
         institutionInformationViewController.currentInstitution = selectedInstitution
