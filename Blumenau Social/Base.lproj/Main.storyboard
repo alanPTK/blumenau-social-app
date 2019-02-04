@@ -58,7 +58,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="institutionCell" id="psU-PQ-gW8" customClass="InstitutionCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstitutionMatchCell" id="psU-PQ-gW8" customClass="InstitutionCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
                                                 <rect key="frame" x="-12" y="0.0" width="320" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -112,7 +112,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="institutionCell" id="A5K-KZ-NKZ" customClass="InstitutionCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstitutionMatchCell" id="A5K-KZ-NKZ" customClass="InstitutionCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
                                                 <rect key="frame" x="-12" y="0.0" width="320" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">

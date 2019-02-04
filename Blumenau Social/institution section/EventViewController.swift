@@ -1,7 +1,5 @@
 import UIKit
 import MapKit
-import CoreLocation
-import EventKit
 import EasyTipView
 import RealmSwift
 
@@ -21,15 +19,19 @@ class EventViewController: UIViewController {
     @IBOutlet weak var lbAttendanceTitle: UILabel!
     @IBOutlet weak var mvEventLocation: MKMapView!
     @IBOutlet weak var lcEvenDescriptionHeight: NSLayoutConstraint!
-    var selectedEvent: InstitutionEvent?
-    let userPreferences = Preferences.shared
-    let userRepository = UserRepository()
-    var userEvent: UserEvent?
     
+    var selectedEvent: InstitutionEvent?
+    private let userPreferences = Preferences.shared
+    private var userEvent: UserEvent?
+    private var presenter: EventPresenter?
+    
+    /* Initialize all the necessary information for the view and load the information for the selected event */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tvEventDescription.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        presenter = EventPresenter(delegate: self)
+        
+        setupView()
         
         lbTitle.text = selectedEvent?.title
         lbEventDate.text = selectedEvent?.date
@@ -38,24 +40,14 @@ class EventViewController: UIViewController {
         tvEventDescription.text = selectedEvent?.desc
     }
     
+    /* Initialize the view components */
+    func setupView() {
+        tvEventDescription.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    /* Show the event location on the map and on the first time, show a tip to the user */
     override func viewWillAppear(_ animated: Bool) {
-        let location = lbEventAddress.text!
-        let geocoder = CLGeocoder()
-        
-        geocoder.geocodeAddressString(location) { [weak self] placemarks, error in
-            if let placemark = placemarks?.first, let location = placemark.location {
-                let mark = MKPlacemark(placemark: placemark)
-                
-                if var region = self?.mvEventLocation.region {
-                    let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
-                    region.center = location.coordinate
-                    region.span = span
-                    
-                    self?.mvEventLocation.setRegion(region, animated: true)
-                    self?.mvEventLocation.addAnnotation(mark)
-                }
-            }
-        }
+        presenter?.getEventLocationOnMap(event: selectedEvent!, map: mvEventLocation)
         
         if !userPreferences.eventRouteTipViewWasShown {
             var preferences = EasyTipView.Preferences()
@@ -75,20 +67,15 @@ class EventViewController: UIViewController {
             userPreferences.eventRouteTipViewWasShown = true
         }
         
-        userEvent = userRepository.getUserEvent(selectedEvent!)
-        if let eventFromUser = userEvent {
-            if eventFromUser.confirmed {
-                lbAttendanceTitle.text = NSLocalizedString("I will go!", comment: "")
-            } else {
-                lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
-            }
-        }
+        presenter?.getUserEvent(event: selectedEvent!)
     }
     
+    /* Close the view when the user touches the button */
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    /* Share the event information when the user touches the button */
     @IBAction func share(_ sender: Any) {
         var toShare: Array<Any> = []
         
@@ -114,6 +101,7 @@ class EventViewController: UIViewController {
         present(activityViewController, animated: true, completion: nil)
     }
     
+    /* When the user touches the button, confirm or desconfirm the its attendance */
     @IBAction func confirmAttendance(_ sender: Any) {
         guard let eventFromUser = userEvent else { return }
         
@@ -121,11 +109,11 @@ class EventViewController: UIViewController {
             let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("This event will be removed from your notifications and calendar.", comment: ""), preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .destructive) { (alert) in
-                self.userRepository.changeAttendanceStatusForEvent(event: self.selectedEvent!, attendance: false)
+                self.presenter?.changeAttendanceStatusForEvent(event: self.selectedEvent!, attendance: false)
                 
                 self.lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
                 
-                self.removeAllEventsMatchingPredicate()
+                self.presenter?.removeEventFromCalendar(event: self.selectedEvent!)
                 self.btConfirmAttendance.setImage(UIImage(named: "star"), for: .normal)
             }
             
@@ -133,21 +121,20 @@ class EventViewController: UIViewController {
             
             present(alertController, animated: true, completion: nil)
         } else {
-            userRepository.changeAttendanceStatusForEvent(event: selectedEvent!, attendance: true)
+            self.presenter?.changeAttendanceStatusForEvent(event: self.selectedEvent!, attendance: true)            
 
             lbAttendanceTitle.text = NSLocalizedString("I will go!", comment: "")
             self.btConfirmAttendance.setImage(UIImage(named: "confirm"), for: .normal)
             
-            addToCalendarAlert()
-            
+            addToCalendarAlert()            
         }
     }
     
-    
+    /* Show a message to the user that the event will be added to the calendar */
     func addToCalendarAlert() {
         let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("You will be notified when the event is coming. Do you want to add this event to your calendar ?", comment: ""), preferredStyle: .alert)
         let yesAction = UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default) { (alert) in
-            self.addEventToCalendar()
+            self.presenter?.addEventToCalendar(event: self.selectedEvent!)
         }
         
         let noAction = UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .destructive, handler: nil)
@@ -158,90 +145,35 @@ class EventViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    /* When the uses touches the button, the Maps app will be open with the event address */
     @IBAction func openMapsApp(_ sender: Any) {
-        let options = [
-            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: mvEventLocation.region.center),
-            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: mvEventLocation.region.span)
-        ]
-        
-        let placemark = MKPlacemark(coordinate: mvEventLocation.centerCoordinate)
-        let mapItem = MKMapItem(placemark: placemark)
-        
-        mapItem.name = selectedEvent?.title
-        mapItem.openInMaps(launchOptions: options)
+        presenter?.openMapsApp(map: mvEventLocation, event: selectedEvent!)        
     }
     
-    func addEventToCalendar() {
-        let eventRef = ThreadSafeReference(to: selectedEvent!)
-        let eventStore = EKEventStore()
+}
+
+extension EventViewController: EventDelegate {
+    
+    /* Update the labels with the user event information */
+    func showUserEvent(userEvent: UserEvent) {
+        self.userEvent = userEvent
         
-        eventStore.requestAccess(to: .event) { granted, error in
-            if granted && error == nil {
-                let realm = try! Realm()
-                let event = realm.resolve(eventRef)
-
-                let calendarEvent = EKEvent(eventStore: eventStore)
-                
-                guard let day = event?.day, let month = event?.month, let year = event?.year, let startHour = event?.startHour, let endHour = event?.endHour else {
-                    
-                    self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Please, try again later.", comment: ""))
-                    
-                    return
-                }
-                
-                let startDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: startHour)
-                let endDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: endHour)
-                
-                calendarEvent.title = event?.title
-                calendarEvent.startDate = startDate
-                calendarEvent.endDate = endDate
-                calendarEvent.notes = event!.desc
-                calendarEvent.calendar = eventStore.defaultCalendarForNewEvents
-
-                do {
-                    try eventStore.save(calendarEvent, span: .thisEvent)
-
-                    self.showAlertWithMessage(message: NSLocalizedString("Event added successfully. We wait for you there !", comment: ""))
-                } catch _ as NSError {
-                    self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Please, try again later.", comment: ""))
-                }
-            } else {
-                self.showAlertWithMessage(message: NSLocalizedString("Error adding the event to you calendar. Did you allowed us to add events ? Please, check and try again.", comment: ""))
-            }
+        if userEvent.confirmed {
+            lbAttendanceTitle.text = NSLocalizedString("I will go!", comment: "")
+            btConfirmAttendance.setImage(UIImage(named: "confirm"), for: .normal)
+        } else {
+            lbAttendanceTitle.text = NSLocalizedString("I want to go!", comment: "")
+            btConfirmAttendance.setImage(UIImage(named: "star"), for: .normal)
         }
     }
     
-    func removeAllEventsMatchingPredicate() {
-        let eventRef = ThreadSafeReference(to: selectedEvent!)
-        let eventStore = EKEventStore()
-        
-        eventStore.requestAccess(to: .event) { granted, error in
-            let realm = try! Realm()
-            let event = realm.resolve(eventRef)
-            
-            guard let day = event?.day, let month = event?.month, let year = event?.year, let startHour = event?.startHour, let endHour = event?.endHour else {
-                
-                self.showAlertWithMessage(message: NSLocalizedString("Error removing the event from you calendar. Please, try again later.", comment: ""))
-                
-                return
-            }
-            
-            let startDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: startHour)
-            let endDate = Utils.shared.createDateWithValues(day: day, month: month, year: year, hour: endHour)
-            
-            let predicate = eventStore.predicateForEvents(withStart: startDate, end: endDate, calendars: nil)
-            let eventFromStore = eventStore.events(matching: predicate)
-            
-            if eventFromStore.first != nil {
-                do {
-                    try eventStore.remove(eventFromStore.first!, span: .thisEvent)
-                } catch _ {
-                    self.showAlertWithMessage(message: NSLocalizedString("Error removing the event from you calendar. Please, try again later.", comment: ""))
-                }
-            }
-        }
+    /* Show the event location on the map */
+    func showLocationOnMap(region: MKCoordinateRegion, mark: MKPlacemark) {
+        mvEventLocation.setRegion(region, animated: true)
+        mvEventLocation.addAnnotation(mark)
     }
     
+    /* Show an alert message with the string in the params */
     func showAlertWithMessage(message: String) {
         let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)

@@ -11,16 +11,19 @@ class InstitutionsPresenter {
         self.delegate = delegate
     }
     
+    /* Get all the institutions */
     func getAllInstitutions() {
         let institutions = Array(institutionRepository.getAllInstitutions())
         delegate.showInstitutions(institutions: institutions)
     }
     
+    /* Search institutions by title, donation needs, volunteers needs, etc */
     func searchInstitutions(text: String) {
         let institutions = Array(institutionRepository.searchInstitutions(text: text))
         delegate.showInstitutions(institutions: institutions)
     }
     
+    /* Search institutions by neighborhoods, causes, donations, available days and available periods */
     func searchInstitutions(selectedNeighborhoods: [FilterOption], selectedAreas: [FilterOption], selectedDonations: [FilterOption], selectedVolunteers: [FilterOption], days: [Int], periods: [Int], limit: Int) {
         
         let neighborhoodsToFilter = selectedNeighborhoods.map { $0.id }
@@ -34,6 +37,7 @@ class InstitutionsPresenter {
         }
     }
     
+    /* Load institutions from the web api */
     func getInstitutionsFromApi() {
         if !preferences.institutionsAreSynchronized {
             synchronizationService.synchronizeInstitutions { (result) in
@@ -49,6 +53,7 @@ class InstitutionsPresenter {
         }
     }
     
+    /* Load filters from the web api */
     func getFiltersFromApi() {
         if !preferences.filtersAreSynchronized {
             synchronizationService.synchronizeFilterOptions { (result) in
@@ -62,6 +67,7 @@ class InstitutionsPresenter {
         }
     }
     
+    /* Load events from the web */
     func getEventsFromApi() {
         if !preferences.eventsAreSynchronized {
             synchronizationService.synchronizeEvents(completion: { (result) in

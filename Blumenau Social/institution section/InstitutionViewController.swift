@@ -73,6 +73,13 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
+    }
+    
+    /* Initialize the view components */
+    func setupView() {
         vMainInformation.layer.cornerRadius = 8
         vContactInformation.layer.cornerRadius = 8
         vWorkingHours.layer.cornerRadius = 8
@@ -138,8 +145,6 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         
         let locationTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showInstitutionLocation))
         lbAddress.addGestureRecognizer(locationTapGestureRecognizer)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
     }
     
     @objc func showInstitutionLocation() {

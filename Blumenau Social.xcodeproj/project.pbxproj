@@ -40,6 +40,8 @@
 		DB029F812207685B0073A4E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F802207685B0073A4E7 /* Utils.swift */; };
 		DB029F832207A3150073A4E7 /* InstitutionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */; };
 		DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */; };
+		DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F862207B2A00073A4E7 /* EventDelegate.swift */; };
+		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
@@ -67,7 +69,7 @@
 		DB029F5022061C6D0073A4E7 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterCollectionViewCell.swift; path = cells/FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SeeMoreCollectionViewCell.swift; path = cells/SeeMoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB029F5A22061C890073A4E7 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = "institution section/EventViewController.swift"; sourceTree = "<group>"; };
-		DB029F5B22061C890073A4E7 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationViewController.swift; path = "institution section/InformationViewController.swift"; sourceTree = "<group>"; };
+		DB029F5B22061C890073A4E7 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionViewController.swift; path = "institution section/InstitutionViewController.swift"; sourceTree = "<group>"; };
 		DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionsViewController.swift; path = "institution section/InstitutionsViewController.swift"; sourceTree = "<group>"; };
 		DB029F6222061C980073A4E7 /* InstitutionDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstitutionDB.swift; path = models/InstitutionDB.swift; sourceTree = "<group>"; };
@@ -88,6 +90,8 @@
 		DB029F802207685B0073A4E7 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = utils/Utils.swift; sourceTree = "<group>"; };
 		DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsDelegate.swift; path = "institution section/InstitutionsDelegate.swift"; sourceTree = "<group>"; };
 		DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsPresenter.swift; path = "institution section/InstitutionsPresenter.swift"; sourceTree = "<group>"; };
+		DB029F862207B2A00073A4E7 /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "institution section/EventDelegate.swift"; sourceTree = "<group>"; };
+		DB029F882207B2B00073A4E7 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventPresenter.swift; path = "institution section/EventPresenter.swift"; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		DB8EAB3921F3D0AF00E27F8D /* about section */ = {
 			isa = PBXGroup;
 			children = (
+				DB029F5B22061C890073A4E7 /* InformationViewController.swift */,
 				DB2A7C2A21F115B500C60B32 /* AboutViewController.swift */,
 				DB957CCC21F223E700E195D6 /* ActionsViewController.swift */,
 				DB957CC621F1EF7600E195D6 /* MissionViewController.swift */,
@@ -263,12 +268,13 @@
 		DB8EAB3A21F3D0D700E27F8D /* institution section */ = {
 			isa = PBXGroup;
 			children = (
-				DB029F5A22061C890073A4E7 /* EventViewController.swift */,
-				DB029F5B22061C890073A4E7 /* InformationViewController.swift */,
 				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
 				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
 				DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */,
 				DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */,
+				DB029F5A22061C890073A4E7 /* EventViewController.swift */,
+				DB029F862207B2A00073A4E7 /* EventDelegate.swift */,
+				DB029F882207B2B00073A4E7 /* EventPresenter.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */,
 				DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */,
 				DB029F7B22061D070073A4E7 /* MatchViewController.swift in Sources */,
+				DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */,
 				DB029F5722061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift in Sources */,
 				DB029F5422061C6D0073A4E7 /* InstitutionTableViewCell.swift in Sources */,
 				DB029F6C22061CA60073A4E7 /* InitialProfileViewController.swift in Sources */,
@@ -460,6 +467,7 @@
 				DB029F5E22061C8A0073A4E7 /* EventViewController.swift in Sources */,
 				DB029F5622061C6D0073A4E7 /* InstitutionCollectionViewCell.swift in Sources */,
 				DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */,
+				DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */,
 				DB029F6B22061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift in Sources */,
 				DB029F7122061CB20073A4E7 /* FilterOptionsRepository.swift in Sources */,
 				DB029F5922061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift in Sources */,
