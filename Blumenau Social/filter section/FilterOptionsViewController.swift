@@ -9,13 +9,18 @@ class FilterOptionsViewController: UIViewController {
     @IBOutlet weak var cvFilterOptions: UICollectionView!
     var filterOptions: [FilterOption] = []
     var selectedOption: Int = 0
-    var selectedFiltersOptions: [FilterOption] = []
+    private var selectedFiltersOptions: [FilterOption] = []
     
     var onDone:((_ selectedFilterOptions: [FilterOption], _ selectedOption: Int) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+    }
+    
+    /* Configure the visual aspects of the view components */
+    func setupView() {
         btFinishSelection.titleLabel?.adjustsFontSizeToFitWidth = true
         
         switch selectedOption {
@@ -32,6 +37,7 @@ class FilterOptionsViewController: UIViewController {
         }
     }
     
+    /* When the user finishes the filter selection, call the method to pass the information to the previous view */
     @IBAction func finishSelection(_ sender: Any) {
         onDone?(selectedFiltersOptions, selectedOption)
         
@@ -46,32 +52,30 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCell", for: indexPath) as! FilterCollectionViewCell
+        let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.FILTER_CELL_IDENTIFIER, for: indexPath) as! FilterCollectionViewCell
         
         let currentFilterOption = filterOptions[indexPath.row]
         
-        filterCell.lbName.text = currentFilterOption.name
-        filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
-        filterCell.layer.borderWidth = 2.0
-        filterCell.layer.cornerRadius = 8
-        filterCell.alpha = 0.5
+        filterCell.setupFilterOptionsCell()
+        filterCell.loadFilterInformation(filter: currentFilterOption)
         
         switch selectedOption {
-            case 0:
+            case FilterConstants.NEIGHBORHOODS:
                 filterCell.ivIcon.image = UIImage(named: "0z")
-            case 1:
+            case FilterConstants.AREAS:
                 filterCell.ivIcon.image = UIImage(named: "0x")
-            case 2:
+            case FilterConstants.DONATIONS:
                 filterCell.ivIcon.image = UIImage(named: "0y")
-            case 3:
+            case FilterConstants.VOLUNTEERS:
                 filterCell.ivIcon.image = UIImage(named: "0y")
             default:
-                print("hm")
-        }
+                break
+        }                
         
         return filterCell
     }
     
+    /* The collection view should show three items side by side */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: ((collectionView.frame.width / 3) - 10), height: ((collectionView.frame.width / 3) - 10))
     }
@@ -81,16 +85,16 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         let selectedFilterOption = filterOptions[indexPath.row]
         
         switch selectedOption {
-            case 0:
+            case FilterConstants.NEIGHBORHOODS:
                 selectedCell.ivIcon.image = UIImage(named: "0zrosa")
-            case 1:
+            case FilterConstants.AREAS:
                 selectedCell.ivIcon.image = UIImage(named: "0xrosa")
-            case 2:
+            case FilterConstants.DONATIONS:
                 selectedCell.ivIcon.image = UIImage(named: "0yrosa")
-            case 3:
+            case FilterConstants.VOLUNTEERS:
                 selectedCell.ivIcon.image = UIImage(named: "0yrosa")
             default:
-                print("hm")
+                break
         }
         
         if selectedCell.alpha <= CGFloat(0.5) {

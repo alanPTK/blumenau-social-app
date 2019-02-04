@@ -39,7 +39,7 @@ class FilterViewController: UIViewController {
     private var selectedNeighborhoods: [FilterOption] = []
     private var filterOptionsViewController: FilterOptionsViewController?
     
-    private var onDone:((_ selectedNeighborhoods: [FilterOption], _ selectedVolunteers: [FilterOption], _ selectedDonations: [FilterOption], _ selectedAreas: [FilterOption]) -> ())?
+    public var onDone:((_ selectedNeighborhoods: [FilterOption], _ selectedVolunteers: [FilterOption], _ selectedDonations: [FilterOption], _ selectedAreas: [FilterOption]) -> ())?
 
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
@@ -110,7 +110,7 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
     /* Show the cell information, if it's the third cell, show the label "See More" */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {                
         if indexPath.row == 2 {
-            let seeMoreCell = collectionView.dequeueReusableCell(withReuseIdentifier: "seeMoreCell", for: indexPath) as! SeeMoreCollectionViewCell
+            let seeMoreCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.SEE_MORE_CELL_IDENTIFIER, for: indexPath) as! SeeMoreCollectionViewCell
             
             seeMoreCell.setupCell()
             seeMoreCell.loadInformation()

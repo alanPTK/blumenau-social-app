@@ -39,7 +39,7 @@ extension FullImageViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let actionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "actionImageCell", for: indexPath) as! ActionImageCollectionViewCell
+        let actionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.ACTION_IMAGE_CELL_IDENTIFIER, for: indexPath) as! ActionImageCollectionViewCell
         if showInstitutionPictures {
             if let pictures = institutionPictures {
                 let currentPicture = pictures[indexPath.row]
