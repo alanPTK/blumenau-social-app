@@ -3,16 +3,23 @@ import RealmSwift
 
 class ProfileNeighborhoodSelectionViewController: UIViewController {
     
-    var neighborhoods: Results<Neighborhood>?
-    let filterOptionsRepository = FilterOptionsRepository()
-    var selectedNeighborhood: Neighborhood?
+    private var neighborhoods: Results<Neighborhood>?
+    private let filterOptionsRepository = FilterOptionsRepository()
+    private var selectedNeighborhood: Neighborhood?
+    private var preferences = Preferences.shared
     
+    /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
         neighborhoods = filterOptionsRepository.getAllNeighborhoods()
         selectedNeighborhood = filterOptionsRepository.getNeighborhoodWithId(id: Preferences.shared.userNeighborhood)
-        
+    }
+    
+    /* Initialize the visual aspects of the view components */
+    func setupView() {
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
         
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
@@ -27,32 +34,24 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
 
 extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    /* Return the amount of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (neighborhoods?.count)!
     }
     
+    /* Show the cell information */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterCell", for: indexPath) as! FilterCollectionViewCell
         let currentNeighborhood = neighborhoods![indexPath.row]
         
-        filterCell.lbName.text = currentNeighborhood.name
+        filterCell.setupCell()
         
-        filterCell.layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
-        filterCell.layer.borderWidth = 2.0
-        filterCell.layer.cornerRadius = 8
-        
-        if Preferences.shared.userNeighborhood == currentNeighborhood.id {
-            filterCell.ivIcon.image = UIImage(named: "0zrosa")
-            filterCell.alpha = 1
-        } else {
-            filterCell.ivIcon.image = UIImage(named: "0z")
-            filterCell.alpha = 0.5
-        }
-        
+        filterCell.loadNeighborhoodInformation(neighborhood: currentNeighborhood, selected: preferences.userNeighborhood == currentNeighborhood.id)
         
         return filterCell
     }
     
+    /* Before going to the next screen, check if a neighborhood is selected */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProfileAvailability" {
             if selectedNeighborhood == nil {
@@ -61,6 +60,7 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         }
     }
     
+    /* Show an alert to the user if the neighborhood is not selected */
     func showMissingNeighborhood() {
         let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""), preferredStyle: .alert)
         let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .destructive, handler: nil)
@@ -69,10 +69,12 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         present(alertController, animated: true, completion: nil)
     }
     
+    /* The collection view should show three items side by side */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: ((collectionView.frame.width / 3) - 10), height: ((collectionView.frame.width / 3) - 10))
     }
     
+    /* Check if the neighborhood is selected and highlight it to the user */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
         
@@ -89,12 +91,11 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
             selectedNeighborhood = neighborhoods![indexPath.row]
             selectedCell.ivIcon.image = UIImage(named: "0zrosa")
             
-            Preferences.shared.userNeighborhood = (selectedNeighborhood?.id)!
+            preferences.userNeighborhood = (selectedNeighborhood?.id)!
         } else {
             selectedCell.alpha = 0.5
             selectedCell.ivIcon.image = UIImage(named: "0z")
         }
-    }
-    
+    }    
     
 }

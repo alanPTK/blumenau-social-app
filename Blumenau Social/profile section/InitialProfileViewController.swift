@@ -69,7 +69,7 @@ class InitialProfileViewController: UIViewController {
         }
     }
     
-    /* Alert the user if the some of the fields are empty */
+    /* Alert the user if some of the fields are empty */
     func showMissingFields(field: String) {
         let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: field, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
