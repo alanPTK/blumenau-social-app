@@ -9,19 +9,18 @@ class InitialProfileViewController: UIViewController {
     @IBOutlet weak var tfAge: UITextField!
     @IBOutlet weak var tfName: UITextField!
     
-    var views: [UIView] = []
-    var currentIndex: Int = 0
+    private var views: [UIView] = []
+    private var currentIndex: Int = 0
+    private var preferences = Preferences.shared
     
+    /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
         KeyboardAvoiding.avoidingView = tfName
         KeyboardAvoiding.avoidingView = tfAge
-        
-        tvInfo.alpha = 0
-        lbNameAndAge.alpha = 0
-        tfName.alpha = 0
-        tfAge.alpha = 0
         
         views.append(tvInfo)
         views.append(lbNameAndAge)
@@ -29,6 +28,19 @@ class InitialProfileViewController: UIViewController {
         views.append(tfAge)
         
         changeAlpha(view: views.first!)
+        
+        tfName.text = preferences.userName
+        if preferences.userAge > 0 {
+            tfAge.text = String(format: "%d", preferences.userAge)
+        }
+    }
+    
+    /* Initialize the visual aspects of the view components */
+    func setupView() {
+        tvInfo.alpha = 0
+        lbNameAndAge.alpha = 0
+        tfName.alpha = 0
+        tfAge.alpha = 0
         
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
         
@@ -38,29 +50,26 @@ class InitialProfileViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        tfName.text = Preferences.shared.userName
-        if Preferences.shared.userAge > 0 {
-            tfAge.text = String(format: "%d", Preferences.shared.userAge)
-        }
     }
     
+    /* Before going to the next view, check and alert the user if the fields are missing */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNextProfileInfo" {
             if (tfName.text?.isEmpty)! {
                 showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
             } else {
-                Preferences.shared.userName = tfName.text!
+                preferences.userName = tfName.text!
             }
             
             if (tfAge.text?.isEmpty)! {
                 showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
             } else {
-                Preferences.shared.userAge = Int(tfAge.text!)!
+                preferences.userAge = Int(tfAge.text!)!
             }
         }
     }
     
+    /* Alert the user if the some of the fields are empty */
     func showMissingFields(field: String) {
         let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: field, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
@@ -69,8 +78,9 @@ class InitialProfileViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    /* Alpha animation for the text fields */
     func changeAlpha(view: UIView) {
-            UIView.animate(withDuration: 0.7, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 view.alpha = 1
             }) {(finished) in
                 self.currentIndex += 1
@@ -80,6 +90,7 @@ class InitialProfileViewController: UIViewController {
             }
         }
 
+    /* Dismiss the view if the user don't want to create a profile */
     @IBAction func cancelProfile(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

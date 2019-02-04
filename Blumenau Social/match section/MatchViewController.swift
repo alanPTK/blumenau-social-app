@@ -17,6 +17,7 @@ class MatchViewController: UIViewController {
     var matchingInstitutions: [Institution] = []
     var events: [InstitutionEvent] = []
     let institutionRepository = InstitutionRepository()
+    private var preferences = Preferences.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()                
@@ -40,13 +41,13 @@ class MatchViewController: UIViewController {
         
         lbInfo.isUserInteractionEnabled = true
         
-        if !Preferences.shared.userName.isEmpty {
-            let firstNameIndex = Preferences.shared.userName.firstIndex(of: " ")
+        if !preferences.userName.isEmpty {
+            let firstNameIndex = preferences.userName.firstIndex(of: " ")
             var firstName = ""
             if firstNameIndex != nil {
-                firstName = String(Preferences.shared.userName.prefix(upTo: firstNameIndex!))
+                firstName = String(preferences.userName.prefix(upTo: firstNameIndex!))
             } else {
-                firstName = Preferences.shared.userName
+                firstName = preferences.userName
             }
             lbHighlightedInstitutions.text = String(format: NSLocalizedString("These are the institutions that fit your profile", comment: ""), String(firstName))
         }
@@ -58,10 +59,9 @@ class MatchViewController: UIViewController {
         
         lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")                
         
-        matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [Preferences.shared.userNeighborhood], causes: Preferences.shared.userInterests, donationType: [], volunteerType: [], days: Preferences.shared.userDays, periods: Preferences.shared.userPeriods, limit: 5)
+        matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         
-        events = institutionRepository.getAllEvents()
-        print(events)
+        events = institutionRepository.getAllEvents()        
     }
     
     @objc func showProfile() {
@@ -72,7 +72,7 @@ class MatchViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if Preferences.shared.profileIsCreated {
+        if preferences.profileIsCreated {
             vInfo.isHidden = true
         }
     }
@@ -116,7 +116,7 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == 0 {
-            if Preferences.shared.profileIsCreated {
+            if preferences.profileIsCreated {
                 return matchingInstitutions.count
             }
         } else {

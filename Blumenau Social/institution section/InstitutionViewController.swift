@@ -342,9 +342,9 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         tvVolunteers.scrollRangeToVisible(NSRange(location:0, length:0))
         tvVolunteers.isScrollEnabled = true
         
-        resizeTextView(textView: tvWorkingHours)
-        resizeTextView(textView: tvScope)
-        resizeTextView(textView: tvVolunteers)
+        Utils.shared.resizeTextView(textView: tvWorkingHours)
+        Utils.shared.resizeTextView(textView: tvScope)
+        Utils.shared.resizeTextView(textView: tvVolunteers)
         
         lcWorkingHoursHeight.constant = tvWorkingHours.frame.size.height + tvWorkingHours.frame.origin.y + 16
         workingHoursOriginalHeight = lcWorkingHoursHeight.constant
@@ -384,16 +384,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
         
         pcInstitutionPictures.currentPage = currentPage
-    }
-    
-    @discardableResult
-    func resizeTextView(textView: UITextView) -> CGSize {
-        let fixedWidth = textView.frame.size.width
-        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        
-        return textView.frame.size
-    }
+    }        
     
 }
 
@@ -446,19 +437,8 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as! AboutTableViewCell
             let currentAbout = currentInstitution?.about[indexPath.row]
             
-            cell.lbTitle.text = currentAbout?.title
-            cell.lbTitle.adjustsFontSizeToFitWidth = true
-            cell.lbTitle.minimumScaleFactor = 0.5
-            
-            cell.tvDesc.text = currentAbout?.information
-            cell.tvDesc.textContainerInset = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
-            cell.lcAboutHeight.constant = resizeTextView(textView: cell.tvDesc).height
-            
-            if indexPath.row == 0 {
-                cell.btToggleVisibility.isHidden = false
-            } else {
-                cell.btToggleVisibility.isHidden = true
-            }
+            cell.setupCell()
+            cell.loadInformation(about: currentAbout!, indexPath: indexPath)                        
             
             return cell
         }
@@ -474,10 +454,10 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if tableView.tag == 0 {
-            let v = UIView()
-            v.backgroundColor = .clear
+            let view = UIView()
+            view.backgroundColor = .clear
             
-            return v
+            return view
         }
         
         return UIView()

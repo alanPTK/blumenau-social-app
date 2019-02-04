@@ -18,4 +18,13 @@ class Utils {
         return date!
     }
     
+    @discardableResult
+    func resizeTextView(textView: UITextView) -> CGSize {
+        let fixedWidth = textView.frame.size.width
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        
+        return textView.frame.size
+    }
+    
 }
