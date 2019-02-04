@@ -13,7 +13,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     private var institutions: [Institution] = []
     private let hud = JGProgressHUD(style: .dark)
     
-    /* Initialize all the necessary information for the view and load the information from the API */
+    /* Initialize all the necessary information for the view and load the information from the Api */
     override func viewDidLoad() {
         super.viewDidLoad()
         

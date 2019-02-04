@@ -48,7 +48,7 @@ class FilterOptionsViewController: UIViewController {
 
 extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    /* Return the number of cells that the collection view should show */
+    /* Returns the number of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterOptions.count
     }

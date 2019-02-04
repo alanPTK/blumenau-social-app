@@ -1,4 +1,5 @@
 import UIKit
+import MessageUI
 
 class Utils {
 
@@ -27,6 +28,20 @@ class Utils {
         textView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
         
         return textView.frame.size
+    }
+    
+    func callPhoneNumber(phoneNumber: String) {
+        if let number = URL(string: "tel://" + phoneNumber) {
+            UIApplication.shared.open(number)
+        }
+    }
+    
+    func openLocation(address: String) {
+        let location = String(format: "http://maps.apple.com/?address=%@", address)
+        
+        if let locationURL = URL(string: location) {
+            UIApplication.shared.open(locationURL)
+        }
     }
     
 }

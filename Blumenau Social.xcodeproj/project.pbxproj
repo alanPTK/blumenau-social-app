@@ -294,10 +294,10 @@
 		DB8EAB3A21F3D0D700E27F8D /* institution section */ = {
 			isa = PBXGroup;
 			children = (
-				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
-				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
 				DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */,
 				DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */,
+				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
+				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
 			);
 			name = "institution section";
 			sourceTree = "<group>";

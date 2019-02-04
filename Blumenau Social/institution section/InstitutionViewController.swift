@@ -3,7 +3,12 @@ import RealmSwift
 import Nuke
 import MessageUI
 
-//TODO, comentar
+struct InstitutionConstant {
+    static let TOGGLE_IS_EXPANDED = 1
+    static let TOGGLE_IS_COLLAPSED = 1
+    static let INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER = 0
+    static let INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER = 0
+}
 
 class InstitutionViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -67,11 +72,12 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var lcMainInformationHeight: NSLayoutConstraint!
     @IBOutlet weak var lcContactInformationHeight: NSLayoutConstraint!
     
-    var currentPage: Int = 0
+    private var currentPage: Int = 0
     var currentInstitution: Institution?
-    let institutionRepository = InstitutionRepository()
-    let filterRepository = FilterOptionsRepository()
+    private let institutionRepository = InstitutionRepository()
+    private let filterRepository = FilterOptionsRepository()    
     
+    /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -149,20 +155,21 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         lbAddress.addGestureRecognizer(locationTapGestureRecognizer)
     }
     
+    /* When the user taps the address, open the Maps application with the institution location */
     @objc func showInstitutionLocation() {
-        let location = String(format: "http://maps.apple.com/?address=%@", lbAddress.text!)
-        
-        if let locationURL = URL(string: location) {
-            UIApplication.shared.open(locationURL)
-        }
+        if let address = lbAddress.text {
+            Utils.shared.openLocation(address: address)
+        }        
     }
     
+    /* When the user taps the phone, make a call */
     @objc func callInstitution() {
-        if let number = URL(string: "tel://" + lbPhone.text!) {
-            UIApplication.shared.open(number)
-        }
+        if let phone = lbPhone.text {
+            Utils.shared.callPhoneNumber(phoneNumber: phone)
+        }                
     }
     
+    /* When the user taps the email, call the mail composer screen */
     @objc func sendEmailToInstitution() {
         if !MFMailComposeViewController.canSendMail() {
             let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""), preferredStyle: .alert)
@@ -187,31 +194,17 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Dismiss the mail composer screen */
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     
-    @objc func handleLongPress(longPressGesture:UILongPressGestureRecognizer) {
-        let p = longPressGesture.location(in: tvDonations)
-        let indexPath = tvDonations.indexPathForRow(at: p)
-        
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: NSLocalizedString("Close", comment: ""), style: .destructive, handler: nil)
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
-        
-        if indexPath == nil {
-            print("Long press on table view, not row.")
-        } else if (longPressGesture.state == UIGestureRecognizer.State.began) {
-            print("Long press on row, at \(indexPath!.section)")
-        }
-    }
-    
+    /* When the user touches the image, dismiss the view */
     @objc func close() {
         dismiss(animated: true, completion: nil)
     }
     
+    /* Hide or show the institution working hours section */
     @IBAction func toggleWorkingHoursVisibility(_ sender: Any) {
         if btToggleWorkingHours.tag == 0 {
             btToggleWorkingHours.tag = 1
@@ -230,6 +223,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Hide or show the institution donations section */
     @IBAction func toggleDonationVisibility(_ sender: Any) {
         if btToggleDonation.tag == 0 {
             btToggleDonation.tag = 1
@@ -248,6 +242,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Hide or show the institution volunteers section */
     @IBAction func toggleVolunteersVisibility(_ sender: Any) {
         if btToggleVolunteers.tag == 0 {
             btToggleVolunteers.tag = 1
@@ -266,6 +261,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Hide or show the institution pictures section */
     @IBAction func togglePicturesVisibility(_ sender: Any) {
         if btTogglePictures.tag == 0 {
             btTogglePictures.tag = 1
@@ -286,6 +282,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Hide or show the institution scope section */
     @IBAction func toggleScopeVisibility(_ sender: Any) {
         if btToggleScope.tag == 0 {
             btToggleScope.tag = 1
@@ -304,6 +301,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Hide or show the institution about section */
     @objc func toggleAboutVisibility(notification: Notification) {
         let btToggleAbout = notification.object as! UIButton
         
@@ -324,6 +322,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Animate the toggle button */
     func toggleButtonImage(button: UIButton, expand: Bool) {
         let image = expand ? UIImage(named: "expand") : UIImage(named: "collapse")
         UIView.transition(with: button, duration: 0.5, options: .transitionFlipFromBottom, animations: {
@@ -331,6 +330,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }, completion: nil)
     }
     
+    /* When the view appears, calculate the size of the components to make the view with the right size */
     override func viewDidAppear(_ animated: Bool) {
         tvWorkingHours.setContentOffset(.zero, animated: false)
         tvWorkingHours.scrollRangeToVisible(NSRange(location:0, length:0))
@@ -382,6 +382,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* When the scrolling is finished, update the page control */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
         
@@ -392,8 +393,9 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
 
 extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate {
     
+    /* Returns the number of sections in the table views */
     func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView.tag == 0 {
+        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
             if let count = currentInstitution?.donations.count {
                 return count
             }
@@ -404,8 +406,9 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         return 0
     }
     
+    /* Returns the number of rows in the table views */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.tag == 0 {
+        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
             return 1
         } else {
             if let count = currentInstitution?.about.count {
@@ -416,8 +419,9 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         return 0
     }
     
+    /* Returns the cell content */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView.tag == 0 {
+        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
             let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)            
             let currentDonation = currentInstitution?.donations[indexPath.section]
             
@@ -446,16 +450,18 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    /* Returns the height for the table view header */
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if tableView.tag == 0 {
+        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
             return 2
         }
         
         return 0
     }
     
+    /* Returns the view for the table view header */
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if tableView.tag == 0 {
+        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
             let view = UIView()
             view.backgroundColor = .clear
             
@@ -465,6 +471,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
         return UIView()
     }
     
+    /* Returns the size of the table view row, the size is calculated automatically based on the constraints */
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -473,8 +480,9 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
 
 extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    /* Returns the number of sections in the collection views */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView.tag == 0 {
+        if collectionView.tag == InstitutionConstant.INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER {
             if let count = currentInstitution?.pictures.count {
                 return count
             }
@@ -487,8 +495,9 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
         return 0
     }
     
+    /* Returns the cell content */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView.tag == 0 {
+        if collectionView.tag == InstitutionConstant.INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER {
             let currentPicture = currentInstitution?.pictures[indexPath.row]
             let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ActionImageCollectionViewCell
             
@@ -508,8 +517,9 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
         }
     }
     
+    /* If the user selected an image from the institution, opens in full screen */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView.tag == 0 {
+        if collectionView.tag == InstitutionConstant.INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER {
             let fullImageViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.DIALOG_STORYBOARD_NAME) as! FullImageViewController
             fullImageViewController.showInstitutionPictures = true
             fullImageViewController.institutionPictures = currentInstitution?.pictures
@@ -518,8 +528,9 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
         }
     }
     
+    /* Returns the size of the item in the collection view. If it is the image collection view, the item occupies the full size  If it is the causes collectio view, the size is calculated based on the string lenght plus a fixed constant */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView.tag == 0 {
+        if collectionView.tag == InstitutionConstant.INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER {
             return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         } else {
             let currentCause = currentInstitution?.causes[indexPath.row]

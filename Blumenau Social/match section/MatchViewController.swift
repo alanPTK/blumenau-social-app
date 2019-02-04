@@ -41,9 +41,9 @@ class MatchViewController: UIViewController {
         cvMoreHighlightedInstitutions.configureForPeekingDelegate()
         cvMoreHighlightedInstitutions.delegate = peekImplementation
         cvMoreHighlightedInstitutions.dataSource = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: "showInstitution"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showEvent), name: Notification.Name(rawValue: "showEvent"), object: nil)
+                        
+        NotificationCenter.default.addObserver(self, selector: #selector(showInstitution), name: Notification.Name(rawValue: Constants.SHOW_INSTITUTION_NOTIFICATION_NAME), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showEvent), name: Notification.Name(rawValue: Constants.SHOW_EVENT_NOTIFICATION_NAME), object: nil)
         
         matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         
@@ -123,7 +123,7 @@ class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         var notificationName = ""
         
-        if collectionView.tag == MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
+        if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
             notificationName = Constants.SHOW_INSTITUTION_NOTIFICATION_NAME
         } else {
             notificationName = Constants.SHOW_EVENT_NOTIFICATION_NAME
@@ -136,7 +136,7 @@ class CustomPeekCollectionView: MSPeekCollectionViewDelegateImplementation {
 
 extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    //TODO
+    /* Returns the number of items that the collection view should show. If there is no profile, the number is zero */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
             if preferences.profileIsCreated {
@@ -149,11 +149,12 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         return 0
     }
     
-    /* Return the number of sections that the collection view should show */
+    /* Returns the number of sections that the collection view should show */
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
+    /* Returns the cell content */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let institutionCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_MATCH_CELL_IDENTIFIER, for: indexPath) as! InstitutionCollectionViewCell
         
@@ -172,6 +173,7 @@ extension MatchViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         }
     }
     
+    /* Returns the size of the collection view item */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: ((collectionView.frame.size.width / 2)-5), height: collectionView.frame.size.height)
     }

@@ -53,7 +53,7 @@ class ProfileInterestsViewController: UIViewController {
 
 extension ProfileInterestsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    /* Return the number of cells that the collection view should show */
+    /* Returns the number of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (areas?.count)!
     }
