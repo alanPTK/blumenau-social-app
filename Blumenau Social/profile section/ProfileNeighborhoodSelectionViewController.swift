@@ -34,7 +34,7 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
 
 extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    /* Return the amount of cells that the collection view should show */
+    /* Return the number of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (neighborhoods?.count)!
     }

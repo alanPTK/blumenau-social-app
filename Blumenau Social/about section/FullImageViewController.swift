@@ -31,7 +31,7 @@ class FullImageViewController: UIViewController {
 
 extension FullImageViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    /* Return the amount of cells that the collection view should show. */
+    /* Return the number of cells that the collection view should show. */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if showInstitutionPictures {
             return (institutionPictures?.count)!

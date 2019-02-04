@@ -45,4 +45,8 @@ struct Constants {
     static let ALAN_LINKEDIN_WEB_URL = "https://www.linkedin.com/in/alan-filipe-cardozo-fabeni-102502142/";
     static let THIAGO_LINKEDIN_APP_URL = "linkedin://profile/thiago-krepsky-bennertz-785a67162";
     static let THIAGO_LINKEDIN_WEB_URL = "https://www.linkedin.com/in/thiago-krepsky-bennertz-785a67162/";
+    
+    //notification names
+    static let SHOW_INSTITUTION_NOTIFICATION_NAME = "showInstitution";
+    static let SHOW_EVENT_NOTIFICATION_NAME = "showEvent";
 }

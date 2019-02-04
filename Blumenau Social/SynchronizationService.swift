@@ -91,11 +91,11 @@ struct EventDecodable: Decodable {
     let end_hour: Int
 }
 
-//TODO, comentar
 class SynchronizationService: NSObject {
     
     let configuration = URLSessionConfiguration.default
     
+    /* Synchronize the institutions from the Api */
     func synchronizeInstitutions(completion: @escaping (_ result: Bool) -> ()) {
         let session = URLSession(configuration: configuration)
         
@@ -120,6 +120,7 @@ class SynchronizationService: NSObject {
         }
     }
     
+    /* Synchronize the events from the Api */
     func synchronizeEvents(completion: @escaping (_ result: Bool) -> ()) {
         let session = URLSession(configuration: configuration)
         
@@ -144,6 +145,7 @@ class SynchronizationService: NSObject {
         }
     }
     
+    /* Synchronize the filter options from the Api */
     func synchronizeFilterOptions(completion: @escaping (_ result: Bool) -> ()) {
         let session = URLSession(configuration: configuration)
         let url = URL(string: Constants.FILTERS_DOWNLOAD_LINK)
