@@ -17,26 +17,14 @@ class MissionViewController: UIViewController {
     @IBOutlet weak var lvLoveForTheCause: UILabel!
     @IBOutlet weak var lbVolunteering: UILabel!
     
-    var viewsToAnimate: [UIView] = []
-    var currentIndex: Int = 0
+    private var viewsToAnimate: [UIView] = []
+    private var currentIndex: Int = 0
     
+    /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lbOurVision.alpha = 0
-        tvOurVision.alpha = 0
-        
-        lbOurMission.alpha = 0
-        tvOurMission.alpha = 0
-        
-        lbOurValues.alpha = 0
-        lbPlurality.alpha = 0
-        lbDevelopment.alpha = 0
-        lbCommitment.alpha = 0
-        lbConnection.alpha = 0
-        lbSharing.alpha = 0
-        lvLoveForTheCause.alpha = 0
-        lbVolunteering.alpha = 0
+        setupView()
         
         viewsToAnimate.append(lbOurVision)
         viewsToAnimate.append(tvOurVision)
@@ -52,6 +40,25 @@ class MissionViewController: UIViewController {
         viewsToAnimate.append(lbPlurality)
     }
     
+    /* Initialize the view components */
+    func setupView() {
+        lbOurVision.alpha = 0
+        tvOurVision.alpha = 0
+        
+        lbOurMission.alpha = 0
+        tvOurMission.alpha = 0
+        
+        lbOurValues.alpha = 0
+        lbPlurality.alpha = 0
+        lbDevelopment.alpha = 0
+        lbCommitment.alpha = 0
+        lbConnection.alpha = 0
+        lbSharing.alpha = 0
+        lvLoveForTheCause.alpha = 0
+        lbVolunteering.alpha = 0
+    }
+    
+    /* Animate the view components */
     func animateView(viewToAnimate: UIView) {
         var duration = 0.4
         
@@ -71,6 +78,7 @@ class MissionViewController: UIViewController {
         }
     }
     
+    /* Start the view animation */
     func loadViews() {
         animateView(viewToAnimate: viewsToAnimate.first!)
     }    

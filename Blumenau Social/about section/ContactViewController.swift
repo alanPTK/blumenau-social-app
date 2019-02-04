@@ -13,9 +13,18 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var lbDeveloperName: UILabel!
     @IBOutlet weak var lbArtistName: UILabel!
     
+    /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupView()
+        
+        lbDeveloperName.text = NSLocalizedString("Developer", comment: "")
+        lbArtistName.text = NSLocalizedString("Artist", comment: "")
+    }
+    
+    /* Initialize the view components */
+    func setupView() {
         tvText.layer.cornerRadius = 8
         
         tfName.placeholder = NSLocalizedString("Your name", comment: "")
@@ -24,11 +33,9 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         tfPhone.delegate = self
         tfEmail.placeholder = NSLocalizedString("Your email", comment: "")
         tfEmail.delegate = self
-        
-        lbDeveloperName.text = NSLocalizedString("Developer", comment: "")
-        lbArtistName.text = NSLocalizedString("Artist", comment: "")
     }
     
+    /* When the user touches the return button, go to the next text field */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == tfName {
             tfPhone.becomeFirstResponder()
@@ -45,6 +52,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         return true
     }
 
+    /* Show the email creation screen with the information from the textfields */
     @IBAction func sendMail(_ sender: Any) {
         if !MFMailComposeViewController.canSendMail() {
             let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""), preferredStyle: .alert)
@@ -88,10 +96,12 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         }
     }
     
+    /* When the user closes the mail creation screen this method is called to dismiss the view */
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     
+    /* Go to the Facebook profile when the user touches the button */
     @IBAction func goToFacebook(_ sender: Any) {
         let appURL = URL(string: Constants.FACEBOOK_APP_URL)!
         let application = UIApplication.shared
@@ -104,6 +114,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         }
     }
     
+    /* Go to the Instagram profile when the user touches the button */
     @IBAction func goToInstagram(_ sender: Any) {
         let appURL = URL(string: Constants.INSTAGRAM_APP_URL)!
         let application = UIApplication.shared
@@ -116,6 +127,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         }
     }
     
+    /* Go to the Linkedin profiles when the user touches the buttons */
     @IBAction func goToLinkedin(_ sender: UIButton) {
         var appURL: URL?
         var webURL: URL?
@@ -137,6 +149,7 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         }
     }
     
+    /* Show an alert message to the user if the fields are not filled */
     func showAlertControllerWithMessage(message: String) {
         let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)

@@ -4,22 +4,24 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var pcAbout: UIPageControl!
     @IBOutlet weak var svAbout: UIScrollView!
-    var currentPage: Int = 0
-    var missionViewController: MissionViewController?
-    var informationViewController: InformationViewController?
-    var actionsViewController: ActionsViewController?
-    var contactViewController: ContactViewController?
     
+    private var currentPage: Int = 0
+    private var missionViewController: MissionViewController?
+    private var informationViewController: InformationViewController?
+    private var actionsViewController: ActionsViewController?
+    private var contactViewController: ContactViewController?
+    
+    /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
         
         svAbout.delegate = self
         
-        customizeViewStyle()
+        setupView()
     }
     
+    /* When the scrolling is finished, update the page control */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
         currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
         
         if currentPage == 1 {
@@ -29,7 +31,8 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
         pcAbout.currentPage = currentPage
     }
 
-    func customizeViewStyle() {
+    /* Initialize the view components */
+    func setupView() {
         view.backgroundColor = UIColor.backgroundColor()
         pcAbout.pageIndicatorTintColor = UIColor.descColor()
         pcAbout.currentPageIndicatorTintColor = UIColor.titleColor()        

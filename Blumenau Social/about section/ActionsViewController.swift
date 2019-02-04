@@ -3,7 +3,7 @@ import UIKit
 class ActionsViewController: UIViewController {
 
     @IBOutlet weak var tvAbout: UITextView!
-    let actionsImages: [UIImage] = [UIImage(named: "01")!, UIImage(named: "02")!, UIImage(named: "03")!, UIImage(named: "04")!, UIImage(named: "05")!]
+    private let actionsImages: [UIImage] = [UIImage(named: "01")!, UIImage(named: "02")!, UIImage(named: "03")!, UIImage(named: "04")!, UIImage(named: "05")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +19,9 @@ extension ActionsViewController: UICollectionViewDelegate, UICollectionViewDataS
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let actionImageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "actionImageCell", for: indexPath) as! ActionImageCollectionViewCell
-        actionImageCell.ivAction.image = actionsImages[indexPath.row]
         
-        actionImageCell.ivAction.layer.masksToBounds = true
-        actionImageCell.ivAction.layer.cornerRadius = 8
-        actionImageCell.ivAction.clipsToBounds = true
+        actionImageCell.setupCell()
+        actionImageCell.loadInformation(image: actionsImages[indexPath.row])                
         
         return actionImageCell
     }
