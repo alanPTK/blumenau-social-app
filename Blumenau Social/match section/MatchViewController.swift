@@ -35,6 +35,7 @@ class MatchViewController: UIViewController {
         setupView()
     }
     
+    /* Show the institution when the user touches the button */
     @objc func showMoreInfo(notification: Notification) {
         let institution = notification.object as! Institution
         showInstitution(institution: institution)
