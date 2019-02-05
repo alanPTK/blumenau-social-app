@@ -14,6 +14,7 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var pcEvents: UIPageControl!
     @IBOutlet weak var vInfo: UIView!
     
+    @IBOutlet weak var lbInfo: UILabel!
     private var currentPage = 0
     private var currentEventPage = 0
     private var matchingInstitutions: [Institution] = []
@@ -60,8 +61,14 @@ class MatchViewController: UIViewController {
         pcEvents.currentPageIndicatorTintColor = UIColor.titleColor()
         
         lbTitle.text = NSLocalizedString("Institutions and events", comment: "")
+        lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")
+        lbInfo.isUserInteractionEnabled = true
+        
+        let tapInfoRecognizer = UITapGestureRecognizer(target: self, action: #selector(showProfile))
+        lbInfo.addGestureRecognizer(tapInfoRecognizer)
         
         cvMatchingInstitutions.layer.cornerRadius = 8
+        cvEvents.layer.cornerRadius = 8
     }
     
     /* When the scrolling is finished, update the respectvily page control */
@@ -89,7 +96,7 @@ class MatchViewController: UIViewController {
     /* When the view appears, hide the info view if the profile is already created */
     override func viewWillAppear(_ animated: Bool) {
         if preferences.profileIsCreated {
-            //vInfo.isHidden = true
+            vInfo.isHidden = true
         }
     }
     
@@ -163,5 +170,5 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
-        
+    
 }
