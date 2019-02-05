@@ -457,9 +457,6 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
             cell.textLabel?.text = currentDonation?.desc
             
-            cell.textLabel?.backgroundColor = .clear
-            cell.textLabel?.textAlignment = .center
-            
             cell.layer.cornerRadius = 8
             cell.layer.borderWidth = 1
             cell.layer.borderColor = UIColor.titleColor().cgColor
@@ -473,10 +470,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             
             cell.textLabel?.textColor = .white
             cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.textLabel?.text = currentEvent.title
-            
-            cell.textLabel?.backgroundColor = .clear
-            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.text = currentEvent.title                        
             
             cell.layer.cornerRadius = 8
             cell.layer.borderWidth = 1
