@@ -9,6 +9,7 @@ class InstitutionCardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tvAbout: UITextView!
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var vContainer: UIView!
+    private var currentInstitution: Institution?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +21,11 @@ class InstitutionCardCollectionViewCell: UICollectionViewCell {
     
     func setupCell() {
         vContainer.layer.cornerRadius = 8
+        btSeeInfo.addTarget(self, action: #selector(showMoreInfo), for: .touchUpInside)
+    }
+    
+    @objc func showMoreInfo() {
+        NotificationCenter.default.post(name: NSNotification.Name("showMoreInfo"), object: currentInstitution)
     }
     
     func loadInformation(institution: Institution) {
@@ -29,6 +35,8 @@ class InstitutionCardCollectionViewCell: UICollectionViewCell {
         lbPhone.text = institution.phone
         tvAbout.text = institution.about.first!.information
         btSeeInfo.setTitle(NSLocalizedString("Show more info", comment: ""), for: .normal)
+        
+        currentInstitution = institution
     }
     
     func loadEventInformation(event: InstitutionEvent) {

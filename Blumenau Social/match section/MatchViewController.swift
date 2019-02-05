@@ -24,6 +24,8 @@ class MatchViewController: UIViewController {
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        NotificationCenter.default.addObserver(self, selector: #selector(showMoreInfo), name: NSNotification.Name("showMoreInfo"), object: nil)
         
         //matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         matchingInstitutions = Array(institutionRepository.getAllInstitutions())
@@ -31,6 +33,11 @@ class MatchViewController: UIViewController {
         events = institutionRepository.getAllEvents()
         
         setupView()
+    }
+    
+    @objc func showMoreInfo(notification: Notification) {
+        let institution = notification.object as! Institution
+        showInstitution(institution: institution)
     }
     
     /* Configure the visual aspects of the view components */
@@ -84,6 +91,13 @@ class MatchViewController: UIViewController {
             //vInfo.isHidden = true
         }
     }
+    
+    func showInstitution(institution: Institution) {
+        let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
+        institutionInformationViewController.currentInstitution = institution
+        
+        present(institutionInformationViewController, animated: true, completion: nil)
+    }
 }
 
 extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -128,11 +142,7 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
             let selectedInstitution = matchingInstitutions[indexPath.row]
-            
-            let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
-            institutionInformationViewController.currentInstitution = selectedInstitution
-            
-            present(institutionInformationViewController, animated: true, completion: nil)
+            showInstitution(institution: selectedInstitution)
         }
     }
     
