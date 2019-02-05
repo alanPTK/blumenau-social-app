@@ -83,10 +83,10 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var lcContactInformationHeight: NSLayoutConstraint!
     
     private var currentPage: Int = 0
-    var currentInstitution: Institution?
     private let institutionRepository = InstitutionRepository()
     private let filterRepository = FilterOptionsRepository()
     private var events: [InstitutionEvent] = []
+    var currentInstitution: Institution?
     
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
@@ -96,7 +96,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
         
-        events = institutionRepository.getAllEvents()
+        events = Array((currentInstitution?.events)!)
     }
     
     /* Configure the visual aspects of the view components */
@@ -546,6 +546,22 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     /* Returns the size of the table view row, the size is calculated automatically based on the constraints */
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    /* When the user selects an event, show it */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView.tag == InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER {
+            let event = events[indexPath.section]
+            showEvent(event: event)
+        }
+    }
+    
+    /* Show the event screen with the selected event */
+    func showEvent(event: InstitutionEvent) {
+        let eventViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController
+        eventViewController.selectedEvent = event
+        
+        present(eventViewController, animated: true, completion: nil)
     }
     
 }

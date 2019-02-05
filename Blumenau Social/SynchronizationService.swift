@@ -136,7 +136,7 @@ class SynchronizationService: NSObject {
                     return
                 }
                 
-                institutionRepository.createEventWithData(eventData: events)
+                institutionRepository.createEventWithData(eventData: events)                                
                 
                 completion(true)
             }

@@ -27,6 +27,7 @@ class InstitutionRepository: NSObject {
     
     /* Create a new event and save it in the database */
     func createEventWithData(eventData: EventsDecodable) {
+        //Terminating app due to uncaught exception 'RLMException', reason: 'Cannot modify managed RLMArray outside of a write transaction.'
         for event in eventData.events {
             if let institution = getInstitutionWithId(id: event.institution_id) {
                 let institutionEvent: InstitutionEvent = InstitutionEvent()
@@ -43,11 +44,14 @@ class InstitutionRepository: NSObject {
                 institutionEvent.startHour = event.start_hour
                 institutionEvent.endHour = event.end_hour
                 
-                //institution.events.append(institutionEvent)
-                
                 saveEvent(institutionEvent)
+                
+                try! realm.write {
+                    institution.events.append(institutionEvent)
+                }
+                
                 userRepository.createUserEvent(event: institutionEvent, attendance: false)
-                //saveInstitution(institution)
+                saveInstitution(institution)
             }
         }
     }

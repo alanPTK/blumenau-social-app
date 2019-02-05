@@ -42,6 +42,11 @@
 		DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F862207B2A00073A4E7 /* EventDelegate.swift */; };
 		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
 		DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */; };
+		DB168E35220A384100AF2A7C /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E30220A384100AF2A7C /* Filter.storyboard */; };
+		DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E31220A384100AF2A7C /* Profile.storyboard */; };
+		DB168E37220A384100AF2A7C /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E32220A384100AF2A7C /* About.storyboard */; };
+		DB168E38220A384100AF2A7C /* Dialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E33220A384100AF2A7C /* Dialog.storyboard */; };
+		DB168E39220A384100AF2A7C /* Institution.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E34220A384100AF2A7C /* Institution.storyboard */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
@@ -52,11 +57,6 @@
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
 		DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CC621F1EF7600E195D6 /* MissionViewController.swift */; };
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
-		DBA592FE2208B4AA00224267 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA592FD2208B4AA00224267 /* Profile.storyboard */; };
-		DBA593002208B57C00224267 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA592FF2208B57C00224267 /* About.storyboard */; };
-		DBA593022208B6B800224267 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593012208B6B800224267 /* Filter.storyboard */; };
-		DBA593042208B73200224267 /* Institution.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593032208B73200224267 /* Institution.storyboard */; };
-		DBA593062208B7CB00224267 /* Dialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA593052208B7CB00224267 /* Dialog.storyboard */; };
 		DBA5930E2208F4C300224267 /* InstitutionCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */; };
 		DBA593102209068200224267 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930F2209068100224267 /* MatchViewController.swift */; };
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
@@ -99,6 +99,11 @@
 		DB029F862207B2A00073A4E7 /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "institution section/EventDelegate.swift"; sourceTree = "<group>"; };
 		DB029F882207B2B00073A4E7 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventPresenter.swift; path = "institution section/EventPresenter.swift"; sourceTree = "<group>"; };
 		DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCardCollectionViewCell.swift; path = cells/EventCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB168E30220A384100AF2A7C /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filter.storyboard; path = views/Filter.storyboard; sourceTree = "<group>"; };
+		DB168E31220A384100AF2A7C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = views/Profile.storyboard; sourceTree = "<group>"; };
+		DB168E32220A384100AF2A7C /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = About.storyboard; path = views/About.storyboard; sourceTree = "<group>"; };
+		DB168E33220A384100AF2A7C /* Dialog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Dialog.storyboard; path = views/Dialog.storyboard; sourceTree = "<group>"; };
+		DB168E34220A384100AF2A7C /* Institution.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Institution.storyboard; path = views/Institution.storyboard; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,11 +116,6 @@
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
 		DB957CC621F1EF7600E195D6 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
-		DBA592FD2208B4AA00224267 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		DBA592FF2208B57C00224267 /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
-		DBA593012208B6B800224267 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
-		DBA593032208B73200224267 /* Institution.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Institution.storyboard; sourceTree = "<group>"; };
-		DBA593052208B7CB00224267 /* Dialog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dialog.storyboard; sourceTree = "<group>"; };
 		DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionCardCollectionViewCell.swift; path = cells/InstitutionCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBA5930F2209068100224267 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
@@ -262,13 +262,13 @@
 		DB8EAB3721F3D06E00E27F8D /* views */ = {
 			isa = PBXGroup;
 			children = (
+				DB168E32220A384100AF2A7C /* About.storyboard */,
+				DB168E33220A384100AF2A7C /* Dialog.storyboard */,
+				DB168E30220A384100AF2A7C /* Filter.storyboard */,
+				DB168E34220A384100AF2A7C /* Institution.storyboard */,
+				DB168E31220A384100AF2A7C /* Profile.storyboard */,
 				DB2A7C1F21F1066200C60B32 /* LaunchScreen.storyboard */,
 				DB2A7C1A21F1065F00C60B32 /* Main.storyboard */,
-				DBA592FD2208B4AA00224267 /* Profile.storyboard */,
-				DBA592FF2208B57C00224267 /* About.storyboard */,
-				DBA593012208B6B800224267 /* Filter.storyboard */,
-				DBA593032208B73200224267 /* Institution.storyboard */,
-				DBA593052208B7CB00224267 /* Dialog.storyboard */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -393,15 +393,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB168E38220A384100AF2A7C /* Dialog.storyboard in Resources */,
+				DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */,
+				DB168E37220A384100AF2A7C /* About.storyboard in Resources */,
 				DB2A7C2121F1066200C60B32 /* LaunchScreen.storyboard in Resources */,
-				DBA593062208B7CB00224267 /* Dialog.storyboard in Resources */,
-				DBA593022208B6B800224267 /* Filter.storyboard in Resources */,
 				DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */,
-				DBA593002208B57C00224267 /* About.storyboard in Resources */,
-				DBA592FE2208B4AA00224267 /* Profile.storyboard in Resources */,
+				DB168E39220A384100AF2A7C /* Institution.storyboard in Resources */,
+				DB168E35220A384100AF2A7C /* Filter.storyboard in Resources */,
 				DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */,
 				DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */,
-				DBA593042208B73200224267 /* Institution.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
