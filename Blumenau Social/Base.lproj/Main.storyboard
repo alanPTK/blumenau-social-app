@@ -213,27 +213,92 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-pz-UDa">
                                 <rect key="frame" x="8" y="305" width="304" height="37"/>
                             </pageControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q4q-DQ-RpX">
+                                <rect key="frame" x="22" y="346" width="276" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="PmQ-Dw-hFX"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="r4g-Oy-6Zv">
+                                    <size key="itemSize" width="276" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCardCell" id="drd-rn-7bI" customClass="EventCardCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="276" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="276" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2g-qm-G2w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="128"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H8u-Zf-vV3">
+                                                            <rect key="frame" x="4" y="4" width="268" height="120"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="H8u-Zf-vV3" firstAttribute="leading" secondItem="L2g-qm-G2w" secondAttribute="leading" constant="4" id="Afh-EF-ogw"/>
+                                                        <constraint firstAttribute="bottom" secondItem="H8u-Zf-vV3" secondAttribute="bottom" constant="4" id="T1J-KT-E2s"/>
+                                                        <constraint firstItem="H8u-Zf-vV3" firstAttribute="top" secondItem="L2g-qm-G2w" secondAttribute="top" constant="4" id="nhZ-iu-9Ji"/>
+                                                        <constraint firstAttribute="trailing" secondItem="H8u-Zf-vV3" secondAttribute="trailing" constant="4" id="uzG-HR-l01"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="L2g-qm-G2w" firstAttribute="top" secondItem="drd-rn-7bI" secondAttribute="top" id="4bm-tt-zX2"/>
+                                            <constraint firstItem="L2g-qm-G2w" firstAttribute="leading" secondItem="drd-rn-7bI" secondAttribute="leading" id="WTr-va-z45"/>
+                                            <constraint firstAttribute="trailing" secondItem="L2g-qm-G2w" secondAttribute="trailing" id="bvq-3T-erh"/>
+                                            <constraint firstAttribute="bottom" secondItem="L2g-qm-G2w" secondAttribute="bottom" id="jbM-vn-KF9"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="ivEvent" destination="H8u-Zf-vV3" id="lHL-uS-0dS"/>
+                                            <outlet property="vContainer" destination="L2g-qm-G2w" id="4CL-lc-mzd"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="C5d-uN-UpF" id="Ob9-SY-abe"/>
+                                    <outlet property="delegate" destination="C5d-uN-UpF" id="1T2-pz-IQq"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="y0J-dX-31P">
+                                <rect key="frame" x="0.0" y="482" width="320" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="jpR-Qr-9x5" firstAttribute="trailing" secondItem="n1q-ow-mmI" secondAttribute="trailing" constant="22" id="0KM-cp-Kfg"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" constant="22" id="4iL-wf-BID"/>
                             <constraint firstItem="Vgg-SQ-rLb" firstAttribute="centerX" secondItem="n1q-ow-mmI" secondAttribute="centerX" id="6yP-CQ-c4m"/>
+                            <constraint firstItem="jpR-Qr-9x5" firstAttribute="trailing" secondItem="y0J-dX-31P" secondAttribute="trailing" id="9QL-5b-7kE"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="top" secondItem="Vgg-SQ-rLb" secondAttribute="bottom" constant="4" id="9jS-UM-0zP"/>
                             <constraint firstItem="6qD-3v-img" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" id="JTx-7e-6Rq"/>
                             <constraint firstItem="kRI-pz-UDa" firstAttribute="top" secondItem="n1q-ow-mmI" secondAttribute="bottom" constant="-5" id="LWx-wl-W61"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="top" secondItem="jpR-Qr-9x5" secondAttribute="top" constant="52" id="OgJ-z9-XJV"/>
+                            <constraint firstItem="q4q-DQ-RpX" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" constant="22" id="P5n-Mo-e06"/>
+                            <constraint firstItem="jpR-Qr-9x5" firstAttribute="trailing" secondItem="q4q-DQ-RpX" secondAttribute="trailing" constant="22" id="Pw7-N2-Ur4"/>
                             <constraint firstItem="jpR-Qr-9x5" firstAttribute="trailing" secondItem="kRI-pz-UDa" secondAttribute="trailing" constant="8" id="SVW-Fs-AyZ"/>
+                            <constraint firstItem="y0J-dX-31P" firstAttribute="top" secondItem="q4q-DQ-RpX" secondAttribute="bottom" constant="8" id="VZm-TJ-HDm"/>
+                            <constraint firstItem="y0J-dX-31P" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" id="ZtQ-kC-qaD"/>
                             <constraint firstItem="kRI-pz-UDa" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" constant="8" id="dek-nS-FZJ"/>
                             <constraint firstAttribute="trailing" secondItem="6qD-3v-img" secondAttribute="trailing" id="gV1-9d-rR7"/>
                             <constraint firstItem="6qD-3v-img" firstAttribute="top" secondItem="jpR-Qr-9x5" secondAttribute="top" id="oaD-xf-V00"/>
+                            <constraint firstItem="q4q-DQ-RpX" firstAttribute="top" secondItem="kRI-pz-UDa" secondAttribute="bottom" constant="4" id="xej-VV-pDR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jpR-Qr-9x5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="match" selectedImage="match" id="CLz-51-jm2"/>
                     <connections>
+                        <outlet property="cvEvents" destination="q4q-DQ-RpX" id="aZC-ro-vRb"/>
                         <outlet property="cvMatchingInstitutions" destination="n1q-ow-mmI" id="PqZ-Hx-IRJ"/>
                         <outlet property="lbTitle" destination="Vgg-SQ-rLb" id="fAp-Ff-aAk"/>
+                        <outlet property="pcEvents" destination="y0J-dX-31P" id="LaD-Ns-A9o"/>
                         <outlet property="pcMatchingInstitutions" destination="kRI-pz-UDa" id="arP-0L-tS7"/>
                     </connections>
                 </viewController>
@@ -275,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOa-Cc-Rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="857"/>
+            <point key="canvasLocation" x="788" y="820"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -472,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9DW-Uu-Onw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="-693"/>
+            <point key="canvasLocation" x="788" y="-708"/>
         </scene>
     </scenes>
     <resources>

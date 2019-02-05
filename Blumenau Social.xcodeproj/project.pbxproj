@@ -41,6 +41,7 @@
 		DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */; };
 		DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F862207B2A00073A4E7 /* EventDelegate.swift */; };
 		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
+		DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsPresenter.swift; path = "institution section/InstitutionsPresenter.swift"; sourceTree = "<group>"; };
 		DB029F862207B2A00073A4E7 /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "institution section/EventDelegate.swift"; sourceTree = "<group>"; };
 		DB029F882207B2B00073A4E7 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventPresenter.swift; path = "institution section/EventPresenter.swift"; sourceTree = "<group>"; };
+		DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCardCollectionViewCell.swift; path = cells/EventCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				DB029F4F22061C6D0073A4E7 /* InstitutionGeneralInformationCollectionViewCell.swift */,
 				DB029F5122061C6D0073A4E7 /* SeeMoreCollectionViewCell.swift */,
 				DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */,
+				DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB029F6A22061CA60073A4E7 /* ProfileInterestsViewController.swift in Sources */,
+				DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */,
 				DB029F7922061CF90073A4E7 /* Constants.swift in Sources */,
 				DB029F7F22073C780073A4E7 /* UserRepository.swift in Sources */,
 				DB029F7622061CF90073A4E7 /* CustomLayout.swift in Sources */,

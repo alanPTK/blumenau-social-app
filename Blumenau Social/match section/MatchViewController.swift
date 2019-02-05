@@ -55,16 +55,16 @@ class MatchViewController: UIViewController {
         pcMatchingInstitutions.pageIndicatorTintColor = UIColor.descColor()
         pcMatchingInstitutions.currentPageIndicatorTintColor = UIColor.titleColor()
         
-//        pcEvents.numberOfPages = matchingInstitutions.count
-//        pcEvents.pageIndicatorTintColor = UIColor.descColor()
-//        pcEvents.currentPageIndicatorTintColor = UIColor.titleColor()
+        pcEvents.numberOfPages = matchingInstitutions.count
+        pcEvents.pageIndicatorTintColor = UIColor.descColor()
+        pcEvents.currentPageIndicatorTintColor = UIColor.titleColor()
         
         lbTitle.text = NSLocalizedString("Institutions and events", comment: "")
         
         cvMatchingInstitutions.layer.cornerRadius = 8
     }
     
-    /* When the scrolling is finished, update the page control */
+    /* When the scrolling is finished, update the respectvily page control */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == cvMatchingInstitutions {
             currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
@@ -75,7 +75,7 @@ class MatchViewController: UIViewController {
         }
         
         pcMatchingInstitutions.currentPage = currentPage
-        //pcEvents.currentPage = currentEventPage
+        pcEvents.currentPage = currentEventPage
     }
 
     /* Show the profile screen */
@@ -93,11 +93,20 @@ class MatchViewController: UIViewController {
         }
     }
     
+    /* Show the selected institution */
     func showInstitution(institution: Institution) {
         let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         institutionInformationViewController.currentInstitution = institution
         
         present(institutionInformationViewController, animated: true, completion: nil)
+    }
+    
+    /* Show the selected event */
+    func showEvent(event: InstitutionEvent) {
+        let institutionEventViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.EVENT_VIEW_STORYBOARD_ID) as! EventViewController
+        institutionEventViewController.selectedEvent = event
+        
+        present(institutionEventViewController, animated: true, completion: nil)
     }
 }
 
@@ -119,7 +128,7 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
     /* Returns the cell content */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InstitutionCardCell", for: indexPath) as! InstitutionCardCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CARD_CELL_IDENTIFIER, for: indexPath) as! InstitutionCardCollectionViewCell
             
             let currentInstitution = matchingInstitutions[indexPath.row]
             
@@ -128,10 +137,10 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
             
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCardCell", for: indexPath) as! InstitutionCardCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.EVENT_CARD_CELL_IDENTIFIER, for: indexPath) as! EventCardCollectionViewCell
             
             let currentEvent = events[indexPath.row]
-            
+
             cell.setupCell()
             cell.loadEventInformation(event: currentEvent)
             
@@ -139,11 +148,14 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
         }
     }
     
-    /* Show the institution screen with the selected institution */
+    /* Show the institution or event screen with the selected item */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
             let selectedInstitution = matchingInstitutions[indexPath.row]
             showInstitution(institution: selectedInstitution)
+        } else {
+            let selectedEvent = events[indexPath.row]
+            showEvent(event: selectedEvent)
         }
     }
     
@@ -151,6 +163,5 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
-    
-    
+        
 }
