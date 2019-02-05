@@ -29,7 +29,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         presenter?.getInstitutionsFromApi()
         presenter?.getFiltersFromApi()
         
-        presenter?.getAllInstitutions()        
+        presenter?.getAllInstitutions()
     }
     
     /* Configure the visual aspects of the view components */
@@ -137,6 +137,7 @@ extension UICollectionView {
     func setEmptyMessage(_ message: String) {
         let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
         messageLabel.text = message
+        messageLabel.font = UIFont.boldSystemFont(ofSize: 15)
         messageLabel.textColor = UIColor.titleColor()
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center

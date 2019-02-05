@@ -103,6 +103,7 @@ class InstitutionEvent: Object {
     @objc dynamic var year: Int = 0    
     @objc dynamic var startHour: Int = 0
     @objc dynamic var endHour: Int = 0
+    var institution: Institution?
     
     override static func primaryKey() -> String? {
         return "id"

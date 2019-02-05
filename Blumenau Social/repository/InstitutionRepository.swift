@@ -49,6 +49,7 @@ class InstitutionRepository: NSObject {
                 institutionEvent.year = event.year
                 institutionEvent.startHour = event.start_hour
                 institutionEvent.endHour = event.end_hour
+                institutionEvent.institution = institution
                 
                 saveEvent(institutionEvent)
                 

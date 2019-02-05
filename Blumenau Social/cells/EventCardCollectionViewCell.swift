@@ -35,7 +35,7 @@ class EventCardCollectionViewCell: UICollectionViewCell {
         
         let date = Utils.shared.createDateWithValues(day: event.day, month: event.month, year: event.year, hour: 0)
         let month = dateFormatter.string(from: date)
-        let fullEventDetail = String(format: "Lar Bethel - %d de %@ de %d", event.day, month, event.year)
+        let fullEventDetail = String(format: "%@ - %d de %@ de %d", "Lar Bethel", event.day, month, event.year)
         
         lbEventDetail.text = fullEventDetail
     }

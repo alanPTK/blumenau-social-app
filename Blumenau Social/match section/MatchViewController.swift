@@ -32,6 +32,10 @@ class MatchViewController: UIViewController {
         matchingInstitutions = institutionRepository.getAllInstitutions()
         
         events = institutionRepository.getAllEventsFromInstitutions(institutions: matchingInstitutions)
+        for event in events {
+            print(event.title)
+            print(event.institution)
+        }
         
         setupView()
     }
