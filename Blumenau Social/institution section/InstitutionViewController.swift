@@ -8,6 +8,8 @@ struct InstitutionConstant {
     static let TOGGLE_IS_COLLAPSED = 1
     static let INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER = 0
     static let INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER = 0
+    static let INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER = 1
+    static let INSTITUTION_ABOUT_TABLE_VIEW_IDENTIFIER = 3
 }
 
 class InstitutionViewController: UIViewController, MFMailComposeViewControllerDelegate {
@@ -42,6 +44,14 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     @IBOutlet weak var lcVolunteersHeight: NSLayoutConstraint!
     var volunteersOriginalHeight: CGFloat = 0
     
+    //events
+    @IBOutlet weak var vEvents: UIView!
+    @IBOutlet weak var btToggleEvent: UIButton!
+    @IBOutlet weak var lbEvent: UILabel!
+    @IBOutlet weak var lcEventHeight: NSLayoutConstraint!
+    @IBOutlet weak var tvEvents: UITableView!
+    var eventOriginalHeight: CGFloat = 0
+    
     //pictures
     @IBOutlet weak var vPictures: UIView!
     @IBOutlet weak var btTogglePictures: UIButton!
@@ -75,7 +85,8 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     private var currentPage: Int = 0
     var currentInstitution: Institution?
     private let institutionRepository = InstitutionRepository()
-    private let filterRepository = FilterOptionsRepository()    
+    private let filterRepository = FilterOptionsRepository()
+    private var events: [InstitutionEvent] = []
     
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
@@ -84,6 +95,8 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         setupView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(toggleAboutVisibility), name: NSNotification.Name(rawValue: "toggleAboutVisibility"), object: nil)
+        
+        events = institutionRepository.getAllEvents()
     }
     
     /* Configure the visual aspects of the view components */
@@ -95,6 +108,7 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         vDonations.layer.cornerRadius = 8
         vVolunteers.layer.cornerRadius = 8
         vPictures.layer.cornerRadius = 8
+        vEvents.layer.cornerRadius = 8
         vAbout.layer.cornerRadius = 8
         
         tvWorkingHours.text = currentInstitution?.workingHours
@@ -242,6 +256,25 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         }
     }
     
+    /* Hide or show the institution events section */
+    @IBAction func toggleEventVisibility(_ sender: Any) {
+        if btToggleEvent.tag == 0 {
+            btToggleEvent.tag = 1
+            lcEventHeight.constant = tvEvents.frame.origin.y + 8
+            
+            toggleButtonImage(button: btToggleEvent, expand: true)
+        } else {
+            btToggleEvent.tag = 0
+            lcEventHeight.constant = eventOriginalHeight
+            
+            toggleButtonImage(button: btToggleEvent, expand: false)
+        }
+        
+        UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     /* Hide or show the institution volunteers section */
     @IBAction func toggleVolunteersVisibility(_ sender: Any) {
         if btToggleVolunteers.tag == 0 {
@@ -357,6 +390,9 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         lcDonationsHeight.constant = tvDonations.contentSize.height + tvDonations.frame.origin.y + 16
         donationOriginalHeight = lcDonationsHeight.constant
         
+        lcEventHeight.constant = tvEvents.contentSize.height + tvEvents.frame.origin.y + 16
+        eventOriginalHeight = lcEventHeight.constant
+        
         lcVolunteersHeight.constant = tvVolunteers.contentSize.height + tvVolunteers.frame.origin.y + 16
         volunteersOriginalHeight = lcVolunteersHeight.constant
         
@@ -372,6 +408,12 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
         if (currentInstitution?.volunteers.isEmpty)! {
             vVolunteers.isHidden = true
             lcVolunteersHeight.constant = 0
+        }
+        
+        if events.count == 0 {
+            lcEventHeight.constant = 0
+        } else {
+            eventOriginalHeight = lcEventHeight.constant
         }
         
         lcMainInformationHeight.constant = lbSubtitle.frame.origin.y + lbSubtitle.frame.size.height + 8
@@ -395,28 +437,35 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     
     /* Returns the number of sections in the table views */
     func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
-            if let count = currentInstitution?.donations.count {
-                return count
-            }
-        } else {
-            return 1
+        switch tableView.tag {
+            case InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER:
+                if let count = currentInstitution?.donations.count {
+                    return count
+                }
+                return 0
+            case InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER:
+                return events.count
+            case InstitutionConstant.INSTITUTION_ABOUT_TABLE_VIEW_IDENTIFIER:
+                return 1
+            default:
+                return 0
         }
-        
-        return 0
     }
     
     /* Returns the number of rows in the table views */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
-            return 1
-        } else {
-            if let count = currentInstitution?.about.count {
-                return count
-            }
+        switch tableView.tag {
+            case InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER,
+                 InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER:
+                return 1
+            case InstitutionConstant.INSTITUTION_ABOUT_TABLE_VIEW_IDENTIFIER:
+                if let count = currentInstitution?.about.count {
+                    return count
+                }
+                return 0
+            default:
+                return 0
         }
-        
-        return 0
     }
     
     /* Returns the cell content */
@@ -439,6 +488,24 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             cell.layer.borderColor = UIColor.titleColor().cgColor
             
             return cell
+        } else if tableView.tag == InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+            let currentEvent = events[indexPath.section]
+            
+            cell.contentView.backgroundColor = UIColor.titleColor()
+            
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.textLabel?.text = currentEvent.title
+            
+            cell.textLabel?.backgroundColor = .clear
+            cell.textLabel?.textAlignment = .center
+            
+            cell.layer.cornerRadius = 8
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = UIColor.titleColor().cgColor
+            
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as! AboutTableViewCell
             let currentAbout = currentInstitution?.about[indexPath.row]
@@ -452,23 +519,28 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     
     /* Returns the height for the table view header */
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
-            return 2
+        switch tableView.tag {
+            case InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER,
+                 InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER:
+                return 2
+            default:
+                return 0
         }
-        
-        return 0
     }
     
     /* Returns the view for the table view header */
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
-            let view = UIView()
-            view.backgroundColor = .clear
-            
-            return view
+        switch tableView.tag {
+            case InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER,
+                 InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER:
+                
+                let view = UIView()
+                view.backgroundColor = .clear
+                
+                return view
+            default:
+                return UIView()
         }
-        
-        return UIView()
     }
     
     /* Returns the size of the table view row, the size is calculated automatically based on the constraints */
@@ -511,7 +583,10 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
             let cause = filterRepository.getAreaWithId(id: (currentCause?.id)!)
             
             let causeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "causeCell", for: indexPath) as! CauseCollectionViewCell
-            causeCell.lbCause.text = String(format: "%@", (cause?.name)!)
+            
+            if let name = cause?.name {
+                causeCell.lbCause.text = String(format: "%@", name)
+            }
             
             return causeCell
         }
