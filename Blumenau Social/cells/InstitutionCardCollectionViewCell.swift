@@ -30,4 +30,10 @@ class InstitutionCardCollectionViewCell: UICollectionViewCell {
         tvAbout.text = institution.about.first!.information
         btSeeInfo.setTitle(NSLocalizedString("Show more info", comment: ""), for: .normal)
     }
+    
+    func loadEventInformation(event: InstitutionEvent) {
+        lbTitle.text = event.title
+        tvAbout.text = event.desc
+        btSeeInfo.setTitle(NSLocalizedString("Show more info", comment: ""), for: .normal)
+    }
 }

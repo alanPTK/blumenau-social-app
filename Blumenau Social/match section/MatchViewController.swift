@@ -10,8 +10,12 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var lbTitle: UILabel!
     @IBOutlet weak var pcMatchingInstitutions: UIPageControl!
     @IBOutlet weak var cvMatchingInstitutions: UICollectionView!
+    @IBOutlet weak var cvEvents: UICollectionView!
+    @IBOutlet weak var pcEvents: UIPageControl!
+    @IBOutlet weak var vInfo: UIView!
     
     private var currentPage = 0
+    private var currentEventPage = 0
     private var matchingInstitutions: [Institution] = []
     private var events: [InstitutionEvent] = []
     private let institutionRepository = InstitutionRepository()
@@ -35,9 +39,18 @@ class MatchViewController: UIViewController {
             pcMatchingInstitutions.isHidden = true
         }
         
+        if events.count < 2 {
+            pcEvents.isHidden = true
+        }
+        
         pcMatchingInstitutions.numberOfPages = matchingInstitutions.count
         pcMatchingInstitutions.pageIndicatorTintColor = UIColor.descColor()
         pcMatchingInstitutions.currentPageIndicatorTintColor = UIColor.titleColor()
+        
+//        pcEvents.numberOfPages = matchingInstitutions.count
+//        pcEvents.pageIndicatorTintColor = UIColor.descColor()
+//        pcEvents.currentPageIndicatorTintColor = UIColor.titleColor()
+        
         lbTitle.text = NSLocalizedString("Institutions and events", comment: "")
         
         cvMatchingInstitutions.layer.cornerRadius = 8
@@ -45,9 +58,16 @@ class MatchViewController: UIViewController {
     
     /* When the scrolling is finished, update the page control */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
+        if scrollView == cvMatchingInstitutions {
+            currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
+        }
+        
+        if scrollView == cvEvents {
+            currentEventPage = Int(round(scrollView.contentOffset.x / view.frame.width))
+        }
         
         pcMatchingInstitutions.currentPage = currentPage
+        //pcEvents.currentPage = currentEventPage
     }
 
     /* Show the profile screen */
@@ -84,7 +104,7 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
     /* Returns the cell content */
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InstitutionCardCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InstitutionCardCell", for: indexPath) as! InstitutionCardCollectionViewCell
             
             let currentInstitution = matchingInstitutions[indexPath.row]
             
@@ -92,9 +112,16 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.loadInformation(institution: currentInstitution)
             
             return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCardCell", for: indexPath) as! InstitutionCardCollectionViewCell
+            
+            let currentEvent = events[indexPath.row]
+            
+            cell.setupCell()
+            cell.loadEventInformation(event: currentEvent)
+            
+            return cell
         }
-        
-        return UICollectionViewCell()
     }
     
     /* Show the institution screen with the selected institution */

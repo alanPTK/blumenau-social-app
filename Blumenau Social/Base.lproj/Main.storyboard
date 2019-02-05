@@ -62,7 +62,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ggo-jA-1pD" customClass="InstitutionCardCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InstitutionCardCell" id="ggo-jA-1pD" customClass="InstitutionCardCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="276" height="238"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -211,7 +211,7 @@
                                 </connections>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-pz-UDa">
-                                <rect key="frame" x="8" y="318" width="304" height="37"/>
+                                <rect key="frame" x="8" y="305" width="304" height="37"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
@@ -221,7 +221,7 @@
                             <constraint firstItem="Vgg-SQ-rLb" firstAttribute="centerX" secondItem="n1q-ow-mmI" secondAttribute="centerX" id="6yP-CQ-c4m"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="top" secondItem="Vgg-SQ-rLb" secondAttribute="bottom" constant="4" id="9jS-UM-0zP"/>
                             <constraint firstItem="6qD-3v-img" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" id="JTx-7e-6Rq"/>
-                            <constraint firstItem="kRI-pz-UDa" firstAttribute="top" secondItem="n1q-ow-mmI" secondAttribute="bottom" constant="8" id="LWx-wl-W61"/>
+                            <constraint firstItem="kRI-pz-UDa" firstAttribute="top" secondItem="n1q-ow-mmI" secondAttribute="bottom" constant="-5" id="LWx-wl-W61"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="top" secondItem="jpR-Qr-9x5" secondAttribute="top" constant="52" id="OgJ-z9-XJV"/>
                             <constraint firstItem="jpR-Qr-9x5" firstAttribute="trailing" secondItem="kRI-pz-UDa" secondAttribute="trailing" constant="8" id="SVW-Fs-AyZ"/>
                             <constraint firstItem="kRI-pz-UDa" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" constant="8" id="dek-nS-FZJ"/>
@@ -239,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGO-GK-owb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="16"/>
+            <point key="canvasLocation" x="787.5" y="15.845070422535212"/>
         </scene>
         <!--Sobre-->
         <scene sceneID="udG-fF-bJ1">
@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOa-Cc-Rug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="788" y="818"/>
+            <point key="canvasLocation" x="788" y="857"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -314,7 +314,7 @@
                                             <constraint firstAttribute="width" constant="38" id="ius-2Y-vCR"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Buscar instituições" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-r8-XZa">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search institutions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-r8-XZa">
                                         <rect key="frame" x="54" y="13.5" width="216" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="f2S-af-hEb"/>
@@ -374,7 +374,7 @@
                                                                 <constraint firstAttribute="width" constant="84" id="Pj8-48-Lgq"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centro de proteção ao idoso" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAw-BE-sFg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Institution name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAw-BE-sFg">
                                                             <rect key="frame" x="100" y="8" width="196" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" name="titleColor"/>
@@ -400,7 +400,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua dos Caçadores" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vDp-BQ-N4R">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vDp-BQ-N4R">
                                                             <rect key="frame" x="128" y="68" width="168" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
