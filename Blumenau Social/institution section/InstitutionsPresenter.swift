@@ -13,13 +13,13 @@ class InstitutionsPresenter {
     
     /* Get all the institutions */
     func getAllInstitutions() {
-        let institutions = Array(institutionRepository.getAllInstitutions())
+        let institutions = institutionRepository.getAllInstitutions()
         delegate.showInstitutions(institutions: institutions)
     }
     
     /* Search institutions by title, donation needs, volunteers needs, etc */
     func searchInstitutions(text: String) {
-        let institutions = Array(institutionRepository.searchInstitutions(text: text))
+        let institutions = institutionRepository.searchInstitutions(text: text)
         delegate.showInstitutions(institutions: institutions)
     }
     

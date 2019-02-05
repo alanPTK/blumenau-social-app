@@ -47,6 +47,7 @@
 		DB168E37220A384100AF2A7C /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E32220A384100AF2A7C /* About.storyboard */; };
 		DB168E38220A384100AF2A7C /* Dialog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E33220A384100AF2A7C /* Dialog.storyboard */; };
 		DB168E39220A384100AF2A7C /* Institution.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E34220A384100AF2A7C /* Institution.storyboard */; };
+		DB168E3B220A41A900AF2A7C /* UIViewController+MFMailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E3A220A41A900AF2A7C /* UIViewController+MFMailComposeViewController.swift */; };
 		DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */; };
 		DB2A7C1C21F1065F00C60B32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1A21F1065F00C60B32 /* Main.storyboard */; };
 		DB2A7C1E21F1066200C60B32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C1D21F1066200C60B32 /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		DB168E32220A384100AF2A7C /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = About.storyboard; path = views/About.storyboard; sourceTree = "<group>"; };
 		DB168E33220A384100AF2A7C /* Dialog.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Dialog.storyboard; path = views/Dialog.storyboard; sourceTree = "<group>"; };
 		DB168E34220A384100AF2A7C /* Institution.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Institution.storyboard; path = views/Institution.storyboard; sourceTree = "<group>"; };
+		DB168E3A220A41A900AF2A7C /* UIViewController+MFMailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+MFMailComposeViewController.swift"; path = "utils/UIViewController+MFMailComposeViewController.swift"; sourceTree = "<group>"; };
 		DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Blumenau Social.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB2A7C1B21F1065F00C60B32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				DB029F7322061CF90073A4E7 /* Preferences.swift */,
 				DB029F7422061CF90073A4E7 /* UIColor+Extension.swift */,
 				DB029F802207685B0073A4E7 /* Utils.swift */,
+				DB168E3A220A41A900AF2A7C /* UIViewController+MFMailComposeViewController.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				DB029F6C22061CA60073A4E7 /* InitialProfileViewController.swift in Sources */,
 				DB029F812207685B0073A4E7 /* Utils.swift in Sources */,
 				DB2A7C1521F1065F00C60B32 /* AppDelegate.swift in Sources */,
+				DB168E3B220A41A900AF2A7C /* UIViewController+MFMailComposeViewController.swift in Sources */,
 				DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */,
 				DB029F5222061C6D0073A4E7 /* AboutTableViewCell.swift in Sources */,
 				DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */,

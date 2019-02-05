@@ -1,7 +1,7 @@
 import UIKit
 import MessageUI
 
-class ContactViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextFieldDelegate {
+class ContactViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPhone: UITextField!
@@ -52,54 +52,33 @@ class ContactViewController: UIViewController, MFMailComposeViewControllerDelega
         return true
     }
 
-    /* Show the email creation screen with the information from the textfields */
+    /* Show the email creation screen with the information from the fields */
     @IBAction func sendMail(_ sender: Any) {
-        if !MFMailComposeViewController.canSendMail() {
-            let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""), preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-            
-            alertController.addAction(okAction)
-            
-            present(alertController, animated: true, completion: nil)
-        } else {
-            var body = ""
-            guard let name = tfName.text, let email = tfEmail.text, let phone = tfPhone.text else {
-                return
-            }
-            
-            if name.isEmpty {
-                showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""))
-            }
-            
-            if email.isEmpty {
-                showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""))
-            }
-            
-            if phone.isEmpty {
-                showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
-            }
-            
-            let initialBody = String(format: "%@ - %@ - %@", name, email, phone)
-            
-            body.append(initialBody)
-            body.append("\n \n")
-            body.append(tvText.text)
-            
-            let composeEmailViewController = MFMailComposeViewController()
-            
-            composeEmailViewController.mailComposeDelegate = self
-            composeEmailViewController.setToRecipients([Constants.CONTACT_EMAIL])
-            composeEmailViewController.setSubject(NSLocalizedString("Contact via app", comment: ""))
-            composeEmailViewController.setMessageBody(body, isHTML: false)
-            
-            present(composeEmailViewController, animated: true, completion: nil)
+        var body = ""
+        guard let name = tfName.text, let email = tfEmail.text, let phone = tfPhone.text else {
+            return
         }
-    }
-    
-    /* When the user closes the mail creation screen this method is called to dismiss the view */
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-    }
+        
+        if name.isEmpty {
+            showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""))
+        }
+        
+        if email.isEmpty {
+            showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""))
+        }
+        
+        if phone.isEmpty {
+            showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
+        }
+        
+        let initialBody = String(format: "%@ - %@ - %@", name, email, phone)
+        
+        body.append(initialBody)
+        body.append("\n \n")
+        body.append(tvText.text)
+        
+        sendEmailTo(recipients: [email], withSubject: "", message: body)
+    }            
     
     /* Go to the Facebook profile when the user touches the button */
     @IBAction func goToFacebook(_ sender: Any) {

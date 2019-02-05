@@ -11,8 +11,8 @@ class InstitutionRepository: NSObject {
     }
 
     /* Get all the institutions from the database */
-    func getAllInstitutions() -> Results<Institution> {
-        return realm.objects(Institution.self)
+    func getAllInstitutions() -> Array<Institution> {
+        return Array(realm.objects(Institution.self))
     }
     
     /* Get a institution with the id from the database */
@@ -25,9 +25,15 @@ class InstitutionRepository: NSObject {
         return Array(realm.objects(InstitutionEvent.self))
     }
     
+    /* Get all the events from the institituions passed as parameter from the database */
+    func getAllEventsFromInstitutions(institutions: [Institution]) -> Array<InstitutionEvent> {
+        let ids = institutions.map { $0.id }
+        
+        return Array(realm.objects(InstitutionEvent.self).filter("id IN %@", ids))
+    }
+    
     /* Create a new event and save it in the database */
-    func createEventWithData(eventData: EventsDecodable) {
-        //Terminating app due to uncaught exception 'RLMException', reason: 'Cannot modify managed RLMArray outside of a write transaction.'
+    func createEventWithData(eventData: EventsDecodable) {        
         for event in eventData.events {
             if let institution = getInstitutionWithId(id: event.institution_id) {
                 let institutionEvent: InstitutionEvent = InstitutionEvent()
@@ -248,7 +254,7 @@ class InstitutionRepository: NSObject {
     }
     
     /* Search institutions with the title, donation, volunteers that are in the text parameter */
-    func searchInstitutions(text: String) -> Results<Institution> {
+    func searchInstitutions(text: String) -> Array<Institution> {
         let titlePredicate = NSPredicate(format: "title contains [c] %@", text)
         let volunteerPredicate = NSPredicate(format: "volunteers contains [c] %@", text)
         let scopePredicate = NSPredicate(format: "scope contains [c] %@", text)
@@ -256,7 +262,7 @@ class InstitutionRepository: NSObject {
         
         let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titlePredicate, volunteerPredicate, donationPredicate, scopePredicate])
         
-        return realm.objects(Institution.self).filter(fullPredicate)
+        return Array(realm.objects(Institution.self).filter(fullPredicate))
     }
 
 }

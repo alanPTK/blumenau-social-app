@@ -12,7 +12,7 @@ struct InstitutionConstant {
     static let INSTITUTION_ABOUT_TABLE_VIEW_IDENTIFIER = 3
 }
 
-class InstitutionViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class InstitutionViewController: UIViewController {
     
     //working hours
     @IBOutlet weak var vWorkingHours: UIView!
@@ -185,32 +185,9 @@ class InstitutionViewController: UIViewController, MFMailComposeViewControllerDe
     
     /* When the user taps the email, call the mail composer screen */
     @objc func sendEmailToInstitution() {
-        if !MFMailComposeViewController.canSendMail() {
-            let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""), preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-            
-            alertController.addAction(okAction)
-            
-            present(alertController, animated: true, completion: nil)
-        } else {
-            let body = ""
-            
-            let composeEmailViewController = MFMailComposeViewController()
-            
-            composeEmailViewController.mailComposeDelegate = self
-            if let email = lbEmail.text {
-                composeEmailViewController.setToRecipients([email])
-            }
-            composeEmailViewController.setSubject("")
-            composeEmailViewController.setMessageBody(body, isHTML: false)
-            
-            present(composeEmailViewController, animated: true, completion: nil)
+        if let email = lbEmail.text {
+            sendEmailTo(recipients: [email], withSubject: "", message: "")
         }
-    }
-    
-    /* Dismiss the mail composer screen */
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
     
     /* When the user touches the image, dismiss the view */
