@@ -46,6 +46,7 @@ class InstitutionsPresenter {
                     
                     DispatchQueue.main.async {
                         self.getAllInstitutions()
+                        self.getEventsFromApi()
                         self.delegate.hideProgressHud()
                     }
                 }
@@ -72,9 +73,6 @@ class InstitutionsPresenter {
         if !preferences.eventsAreSynchronized {
             synchronizationService.synchronizeEvents(completion: { (result) in
                 if result {
-                    DispatchQueue.main.async {
-                        self.delegate.hideProgressHud()
-                    }
                     self.preferences.eventsAreSynchronized = true
                 }
             })

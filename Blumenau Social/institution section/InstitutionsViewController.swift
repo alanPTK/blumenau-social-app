@@ -28,9 +28,8 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         
         presenter?.getInstitutionsFromApi()
         presenter?.getFiltersFromApi()
-        presenter?.getEventsFromApi()
-                
-        presenter?.getAllInstitutions()
+        
+        presenter?.getAllInstitutions()        
     }
     
     /* Configure the visual aspects of the view components */
@@ -85,7 +84,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         if !preferences.profileCreationWasOpened {
             if Preferences.shared.institutionsAreSynchronized {
-                let profileViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
+                let profileViewController = UIStoryboard(name: Constants.PROFILE_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
                 present(profileViewController, animated: true, completion: nil)
                 
                 preferences.profileCreationWasOpened = true
