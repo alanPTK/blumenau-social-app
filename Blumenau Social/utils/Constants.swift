@@ -37,6 +37,10 @@ struct Constants {
     static let ACTION_IMAGE_CELL_IDENTIFIER = "actionImageCell"
     static let EVENT_CARD_CELL_IDENTIFIER = "EventCardCell"
     static let INSTITUTION_CARD_CELL_IDENTIFIER = "InstitutionCardCell"
+    static let TITLE_CELL_IDENTIFIER = "titleCell"
+    static let INSTITUTION_ABOUT_CELL_IDENTIFIER = "aboutCell"
+    static let IMAGE_CELL_IDENTIFIER = "imageCell"
+    static let INSTITUTION_CAUSE_CELL_IDENTIFIER = "causeCell"    
     
     //social network profiles
     static let FACEBOOK_APP_URL = "fb://profile/249674518521338";

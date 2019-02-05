@@ -448,7 +448,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
     /* Returns the cell content */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView.tag == InstitutionConstant.INSTITUTION_DONATIONS_TABLE_VIEW_IDENTIFIER {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)            
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TITLE_CELL_IDENTIFIER, for: indexPath)
             let currentDonation = currentInstitution?.donations[indexPath.section]
             
             cell.contentView.backgroundColor = UIColor.titleColor()
@@ -466,7 +466,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             
             return cell
         } else if tableView.tag == InstitutionConstant.INSTITUTION_EVENTS_TABLE_VIEW_IDENTIFIER {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TITLE_CELL_IDENTIFIER, for: indexPath)
             let currentEvent = events[indexPath.section]
             
             cell.contentView.backgroundColor = UIColor.titleColor()
@@ -484,7 +484,7 @@ extension InstitutionViewController: UITableViewDataSource, UITableViewDelegate 
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "aboutCell", for: indexPath) as! AboutTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.INSTITUTION_ABOUT_CELL_IDENTIFIER, for: indexPath) as! AboutTableViewCell
             let currentAbout = currentInstitution?.about[indexPath.row]
             
             cell.setupCell()
@@ -564,7 +564,7 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView.tag == InstitutionConstant.INSTITUTION_IMAGES_COLLECTION_VIEW_IDENTIFIER {
             let currentPicture = currentInstitution?.pictures[indexPath.row]
-            let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ActionImageCollectionViewCell
+            let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.IMAGE_CELL_IDENTIFIER, for: indexPath) as! ActionImageCollectionViewCell
             
             if let pictureURL = URL(string: currentPicture!) {
                 Nuke.loadImage(with: pictureURL, into: imageCell.ivAction)
@@ -575,7 +575,7 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
             let currentCause = currentInstitution?.causes[indexPath.row]
             let cause = filterRepository.getAreaWithId(id: (currentCause?.id)!)
             
-            let causeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "causeCell", for: indexPath) as! CauseCollectionViewCell
+            let causeCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.INSTITUTION_CAUSE_CELL_IDENTIFIER, for: indexPath) as! CauseCollectionViewCell
             
             if let name = cause?.name {
                 causeCell.lbCause.text = String(format: "%@", name)
