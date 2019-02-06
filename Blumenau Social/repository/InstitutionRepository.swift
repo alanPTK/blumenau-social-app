@@ -49,9 +49,9 @@ class InstitutionRepository: NSObject {
                 institutionEvent.year = event.year
                 institutionEvent.startHour = event.start_hour
                 institutionEvent.endHour = event.end_hour
-                institutionEvent.institution = institution
+                institutionEvent.institutions.append(institution)
                 
-                saveEvent(institutionEvent)
+                saveEvent(institutionEvent)                
                 
                 try! realm.write {
                     institution.events.append(institutionEvent)

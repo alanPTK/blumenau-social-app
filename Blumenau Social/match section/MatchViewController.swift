@@ -31,11 +31,7 @@ class MatchViewController: UIViewController {
         //matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         matchingInstitutions = institutionRepository.getAllInstitutions()
         
-        events = institutionRepository.getAllEventsFromInstitutions(institutions: matchingInstitutions)
-        for event in events {
-            print(event.title)
-            print(event.institution)
-        }
+        events = institutionRepository.getAllEventsFromInstitutions(institutions: matchingInstitutions)        
         
         setupView()
     }

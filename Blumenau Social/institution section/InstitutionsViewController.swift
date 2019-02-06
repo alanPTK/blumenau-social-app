@@ -29,7 +29,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         presenter?.getInstitutionsFromApi()
         presenter?.getFiltersFromApi()
         
-        presenter?.getAllInstitutions()
+        presenter?.getAllInstitutions()                
     }
     
     /* Configure the visual aspects of the view components */
