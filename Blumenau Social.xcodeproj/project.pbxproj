@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C423A9906CEC3694A6892A1 /* Pods_Blumenau_Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */; };
+		B57568FED60124555E6E68AB /* Pods_BlumenauSocialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE6A6678635F335CA0099842 /* Pods_BlumenauSocialTests.framework */; };
 		DB029F4822061C5D0073A4E7 /* FilterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4622061C5D0073A4E7 /* FilterOptionsViewController.swift */; };
 		DB029F4922061C5D0073A4E7 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4722061C5D0073A4E7 /* FilterViewController.swift */; };
 		DB029F5222061C6D0073A4E7 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F4A22061C6C0073A4E7 /* AboutTableViewCell.swift */; };
@@ -41,6 +42,7 @@
 		DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */; };
 		DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F862207B2A00073A4E7 /* EventDelegate.swift */; };
 		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
+		DB10D8C4220B83940013E184 /* BlumenauSocialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8C3220B83940013E184 /* BlumenauSocialTests.swift */; };
 		DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */; };
 		DB168E35220A384100AF2A7C /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E30220A384100AF2A7C /* Filter.storyboard */; };
 		DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E31220A384100AF2A7C /* Profile.storyboard */; };
@@ -63,9 +65,21 @@
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DB10D8C6220B83940013E184 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB2A7C0921F1065F00C60B32 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB2A7C1021F1065F00C60B32;
+			remoteInfo = "Blumenau Social";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.debug.xcconfig"; sourceTree = "<group>"; };
+		0F05430ABC0DC4E54FC47AED /* Pods-BlumenauSocialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlumenauSocialTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlumenauSocialTests/Pods-BlumenauSocialTests.release.xcconfig"; sourceTree = "<group>"; };
 		86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blumenau Social.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social.release.xcconfig"; sourceTree = "<group>"; };
+		BB27A29BBD297197A457E057 /* Pods-BlumenauSocialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlumenauSocialTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlumenauSocialTests/Pods-BlumenauSocialTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB029F4622061C5D0073A4E7 /* FilterOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterOptionsViewController.swift; path = "filter section/FilterOptionsViewController.swift"; sourceTree = "<group>"; };
 		DB029F4722061C5D0073A4E7 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = "filter section/FilterViewController.swift"; sourceTree = "<group>"; };
 		DB029F4A22061C6C0073A4E7 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutTableViewCell.swift; path = cells/AboutTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +113,9 @@
 		DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsPresenter.swift; path = "institution section/InstitutionsPresenter.swift"; sourceTree = "<group>"; };
 		DB029F862207B2A00073A4E7 /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "institution section/EventDelegate.swift"; sourceTree = "<group>"; };
 		DB029F882207B2B00073A4E7 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventPresenter.swift; path = "institution section/EventPresenter.swift"; sourceTree = "<group>"; };
+		DB10D8C1220B83940013E184 /* BlumenauSocialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlumenauSocialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB10D8C3220B83940013E184 /* BlumenauSocialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlumenauSocialTests.swift; sourceTree = "<group>"; };
+		DB10D8C5220B83940013E184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCardCollectionViewCell.swift; path = cells/EventCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB168E30220A384100AF2A7C /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filter.storyboard; path = views/Filter.storyboard; sourceTree = "<group>"; };
 		DB168E31220A384100AF2A7C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = views/Profile.storyboard; sourceTree = "<group>"; };
@@ -121,10 +138,19 @@
 		DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionCardCollectionViewCell.swift; path = cells/InstitutionCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBA5930F2209068100224267 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
+		EE6A6678635F335CA0099842 /* Pods_BlumenauSocialTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlumenauSocialTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DB10D8BE220B83940013E184 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B57568FED60124555E6E68AB /* Pods_BlumenauSocialTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB2A7C0E21F1065F00C60B32 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */,
+				EE6A6678635F335CA0099842 /* Pods_BlumenauSocialTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +179,15 @@
 				DB029F882207B2B00073A4E7 /* EventPresenter.swift */,
 			);
 			name = events;
+			sourceTree = "<group>";
+		};
+		DB10D8C2220B83940013E184 /* BlumenauSocialTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB10D8C3220B83940013E184 /* BlumenauSocialTests.swift */,
+				DB10D8C5220B83940013E184 /* Info.plist */,
+			);
+			path = BlumenauSocialTests;
 			sourceTree = "<group>";
 		};
 		DB19D04421F4B3D2004E835E /* profile section */ = {
@@ -169,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2A7C1321F1065F00C60B32 /* Blumenau Social */,
+				DB10D8C2220B83940013E184 /* BlumenauSocialTests */,
 				DB2A7C1221F1065F00C60B32 /* Products */,
 				DCA1837B7B6C1829D2B27F71 /* Pods */,
 				3B4CF6F033581708D07D1C8B /* Frameworks */,
@@ -179,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				DB2A7C1121F1065F00C60B32 /* Blumenau Social.app */,
+				DB10D8C1220B83940013E184 /* BlumenauSocialTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +370,8 @@
 			children = (
 				020FD9E9BEE73C8D9789E8E3 /* Pods-Blumenau Social.debug.xcconfig */,
 				86BC7FF16659C3B5E43D29EE /* Pods-Blumenau Social.release.xcconfig */,
+				BB27A29BBD297197A457E057 /* Pods-BlumenauSocialTests.debug.xcconfig */,
+				0F05430ABC0DC4E54FC47AED /* Pods-BlumenauSocialTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -339,6 +379,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DB10D8C0220B83940013E184 /* BlumenauSocialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB10D8CA220B83950013E184 /* Build configuration list for PBXNativeTarget "BlumenauSocialTests" */;
+			buildPhases = (
+				4260510EA55BC337F790220F /* [CP] Check Pods Manifest.lock */,
+				DB10D8BD220B83940013E184 /* Sources */,
+				DB10D8BE220B83940013E184 /* Frameworks */,
+				DB10D8BF220B83940013E184 /* Resources */,
+				BB842FADD30F122B6F7A8B1B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB10D8C7220B83940013E184 /* PBXTargetDependency */,
+			);
+			name = BlumenauSocialTests;
+			productName = BlumenauSocialTests;
+			productReference = DB10D8C1220B83940013E184 /* BlumenauSocialTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DB2A7C1021F1065F00C60B32 /* Blumenau Social */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB2A7C2521F1066200C60B32 /* Build configuration list for PBXNativeTarget "Blumenau Social" */;
@@ -368,6 +428,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Alan Filipe Cardozo Fabeni";
 				TargetAttributes = {
+					DB10D8C0220B83940013E184 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = DB2A7C1021F1065F00C60B32;
+					};
 					DB2A7C1021F1065F00C60B32 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -387,11 +451,19 @@
 			projectRoot = "";
 			targets = (
 				DB2A7C1021F1065F00C60B32 /* Blumenau Social */,
+				DB10D8C0220B83940013E184 /* BlumenauSocialTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DB10D8BF220B83940013E184 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB2A7C0F21F1065F00C60B32 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,6 +517,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Blumenau Social/Pods-Blumenau Social-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4260510EA55BC337F790220F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlumenauSocialTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A6A15F9875D834812B9193F6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -467,9 +561,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BB842FADD30F122B6F7A8B1B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BlumenauSocialTests/Pods-BlumenauSocialTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlumenauSocialTests/Pods-BlumenauSocialTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DB10D8BD220B83940013E184 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB10D8C4220B83940013E184 /* BlumenauSocialTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DB2A7C0D21F1065F00C60B32 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -523,6 +649,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DB10D8C7220B83940013E184 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB2A7C1021F1065F00C60B32 /* Blumenau Social */;
+			targetProxy = DB10D8C6220B83940013E184 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DB2A7C1A21F1065F00C60B32 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -543,6 +677,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DB10D8C8220B83950013E184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB27A29BBD297197A457E057 /* Pods-BlumenauSocialTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YYDNJLU64;
+				INFOPLIST_FILE = BlumenauSocialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabeni.BlumenauSocialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blumenau Social.app/Blumenau Social";
+			};
+			name = Debug;
+		};
+		DB10D8C9220B83950013E184 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0F05430ABC0DC4E54FC47AED /* Pods-BlumenauSocialTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5YYDNJLU64;
+				INFOPLIST_FILE = BlumenauSocialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fabeni.BlumenauSocialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blumenau Social.app/Blumenau Social";
+			};
+			name = Release;
+		};
 		DB2A7C2321F1066200C60B32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -702,6 +878,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DB10D8CA220B83950013E184 /* Build configuration list for PBXNativeTarget "BlumenauSocialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB10D8C8220B83950013E184 /* Debug */,
+				DB10D8C9220B83950013E184 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DB2A7C0C21F1065F00C60B32 /* Build configuration list for PBXProject "Blumenau Social" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -6,6 +6,10 @@ class InstitutionRepository: NSObject {
     private var realm: Realm
     let userRepository = UserRepository()
     
+    init(realm: Realm) {
+        self.realm = realm
+    }
+    
     override init() {
         realm = try! Realm()
     }

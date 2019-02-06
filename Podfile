@@ -12,4 +12,9 @@ target 'Blumenau Social' do
   pod 'Nuke', '~> 7.0'
   pod 'JGProgressHUD'
   pod 'EasyTipView', '~> 2.0.0'
+  
+  target 'BlumenauSocialTests' do
+    inherit! :search_paths
+    pod 'RealmSwift'
+  end
 end
