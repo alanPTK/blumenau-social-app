@@ -7,10 +7,8 @@ target 'Blumenau Social' do
 
   # Pods for Blumenau Social    
   pod 'RealmSwift'
-  pod 'IQKeyboardManager'
   pod 'IHKeyboardAvoiding'
   pod 'Nuke', '~> 7.0'
-  pod 'MSPeekCollectionViewDelegateImplementation'
   pod 'JGProgressHUD'
   pod 'EasyTipView', '~> 2.0.0'
 end
