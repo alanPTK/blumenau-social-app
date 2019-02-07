@@ -42,7 +42,8 @@
 		DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */; };
 		DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F862207B2A00073A4E7 /* EventDelegate.swift */; };
 		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
-		DB10D8C4220B83940013E184 /* BlumenauSocialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8C3220B83940013E184 /* BlumenauSocialTests.swift */; };
+		DB10D8CC220BA88F0013E184 /* InstitutionDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */; };
+		DB10D8CE220BAAB10013E184 /* InstitutionRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */; };
 		DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */; };
 		DB168E35220A384100AF2A7C /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E30220A384100AF2A7C /* Filter.storyboard */; };
 		DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E31220A384100AF2A7C /* Profile.storyboard */; };
@@ -114,8 +115,9 @@
 		DB029F862207B2A00073A4E7 /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "institution section/EventDelegate.swift"; sourceTree = "<group>"; };
 		DB029F882207B2B00073A4E7 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventPresenter.swift; path = "institution section/EventPresenter.swift"; sourceTree = "<group>"; };
 		DB10D8C1220B83940013E184 /* BlumenauSocialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlumenauSocialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB10D8C3220B83940013E184 /* BlumenauSocialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlumenauSocialTests.swift; sourceTree = "<group>"; };
 		DB10D8C5220B83940013E184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDBTests.swift; sourceTree = "<group>"; };
+		DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionRepositoryTests.swift; sourceTree = "<group>"; };
 		DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCardCollectionViewCell.swift; path = cells/EventCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB168E30220A384100AF2A7C /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filter.storyboard; path = views/Filter.storyboard; sourceTree = "<group>"; };
 		DB168E31220A384100AF2A7C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = views/Profile.storyboard; sourceTree = "<group>"; };
@@ -184,8 +186,9 @@
 		DB10D8C2220B83940013E184 /* BlumenauSocialTests */ = {
 			isa = PBXGroup;
 			children = (
-				DB10D8C3220B83940013E184 /* BlumenauSocialTests.swift */,
 				DB10D8C5220B83940013E184 /* Info.plist */,
+				DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */,
+				DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */,
 			);
 			path = BlumenauSocialTests;
 			sourceTree = "<group>";
@@ -592,7 +595,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB10D8C4220B83940013E184 /* BlumenauSocialTests.swift in Sources */,
+				DB10D8CE220BAAB10013E184 /* InstitutionRepositoryTests.swift in Sources */,
+				DB10D8CC220BA88F0013E184 /* InstitutionDBTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

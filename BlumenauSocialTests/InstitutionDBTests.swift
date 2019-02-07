@@ -1,27 +1,18 @@
-//
-//  BlumenauSocialTests.swift
-//  BlumenauSocialTests
-//
-//  Created by Alan Filipe Cardozo Fabeni on 06/02/19.
-//  Copyright © 2019 Alan Filipe Cardozo Fabeni. All rights reserved.
-//
-
 import XCTest
 import RealmSwift
 
 @testable import Blumenau_Social
 
-class BlumenauSocialTests: XCTestCase {
-    
-    var testRealm: Realm!
-    var institutionRepository: InstitutionRepository!
+class InstitutionDBTests: XCTestCase {
+
+    var testRealm: Realm!    
     
     override func setUp() {
         let configuration = Realm.Configuration.init(fileURL: nil, inMemoryIdentifier: UUID().uuidString, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 1, migrationBlock: nil, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
         
         testRealm = try! Realm(configuration: configuration)
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
@@ -52,7 +43,7 @@ class BlumenauSocialTests: XCTestCase {
         donationB.desc = "Donation B"
         
         institution.donations.append(donationA)
-        institution.donations.append(donationA)
+        institution.donations.append(donationB)
         
         XCTAssertEqual(institution.donations.count, 2, "Number of donations should be two")
         
@@ -145,26 +136,26 @@ class BlumenauSocialTests: XCTestCase {
         
         let institutionRetrieved = testRealm.objects(Institution.self).first
         
-        let about = institutionRetrieved?.about.first
-        XCTAssertEqual(about?.title, "Title A", "Title of first about is not the same")
+        XCTAssertEqual(institutionRetrieved?.about[0].title, "Title A", "Title of first about is not the same")
+        XCTAssertEqual(institutionRetrieved?.about[1].title, "Title B", "Title of second about is not the same")
         
-        let donation = institutionRetrieved?.donations.first
-        XCTAssertEqual(donation?.desc, "Donation A", "Description of first donation is not the same")
+        XCTAssertEqual(institutionRetrieved?.donations[0].desc, "Donation A", "Description of first donation is not the same")
+        XCTAssertEqual(institutionRetrieved?.donations[1].desc, "Donation B", "Description of second donation is not the same")
         
-        let cause = institutionRetrieved?.causes.first
-        XCTAssertEqual(cause?.id, 1, "ID of first cause is not the same")
+        XCTAssertEqual(institutionRetrieved?.causes[0].id, 1, "ID of first cause is not the same")
+        XCTAssertEqual(institutionRetrieved?.causes[1].id, 2, "ID of second cause is not the same")
         
-        let day = institutionRetrieved?.days.first
-        XCTAssertEqual(day?.id, 1, "ID of first day is not the same")
+        XCTAssertEqual(institutionRetrieved?.days[0].id, 1, "ID of first day is not the same")
+        XCTAssertEqual(institutionRetrieved?.days[1].id, 2, "ID of second day is not the same")
         
-        let period = institutionRetrieved?.periods.first
-        XCTAssertEqual(period?.id, 1, "ID of first period is not the same")
+        XCTAssertEqual(institutionRetrieved?.periods[0].id, 1, "ID of first period is not the same")
+        XCTAssertEqual(institutionRetrieved?.periods[1].id, 2, "ID of second period is not the same")
         
-        let volunteerType = institutionRetrieved?.volunteerType.first
-        XCTAssertEqual(volunteerType?.id, 1, "ID of first volunteer type is not the same")
+        XCTAssertEqual(institutionRetrieved?.volunteerType[0].id, 1, "ID of first volunteer type is not the same")
+        XCTAssertEqual(institutionRetrieved?.volunteerType[1].id, 2, "ID of second volunteer type is not the same")
         
-        let donationType = institutionRetrieved?.donationType.first
-        XCTAssertEqual(donationType?.id, 1, "ID of first donation type is not the same")
+        XCTAssertEqual(institutionRetrieved?.donationType[0].id, 1, "ID of first donation type is not the same")
+        XCTAssertEqual(institutionRetrieved?.donationType[1].id, 2, "ID of second donation type is not the same")
         
         XCTAssertEqual(institution.title, "Title", "Title should be the same")
         XCTAssertEqual(institution.subtitle, "Subtitle", "Subtitle should be the same")
@@ -177,7 +168,7 @@ class BlumenauSocialTests: XCTestCase {
         XCTAssertEqual(institution.volunteers, "Volunteers", "Volunteers should be the same")
         XCTAssertEqual(institution.neighborhood, 1, "Neighborhood be the same")
     }
-
+    
     func testAboutInsertion() {
         var aboutCount = testRealm.objects(InstitutionAbout.self).count
         XCTAssertEqual(aboutCount, 0, "Number of abouts should be zero")
@@ -368,7 +359,7 @@ class BlumenauSocialTests: XCTestCase {
         workingPeriodCount = testRealm.objects(InstitutionWorkingPeriod.self).count
         XCTAssertEqual(workingPeriodCount, 2, "Number of working periods should be two")
     }
-
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
