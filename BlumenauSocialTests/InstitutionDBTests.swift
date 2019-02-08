@@ -5,12 +5,14 @@ import RealmSwift
 
 class InstitutionDBTests: XCTestCase {
 
-    var testRealm: Realm!    
+    var testRealm: Realm!
+    var testHelper: TestHelper!
     
     override func setUp() {
         let configuration = Realm.Configuration.init(fileURL: nil, inMemoryIdentifier: UUID().uuidString, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 1, migrationBlock: nil, deleteRealmIfMigrationNeeded: false, shouldCompactOnLaunch: nil, objectTypes: nil)
         
         testRealm = try! Realm(configuration: configuration)
+        testHelper = TestHelper(realm: testRealm)
     }
     
     override func tearDown() {
@@ -21,120 +23,20 @@ class InstitutionDBTests: XCTestCase {
         var institutionCount = testRealm.objects(Institution.self).count
         XCTAssertEqual(institutionCount, 0, "Number of institutions should be zero")
         
-        let institution = Institution()
-        institution.id = 1
-        institution.title = "Title"
-        institution.subtitle = "Subtitle"
-        institution.address = "Address"
-        institution.phone = "Phone"
-        institution.mail = "Mail"
-        institution.responsible = "Responsible"
-        institution.workingHours = "Working hours"
-        institution.scope = "Scope"
-        institution.volunteers = "Volunteers"
-        institution.neighborhood = 1
-        
-        let donationA = InstitutionDonation()
-        donationA.internalId = UUID().uuidString
-        donationA.desc = "Donation A"
-        
-        let donationB = InstitutionDonation()
-        donationB.internalId = UUID().uuidString
-        donationB.desc = "Donation B"
-        
-        institution.donations.append(donationA)
-        institution.donations.append(donationB)
-        
-        XCTAssertEqual(institution.donations.count, 2, "Number of donations should be two")
-        
-        let causeA = InstitutionCause()
-        causeA.internalId = UUID().uuidString
-        causeA.id = 1
-        
-        let causeB = InstitutionCause()
-        causeB.internalId = UUID().uuidString
-        causeB.id = 2
-        
-        institution.causes.append(causeA)
-        institution.causes.append(causeB)
-        
-        XCTAssertEqual(institution.causes.count, 2, "Number of causes should be two")
-        
-        let aboutA = InstitutionAbout()
-        aboutA.id = 1
-        aboutA.title = "Title A"
-        aboutA.information = "Information A"
-        
-        let aboutB = InstitutionAbout()
-        aboutB.id = 2
-        aboutB.title = "Title B"
-        aboutB.information = "Information B"
-        
-        institution.about.append(aboutA)
-        institution.about.append(aboutB)
-        
-        XCTAssertEqual(institution.about.count, 2, "Number of abouts should be two")
-        
-        let workingDayA = InstitutionWorkingDay()
-        workingDayA.internalId = UUID().uuidString
-        workingDayA.id = 1
-        
-        let workingDayB = InstitutionWorkingDay()
-        workingDayB.internalId = UUID().uuidString
-        workingDayB.id = 2
-        
-        institution.days.append(workingDayA)
-        institution.days.append(workingDayB)
-        
-        XCTAssertEqual(institution.days.count, 2, "Number of days should be two")
-        
-        let workingPeriodA = InstitutionWorkingPeriod()
-        workingPeriodA.internalId = UUID().uuidString
-        workingPeriodA.id = 1
-        
-        let workingPeriodB = InstitutionWorkingPeriod()
-        workingPeriodB.internalId = UUID().uuidString
-        workingPeriodB.id = 2
-        
-        institution.periods.append(workingPeriodA)
-        institution.periods.append(workingPeriodB)
-        
-        XCTAssertEqual(institution.periods.count, 2, "Number of periods should be two")
-        
-        let donationTypeA = InstitutionDonationType()
-        donationTypeA.internalId = UUID().uuidString
-        donationTypeA.id = 1
-        
-        let donationTypeB = InstitutionDonationType()
-        donationTypeB.internalId = UUID().uuidString
-        donationTypeB.id = 2
-        
-        institution.donationType.append(donationTypeA)
-        institution.donationType.append(donationTypeB)
-        
-        XCTAssertEqual(institution.periods.count, 2, "Number of donation types should be two")
-        
-        let volunteerTypeA = InstitutionVolunteerType()
-        volunteerTypeA.internalId = UUID().uuidString
-        volunteerTypeA.id = 1
-        
-        let volunteerTypeB = InstitutionVolunteerType()
-        volunteerTypeB.internalId = UUID().uuidString
-        volunteerTypeB.id = 2
-        
-        institution.volunteerType.append(volunteerTypeA)
-        institution.volunteerType.append(volunteerTypeB)
-        
-        XCTAssertEqual(institution.periods.count, 2, "Number of volunteer types should be two")
-        
-        try! testRealm.write {
-            testRealm.add(institution, update: true)
-        }
+        testHelper.createInstitution(id: 1, title: "Title")
         
         institutionCount = testRealm.objects(Institution.self).count
-        XCTAssertEqual(institutionCount, 1, "Number of institutions should be zero")
+        XCTAssertEqual(institutionCount, 1, "Number of institutions should be one")
         
-        let institutionRetrieved = testRealm.objects(Institution.self).first
+        var institutionRetrieved = testRealm.objects(Institution.self).first
+        
+        XCTAssertEqual(institutionRetrieved?.about.count, 2, "Number of abouts should be two")
+        XCTAssertEqual(institutionRetrieved?.donations.count, 2, "Number of donations should be two")
+        XCTAssertEqual(institutionRetrieved?.causes.count, 2, "Number of causes should be two")
+        XCTAssertEqual(institutionRetrieved?.days.count, 2, "Number of days should be two")
+        XCTAssertEqual(institutionRetrieved?.periods.count, 2, "Number of periods should be two")
+        XCTAssertEqual(institutionRetrieved?.donationType.count, 2, "Number of donation types should be two")
+        XCTAssertEqual(institutionRetrieved?.volunteerType.count, 2, "Number of volunteer types should be two")
         
         XCTAssertEqual(institutionRetrieved?.about[0].title, "Title A", "Title of first about is not the same")
         XCTAssertEqual(institutionRetrieved?.about[1].title, "Title B", "Title of second about is not the same")
@@ -157,16 +59,21 @@ class InstitutionDBTests: XCTestCase {
         XCTAssertEqual(institutionRetrieved?.donationType[0].id, 1, "ID of first donation type is not the same")
         XCTAssertEqual(institutionRetrieved?.donationType[1].id, 2, "ID of second donation type is not the same")
         
-        XCTAssertEqual(institution.title, "Title", "Title should be the same")
-        XCTAssertEqual(institution.subtitle, "Subtitle", "Subtitle should be the same")
-        XCTAssertEqual(institution.address, "Address", "Address should be the same")
-        XCTAssertEqual(institution.phone, "Phone", "Phone should be the same")
-        XCTAssertEqual(institution.mail, "Mail", "Mail should be the same")
-        XCTAssertEqual(institution.responsible, "Responsible", "Responsible should be the same")
-        XCTAssertEqual(institution.workingHours, "Working hours", "Working hours should be the same")
-        XCTAssertEqual(institution.scope, "Scope", "Scope should be the same")
-        XCTAssertEqual(institution.volunteers, "Volunteers", "Volunteers should be the same")
-        XCTAssertEqual(institution.neighborhood, 1, "Neighborhood be the same")
+        XCTAssertEqual(institutionRetrieved?.title, "Title", "Title should be the same")
+        XCTAssertEqual(institutionRetrieved?.subtitle, "Subtitle", "Subtitle should be the same")
+        XCTAssertEqual(institutionRetrieved?.address, "Address", "Address should be the same")
+        XCTAssertEqual(institutionRetrieved?.phone, "Phone", "Phone should be the same")
+        XCTAssertEqual(institutionRetrieved?.mail, "Mail", "Mail should be the same")
+        XCTAssertEqual(institutionRetrieved?.responsible, "Responsible", "Responsible should be the same")
+        XCTAssertEqual(institutionRetrieved?.workingHours, "Working hours", "Working hours should be the same")
+        XCTAssertEqual(institutionRetrieved?.scope, "Scope", "Scope should be the same")
+        XCTAssertEqual(institutionRetrieved?.volunteers, "Volunteers", "Volunteers should be the same")
+        XCTAssertEqual(institutionRetrieved?.neighborhood, 1, "Neighborhood be the same")
+        
+        testHelper.createInstitution(id: 1, title: "Title X")
+        
+        institutionRetrieved = testRealm.objects(Institution.self).first
+        XCTAssertEqual(institutionRetrieved?.title, "Title X", "The title now should be TitleX")
     }
     
     func testAboutInsertion() {
@@ -360,11 +267,32 @@ class InstitutionDBTests: XCTestCase {
         XCTAssertEqual(workingPeriodCount, 2, "Number of working periods should be two")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testInstitutionEventInsertion() {
+        var eventCount = testRealm.objects(InstitutionEvent.self).count
+        XCTAssertEqual(eventCount, 0, "Number of events should be zero")
+        
+        testHelper.createInstitution(id: 1, title: "Title")
+        
+        let institution = testRealm.objects(Institution.self).first
+        testHelper.createEvent(id: 1, institution: institution!)
+        
+        eventCount = testRealm.objects(InstitutionEvent.self).count
+        XCTAssertEqual(eventCount, 1, "Number of events should be one")
+        
+        let eventRetrieved = testRealm.objects(InstitutionEvent.self).first
+        
+        XCTAssertEqual(eventRetrieved?.title, "Title", "Title should be the same")
+        XCTAssertEqual(eventRetrieved?.address, "Address", "Address should be the same")
+        XCTAssertEqual(eventRetrieved?.day, 1, "Day should be the same")
+        XCTAssertEqual(eventRetrieved?.month, 1, "Month should be the same")
+        XCTAssertEqual(eventRetrieved?.year, 2019, "Year should be the same")
+        XCTAssertEqual(eventRetrieved?.startHour, 17, "Start hour should be the same")
+        XCTAssertEqual(eventRetrieved?.endHour, 18, "End hour should be the same")
+        XCTAssertEqual(eventRetrieved?.desc, "Desc", "Desc should be the same")
+        XCTAssertEqual(eventRetrieved?.time, "17h", "Time should be the same")
+        XCTAssertEqual(eventRetrieved?.date, "01/01/2019", "Date should be the same")
+        XCTAssertEqual(eventRetrieved?.institutions.count, 1, "Number of institutions should be the same")
+        XCTAssertEqual(eventRetrieved?.institutions.first?.id, 1, "Institution of the event should have the id one")
     }
 
 }

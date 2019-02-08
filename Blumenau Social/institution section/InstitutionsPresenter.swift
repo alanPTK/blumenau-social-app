@@ -1,11 +1,17 @@
 import UIKit
+import RealmSwift
 
 class InstitutionsPresenter {
     
     private var delegate: InstitutionsDelegate
-    private let institutionRepository = InstitutionRepository()
+    private var institutionRepository = InstitutionRepository()
     private let synchronizationService = SynchronizationService()
     private let preferences = Preferences.shared
+    
+    init(institutionRepository: InstitutionRepository, delegate: InstitutionsDelegate) {
+        self.delegate = delegate
+        self.institutionRepository = institutionRepository
+    }
     
     init(delegate: InstitutionsDelegate) {
         self.delegate = delegate
@@ -20,7 +26,7 @@ class InstitutionsPresenter {
     /* Search institutions by title, donation needs, volunteers needs, etc */
     func searchInstitutions(text: String) {
         let institutions = institutionRepository.searchInstitutions(text: text)
-        delegate.showInstitutions(institutions: institutions)
+        delegate.showInstitutionsFromFilter(institutions: institutions)
     }
     
     /* Search institutions by neighborhoods, causes, donations, available days and available periods */

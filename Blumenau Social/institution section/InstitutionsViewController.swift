@@ -154,6 +154,12 @@ extension UICollectionView {
 }
 
 extension InstitutionsViewController: InstitutionsDelegate {
+            
+    func showInstitutionsFromFilter(institutions: [Institution]) {
+        self.institutions = institutions
+        cvInstitutions.reloadData()
+    }
+    
     
     /* Hides the progress hud */
     func hideProgressHud() {

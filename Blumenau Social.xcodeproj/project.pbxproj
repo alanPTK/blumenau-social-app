@@ -44,6 +44,8 @@
 		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
 		DB10D8CC220BA88F0013E184 /* InstitutionDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */; };
 		DB10D8CE220BAAB10013E184 /* InstitutionRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */; };
+		DB10D8D0220CA1B90013E184 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CF220CA1B90013E184 /* TestHelper.swift */; };
+		DB10D8D2220CBCBE0013E184 /* InstitutionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8D1220CBCBE0013E184 /* InstitutionPresenterTests.swift */; };
 		DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */; };
 		DB168E35220A384100AF2A7C /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E30220A384100AF2A7C /* Filter.storyboard */; };
 		DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E31220A384100AF2A7C /* Profile.storyboard */; };
@@ -118,6 +120,8 @@
 		DB10D8C5220B83940013E184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDBTests.swift; sourceTree = "<group>"; };
 		DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionRepositoryTests.swift; sourceTree = "<group>"; };
+		DB10D8CF220CA1B90013E184 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		DB10D8D1220CBCBE0013E184 /* InstitutionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPresenterTests.swift; sourceTree = "<group>"; };
 		DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCardCollectionViewCell.swift; path = cells/EventCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB168E30220A384100AF2A7C /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filter.storyboard; path = views/Filter.storyboard; sourceTree = "<group>"; };
 		DB168E31220A384100AF2A7C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = views/Profile.storyboard; sourceTree = "<group>"; };
@@ -188,7 +192,10 @@
 			children = (
 				DB10D8C5220B83940013E184 /* Info.plist */,
 				DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */,
+				DB10D8D1220CBCBE0013E184 /* InstitutionPresenterTests.swift */,
 				DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */,
+				DB10D8CF220CA1B90013E184 /* TestHelper.swift */,
+				DB2A7C1221F1065F00C60B32 /* Products */,
 			);
 			path = BlumenauSocialTests;
 			sourceTree = "<group>";
@@ -209,7 +216,6 @@
 			children = (
 				DB2A7C1321F1065F00C60B32 /* Blumenau Social */,
 				DB10D8C2220B83940013E184 /* BlumenauSocialTests */,
-				DB2A7C1221F1065F00C60B32 /* Products */,
 				DCA1837B7B6C1829D2B27F71 /* Pods */,
 				3B4CF6F033581708D07D1C8B /* Frameworks */,
 			);
@@ -222,6 +228,7 @@
 				DB10D8C1220B83940013E184 /* BlumenauSocialTests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		DB2A7C1321F1065F00C60B32 /* Blumenau Social */ = {
@@ -595,8 +602,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB10D8D0220CA1B90013E184 /* TestHelper.swift in Sources */,
 				DB10D8CE220BAAB10013E184 /* InstitutionRepositoryTests.swift in Sources */,
 				DB10D8CC220BA88F0013E184 /* InstitutionDBTests.swift in Sources */,
+				DB10D8D2220CBCBE0013E184 /* InstitutionPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
