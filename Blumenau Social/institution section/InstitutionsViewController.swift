@@ -79,18 +79,6 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
             self.presenter?.searchInstitutions(selectedNeighborhoods: selectedNeighborhoods, selectedAreas: selectedAreas, selectedDonations: selectedDonations, selectedVolunteers: selectedVolunteers, days: [], periods: [], limit: 0)
         }
     }
-    
-    /* When the view appears, show the profile creation screen if necessary */
-    override func viewDidAppear(_ animated: Bool) {
-        if !preferences.profileCreationWasOpened {
-            if Preferences.shared.institutionsAreSynchronized {
-                let profileViewController = UIStoryboard(name: Constants.PROFILE_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID) as! InitialProfileViewController
-                present(profileViewController, animated: true, completion: nil)
-                
-                preferences.profileCreationWasOpened = true
-            }
-        }
-    }
 
 }
 
@@ -159,8 +147,7 @@ extension InstitutionsViewController: InstitutionsDelegate {
         self.institutions = institutions
         cvInstitutions.reloadData()
     }
-    
-    
+        
     /* Hides the progress hud */
     func hideProgressHud() {
         hud.dismiss(afterDelay: 1.0, animated: true)

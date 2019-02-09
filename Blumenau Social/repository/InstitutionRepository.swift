@@ -235,27 +235,32 @@ class InstitutionRepository: NSObject {
     
     /* Search institutions with the neighborhoods, causes, donation type, volunteer type, days or periods */
     func searchInstitutions(neighborhoods: [Int], causes: [Int], donationType: [Int], volunteerType: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
-        let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
+        
         let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
-        let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
-        let volunteerPredicate = NSPredicate(format: "ANY volunteerType.id IN %@", volunteerType)
         
-        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
-        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
-        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
+        return []
         
-        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate, workingTimePredicate])
-        
-        if limit == 0 {
-            return Array(realm.objects(Institution.self).filter(fullPredicate))
-        } else {
-            let institutions = realm.objects(Institution.self).filter(fullPredicate)
-            if institutions.count > limit {
-                return Array(institutions[0..<limit])
-            } else {
-                return Array(institutions)
-            }
-        }
+//        let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
+//        let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
+//        let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
+//        let volunteerPredicate = NSPredicate(format: "ANY volunteerType.id IN %@", volunteerType)
+//
+//        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
+//        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
+//        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
+//
+//        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate, workingTimePredicate])
+//
+//        if limit == 0 {
+//            return Array(realm.objects(Institution.self).filter(fullPredicate))
+//        } else {
+//            let institutions = realm.objects(Institution.self).filter(fullPredicate)
+//            if institutions.count > limit {
+//                return Array(institutions[0..<limit])
+//            } else {
+//                return Array(institutions)
+//            }
+//        }
     }
     
     /* Search institutions with the title, donation, volunteers that are in the text parameter */

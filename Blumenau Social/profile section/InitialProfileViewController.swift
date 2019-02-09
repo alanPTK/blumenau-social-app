@@ -1,5 +1,4 @@
 import UIKit
-import IHKeyboardAvoiding
 
 class InitialProfileViewController: UIViewController {
 
@@ -18,9 +17,6 @@ class InitialProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        
-        KeyboardAvoiding.avoidingView = tfName
-        KeyboardAvoiding.avoidingView = tfAge
         
         views.append(tvInfo)
         views.append(lbNameAndAge)
