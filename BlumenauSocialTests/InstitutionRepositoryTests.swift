@@ -47,6 +47,23 @@ class InstitutionRepositoryTests: XCTestCase {
         
         institutions = institutionRepository.searchInstitutions(text: "Title X")
         XCTAssertEqual(institutions.count, 0, "Number of institutions with Title X should be zero")
+        
+        var events = institutionRepository.getAllEvents()
+        XCTAssertEqual(events.count, 0, "Number of events should be zero")
+        
+        institution = institutionRepository.getInstitutionWithId(id: 1)
+        testHelper.createEvent(id: 1, institution: institution!)
+        
+        events = institutionRepository.getAllEvents()
+        XCTAssertEqual(events.count, 1, "Number of events should be one")
+        
+        let institution2 = institutionRepository.getInstitutionWithId(id: 2)
+        testHelper.createEvent(id: 2, institution: institution2!)
+        
+        XCTAssertEqual(events.count, 1, "Number of events should be two")
+        
+        events = institutionRepository.getAllEventsFromInstitutions(institutions: [institution!, institution2!])
+        XCTAssertEqual(events.count, 2, "Number of events should be two")
     }
 
     func testPerformanceExample() {

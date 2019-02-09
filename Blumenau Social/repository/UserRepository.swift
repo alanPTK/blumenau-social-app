@@ -5,6 +5,10 @@ class UserRepository: NSObject {
     
     private var realm: Realm
     
+    init(realm: Realm) {
+        self.realm = realm
+    }
+    
     override init() {
         realm = try! Realm()
     }
@@ -44,7 +48,7 @@ class UserRepository: NSObject {
     /* Get the user event with the event parameters from the database */
     func getUserEvent(_ event: InstitutionEvent) -> UserEvent? {
         return realm.objects(UserEvent.self).filter("event.id = \(event.id)").first
-    }
+    }        
     
     /* Get all the user events from the database */
     func getUserEvents() -> Results<UserEvent> {

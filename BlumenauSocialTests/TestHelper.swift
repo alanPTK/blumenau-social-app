@@ -35,6 +35,18 @@ class TestHelper {
         }                
     }
     
+    func createUserEvent(event: InstitutionEvent, attendance: Bool) {
+        let userEvent = UserEvent()
+        
+        userEvent.id = UUID().uuidString
+        userEvent.event = event
+        userEvent.confirmed = attendance
+        
+        try! testRealm.write {
+            testRealm.add(userEvent, update: true)
+        }
+    }
+    
     func createInstitution(id: Int, title: String) {
         let institution = Institution()
         institution.id = id
