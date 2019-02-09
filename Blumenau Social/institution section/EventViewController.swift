@@ -175,12 +175,8 @@ extension EventViewController: EventDelegate {
     
     /* Show an alert message with the string in the params */
     func showAlertWithMessage(message: String) {
-        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
-        
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
+        //NÃO TA MOSTRANDO, TODO BUG FABENI
+        Utils.shared.showDefaultAlertWithMessage(message: message)
     }
     
 }

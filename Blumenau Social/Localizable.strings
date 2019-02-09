@@ -31,6 +31,7 @@
 "Please, fill your name." = "Por favor, preencha o seu nome.";
 "Please, fill your email." = "Por favor, preencha o seu email.";
 "Please, fill your phone." = "Por favor, preencha o seu telefone.";
+"Please, write something before sending the email." = "Por favor, escreva algo antes de enviar o email.";
 "Your name" = "Seu nome";
 "Your phone" = "Seu telefone";
 "Your email" = "Seu email";
@@ -63,3 +64,4 @@
 //others
 "Developer" = "Alan Fabeni / Programador";
 "Artist" = "Thiago Bennertz / Ilustrador";
+"Without internet connection we can't synchronize the information." = "Sem conexão à internet não podemos sincronizar as informações.";

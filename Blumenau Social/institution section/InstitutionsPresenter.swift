@@ -46,15 +46,23 @@ class InstitutionsPresenter {
     /* Load institutions from the web api */
     func getInstitutionsFromApi() {
         if !preferences.institutionsAreSynchronized {
-            synchronizationService.synchronizeInstitutions { (result) in
-                if result {
-                    Preferences.shared.institutionsAreSynchronized = true
-                    
-                    DispatchQueue.main.async {
-                        self.getAllInstitutions()
-                        self.getEventsFromApi()
-                        self.delegate.hideProgressHud()
+            if Reachability.isConnectedToNetwork() {
+                synchronizationService.synchronizeInstitutions { (result) in
+                    if result {
+                        Preferences.shared.institutionsAreSynchronized = true
+                        
+                        DispatchQueue.main.async {
+                            self.getAllInstitutions()
+                            self.getEventsFromApi()
+                            self.delegate.hideProgressHud()
+                        }
                     }
+                }
+            } else {
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""))
+                
+                DispatchQueue.main.async {
+                    self.delegate.hideProgressHud()
                 }
             }
         }
@@ -63,14 +71,22 @@ class InstitutionsPresenter {
     /* Load filters from the web api */
     func getFiltersFromApi() {
         if !preferences.filtersAreSynchronized {
-            synchronizationService.synchronizeFilterOptions { (result) in
-                if result {
-                    DispatchQueue.main.async {
-                        self.delegate.hideProgressHud()
+            if Reachability.isConnectedToNetwork() {
+                synchronizationService.synchronizeFilterOptions { (result) in
+                    if result {
+                        DispatchQueue.main.async {
+                            self.delegate.hideProgressHud()
+                        }
+                        self.preferences.filtersAreSynchronized = true
                     }
-                    self.preferences.filtersAreSynchronized = true
                 }
-            }
+            } else {
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""))
+                
+                DispatchQueue.main.async {
+                    self.delegate.hideProgressHud()
+                }
+            }            
         }
     }
     

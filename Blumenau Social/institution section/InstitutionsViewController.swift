@@ -29,7 +29,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         presenter?.getInstitutionsFromApi()
         presenter?.getFiltersFromApi()
         
-        presenter?.getAllInstitutions()                
+        presenter?.getAllInstitutions()
     }
     
     /* Configure the visual aspects of the view components */
@@ -67,7 +67,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cleanFilters(_ sender: Any) {
         tfSearchInstitutes.text = ""
         presenter?.getAllInstitutions()
-    }
+    }        
     
     /* Presents the institution search view */
     @objc func searchInstitutions() {

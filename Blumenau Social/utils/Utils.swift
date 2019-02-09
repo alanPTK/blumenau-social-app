@@ -65,4 +65,14 @@ class Utils {
         return UIImage(named: "initial")!
     }
     
+    func showDefaultAlertWithMessage(message: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        
+        appDelegate.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+    }
 }

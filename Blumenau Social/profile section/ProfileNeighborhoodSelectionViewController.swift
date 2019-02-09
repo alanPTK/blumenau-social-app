@@ -53,21 +53,13 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
     
     /* Before going to the next screen, check if a neighborhood is selected */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //TODO NÃO ESTÁ MOSTRANDO BUG FABENI
         if segue.identifier == "showProfileAvailability" {
             if selectedNeighborhood == nil {
-                showMissingNeighborhood()
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""))
             }
         }
-    }
-    
-    /* Show an alert to the user if the neighborhood is not selected */
-    func showMissingNeighborhood() {
-        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""), preferredStyle: .alert)
-        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .destructive, handler: nil)
-        
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
+    }    
     
     /* The collection view should show three items side by side */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -1,6 +1,15 @@
 import UIKit
 import RealmSwift
 
+struct MatchInstitution {
+    var id: Int = 0
+    var causesSum: Int = 0
+    var neighSum: Int = 0
+    var daysSum: Int = 0
+    var periodsSum: Int = 0
+    var totalSum: Int = 0
+}
+
 class InstitutionRepository: NSObject {
     
     private var realm: Realm
@@ -22,6 +31,13 @@ class InstitutionRepository: NSObject {
     /* Get a institution with the id from the database */
     func getInstitutionWithId(id: Int) -> Institution? {
         return realm.objects(Institution.self).filter("id = \(id)").first
+    }
+    
+    /* Get all institutions with the ids from the database */
+    func getInstitutionsWithIds(ids: [Int]) -> [Institution] {
+        let predicate = NSPredicate(format: "id IN %@", ids)
+        
+        return Array(realm.objects(Institution.self).filter(predicate))
     }
     
     /* Get all the events from the database */
@@ -236,31 +252,86 @@ class InstitutionRepository: NSObject {
     /* Search institutions with the neighborhoods, causes, donation type, volunteer type, days or periods */
     func searchInstitutions(neighborhoods: [Int], causes: [Int], donationType: [Int], volunteerType: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
         
+        let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
+        let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
+        let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
+        let volunteerPredicate = NSPredicate(format: "ANY volunteerType.id IN %@", volunteerType)
+
+        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
+        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
+        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
+
+        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate, workingTimePredicate])
+
+        if limit == 0 {
+            return Array(realm.objects(Institution.self).filter(fullPredicate))
+        } else {
+            let institutions = realm.objects(Institution.self).filter(fullPredicate)
+            if institutions.count > limit {
+                return Array(institutions[0..<limit])
+            } else {
+                return Array(institutions)
+            }
+        }
+    }
+    
+    /* Search institutions that match the user profile */
+    func searchInstitutionsForMatch(neighborhood: Int, causes: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
+        
+        var matchInstitutions: [Institution] = []
+        var organizedInstitutions: [MatchInstitution] = []
+        
+        let neighborhoodPredicate = NSPredicate(format: "neighborhood == %d", neighborhood)
         let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
         
-        return []
+        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
+        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
+        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
         
-//        let neighborhoodPredicate = NSPredicate(format: "neighborhood in %@", Array(neighborhoods))
-//        let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
-//        let donationPredicate = NSPredicate(format: "ANY donationType.id IN %@", donationType)
-//        let volunteerPredicate = NSPredicate(format: "ANY volunteerType.id IN %@", volunteerType)
-//
-//        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
-//        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
-//        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
-//
-//        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, donationPredicate, volunteerPredicate, workingTimePredicate])
-//
-//        if limit == 0 {
-//            return Array(realm.objects(Institution.self).filter(fullPredicate))
-//        } else {
-//            let institutions = realm.objects(Institution.self).filter(fullPredicate)
-//            if institutions.count > limit {
-//                return Array(institutions[0..<limit])
-//            } else {
-//                return Array(institutions)
-//            }
-//        }
+        let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, workingTimePredicate])
+        
+        matchInstitutions = Array(realm.objects(Institution.self).filter(fullPredicate))
+        
+        for institution in matchInstitutions {
+            var matchInstitution = MatchInstitution()
+            matchInstitution.id = institution.id
+            
+            let institutionsCausesSet = Set(institution.causes.map { $0.id })
+            let filtersCausesSet = Set(causes)
+            
+            let causes = institutionsCausesSet.intersection(filtersCausesSet)
+            
+            matchInstitution.causesSum = causes.count * 10
+            
+            if institution.neighborhood == neighborhood {
+                matchInstitution.neighSum = 10
+            }
+            
+            let institutionDaysSet = Set(institution.days.map { $0.id })
+            let filtersDaySet = Set(days)
+            
+            let institutionPeriodsSet = Set(institution.periods.map { $0.id })
+            let filtersPeriodSet = Set(periods)
+            
+            let days = institutionDaysSet.intersection(filtersDaySet)
+            let periods = institutionPeriodsSet.intersection(filtersPeriodSet)
+            
+            matchInstitution.daysSum = days.count * 6
+            matchInstitution.periodsSum = periods.count * 6
+            matchInstitution.totalSum = matchInstitution.causesSum + matchInstitution.neighSum + matchInstitution.daysSum + matchInstitution.periodsSum
+             
+            organizedInstitutions.append(matchInstitution)
+        }
+        
+        for it in organizedInstitutions {
+            print(it.id)
+            print(it.totalSum)
+        }
+        
+        organizedInstitutions = organizedInstitutions.sorted(by: { $0.totalSum > $1.totalSum })
+        let toReturn = getInstitutionsWithIds(ids: organizedInstitutions.map { $0.id })
+        
+        return toReturn
     }
     
     /* Search institutions with the title, donation, volunteers that are in the text parameter */

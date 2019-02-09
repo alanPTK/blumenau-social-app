@@ -60,15 +60,23 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         }
         
         if name.isEmpty {
-            showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""))
+            return
         }
         
         if email.isEmpty {
-            showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""))
+            return
         }
         
         if phone.isEmpty {
-            showAlertControllerWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
+            return
+        }
+        
+        if tvText.text.isEmpty {
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, write something before sending the email.", comment: ""))
+            return
         }
         
         let initialBody = String(format: "%@ - %@ - %@", name, email, phone)
@@ -126,14 +134,5 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         } else {
             application.open(webURL!)
         }
-    }
-    
-    /* Show an alert message to the user if the fields are not filled */
-    func showAlertControllerWithMessage(message: String) {
-        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-        
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
+    }        
 }

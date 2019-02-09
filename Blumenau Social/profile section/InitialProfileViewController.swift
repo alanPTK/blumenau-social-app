@@ -50,28 +50,26 @@ class InitialProfileViewController: UIViewController {
     
     /* Before going to the next view, check and alert the user if the fields are missing */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //TODO NÃO ESTÁ MOSTRANDO BUG FABENI
         if segue.identifier == "showNextProfileInfo" {
             if (tfName.text?.isEmpty)! {
-                showMissingFields(field: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+                return
             } else {
                 preferences.userName = tfName.text!
             }
             
             if (tfAge.text?.isEmpty)! {
-                showMissingFields(field: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+                return
             } else {
                 preferences.userAge = Int(tfAge.text!)!
             }
         }
     }
     
-    /* Alert the user if some of the fields are empty */
-    func showMissingFields(field: String) {
-        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: field, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+    func checkFields() {
         
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
     }
     
     /* Alpha animation for the text fields */

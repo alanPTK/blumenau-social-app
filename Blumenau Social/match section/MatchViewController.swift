@@ -28,8 +28,7 @@ class MatchViewController: UIViewController {
                 
         NotificationCenter.default.addObserver(self, selector: #selector(showMoreInfo), name: NSNotification.Name("showMoreInfo"), object: nil)
         
-        matchingInstitutions = institutionRepository.searchInstitutions(neighborhoods: [preferences.userNeighborhood], causes: preferences.userInterests, donationType: [], volunteerType: [], days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
-        //matchingInstitutions = institutionRepository.getAllInstitutions()
+        matchingInstitutions = institutionRepository.searchInstitutionsForMatch(neighborhood: preferences.userNeighborhood, causes: preferences.userInterests, days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         
         events = institutionRepository.getAllEventsFromInstitutions(institutions: matchingInstitutions)        
         
