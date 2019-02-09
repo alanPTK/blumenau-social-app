@@ -302,7 +302,7 @@
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="rTD-aD-8Ps">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileRed" translatesAutoresizingMaskIntoConstraints="NO" id="rTD-aD-8Ps">
                                         <rect key="frame" x="142.5" y="278" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="PJw-j7-oSK"/>
@@ -604,6 +604,7 @@
         <image name="match" width="30" height="30"/>
         <image name="phone" width="20" height="20"/>
         <image name="profile" width="115.19999694824219" height="115.19999694824219"/>
+        <image name="profileRed" width="115.19999694824219" height="115.19999694824219"/>
         <image name="rua" width="20" height="20"/>
         <image name="search" width="115.5" height="115.5"/>
         <namedColor name="backgroundColor">

@@ -16,7 +16,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
     /* Initialize all the necessary information for the view and load the information from the Api */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        preferences.profileIsCreated = false
         setupView()
         
         presenter = InstitutionsPresenter(delegate: self)
