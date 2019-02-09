@@ -221,7 +221,7 @@
                         <constraints>
                             <constraint firstItem="Q6g-Zf-fwN" firstAttribute="top" secondItem="o0Z-dF-SNt" secondAttribute="top" constant="8" id="1tr-oj-PEF"/>
                             <constraint firstItem="Q6g-Zf-fwN" firstAttribute="leading" secondItem="o0Z-dF-SNt" secondAttribute="leading" constant="8" id="Uhq-Re-Xfe"/>
-                            <constraint firstAttribute="bottom" secondItem="52L-2h-lFl" secondAttribute="bottom" id="ZKC-ob-kOw"/>
+                            <constraint firstItem="o0Z-dF-SNt" firstAttribute="bottom" secondItem="52L-2h-lFl" secondAttribute="bottom" id="ZKC-ob-kOw"/>
                             <constraint firstItem="o0Z-dF-SNt" firstAttribute="trailing" secondItem="52L-2h-lFl" secondAttribute="trailing" id="fjT-2l-PZC"/>
                             <constraint firstItem="52L-2h-lFl" firstAttribute="top" secondItem="Q6g-Zf-fwN" secondAttribute="bottom" id="s2s-6o-TbE"/>
                             <constraint firstItem="o0Z-dF-SNt" firstAttribute="trailing" secondItem="Q6g-Zf-fwN" secondAttribute="trailing" constant="8" id="u5D-2L-9y6"/>
@@ -648,7 +648,7 @@
                             <constraint firstItem="U0w-6u-pSd" firstAttribute="top" secondItem="2j7-dO-GbA" secondAttribute="top" constant="8" id="4FN-gL-ioK"/>
                             <constraint firstItem="1Pr-Bn-9uP" firstAttribute="top" secondItem="U0w-6u-pSd" secondAttribute="bottom" id="SmP-SI-H3q"/>
                             <constraint firstItem="1Pr-Bn-9uP" firstAttribute="leading" secondItem="K1k-Kr-K7F" secondAttribute="leading" id="WTx-UR-XaV"/>
-                            <constraint firstAttribute="bottom" secondItem="1Pr-Bn-9uP" secondAttribute="bottom" id="Y1X-Wi-dEa"/>
+                            <constraint firstItem="2j7-dO-GbA" firstAttribute="bottom" secondItem="1Pr-Bn-9uP" secondAttribute="bottom" id="Y1X-Wi-dEa"/>
                             <constraint firstItem="2j7-dO-GbA" firstAttribute="trailing" secondItem="U0w-6u-pSd" secondAttribute="trailing" constant="8" id="fwk-eP-vLf"/>
                             <constraint firstItem="U0w-6u-pSd" firstAttribute="leading" secondItem="K1k-Kr-K7F" secondAttribute="leading" constant="8" id="ksE-FQ-reA"/>
                             <constraint firstItem="2j7-dO-GbA" firstAttribute="trailing" secondItem="1Pr-Bn-9uP" secondAttribute="trailing" id="rH0-72-Vgb"/>
