@@ -202,7 +202,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="0lC-dK-JOy" kind="show" identifier="showProfileAvailability" id="XO1-9J-3E9"/>
+                                            <action selector="showProfileAvailability:" destination="oiL-t8-3Je" eventType="touchUpInside" id="kEY-Or-FC2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -229,6 +229,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o0Z-dF-SNt"/>
                     </view>
+                    <connections>
+                        <segue destination="0lC-dK-JOy" kind="show" identifier="showProfileAvailability" id="daW-Pr-aH1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MqK-pm-FXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -486,7 +489,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ICU-fZ-QfN" kind="show" identifier="showProfileInterests" id="8TN-yu-noo"/>
+                                            <action selector="showProfileInterests:" destination="0lC-dK-JOy" eventType="touchUpInside" id="qgZ-yb-M3b"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -548,6 +551,7 @@
                         <outlet property="vThursday" destination="ysY-TN-Gg4" id="uIs-sr-YVp"/>
                         <outlet property="vTuesday" destination="QXj-YS-5uh" id="kud-ek-d3J"/>
                         <outlet property="vWednesday" destination="j1i-J5-R9m" id="BKo-AY-Zxp"/>
+                        <segue destination="ICU-fZ-QfN" kind="show" identifier="showProfileInterests" id="aFG-5y-slM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0i-tk-qAO" userLabel="First Responder" sceneMemberID="firstResponder"/>

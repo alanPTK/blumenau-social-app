@@ -6,7 +6,7 @@ extension UIViewController: MFMailComposeViewControllerDelegate, UINavigationCon
     /* Show the email creation screen with the information in the parameters */
     func sendEmailTo(recipients: [String], withSubject subject: String, message: String) {
         if !MFMailComposeViewController.canSendMail() {
-            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""))            
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("We can't send the email. Please, check if you have an email configured in your settings.", comment: ""), viewController: self)            
         } else {
             let composeEmailViewController = MFMailComposeViewController()
             composeEmailViewController.mailComposeDelegate = self

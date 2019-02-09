@@ -112,15 +112,25 @@ class ProfileAvailabilityViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    /* Go to the next view */
+    @IBAction func showProfileInterests(_ sender: Any) {
+        if availabilityIsSelected() {
+            performSegue(withIdentifier: "showProfileInterests", sender: nil)
+        } else {
+            showMissingAvailability()
+        }
+    }
+    
     /* Before going to the next view, check if the days and periods are filled and warn the user if not */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showProfileInterests" {
-            if userSelectedDays.isEmpty || userSelectedPeriods.isEmpty {
-                showMissingAvailability()
-            } else {
-                preferences.userDays = userSelectedDays
-                preferences.userPeriods = userSelectedPeriods
-            }
+    func availabilityIsSelected() -> Bool {
+        if userSelectedDays.isEmpty || userSelectedPeriods.isEmpty {
+            
+            return false
+        } else {
+            preferences.userDays = userSelectedDays
+            preferences.userPeriods = userSelectedPeriods
+            
+            return true
         }
     }
     
@@ -133,12 +143,8 @@ class ProfileAvailabilityViewController: UIViewController {
         } else {
             message = NSLocalizedString("Please, select at least a period of the day before continuing", comment: "")
         }
-        
-        let alertController = UIAlertController(title: NSLocalizedString("Attention", comment: ""), message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
-        
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+                
+        Utils.shared.showDefaultAlertWithMessage(message: message, viewController: self)
     }
     
     /* When the user touches a day component */

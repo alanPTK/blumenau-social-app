@@ -60,22 +60,22 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         }
         
         if name.isEmpty {
-            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name.", comment: ""), viewController: self)
             return
         }
         
         if email.isEmpty {
-            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your email.", comment: ""), viewController: self)
             return
         }
         
         if phone.isEmpty {
-            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your phone.", comment: ""), viewController: self)
             return
         }
         
         if tvText.text.isEmpty {
-            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, write something before sending the email.", comment: ""))
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, write something before sending the email.", comment: ""), viewController: self)
             return
         }
         

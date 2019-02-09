@@ -53,14 +53,14 @@ class InitialProfileViewController: UIViewController {
         //TODO NÃO ESTÁ MOSTRANDO BUG FABENI
         if segue.identifier == "showNextProfileInfo" {
             if (tfName.text?.isEmpty)! {
-                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name before continuing", comment: ""))
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name before continuing", comment: ""), viewController: self)
                 return
             } else {
                 preferences.userName = tfName.text!
             }
             
             if (tfAge.text?.isEmpty)! {
-                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your age before continuing", comment: ""))
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your age before continuing", comment: ""), viewController: self)
                 return
             } else {
                 preferences.userAge = Int(tfAge.text!)!

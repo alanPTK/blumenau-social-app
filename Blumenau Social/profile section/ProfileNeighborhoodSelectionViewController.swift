@@ -18,6 +18,15 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         selectedNeighborhood = filterOptionsRepository.getNeighborhoodWithId(id: Preferences.shared.userNeighborhood)
     }
     
+    /* Go to the next screen */
+    @IBAction func showProfileAvailability(_ sender: Any) {
+        if neighborhoodIsSelected() {
+            performSegue(withIdentifier: "showProfileAvailability", sender: nil)
+        } else {
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""), viewController: self)
+        }
+    }
+    
     /* Configure the visual aspects of the view components */
     func setupView() {
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
@@ -52,14 +61,12 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
     }
     
     /* Before going to the next screen, check if a neighborhood is selected */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO NÃO ESTÁ MOSTRANDO BUG FABENI
-        if segue.identifier == "showProfileAvailability" {
-            if selectedNeighborhood == nil {
-                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""))
-            }
+    func neighborhoodIsSelected() -> Bool  {
+        if selectedNeighborhood == nil {
+            return false
         }
-    }    
+        return true
+    }
     
     /* The collection view should show three items side by side */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
