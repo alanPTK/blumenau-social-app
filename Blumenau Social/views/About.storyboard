@@ -237,7 +237,7 @@
                             <constraint firstItem="Qwq-ux-8rh" firstAttribute="top" secondItem="TFb-SZ-dCD" secondAttribute="bottom" constant="8" id="p7T-b8-yGg"/>
                             <constraint firstItem="iVc-pw-oMt" firstAttribute="leading" secondItem="U9H-mX-hkC" secondAttribute="leading" constant="36" id="q8N-R6-Air"/>
                             <constraint firstItem="U9H-mX-hkC" firstAttribute="trailing" secondItem="TFb-SZ-dCD" secondAttribute="trailing" constant="8" id="w7v-2F-zEA"/>
-                            <constraint firstItem="iVc-pw-oMt" firstAttribute="top" secondItem="U9H-mX-hkC" secondAttribute="top" constant="22" id="zgd-s1-7KK"/>
+                            <constraint firstItem="iVc-pw-oMt" firstAttribute="top" secondItem="r6Y-91-KJP" secondAttribute="topMargin" constant="22" id="zgd-s1-7KK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U9H-mX-hkC"/>
                     </view>
@@ -479,7 +479,7 @@
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XvI-I6-fef" firstAttribute="top" secondItem="sAA-hd-Ami" secondAttribute="top" constant="22" id="30Z-5i-isB"/>
+                            <constraint firstItem="XvI-I6-fef" firstAttribute="top" secondItem="vch-04-T6h" secondAttribute="topMargin" constant="22" id="30Z-5i-isB"/>
                             <constraint firstItem="wvN-JN-7fj" firstAttribute="leading" secondItem="sAA-hd-Ami" secondAttribute="leading" constant="8" id="3GE-wo-MGe"/>
                             <constraint firstItem="k28-Ae-r4M" firstAttribute="top" secondItem="9Ew-Vo-lyq" secondAttribute="bottom" id="3ea-u7-K3O"/>
                             <constraint firstItem="pdZ-gh-CAM" firstAttribute="leading" secondItem="sAA-hd-Ami" secondAttribute="leading" constant="8" id="5r9-AO-VlR"/>

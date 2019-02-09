@@ -56,11 +56,11 @@ class InstitutionPresenterTests: XCTestCase {
 class MockInstitutionsViewController: InstitutionsDelegate {
     
     func showInstitutionsFromFilter(institutions: [Institution]) {
-        XCTAssertEqual(institutions.count, 1, "The number of institutions in the view controller should be one")
+        XCTAssertEqual(institutions.count, 1, "The number of institutions in the view controller should be 1")
     }
     
     func showInstitutions(institutions: [Institution]) {
-        XCTAssertEqual(institutions.count, 3, "The number of institutions in the view controller should be three")
+        XCTAssertEqual(institutions.count, 3, "The number of institutions in the view controller should be 3")
     }
     
     func hideProgressHud() {

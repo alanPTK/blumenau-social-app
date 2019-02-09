@@ -15,28 +15,24 @@ class InstitutionDBTests: XCTestCase {
         testHelper = TestHelper(realm: testRealm)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     func testInstitutionInsertion() {
         var institutionCount = testRealm.objects(Institution.self).count
-        XCTAssertEqual(institutionCount, 0, "Number of institutions should be zero")
+        XCTAssertEqual(institutionCount, 0, "Number of institutions should be 0")
         
         testHelper.createInstitution(id: 1, title: "Title")
         
         institutionCount = testRealm.objects(Institution.self).count
-        XCTAssertEqual(institutionCount, 1, "Number of institutions should be one")
+        XCTAssertEqual(institutionCount, 1, "Number of institutions should be 1")
         
         var institutionRetrieved = testRealm.objects(Institution.self).first
         
-        XCTAssertEqual(institutionRetrieved?.about.count, 2, "Number of abouts should be two")
-        XCTAssertEqual(institutionRetrieved?.donations.count, 2, "Number of donations should be two")
-        XCTAssertEqual(institutionRetrieved?.causes.count, 2, "Number of causes should be two")
-        XCTAssertEqual(institutionRetrieved?.days.count, 2, "Number of days should be two")
-        XCTAssertEqual(institutionRetrieved?.periods.count, 2, "Number of periods should be two")
-        XCTAssertEqual(institutionRetrieved?.donationType.count, 2, "Number of donation types should be two")
-        XCTAssertEqual(institutionRetrieved?.volunteerType.count, 2, "Number of volunteer types should be two")
+        XCTAssertEqual(institutionRetrieved?.about.count, 2, "Number of abouts should be 2")
+        XCTAssertEqual(institutionRetrieved?.donations.count, 2, "Number of donations should be 2")
+        XCTAssertEqual(institutionRetrieved?.causes.count, 2, "Number of causes should be 2")
+        XCTAssertEqual(institutionRetrieved?.days.count, 2, "Number of days should be 2")
+        XCTAssertEqual(institutionRetrieved?.periods.count, 2, "Number of periods should be 2")
+        XCTAssertEqual(institutionRetrieved?.donationType.count, 2, "Number of donation types should be 2")
+        XCTAssertEqual(institutionRetrieved?.volunteerType.count, 2, "Number of volunteer types should be 2")
         
         XCTAssertEqual(institutionRetrieved?.about[0].title, "Title A", "Title of first about is not the same")
         XCTAssertEqual(institutionRetrieved?.about[1].title, "Title B", "Title of second about is not the same")
@@ -78,7 +74,7 @@ class InstitutionDBTests: XCTestCase {
     
     func testAboutInsertion() {
         var aboutCount = testRealm.objects(InstitutionAbout.self).count
-        XCTAssertEqual(aboutCount, 0, "Number of abouts should be zero")
+        XCTAssertEqual(aboutCount, 0, "Number of abouts should be 0")
         
         let about = InstitutionAbout()
         about.id = 1
@@ -90,7 +86,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         aboutCount = testRealm.objects(InstitutionAbout.self).count
-        XCTAssertEqual(aboutCount, 1, "Number of abouts should be one")
+        XCTAssertEqual(aboutCount, 1, "Number of abouts should be 1")
         
         let aboutA = InstitutionAbout()
         aboutA.id = 2
@@ -102,12 +98,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         aboutCount = testRealm.objects(InstitutionAbout.self).count
-        XCTAssertEqual(aboutCount, 2, "Number of abouts should be two")
+        XCTAssertEqual(aboutCount, 2, "Number of abouts should be 2")
     }
     
     func testCauseInsertion() {
         var causeCount = testRealm.objects(InstitutionCause.self).count
-        XCTAssertEqual(causeCount, 0, "Number of causes should be zero")
+        XCTAssertEqual(causeCount, 0, "Number of causes should be 0")
         
         let cause = InstitutionCause()
         cause.internalId = UUID().uuidString
@@ -118,7 +114,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         causeCount = testRealm.objects(InstitutionCause.self).count
-        XCTAssertEqual(causeCount, 1, "Number of causes should be one")
+        XCTAssertEqual(causeCount, 1, "Number of causes should be 1")
         
         let causeA = InstitutionCause()
         causeA.internalId = UUID().uuidString
@@ -129,12 +125,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         causeCount = testRealm.objects(InstitutionCause.self).count
-        XCTAssertEqual(causeCount, 2, "Number of causes should be two")
+        XCTAssertEqual(causeCount, 2, "Number of causes should be 2")
     }
     
     func testVolunteerTypeInsertion() {
         var volunteerTypeCount = testRealm.objects(InstitutionVolunteerType.self).count
-        XCTAssertEqual(volunteerTypeCount, 0, "Number of volunteers types should be zero")
+        XCTAssertEqual(volunteerTypeCount, 0, "Number of volunteers types should be 0")
         
         let volunteerType = InstitutionVolunteerType()
         volunteerType.internalId = UUID().uuidString
@@ -145,7 +141,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         volunteerTypeCount = testRealm.objects(InstitutionVolunteerType.self).count
-        XCTAssertEqual(volunteerTypeCount, 1, "Number of volunteers types should be one")
+        XCTAssertEqual(volunteerTypeCount, 1, "Number of volunteers types should be 1")
         
         let volunteerTypeA = InstitutionVolunteerType()
         volunteerTypeA.internalId = UUID().uuidString
@@ -156,12 +152,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         volunteerTypeCount = testRealm.objects(InstitutionVolunteerType.self).count
-        XCTAssertEqual(volunteerTypeCount, 2, "Number of volunteers types should be two")
+        XCTAssertEqual(volunteerTypeCount, 2, "Number of volunteers types should be 2")
     }
     
     func testDonationInsertion() {
         var donationCount = testRealm.objects(InstitutionDonation.self).count
-        XCTAssertEqual(donationCount, 0, "Number of donations should be zero")
+        XCTAssertEqual(donationCount, 0, "Number of donations should be 0")
         
         let donation = InstitutionDonation()
         donation.internalId = UUID().uuidString
@@ -172,7 +168,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         donationCount = testRealm.objects(InstitutionDonation.self).count
-        XCTAssertEqual(donationCount, 1, "Number of donations should be one")
+        XCTAssertEqual(donationCount, 1, "Number of donations should be 1")
         
         let donationA = InstitutionDonation()
         donationA.internalId = UUID().uuidString
@@ -183,12 +179,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         donationCount = testRealm.objects(InstitutionDonation.self).count
-        XCTAssertEqual(donationCount, 2, "Number of donations should be two")
+        XCTAssertEqual(donationCount, 2, "Number of donations should be 2")
     }
     
     func testDonationTypeInsertion() {
         var donationTypeCount = testRealm.objects(InstitutionDonationType.self).count
-        XCTAssertEqual(donationTypeCount, 0, "Number of donation types should be zero")
+        XCTAssertEqual(donationTypeCount, 0, "Number of donation types should be 0")
         
         let donationType = InstitutionDonationType()
         donationType.internalId = UUID().uuidString
@@ -199,7 +195,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         donationTypeCount = testRealm.objects(InstitutionDonationType.self).count
-        XCTAssertEqual(donationTypeCount, 1, "Number of donation types should be one")
+        XCTAssertEqual(donationTypeCount, 1, "Number of donation types should be 1")
         
         let donationTypeA = InstitutionDonationType()
         donationTypeA.internalId = UUID().uuidString
@@ -210,12 +206,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         donationTypeCount = testRealm.objects(InstitutionDonationType.self).count
-        XCTAssertEqual(donationTypeCount, 2, "Number of donation types should be two")
+        XCTAssertEqual(donationTypeCount, 2, "Number of donation types should be 2")
     }
     
     func testWorkingDayInsertion() {
         var workingDayCount = testRealm.objects(InstitutionWorkingDay.self).count
-        XCTAssertEqual(workingDayCount, 0, "Number of working days should be zero")
+        XCTAssertEqual(workingDayCount, 0, "Number of working days should be 0")
         
         let workingDay = InstitutionWorkingDay()
         workingDay.internalId = UUID().uuidString
@@ -226,7 +222,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         workingDayCount = testRealm.objects(InstitutionWorkingDay.self).count
-        XCTAssertEqual(workingDayCount, 1, "Number of working days should be one")
+        XCTAssertEqual(workingDayCount, 1, "Number of working days should be 1")
         
         let workingDayA = InstitutionWorkingDay()
         workingDayA.internalId = UUID().uuidString
@@ -237,12 +233,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         workingDayCount = testRealm.objects(InstitutionWorkingDay.self).count
-        XCTAssertEqual(workingDayCount, 2, "Number of working days should be zero")
+        XCTAssertEqual(workingDayCount, 2, "Number of working days should be 0")
     }
     
     func testWorkingPeriodInsertion() {
         var workingPeriodCount = testRealm.objects(InstitutionWorkingPeriod.self).count
-        XCTAssertEqual(workingPeriodCount, 0, "Number of working periods should be zero")
+        XCTAssertEqual(workingPeriodCount, 0, "Number of working periods should be 0")
         
         let workingPeriod = InstitutionWorkingPeriod()
         workingPeriod.internalId = UUID().uuidString
@@ -253,7 +249,7 @@ class InstitutionDBTests: XCTestCase {
         }
         
         workingPeriodCount = testRealm.objects(InstitutionWorkingPeriod.self).count
-        XCTAssertEqual(workingPeriodCount, 1, "Number of working periods should be one")
+        XCTAssertEqual(workingPeriodCount, 1, "Number of working periods should be 1")
         
         let workingPeriodA = InstitutionWorkingPeriod()
         workingPeriodA.internalId = UUID().uuidString
@@ -264,12 +260,12 @@ class InstitutionDBTests: XCTestCase {
         }
         
         workingPeriodCount = testRealm.objects(InstitutionWorkingPeriod.self).count
-        XCTAssertEqual(workingPeriodCount, 2, "Number of working periods should be two")
+        XCTAssertEqual(workingPeriodCount, 2, "Number of working periods should be 2")
     }
     
     func testInstitutionEventInsertion() {
         var eventCount = testRealm.objects(InstitutionEvent.self).count
-        XCTAssertEqual(eventCount, 0, "Number of events should be zero")
+        XCTAssertEqual(eventCount, 0, "Number of events should be 0")
         
         testHelper.createInstitution(id: 1, title: "Title")
         
@@ -277,7 +273,7 @@ class InstitutionDBTests: XCTestCase {
         testHelper.createEvent(id: 1, institution: institution!)
         
         eventCount = testRealm.objects(InstitutionEvent.self).count
-        XCTAssertEqual(eventCount, 1, "Number of events should be one")
+        XCTAssertEqual(eventCount, 1, "Number of events should be 1")
         
         let eventRetrieved = testRealm.objects(InstitutionEvent.self).first
         

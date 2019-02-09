@@ -15,13 +15,9 @@ class UserDBTests: XCTestCase {
         testHelper = TestHelper(realm: testRealm)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func testUserEventInsertion() {
         var eventUserCount = testRealm.objects(UserEvent.self).count
-        XCTAssertEqual(eventUserCount, 0, "Number of user events should be zero")
+        XCTAssertEqual(eventUserCount, 0, "Number of user events should be 0")
         
         testHelper.createInstitution(id: 1, title: "Title")
         let institution = testRealm.objects(Institution.self).first
@@ -33,17 +29,10 @@ class UserDBTests: XCTestCase {
         let userEvent = testRealm.objects(UserEvent.self).first
         
         eventUserCount = testRealm.objects(UserEvent.self).count
-        XCTAssertEqual(eventUserCount, 1, "Number of user events should be one")
+        XCTAssertEqual(eventUserCount, 1, "Number of user events should be 1")
         
         XCTAssertEqual(userEvent?.confirmed, true, "User should be confirmed in the event")
-        XCTAssertEqual(userEvent?.event?.id, 1, "Event id should be one")
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertEqual(userEvent?.event?.id, 1, "Event id should be 1")
     }
 
 }

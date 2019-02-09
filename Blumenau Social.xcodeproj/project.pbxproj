@@ -48,6 +48,7 @@
 		DB10D8D2220CBCBE0013E184 /* InstitutionPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8D1220CBCBE0013E184 /* InstitutionPresenterTests.swift */; };
 		DB10D8D6220EFFFB0013E184 /* UserDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8D5220EFFFB0013E184 /* UserDBTests.swift */; };
 		DB10D8D8220F05320013E184 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8D7220F05320013E184 /* UserRepositoryTests.swift */; };
+		DB10D8DA220F0E8B0013E184 /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8D9220F0E8B0013E184 /* UserPreferencesTests.swift */; };
 		DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */; };
 		DB168E35220A384100AF2A7C /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E30220A384100AF2A7C /* Filter.storyboard */; };
 		DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB168E31220A384100AF2A7C /* Profile.storyboard */; };
@@ -126,6 +127,7 @@
 		DB10D8D1220CBCBE0013E184 /* InstitutionPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionPresenterTests.swift; sourceTree = "<group>"; };
 		DB10D8D5220EFFFB0013E184 /* UserDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDBTests.swift; sourceTree = "<group>"; };
 		DB10D8D7220F05320013E184 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
+		DB10D8D9220F0E8B0013E184 /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		DB168E2E2209B85E00AF2A7C /* EventCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventCardCollectionViewCell.swift; path = cells/EventCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB168E30220A384100AF2A7C /* Filter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Filter.storyboard; path = views/Filter.storyboard; sourceTree = "<group>"; };
 		DB168E31220A384100AF2A7C /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = views/Profile.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				DB10D8D1220CBCBE0013E184 /* InstitutionPresenterTests.swift */,
 				DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */,
 				DB10D8D7220F05320013E184 /* UserRepositoryTests.swift */,
+				DB10D8D9220F0E8B0013E184 /* UserPreferencesTests.swift */,
 				DB10D8CF220CA1B90013E184 /* TestHelper.swift */,
 				DB2A7C1221F1065F00C60B32 /* Products */,
 			);
@@ -611,6 +614,7 @@
 				DB10D8D6220EFFFB0013E184 /* UserDBTests.swift in Sources */,
 				DB10D8D0220CA1B90013E184 /* TestHelper.swift in Sources */,
 				DB10D8CE220BAAB10013E184 /* InstitutionRepositoryTests.swift in Sources */,
+				DB10D8DA220F0E8B0013E184 /* UserPreferencesTests.swift in Sources */,
 				DB10D8CC220BA88F0013E184 /* InstitutionDBTests.swift in Sources */,
 				DB10D8D8220F05320013E184 /* UserRepositoryTests.swift in Sources */,
 				DB10D8D2220CBCBE0013E184 /* InstitutionPresenterTests.swift in Sources */,

@@ -18,15 +18,11 @@ class UserRepositoryTests: XCTestCase {
         institutionRepository = InstitutionRepository(realm: testRealm)
         userRepository = UserRepository(realm: testRealm)
         testHelper = TestHelper(realm: testRealm)
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    }    
 
     func testInstitutionFetch() {
         var userEvents = userRepository.getUserEvents()
-        XCTAssertEqual(userEvents.count, 0, "Number of user events should be zero")
+        XCTAssertEqual(userEvents.count, 0, "Number of user events should be 0")
         
         testHelper.createInstitution(id: 1, title: "Title 1")
         let institution = testRealm.objects(Institution.self).first
@@ -37,7 +33,7 @@ class UserRepositoryTests: XCTestCase {
         userRepository.createUserEvent(event: event!, attendance: true)
         
         userEvents = userRepository.getUserEvents()
-        XCTAssertEqual(userEvents.count, 1, "Number of user events should be one")
+        XCTAssertEqual(userEvents.count, 1, "Number of user events should be 1")
         
         var userEvent = userRepository.getUserEvent(event!)
         XCTAssertEqual(userEvent?.confirmed, true, "User should be confirmed in the event")
@@ -46,13 +42,6 @@ class UserRepositoryTests: XCTestCase {
         
         userEvent = userRepository.getUserEvent(event!)
         XCTAssertEqual(userEvent?.confirmed, false, "User should not be confirmed in the event")
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }
