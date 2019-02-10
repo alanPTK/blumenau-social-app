@@ -50,7 +50,6 @@ class InitialProfileViewController: UIViewController {
     
     /* Before going to the next view, check and alert the user if the fields are missing */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //TODO NÃO ESTÁ MOSTRANDO BUG FABENI
         if segue.identifier == "showNextProfileInfo" {
             if (tfName.text?.isEmpty)! {
                 Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your name before continuing", comment: ""), viewController: self)

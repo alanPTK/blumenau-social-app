@@ -37,6 +37,11 @@ class ProfileInterestsViewController: UIViewController {
 
     /* When the user finishes the profile, save the information and show the match screen */
     @IBAction func finishProfile(_ sender: Any) {
+        if selectedAreas.count == 0 {
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, select at least one interest before finishing the profile.", comment: ""), viewController: self)
+            return
+        }
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_VIEW_STORYBOARD_ID)
                 

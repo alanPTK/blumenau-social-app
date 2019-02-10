@@ -174,8 +174,7 @@ extension EventViewController: EventDelegate {
     }
     
     /* Show an alert message with the string in the params */
-    func showAlertWithMessage(message: String) {
-        //NÃO TA MOSTRANDO, TODO BUG FABENI
+    func showAlertWithMessage(message: String) {        
         Utils.shared.showDefaultAlertWithMessage(message: message, viewController: self)
     }
     

@@ -59,9 +59,8 @@ class InstitutionsPresenter {
                     }
                 }
             } else {
-                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""), viewController: nil)
-                
                 DispatchQueue.main.async {
+                    Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""), viewController: nil)
                     self.delegate.hideProgressHud()
                 }
             }
@@ -81,9 +80,8 @@ class InstitutionsPresenter {
                     }
                 }
             } else {
-                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""), viewController: nil)
-                
                 DispatchQueue.main.async {
+                    Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""), viewController: nil)
                     self.delegate.hideProgressHud()
                 }
             }            
