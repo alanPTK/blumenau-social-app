@@ -59,22 +59,27 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         
         let currentFilterOption = filterOptions[indexPath.row]
         
-        filterCell.setupFilterOptionsCell()
-        filterCell.loadFilterInformation(filter: currentFilterOption)
+        var filterImageName = ""
         
-        //TODO, ícones certos
         switch selectedOption {
             case FilterConstants.NEIGHBORHOODS:
-                filterCell.ivIcon.image = UIImage(named: "0z")
+                filterImageName = String(format: "bairro_%d", currentFilterOption.id)
             case FilterConstants.AREAS:
-                filterCell.ivIcon.image = UIImage(named: "0x")
+                filterImageName = String(format: "atuacao_%d", currentFilterOption.id)
             case FilterConstants.DONATIONS:
-                filterCell.ivIcon.image = UIImage(named: "0y")
+                filterImageName = String(format: "doacao_%d", currentFilterOption.id)
             case FilterConstants.VOLUNTEERS:
-                filterCell.ivIcon.image = UIImage(named: "0y")
+                filterImageName = String(format: "voluntario_%d", currentFilterOption.id)
             default:
                 break
-        }                
+        }
+        
+        let filterImage = UIImage(named: filterImageName)
+        print(filterImageName)
+        
+        filterCell.setupFilterOptionsCell()
+        filterCell.loadFilterInformation(filter: currentFilterOption)
+        filterCell.ivIcon.image = filterImage
         
         return filterCell
     }
@@ -89,26 +94,13 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
         let selectedFilterOption = filterOptions[indexPath.row]
         
-        //TODO, ícones certos
-        switch selectedOption {
-            case FilterConstants.NEIGHBORHOODS:
-                selectedCell.ivIcon.image = UIImage(named: "0zrosa")
-            case FilterConstants.AREAS:
-                selectedCell.ivIcon.image = UIImage(named: "0xrosa")
-            case FilterConstants.DONATIONS:
-                selectedCell.ivIcon.image = UIImage(named: "0yrosa")
-            case FilterConstants.VOLUNTEERS:
-                selectedCell.ivIcon.image = UIImage(named: "0yrosa")
-            default:
-                break
-        }
-        
         if selectedCell.alpha <= CGFloat(0.5) {
             let index = selectedFiltersOptions.firstIndex(of: selectedFilterOption)
             if index == nil {
                 selectedFiltersOptions.append(selectedFilterOption)
             }
             
+            selectedCell.layer.borderWidth = 2.0
             selectedCell.alpha = 1.0
         } else {
             let index = selectedFiltersOptions.firstIndex(of: selectedFilterOption)
@@ -116,6 +108,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
                 selectedFiltersOptions.remove(at: index!)
             }
             
+            selectedCell.layer.borderWidth = 0.0
             selectedCell.alpha = 0.5
         }
     }

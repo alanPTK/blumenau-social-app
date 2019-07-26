@@ -20,8 +20,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
     
     func setupFilterOptionsCell() {
-        layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
-        layer.borderWidth = 2.0
+        lbName.textColor = UIColor.titleColor()
+        
+        layer.borderColor = UIColor.titleColor().cgColor
+        layer.borderWidth = 0.0
         layer.cornerRadius = 8
         alpha = 0.5
     }
