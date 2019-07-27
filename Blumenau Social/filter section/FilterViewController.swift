@@ -118,35 +118,31 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return seeMoreCell
         } else {
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.FILTER_CELL_IDENTIFIER, for: indexPath) as! FilterCollectionViewCell
-            var filterOption: FilterOption?
+            
+            var filterOption: FilterOption!
+            var filterImageName = ""
             
             filterCell.setupCell()
             
             switch collectionView.tag {
                 case FilterConstants.NEIGHBORHOODS:
                     filterOption = neighborhoods[indexPath.row]
+                    filterImageName = String(format: "bairro_%d", filterOption.id)
                 case FilterConstants.AREAS:
                     filterOption = areas[indexPath.row]
+                    filterImageName = String(format: "atuacao_%d", filterOption.id)
                 case FilterConstants.DONATIONS:
                     filterOption = donations[indexPath.row]
+                    filterImageName = String(format: "doacao_%d", filterOption.id)
                 case FilterConstants.VOLUNTEERS:
                     filterOption = volunteers[indexPath.row]
+                    filterImageName = String(format: "voluntario_%d", filterOption.id)
                 default:
                     break
             }
             
-            switch collectionView.tag {
-                case FilterConstants.NEIGHBORHOODS:
-                    filterCell.ivIcon.image = UIImage(named: "0z")
-                case FilterConstants.AREAS:
-                    filterCell.ivIcon.image = UIImage(named: "0x")
-                case FilterConstants.DONATIONS:
-                    filterCell.ivIcon.image = UIImage(named: "0y")
-                case FilterConstants.VOLUNTEERS:
-                    filterCell.ivIcon.image = UIImage(named: "0y")
-                default:
-                    break
-            }
+            let filterImage = UIImage(named: filterImageName)
+            filterCell.ivIcon.image = filterImage
             
             filterCell.loadFilterInformation(filter: filterOption!)
             

@@ -74,8 +74,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
                 break
         }
         
-        let filterImage = UIImage(named: filterImageName)
-        print(filterImageName)
+        let filterImage = UIImage(named: filterImageName)        
         
         filterCell.setupFilterOptionsCell()
         filterCell.loadFilterInformation(filter: currentFilterOption)
