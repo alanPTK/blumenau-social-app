@@ -501,10 +501,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UdA-nm-1G5">
-                                                            <rect key="frame" x="15" y="8" width="70" height="70"/>
+                                                            <rect key="frame" x="15" y="0.0" width="70" height="70"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garcia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rzh-hK-Yxq">
-                                                            <rect key="frame" x="4" y="78" width="92" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garcia e outro bairro aqui duas linhas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Rzh-hK-Yxq">
+                                                            <rect key="frame" x="4" y="70" width="92" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" name="titleColor"/>
                                                             <nil key="highlightedColor"/>
@@ -520,7 +520,7 @@
                                                     <constraint firstItem="Rzh-hK-Yxq" firstAttribute="leading" secondItem="JLz-7E-GYj" secondAttribute="leading" constant="4" id="dVW-E7-5E1"/>
                                                     <constraint firstItem="UdA-nm-1G5" firstAttribute="height" secondItem="JLz-7E-GYj" secondAttribute="height" multiplier="0.7" id="ign-ww-16T"/>
                                                     <constraint firstAttribute="bottom" secondItem="Rzh-hK-Yxq" secondAttribute="bottom" constant="4" id="jFT-f4-q6Q"/>
-                                                    <constraint firstItem="UdA-nm-1G5" firstAttribute="top" secondItem="JLz-7E-GYj" secondAttribute="top" constant="8" id="xxs-w1-YJZ"/>
+                                                    <constraint firstItem="UdA-nm-1G5" firstAttribute="top" secondItem="JLz-7E-GYj" secondAttribute="top" id="xxs-w1-YJZ"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="ivIcon" destination="UdA-nm-1G5" id="c7C-2B-cLI"/>
