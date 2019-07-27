@@ -14,7 +14,7 @@ class SeeMoreCollectionViewCell: UICollectionViewCell {
     
     func setupCell() {
         layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
-        layer.borderWidth = 2.0
+        layer.borderWidth = 0.0
         layer.cornerRadius = 8
     }
     

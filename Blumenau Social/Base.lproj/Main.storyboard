@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="VAGRoundedNextBold.otf">
+            <string>VAGRoundedNext-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Match-->
         <scene sceneID="pF7-fL-QkD">
@@ -297,13 +302,13 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch here to create a profile and find institutions that are fit to you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-k1-pVo">
-                                        <rect key="frame" x="8" y="229" width="304" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <rect key="frame" x="8" y="226" width="304" height="47"/>
+                                        <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                         <color key="textColor" name="titleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileRed" translatesAutoresizingMaskIntoConstraints="NO" id="rTD-aD-8Ps">
-                                        <rect key="frame" x="142.5" y="278" width="35" height="35"/>
+                                        <rect key="frame" x="142.5" y="281" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="PJw-j7-oSK"/>
                                             <constraint firstAttribute="height" constant="35" id="wNs-lQ-gSf"/>
@@ -496,7 +501,7 @@
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Institution name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAw-BE-sFg">
                                                             <rect key="frame" x="100" y="8" width="196" height="41"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                                             <color key="textColor" name="titleColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>

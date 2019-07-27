@@ -74,5 +74,10 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Precisamos da sua autorização para adicionar eventos importantes ao seu calendário.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>VAGRoundedNextLight</string>
+		<string>VAGRoundedNextBold</string>
+	</array>
 </dict>
 </plist>

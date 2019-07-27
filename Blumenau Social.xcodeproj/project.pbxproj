@@ -69,6 +69,7 @@
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
 		DBA5930E2208F4C300224267 /* InstitutionCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */; };
 		DBA593102209068200224267 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930F2209068100224267 /* MatchViewController.swift */; };
+		DBAA30D022ECC80400F6FFE0 /* VAGRoundedNextBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DBAA30CF22ECC80400F6FFE0 /* VAGRoundedNextBold.otf */; };
 		DBC6D71221FB1A5F00147097 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +152,8 @@
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionCardCollectionViewCell.swift; path = cells/InstitutionCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBA5930F2209068100224267 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchViewController.swift; path = "match section/MatchViewController.swift"; sourceTree = "<group>"; };
+		DBAA30CF22ECC80400F6FFE0 /* VAGRoundedNextBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VAGRoundedNextBold.otf; sourceTree = "<group>"; };
+		DBAA30D122ECC84200F6FFE0 /* VAGRoundedNextLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VAGRoundedNextLight.otf; sourceTree = "<group>"; };
 		DBC6D71121FB1A5F00147097 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		EE6A6678635F335CA0099842 /* Pods_BlumenauSocialTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlumenauSocialTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4F1647CF297F9262954620 /* Pods_Blumenau_Social.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blumenau_Social.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +342,8 @@
 		DB8EAB3821F3D08F00E27F8D /* internals */ = {
 			isa = PBXGroup;
 			children = (
+				DBAA30D122ECC84200F6FFE0 /* VAGRoundedNextLight.otf */,
+				DBAA30CF22ECC80400F6FFE0 /* VAGRoundedNextBold.otf */,
 				DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */,
 				DB2A7C2221F1066200C60B32 /* Info.plist */,
 				DB2A7C3421F15C8100C60B32 /* Localizable.strings */,
@@ -491,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB168E38220A384100AF2A7C /* Dialog.storyboard in Resources */,
+				DBAA30D022ECC80400F6FFE0 /* VAGRoundedNextBold.otf in Resources */,
 				DB168E36220A384100AF2A7C /* Profile.storyboard in Resources */,
 				DB168E37220A384100AF2A7C /* About.storyboard in Resources */,
 				DB2A7C2121F1066200C60B32 /* LaunchScreen.storyboard in Resources */,

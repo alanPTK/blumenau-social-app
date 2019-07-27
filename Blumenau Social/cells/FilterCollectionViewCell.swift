@@ -14,8 +14,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell() {
-        layer.borderColor = UIColor(red: 0, green: 138.0/255.0, blue: 186.0/255.0, alpha: 1).cgColor
-        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.titleColor().cgColor
+        layer.borderWidth = 0.0
         layer.cornerRadius = 8                
     }
     
@@ -31,12 +31,12 @@ class FilterCollectionViewCell: UICollectionViewCell {
     func loadAreaInformation(area: Area, selected: Bool) {
         lbName.text = area.name
         
-        //TODO, pegar os ícones certos
+        let imageName = String(format: "atuacao_%d", area.id)
+        ivIcon.image = UIImage(named: imageName)
+                
         if selected {
-            ivIcon.image = UIImage(named: "0xrosa")
             alpha = 1
         } else {
-            ivIcon.image = UIImage(named: "0x")
             alpha = 0.5
         }
     }
@@ -44,12 +44,12 @@ class FilterCollectionViewCell: UICollectionViewCell {
     func loadNeighborhoodInformation(neighborhood: Neighborhood, selected: Bool) {
         lbName.text = neighborhood.name
         
-        //TODO, pegar os ícones certos
+        let imageName = String(format: "bairro_%d", neighborhood.id)
+        ivIcon.image = UIImage(named: imageName)
+        
         if selected {
-            ivIcon.image = UIImage(named: "0zrosa")
             alpha = 1
-        } else {
-            ivIcon.image = UIImage(named: "0z")
+        } else {            
             alpha = 0.5
         }
     }

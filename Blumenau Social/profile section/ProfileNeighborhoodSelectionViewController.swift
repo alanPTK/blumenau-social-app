@@ -79,8 +79,7 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         
         for indexPath in collectionView.indexPathsForVisibleItems {
             let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
-            
-            selectedCell.ivIcon.image = UIImage(named: "0z")
+                        
             selectedCell.alpha = 0.5
         }
         
@@ -88,12 +87,9 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
             selectedCell.alpha = 1.0
             
             selectedNeighborhood = neighborhoods![indexPath.row]
-            selectedCell.ivIcon.image = UIImage(named: "0zrosa")
-            
             preferences.userNeighborhood = (selectedNeighborhood?.id)!
         } else {
             selectedCell.alpha = 0.5
-            selectedCell.ivIcon.image = UIImage(named: "0z")
         }
     }    
     

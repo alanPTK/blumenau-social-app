@@ -74,7 +74,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
                 break
         }
         
-        let filterImage = UIImage(named: filterImageName)        
+        let filterImage = UIImage(named: filterImageName)
         
         filterCell.setupFilterOptionsCell()
         filterCell.loadFilterInformation(filter: currentFilterOption)
@@ -99,7 +99,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
                 selectedFiltersOptions.append(selectedFilterOption)
             }
             
-            selectedCell.layer.borderWidth = 2.0
+            //selectedCell.layer.borderWidth = 2.0
             selectedCell.alpha = 1.0
         } else {
             let index = selectedFiltersOptions.firstIndex(of: selectedFilterOption)
@@ -107,7 +107,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
                 selectedFiltersOptions.remove(at: index!)
             }
             
-            selectedCell.layer.borderWidth = 0.0
+            //selectedCell.layer.borderWidth = 0.0
             selectedCell.alpha = 0.5
         }
     }
