@@ -342,12 +342,12 @@
 		DB8EAB3821F3D08F00E27F8D /* internals */ = {
 			isa = PBXGroup;
 			children = (
-				DBAA30D122ECC84200F6FFE0 /* VAGRoundedNextLight.otf */,
-				DBAA30CF22ECC80400F6FFE0 /* VAGRoundedNextBold.otf */,
 				DB2A7C1421F1065F00C60B32 /* AppDelegate.swift */,
+				DB2A7C1D21F1066200C60B32 /* Assets.xcassets */,
 				DB2A7C2221F1066200C60B32 /* Info.plist */,
 				DB2A7C3421F15C8100C60B32 /* Localizable.strings */,
-				DB2A7C1D21F1066200C60B32 /* Assets.xcassets */,
+				DBAA30CF22ECC80400F6FFE0 /* VAGRoundedNextBold.otf */,
+				DBAA30D122ECC84200F6FFE0 /* VAGRoundedNextLight.otf */,
 			);
 			name = internals;
 			sourceTree = "<group>";

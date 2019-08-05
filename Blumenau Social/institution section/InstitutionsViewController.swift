@@ -22,8 +22,8 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         presenter = InstitutionsPresenter(delegate: self)
         
         if !preferences.institutionsAreSynchronized || !preferences.filtersAreSynchronized {
-            hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
-            hud.show(in: view)
+            //hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
+            //hud.show(in: view)
         }
         
         presenter?.getInstitutionsFromApi()
