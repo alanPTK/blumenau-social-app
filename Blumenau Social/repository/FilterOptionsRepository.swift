@@ -68,37 +68,41 @@ class FilterOptionsRepository: NSObject {
     }
     
     /* Create a new volunteer and save it in the database */
-    func createVolunteerWithId(id: Int, name: String) {
+    func createVolunteerWithId(id: Int, name: String, image: String) {
         let volunteer = Volunteer()
         volunteer.id = id
         volunteer.name = name
+        volunteer.image = image
         
         saveVolunteer(volunteer)
     }
     
     /* Create a new neighborhood and save it in the database */
-    func createNeighborhoodWithId(id: Int, name: String) {
+    func createNeighborhoodWithId(id: Int, name: String, image: String) {
         let neighborhood = Neighborhood()
         neighborhood.id = id
         neighborhood.name = name
+        neighborhood.image = image
         
         saveNeighborhood(neighborhood)
     }
     
     /* Create a new donation and save it in the database */
-    func createDonationWithId(id: Int, name: String) {
+    func createDonationWithId(id: Int, name: String, image: String) {
         let donation = Donation()
         donation.id = id
         donation.name = name
+        donation.image = image
         
         saveDonation(donation)
     }
     
     /* Create a new area and save it in the database */
-    func createAreaWithId(id: Int, name: String) {
+    func createAreaWithId(id: Int, name: String, image: String) {
         let area = Area()
         area.id = id
         area.name = name
+        area.image = image
         
         saveArea(area)
     }

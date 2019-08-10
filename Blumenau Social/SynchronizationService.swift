@@ -10,21 +10,25 @@ struct FilterDecodable: Decodable {
 struct NeighborhoodDecodable: Decodable {
     let id: Int
     let name: String
+    let image: String
 }
 
 struct AreaDecodable: Decodable {
     let id: Int
     let name: String
+    let image: String
 }
 
 struct DonationDecodablex: Decodable {
     let id: Int
     let name: String
+    let image: String
 }
 
 struct VolunteerDecodable: Decodable {
     let id: Int
     let name: String
+    let image: String
 }
 
 struct InstitutionsDecodable: Decodable {
@@ -162,19 +166,19 @@ class SynchronizationService: NSObject {
             }
             
             for neighborhoodResponse in filters.neighborhoods {
-                filterOptionsRepository.createNeighborhoodWithId(id: neighborhoodResponse.id, name: neighborhoodResponse.name)                                
+                filterOptionsRepository.createNeighborhoodWithId(id: neighborhoodResponse.id, name: neighborhoodResponse.name, image: neighborhoodResponse.image)
             }
             
             for areaResponse in filters.areas {
-                filterOptionsRepository.createAreaWithId(id: areaResponse.id, name: areaResponse.name)
+                filterOptionsRepository.createAreaWithId(id: areaResponse.id, name: areaResponse.name, image: areaResponse.image)
             }
 
             for donationResponse in filters.donations {
-                filterOptionsRepository.createDonationWithId(id: donationResponse.id, name: donationResponse.name)
+                filterOptionsRepository.createDonationWithId(id: donationResponse.id, name: donationResponse.name, image: donationResponse.image)
             }
 
             for volunteersResponse in filters.volunteers {
-                filterOptionsRepository.createVolunteerWithId(id: volunteersResponse.id, name: volunteersResponse.name)                
+                filterOptionsRepository.createVolunteerWithId(id: volunteersResponse.id, name: volunteersResponse.name, image: volunteersResponse.image)
             }
             
             completion(true)

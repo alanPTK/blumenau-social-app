@@ -1,8 +1,7 @@
 import Foundation
 
 struct Constants {
-    static let FILTERS_DOWNLOAD_LINK = "https://cdn.filesend.jp/private/hzciB9cidMm1CwayRlvpignBeml5WuqtldKgXGhSm8TyzwVWdG2LLaWlsrmafCE6/FILTROS.json"
-    //static let FILTERS_DOWNLOAD_LINK = "https://dl.dropboxusercontent.com/s/dse0ddxn7ebd910/filters.json"
+    static let FILTERS_DOWNLOAD_LINK = "https://blumenau-social-api.herokuapp.com/filter"
     //static let INSTITUTIONS_DOWNLOAD_LINK = "https://dl.dropboxusercontent.com/s/uuf2dg05gyybmiq/institutions.json"
     static let INSTITUTIONS_DOWNLOAD_LINK = "https://dl.dropboxusercontent.com/s/ajn4mcs3x8n0iys/institutions2.json"
     static let EVENTS_DOWNLOAD_LINK = "https://dl.dropboxusercontent.com/s/t3x97p4j95pgpt3/events.json"

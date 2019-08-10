@@ -3,6 +3,7 @@ import RealmSwift
 class Area: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
+    @objc dynamic var image: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -12,6 +13,7 @@ class Area: Object {
 class Donation: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
+    @objc dynamic var image: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -21,6 +23,7 @@ class Donation: Object {
 class Volunteer: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
+    @objc dynamic var image: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
@@ -30,6 +33,7 @@ class Volunteer: Object {
 class Neighborhood: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
+    @objc dynamic var image: String = ""
     
     override static func primaryKey() -> String? {
         return "id"
