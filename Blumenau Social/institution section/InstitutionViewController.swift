@@ -378,8 +378,10 @@ class InstitutionViewController: UIViewController {
         
         if currentInstitution?.pictures.count == 0 {
             lcPicturesHeight.constant = 0
+            vPictures.isHidden = true
         } else {
             picturesOriginalHeight = lcPicturesHeight.constant
+            vPictures.isHidden = false
         }
         
         if (currentInstitution?.volunteers.isEmpty)! {
@@ -389,8 +391,10 @@ class InstitutionViewController: UIViewController {
         
         if events.count == 0 {
             lcEventHeight.constant = 0
+            vEvents.isHidden = true
         } else {
             eventOriginalHeight = lcEventHeight.constant
+            vEvents.isHidden = false
         }
         
         lcMainInformationHeight.constant = lbSubtitle.frame.origin.y + lbSubtitle.frame.size.height + 8

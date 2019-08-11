@@ -45,7 +45,8 @@ class InstitutionsPresenter {
     
     /* Load institutions from the web api */
     func getInstitutionsFromApi() {
-        if !preferences.institutionsAreSynchronized {
+        //if !preferences.institutionsAreSynchronized {
+        if true {
             if Reachability.isConnectedToNetwork() {
                 synchronizationService.synchronizeInstitutions { (result) in
                     if result {
@@ -53,7 +54,7 @@ class InstitutionsPresenter {
                         
                         DispatchQueue.main.async {
                             self.getAllInstitutions()
-                            self.getEventsFromApi()
+                            //self.getEventsFromApi()
                             self.delegate.hideProgressHud()
                         }
                     }

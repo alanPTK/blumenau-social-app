@@ -90,7 +90,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veja Todos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-7u-O8t">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-7u-O8t">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                                             <color key="textColor" name="descColor"/>
@@ -175,7 +175,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veja Todos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-hd-kHr">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-hd-kHr">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                                             <color key="textColor" name="descColor"/>
@@ -260,7 +260,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veja Todos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSQ-sa-qrb">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSQ-sa-qrb">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                                             <color key="textColor" name="descColor"/>
@@ -345,7 +345,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veja Todos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b4-pL-mb1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b4-pL-mb1">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                                             <color key="textColor" name="descColor"/>
@@ -613,7 +613,7 @@
     </scenes>
     <resources>
         <namedColor name="backgroundColor">
-            <color red="0.82745098039215681" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9137254901960784" green="0.89803921568627454" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="descColor">
             <color red="0.010999999940395355" green="0.15000000596046448" blue="0.27000001072883606" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

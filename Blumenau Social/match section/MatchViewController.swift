@@ -8,6 +8,7 @@ struct MatchConstants {
 class MatchViewController: UIViewController {
     
     @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var ivProfile: UIImageView!
     @IBOutlet weak var pcMatchingInstitutions: UIPageControl!
     @IBOutlet weak var cvMatchingInstitutions: UICollectionView!
     @IBOutlet weak var cvEvents: UICollectionView!
@@ -64,7 +65,9 @@ class MatchViewController: UIViewController {
         lbInfo.isUserInteractionEnabled = true
         
         let tapInfoRecognizer = UITapGestureRecognizer(target: self, action: #selector(showProfile))
-        lbInfo.addGestureRecognizer(tapInfoRecognizer)
+        vInfo.addGestureRecognizer(tapInfoRecognizer)
+        //lbInfo.addGestureRecognizer(tapInfoRecognizer)
+        //ivProfile.addGestureRecognizer(tapInfoRecognizer)
         
         cvMatchingInstitutions.layer.cornerRadius = 8
         cvEvents.layer.cornerRadius = 8

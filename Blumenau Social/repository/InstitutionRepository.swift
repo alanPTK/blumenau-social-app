@@ -130,8 +130,8 @@ class InstitutionRepository: NSObject {
                 let about = InstitutionAbout()
 
                 about.id = institutionAboutNextID()
-                about.title = aboutData.title
-                about.information = aboutData.information
+                about.title = aboutData //aboutData.title
+                about.information = aboutData //aboutData.information
 
                 institution.about.append(about)
                 saveAbout(about)

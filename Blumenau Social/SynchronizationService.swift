@@ -54,7 +54,8 @@ struct InstitutionDecodable: Decodable {
     let donations: [String]
     let volunteers: String
     let pictures: [String]
-    let about: [AboutDecodable]
+    let about: [String]
+    //let about: [AboutDecodable]
 }
 
 struct DonationDecodable: Decodable {
