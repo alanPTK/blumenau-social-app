@@ -214,7 +214,7 @@
 			path = BlumenauSocialTests;
 			sourceTree = "<group>";
 		};
-		DB19D04421F4B3D2004E835E /* profile section */ = {
+		DB19D04421F4B3D2004E835E /* profile */ = {
 			isa = PBXGroup;
 			children = (
 				DB029F6822061CA60073A4E7 /* InitialProfileViewController.swift */,
@@ -222,7 +222,7 @@
 				DB029F6622061CA60073A4E7 /* ProfileInterestsViewController.swift */,
 				DB029F6722061CA60073A4E7 /* ProfileNeighborhoodSelectionViewController.swift */,
 			);
-			name = "profile section";
+			name = profile;
 			sourceTree = "<group>";
 		};
 		DB2A7C0821F1065F00C60B32 = {
@@ -250,13 +250,13 @@
 			children = (
 				DB8EAB3921F3D0AF00E27F8D /* about section */,
 				DB8EAB3521F3D03A00E27F8D /* cells */,
-				DB8EAB3221F3B40900E27F8D /* filter section */,
-				DB8EAB3A21F3D0D700E27F8D /* institution section */,
+				DB8EAB3221F3B40900E27F8D /* filters */,
+				DB8EAB3A21F3D0D700E27F8D /* institution */,
 				DB029F8A2207BCDA0073A4E7 /* events */,
 				DB8EAB3821F3D08F00E27F8D /* internals */,
-				DB8EAB3B21F3D0EC00E27F8D /* match section */,
+				DB8EAB3B21F3D0EC00E27F8D /* match */,
 				DB8EAB3321F3D02500E27F8D /* models */,
-				DB19D04421F4B3D2004E835E /* profile section */,
+				DB19D04421F4B3D2004E835E /* profile */,
 				DB8EAB3421F3D03100E27F8D /* repositories */,
 				DBC6D71521FB38B200147097 /* synchronization */,
 				DB8EAB3621F3D05400E27F8D /* utils */,
@@ -265,13 +265,13 @@
 			path = "Blumenau Social";
 			sourceTree = "<group>";
 		};
-		DB8EAB3221F3B40900E27F8D /* filter section */ = {
+		DB8EAB3221F3B40900E27F8D /* filters */ = {
 			isa = PBXGroup;
 			children = (
 				DB029F4622061C5D0073A4E7 /* FilterOptionsViewController.swift */,
 				DB029F4722061C5D0073A4E7 /* FilterViewController.swift */,
 			);
-			name = "filter section";
+			name = filters;
 			sourceTree = "<group>";
 		};
 		DB8EAB3321F3D02500E27F8D /* models */ = {
@@ -365,7 +365,7 @@
 			path = "about section";
 			sourceTree = "<group>";
 		};
-		DB8EAB3A21F3D0D700E27F8D /* institution section */ = {
+		DB8EAB3A21F3D0D700E27F8D /* institution */ = {
 			isa = PBXGroup;
 			children = (
 				DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */,
@@ -373,15 +373,15 @@
 				DB029F5D22061C8A0073A4E7 /* InstitutionsViewController.swift */,
 				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
 			);
-			name = "institution section";
+			name = institution;
 			sourceTree = "<group>";
 		};
-		DB8EAB3B21F3D0EC00E27F8D /* match section */ = {
+		DB8EAB3B21F3D0EC00E27F8D /* match */ = {
 			isa = PBXGroup;
 			children = (
 				DBA5930F2209068100224267 /* MatchViewController.swift */,
 			);
-			name = "match section";
+			name = match;
 			sourceTree = "<group>";
 		};
 		DBC6D71521FB38B200147097 /* synchronization */ = {

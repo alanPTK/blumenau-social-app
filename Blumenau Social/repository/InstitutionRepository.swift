@@ -99,13 +99,13 @@ class InstitutionRepository: NSObject {
             institution.scope = institutionData.scope
             institution.volunteers = institutionData.volunteers
             institution.neighborhood = institutionData.neighborhood
-            
+
             for donation in institutionData.donations {
                 let institutionDonation = InstitutionDonation()
                 
                 institutionDonation.internalId = UUID().uuidString
                 institutionDonation.desc = donation
-                
+
                 saveDonation(institutionDonation)
                 
                 institution.donations.append(institutionDonation)
@@ -117,12 +117,12 @@ class InstitutionRepository: NSObject {
             
             for cause in institutionData.causes {
                 let institutionCause = InstitutionCause()
-                
+
                 institutionCause.internalId = UUID().uuidString
                 institutionCause.id = cause
-                
+
                 saveCause(institutionCause)
-                
+
                 institution.causes.append(institutionCause)
             }
 
@@ -136,20 +136,20 @@ class InstitutionRepository: NSObject {
                 institution.about.append(about)
                 saveAbout(about)
             }
-            
+
             for day in institutionData.days {
                 let institutionWorkingDay = InstitutionWorkingDay()
-                
+
                 institutionWorkingDay.internalId = UUID().uuidString
                 institutionWorkingDay.id = day
-                
+
                 institution.days.append(institutionWorkingDay)
                 saveWorkingDay(institutionWorkingDay)
             }
             
             for period in institutionData.periods {
                 let institutionWorkingPeriod = InstitutionWorkingPeriod()
-                
+
                 institutionWorkingPeriod.internalId = UUID().uuidString
                 institutionWorkingPeriod.id = period
                 
@@ -159,20 +159,20 @@ class InstitutionRepository: NSObject {
             
             for donationType in institutionData.donation_type {
                 let institutionDonationType = InstitutionDonationType()
-                
+
                 institutionDonationType.internalId = UUID().uuidString
                 institutionDonationType.id = donationType
-                
+
                 institution.donationType.append(institutionDonationType)
                 saveDonationType(institutionDonationType)
             }
-            
+
             for volunteerType in institutionData.volunteer_type {
                 let institutionVolunteerType = InstitutionVolunteerType()
-                
+
                 institutionVolunteerType.internalId = UUID().uuidString
                 institutionVolunteerType.id = volunteerType
-                
+
                 institution.volunteerType.append(institutionVolunteerType)
                 saveVolunteerType(institutionVolunteerType)
             }

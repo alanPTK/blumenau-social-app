@@ -32,7 +32,7 @@ class AboutTableViewCell: UITableViewCell {
         lcAboutHeight.constant = Utils.shared.resizeTextView(textView: tvDesc).height
         
         if indexPath.row == 0 {
-            btToggleVisibility.isHidden = false
+            btToggleVisibility.isHidden = true
         } else {
             btToggleVisibility.isHidden = true
         }

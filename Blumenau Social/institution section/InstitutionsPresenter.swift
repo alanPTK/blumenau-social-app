@@ -46,7 +46,7 @@ class InstitutionsPresenter {
     /* Load institutions from the web api */
     func getInstitutionsFromApi() {
         //if !preferences.institutionsAreSynchronized {
-        if true {
+        if false {
             if Reachability.isConnectedToNetwork() {
                 synchronizationService.synchronizeInstitutions { (result) in
                     if result {

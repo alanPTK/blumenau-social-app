@@ -76,7 +76,8 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var lbAddress: UILabel!
-        
+    @IBOutlet weak var lbResponsibleTitle: UILabel!
+    
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
     @IBOutlet weak var lcMainInformationHeight: NSLayoutConstraint!
@@ -167,6 +168,11 @@ class InstitutionViewController: UIViewController {
         
         let locationTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showInstitutionLocation))
         lbAddress.addGestureRecognizer(locationTapGestureRecognizer)
+        
+        if currentInstitution?.responsible.isEmpty ?? true {
+            lbResponsible.isHidden = true
+            lbResponsibleTitle.isHidden = true
+        }
     }
     
     /* When the user taps the address, open the Maps application with the institution location */
@@ -375,6 +381,14 @@ class InstitutionViewController: UIViewController {
         
         lcAboutHeight.constant = tvAbout.contentSize.height + 16
         aboutOriginalHeight = lcAboutHeight.constant
+        
+        if currentInstitution?.workingHours.isEmpty ?? true {
+            lcWorkingHoursHeight.constant = 0
+            vWorkingHours.isHidden = true
+        } else {
+            workingHoursOriginalHeight = lcWorkingHoursHeight.constant
+            vWorkingHours.isHidden = false
+        }
         
         if currentInstitution?.pictures.count == 0 {
             lcPicturesHeight.constant = 0
