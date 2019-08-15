@@ -2,7 +2,7 @@ import UIKit
 import JGProgressHUD
 import RealmSwift
 
-class InstitutionsViewController: UIViewController, UITextFieldDelegate {
+class HomeViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cvInstitutions: UICollectionView!
     @IBOutlet weak var ivSearch: UIImageView!
@@ -22,14 +22,18 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
         presenter = InstitutionsPresenter(delegate: self)
         
         if !preferences.institutionsAreSynchronized || !preferences.filtersAreSynchronized {
-            hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
-            hud.show(in: view)
+            //hud.textLabel.text = NSLocalizedString("Loading information, please wait...", comment: "")
+            //hud.show(in: view)
         }
         
-        presenter?.getInstitutionsFromApi()
-        presenter?.getFiltersFromApi()
+        //presenter?.getFiltersFromApi()
         
-        presenter?.getAllInstitutions()
+        //presenter?.getInstitutionsFromApi()
+        //presenter?.getFiltersFromApi()
+        
+        //presenter?.getAllInstitutions()
+        
+        presenter?.getFilters()
     }
     
     /* Configure the visual aspects of the view components */
@@ -82,7 +86,7 @@ class InstitutionsViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-extension InstitutionsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     /* If there ano institutions, show a view with the information for the user */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -141,7 +145,7 @@ extension UICollectionView {
     
 }
 
-extension InstitutionsViewController: InstitutionsDelegate {
+extension HomeViewController: InstitutionsDelegate {
             
     func showInstitutionsFromFilter(institutions: [Institution]) {
         self.institutions = institutions

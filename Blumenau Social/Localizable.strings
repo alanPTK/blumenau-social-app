@@ -41,6 +41,7 @@
 "Areas of activity" = "Áreas de atuação";
 "Donations" = "Doações";
 "Volunteers" = "Voluntários";
+"Loading filters..." = "Carregando filtros...";
 
 //profile
 "Touch here to create a profile and find out which institutions that fit it" = "Toque aqui para descobrir as instituições que mais se encaixam ao seu perfil";
@@ -66,3 +67,4 @@
 "Developer" = "Alan Fabeni / Programador";
 "Artist" = "Thiago Bennertz / Ilustrador";
 "Without internet connection we can't synchronize the information." = "Sem conexão à internet não podemos sincronizar as informações.";
+"Loading institutions..." = "Carregando instituições...";

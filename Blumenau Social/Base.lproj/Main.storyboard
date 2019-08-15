@@ -428,7 +428,7 @@
         <!--Instituições-->
         <scene sceneID="WqE-fv-O3i">
             <objects>
-                <viewController id="etH-2U-Agk" customClass="InstitutionsViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="etH-2U-Agk" customClass="HomeViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htq-si-sh3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "510CA3413939A12ED1B97B51E2AE894B"
+               BlueprintIdentifier = "048D21E3C8151CD23D428D38093E1538"
+               BuildableName = "EasyTipView.framework"
                BlueprintName = "EasyTipView"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "EasyTipView.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

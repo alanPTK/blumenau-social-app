@@ -9,8 +9,8 @@ target 'Blumenau Social' do
   pod 'RealmSwift'
   pod 'IHKeyboardAvoiding'
   pod 'IQKeyboardManager'
-  pod 'Nuke', '~> 7.0'
-  pod 'JGProgressHUD'
+  pod 'Nuke', '~> 7.0'  
+  pod 'SVProgressHUD', '~> 2.2'
   pod 'EasyTipView', '~> 2.0.0'
   
   target 'BlumenauSocialTests' do

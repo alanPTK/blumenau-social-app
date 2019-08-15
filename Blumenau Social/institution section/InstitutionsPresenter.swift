@@ -44,49 +44,10 @@ class InstitutionsPresenter {
     }
     
     /* Load institutions from the web api */
-    func getInstitutionsFromApi() {
-        //if !preferences.institutionsAreSynchronized {
-        if false {
-            if Reachability.isConnectedToNetwork() {
-                synchronizationService.synchronizeInstitutions { (result) in
-                    if result {
-                        Preferences.shared.institutionsAreSynchronized = true
-                        
-                        DispatchQueue.main.async {
-                            self.getAllInstitutions()
-                            //self.getEventsFromApi()
-                            self.delegate.hideProgressHud()
-                        }
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""), viewController: nil)
-                    self.delegate.hideProgressHud()
-                }
-            }
-        }
-    }
-    
-    /* Load filters from the web api */
-    func getFiltersFromApi() {
-        if !preferences.filtersAreSynchronized {
-            if Reachability.isConnectedToNetwork() {
-                synchronizationService.synchronizeFilterOptions { (result) in
-                    if result {
-                        DispatchQueue.main.async {
-                            self.delegate.hideProgressHud()
-                        }
-                        self.preferences.filtersAreSynchronized = true
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""), viewController: nil)
-                    self.delegate.hideProgressHud()
-                }
-            }            
-        }
+    func getInstitutions() {
+        delegate.showLoadingMessage(message: NSLocalizedString("Loading institutions...", comment: ""))
+        
+        InstitutionService.getInstitutions(delegate: self)
     }
     
     /* Load events from the web */
@@ -98,6 +59,26 @@ class InstitutionsPresenter {
                 }
             })
         }
+    }
+    
+}
+
+extension InstitutionsPresenter: InstitutionsServiceDelegate {
+    
+    func onInstitutionSuccess() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+            let institutions = self.institutionRepository.getAllInstitutions()
+            
+            self.delegate.showInstitutions(institutions: institutions)
+            
+            self.delegate.hideLoadingMessage()
+        }
+    }
+    
+    func onInstitutionFailure(errorMessage: String) {
+        delegate.hideLoadingMessage()
+        
+        delegate.showErrorMessage(message: errorMessage)
     }
     
 }
