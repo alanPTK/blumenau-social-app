@@ -20,6 +20,7 @@ class InstitutionGeneralInformationCollectionViewCell: UICollectionViewCell {
     }
     
     func loadInformation(institution: Institution) {
+        ivInstitutionImage.image = UIImage(named: institution.logo)
         lbInstitutionName.text = institution.title
         lbInstitutionPhone.text = institution.phone
         lbInstitutionAddress.text = institution.address

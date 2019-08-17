@@ -51,6 +51,7 @@ struct InstitutionDecodable: Decodable {
     let volunteer_type: [Int]
     let neighborhood: Int
     let scope: String
+    let logo: String
     let donations: [String]
     let volunteers: String
     let pictures: [String]

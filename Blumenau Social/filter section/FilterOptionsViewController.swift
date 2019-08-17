@@ -59,22 +59,7 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
         
         let currentFilterOption = filterOptions[indexPath.row]
         
-        var filterImageName = ""
-        
-        switch selectedOption {
-            case FilterConstants.NEIGHBORHOODS:
-                filterImageName = String(format: "bairro_%d", currentFilterOption.id)
-            case FilterConstants.AREAS:
-                filterImageName = String(format: "atuacao_%d", currentFilterOption.id)
-            case FilterConstants.DONATIONS:
-                filterImageName = String(format: "doacao_%d", currentFilterOption.id)
-            case FilterConstants.VOLUNTEERS:
-                filterImageName = String(format: "voluntario_%d", currentFilterOption.id)
-            default:
-                break
-        }
-        
-        let filterImage = UIImage(named: filterImageName)
+        let filterImage = UIImage(named: currentFilterOption.image)
         
         filterCell.setupFilterOptionsCell()
         filterCell.loadFilterInformation(filter: currentFilterOption)
@@ -98,16 +83,12 @@ extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICol
             if index == nil {
                 selectedFiltersOptions.append(selectedFilterOption)
             }
-            
-            //selectedCell.layer.borderWidth = 2.0
             selectedCell.alpha = 1.0
         } else {
             let index = selectedFiltersOptions.firstIndex(of: selectedFilterOption)
             if index != nil {
                 selectedFiltersOptions.remove(at: index!)
-            }
-            
-            //selectedCell.layer.borderWidth = 0.0
+            }                        
             selectedCell.alpha = 0.5
         }
     }

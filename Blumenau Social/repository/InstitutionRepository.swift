@@ -99,6 +99,7 @@ class InstitutionRepository: NSObject {
             institution.scope = institutionData.scope
             institution.volunteers = institutionData.volunteers
             institution.neighborhood = institutionData.neighborhood
+            institution.logo = institutionData.logo
 
             for donation in institutionData.donations {
                 let institutionDonation = InstitutionDonation()

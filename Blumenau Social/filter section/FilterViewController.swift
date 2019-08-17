@@ -11,6 +11,7 @@ struct FilterConstants {
 struct FilterOption {
     var name: String = ""
     var id: Int = 0
+    var image: String = ""
 }
 
 extension FilterOption: Equatable {}
@@ -48,19 +49,19 @@ class FilterViewController: UIViewController {
         setupView()
         
         for area in filterOptionsRepository.getAllAreas() {
-            areas.append(FilterOption(name: area.name, id: area.id))
+            areas.append(FilterOption(name: area.name, id: area.id, image: area.image))
         }
         
         for donation in filterOptionsRepository.getAllDonations() {
-            donations.append(FilterOption(name: donation.name, id: donation.id))
+            donations.append(FilterOption(name: donation.name, id: donation.id, image: donation.image))
         }
         
         for volunteer in filterOptionsRepository.getAllVolunteers() {
-            volunteers.append(FilterOption(name: volunteer.name, id: volunteer.id))
+            volunteers.append(FilterOption(name: volunteer.name, id: volunteer.id, image: volunteer.image))
         }
         
         for neighborhood in filterOptionsRepository.getAllNeighborhoods() {
-            neighborhoods.append(FilterOption(name: neighborhood.name, id: neighborhood.id))
+            neighborhoods.append(FilterOption(name: neighborhood.name, id: neighborhood.id, image: neighborhood.image))
         }
     }
     
@@ -119,29 +120,24 @@ extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSo
         } else {
             let filterCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.FILTER_CELL_IDENTIFIER, for: indexPath) as! FilterCollectionViewCell
             
-            var filterOption: FilterOption!
-            var filterImageName = ""
+            var filterOption: FilterOption!            
             
             filterCell.setupCell()
             
             switch collectionView.tag {
                 case FilterConstants.NEIGHBORHOODS:
                     filterOption = neighborhoods[indexPath.row]
-                    filterImageName = String(format: "bairro_%d", filterOption.id)
                 case FilterConstants.AREAS:
                     filterOption = areas[indexPath.row]
-                    filterImageName = String(format: "atuacao_%d", filterOption.id)
                 case FilterConstants.DONATIONS:
                     filterOption = donations[indexPath.row]
-                    filterImageName = String(format: "doacao_%d", filterOption.id)
                 case FilterConstants.VOLUNTEERS:
                     filterOption = volunteers[indexPath.row]
-                    filterImageName = String(format: "voluntario_%d", filterOption.id)
                 default:
                     break
             }
             
-            let filterImage = UIImage(named: filterImageName)
+            let filterImage = UIImage(named: filterOption.image)
             filterCell.ivIcon.image = filterImage
             
             filterCell.loadFilterInformation(filter: filterOption!)

@@ -23,7 +23,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         institutionsPresenter?.getInstitutions()
         
         filtersPresenter = FiltersPresenter(delegate: self)
-        filtersPresenter?.getFilters()
     }
     
     /* Configure the visual aspects of the view components */
@@ -165,13 +164,17 @@ extension HomeViewController: InstitutionsDelegate {
     
     func showInstitutionsFromFilter(institutions: [Institution]) {
         self.institutions = institutions
+        
         cvInstitutions.reloadData()
     }
     
     /* Reload the collection view to show all the institutions found */
     func showInstitutions(institutions: [Institution]) {
         self.institutions = institutions
+        
         cvInstitutions.reloadData()
+        
+        filtersPresenter?.getFilters()
     }
     
 }

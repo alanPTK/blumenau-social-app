@@ -11,6 +11,7 @@ class Institution: Object {
     @objc dynamic var workingHours: String = ""
     @objc dynamic var scope: String = ""
     @objc dynamic var volunteers: String = ""
+    @objc dynamic var logo: String = ""
     @objc dynamic var neighborhood: Int = 0
     var days = List<InstitutionWorkingDay>()
     var periods = List<InstitutionWorkingPeriod>()
