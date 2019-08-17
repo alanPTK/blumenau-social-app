@@ -18,12 +18,12 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         setupView()
+                
+        institutionsPresenter = InstitutionsPresenter(delegate: self)
+        institutionsPresenter?.getInstitutions()
         
         filtersPresenter = FiltersPresenter(delegate: self)
         filtersPresenter?.getFilters()
-        
-        institutionsPresenter = InstitutionsPresenter(delegate: self)
-        institutionsPresenter?.getInstitutions()
     }
     
     /* Configure the visual aspects of the view components */

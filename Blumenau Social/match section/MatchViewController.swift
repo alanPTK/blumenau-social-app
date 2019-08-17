@@ -65,9 +65,7 @@ class MatchViewController: UIViewController {
         lbInfo.isUserInteractionEnabled = true
         
         let tapInfoRecognizer = UITapGestureRecognizer(target: self, action: #selector(showProfile))
-        vInfo.addGestureRecognizer(tapInfoRecognizer)
-        //lbInfo.addGestureRecognizer(tapInfoRecognizer)
-        //ivProfile.addGestureRecognizer(tapInfoRecognizer)
+        vInfo.addGestureRecognizer(tapInfoRecognizer)        
         
         cvMatchingInstitutions.layer.cornerRadius = 8
         cvEvents.layer.cornerRadius = 8

@@ -615,9 +615,13 @@ extension InstitutionViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             let currentCause = currentInstitution?.causes[indexPath.row]
             let cause = filterRepository.getAreaWithId(id: (currentCause?.id)!)
-            let textSize = cause?.name.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)])            
-            
-            return CGSize(width: (textSize?.width)! + 30, height: 17)
+            if cause != nil {
+                let textSize = cause?.name.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)])
+                
+                return CGSize(width: (textSize?.width)! + 30, height: 17)
+            } else {
+                return CGSize(width: 0, height: 0)
+            }
         }
     }
 

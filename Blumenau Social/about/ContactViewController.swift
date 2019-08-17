@@ -10,7 +10,9 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var btSend: UIButton!
     @IBOutlet weak var btInstagram: UIButton!
     @IBOutlet weak var btFacebook: UIButton!
+    @IBOutlet weak var lbDeveloper: UILabel!
     @IBOutlet weak var lbDeveloperName: UILabel!
+    @IBOutlet weak var lbArtist: UILabel!
     @IBOutlet weak var lbArtistName: UILabel!
     
     /* Initialize all the necessary information for the view */
@@ -19,8 +21,11 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         
         setupView()
         
-        lbDeveloperName.text = NSLocalizedString("Developer", comment: "")
-        lbArtistName.text = NSLocalizedString("Artist", comment: "")
+        lbDeveloperName.text = NSLocalizedString("Developer name", comment: "")
+        lbDeveloper.text = NSLocalizedString("Developer", comment: "")
+        
+        lbArtistName.text = NSLocalizedString("Artist name", comment: "")
+        lbArtist.text = NSLocalizedString("Artist", comment: "")
     }
     
     /* Configure the visual aspects of the view components */

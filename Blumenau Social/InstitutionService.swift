@@ -30,6 +30,8 @@ class InstitutionService: NSObject {
                 
                 institutionRepository.createInstitutionWithData(institutionsData: institutions)
                 
+                Cache.shared.institutionLastSync = Date()
+                
                 delegate.onInstitutionSuccess()
             }
             

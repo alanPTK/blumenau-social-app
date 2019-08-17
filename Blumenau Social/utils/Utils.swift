@@ -79,4 +79,31 @@ class Utils {
             viewController!.present(alertController, animated: true, completion: nil)
         }
     }
+    
+    func shouldSyncInformation(information: Int) -> Bool {
+        let currentDate = Date()
+        
+        switch information {
+            case Constants.INSTITUTIONS:
+                if let institutionLastSync = Cache.shared.institutionLastSync {
+                    let difference = Calendar.current.dateComponents([.day], from: institutionLastSync, to: currentDate)
+                
+                    return difference.day! >= 2
+                } else {
+                    return true
+                }
+            case Constants.FILTERS:
+                if let filterLastSync = Cache.shared.filterLastSync {
+                    let difference = Calendar.current.dateComponents([.day], from: filterLastSync, to: currentDate)
+                
+                    return difference.day! >= 2
+                } else {
+                    return true
+                }
+            default:
+                break
+            }
+        
+        return true
+    }
 }

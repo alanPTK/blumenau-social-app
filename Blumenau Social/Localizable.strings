@@ -61,10 +61,12 @@
 "These are the institutions that fit your profile" = "%@, essas são as instituições que mais se encaixam no seu perfil...";
 "Events from the institutions that we think you would like" = "Eventos das instituições que achamos que você vai se interessar...";
 "Show more info" = "Mostrar mais informações";
-"Institutions and events" = "Instituições e eventos";
+"Institutions and events" = "Suas instituições";
 
 //others
-"Developer" = "Alan Fabeni / Programador";
-"Artist" = "Thiago Bennertz / Ilustrador";
+"Developer name" = "Alan Fabeni";
+"Artist name" = "Thiago Bennertz";
+"Developer" = "Programador";
+"Artist" = "Ilustrador";
 "Without internet connection we can't synchronize the information." = "Sem conexão à internet não podemos sincronizar as informações.";
-"Loading institutions..." = "Carregando instituições...";
+"Loading institutions..." = "Buscando instituições...";

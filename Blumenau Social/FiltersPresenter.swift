@@ -9,15 +9,13 @@ class FiltersPresenter: NSObject {
     }
     
     func getFilters() {
-        if Reachability.isConnectedToNetwork() {
-            delegate.showLoadingMessage(message: NSLocalizedString("Loading filters...", comment: ""))
-            
+        delegate.showLoadingMessage(message: NSLocalizedString("Loading filters...", comment: ""))
+        
+        if Utils.shared.shouldSyncInformation(information: Constants.FILTERS) {
             FilterService.getFilters(delegate: self)
         } else {
             delegate.hideLoadingMessage()
-            
-            delegate.showErrorMessage(message: NSLocalizedString("Without internet connection we can't synchronize the information.", comment: ""))
-        }
+        }        
     }
     
 }

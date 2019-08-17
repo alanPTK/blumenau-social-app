@@ -69,6 +69,7 @@
 		DB8F1DDF2304C9430035676A /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DDE2304C9430035676A /* FiltersPresenter.swift */; };
 		DB8F1DE12304C9510035676A /* FiltersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DE02304C9510035676A /* FiltersDelegate.swift */; };
 		DB8F1DE32304CE680035676A /* InstitutionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DE22304CE680035676A /* InstitutionService.swift */; };
+		DB8F1DE52304E88B0035676A /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DE42304E88B0035676A /* Cache.swift */; };
 		DB957CC821F1EF7600E195D6 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CC621F1EF7600E195D6 /* MissionViewController.swift */; };
 		DB957CCD21F223E700E195D6 /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB957CCC21F223E700E195D6 /* ActionsViewController.swift */; };
 		DBA5930E2208F4C300224267 /* InstitutionCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */; };
@@ -156,6 +157,7 @@
 		DB8F1DDE2304C9430035676A /* FiltersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
 		DB8F1DE02304C9510035676A /* FiltersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersDelegate.swift; sourceTree = "<group>"; };
 		DB8F1DE22304CE680035676A /* InstitutionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionService.swift; sourceTree = "<group>"; };
+		DB8F1DE42304E88B0035676A /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cache.swift; path = utils/Cache.swift; sourceTree = "<group>"; };
 		DB957CC621F1EF7600E195D6 /* MissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewController.swift; sourceTree = "<group>"; };
 		DB957CCC21F223E700E195D6 /* ActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		DBA5930D2208F4C300224267 /* InstitutionCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionCardCollectionViewCell.swift; path = cells/InstitutionCardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		DB8EAB3621F3D05400E27F8D /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				DB8F1DE42304E88B0035676A /* Cache.swift */,
 				DB029F7522061CF90073A4E7 /* Constants.swift */,
 				DB029F7222061CF90073A4E7 /* CustomLayout.swift */,
 				DB029F7322061CF90073A4E7 /* Preferences.swift */,
@@ -676,6 +679,7 @@
 				DB029F7022061CB20073A4E7 /* InstitutionRepository.swift in Sources */,
 				DB029F832207A3150073A4E7 /* InstitutionsDelegate.swift in Sources */,
 				DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */,
+				DB8F1DE52304E88B0035676A /* Cache.swift in Sources */,
 				DB029F5F22061C8A0073A4E7 /* InformationViewController.swift in Sources */,
 				DB029F7722061CF90073A4E7 /* Preferences.swift in Sources */,
 				DB029F6022061C8A0073A4E7 /* InstitutionViewController.swift in Sources */,

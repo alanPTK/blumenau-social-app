@@ -47,17 +47,14 @@ class InstitutionsPresenter {
     func getInstitutions() {
         delegate.showLoadingMessage(message: NSLocalizedString("Loading institutions...", comment: ""))
         
-        InstitutionService.getInstitutions(delegate: self)
-    }
-    
-    /* Load events from the web */
-    func getEventsFromApi() {
-        if !preferences.eventsAreSynchronized {
-            synchronizationService.synchronizeEvents(completion: { (result) in
-                if result {
-                    self.preferences.eventsAreSynchronized = true
-                }
-            })
+        if Utils.shared.shouldSyncInformation(information: Constants.INSTITUTIONS) {
+            InstitutionService.getInstitutions(delegate: self)
+        } else {
+            let institutions = self.institutionRepository.getAllInstitutions()
+            
+            self.delegate.showInstitutions(institutions: institutions)
+            
+            self.delegate.hideLoadingMessage()
         }
     }
     

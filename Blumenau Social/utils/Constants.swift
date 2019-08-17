@@ -54,4 +54,7 @@ struct Constants {
     //notification names
     static let SHOW_INSTITUTION_NOTIFICATION_NAME = "showInstitution";
     static let SHOW_EVENT_NOTIFICATION_NAME = "showEvent";
+    
+    static let FILTERS = 0
+    static let INSTITUTIONS = 1
 }
