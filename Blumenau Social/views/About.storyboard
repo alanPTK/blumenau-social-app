@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,11 +24,11 @@
             <objects>
                 <viewController storyboardIdentifier="MissionViewController" id="hLU-dB-6kH" customClass="MissionViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Mg-rP-RNI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossa Visão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mz4-ec-QTm">
-                                <rect key="frame" x="96" y="42" width="128" height="29"/>
+                                <rect key="frame" x="143" y="60" width="128" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="z5f-8K-Pn4"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ8-2Y-CnA">
-                                <rect key="frame" x="8" y="71" width="304" height="68"/>
+                                <rect key="frame" x="8" y="89" width="398" height="68"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="b4h-IQ-Fa5"/>
@@ -49,13 +49,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossa Missão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-B0-hRs">
-                                <rect key="frame" x="87.5" y="147" width="145" height="33.5"/>
+                                <rect key="frame" x="134.66666666666666" y="165" width="144.99999999999997" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVl-6l-Box">
-                                <rect key="frame" x="8" y="180.5" width="304" height="84"/>
+                                <rect key="frame" x="8" y="198.66666666666666" width="398" height="83.999999999999972"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="HeU-9A-kmC"/>
@@ -66,49 +66,49 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossos Valores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-M8-ypY">
-                                <rect key="frame" x="81.5" y="272.5" width="158" height="34"/>
+                                <rect key="frame" x="128" y="290.66666666666669" width="158" height="34"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voluntariado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g82-kf-JJP">
-                                <rect key="frame" x="115" y="314.5" width="90" height="23.5"/>
+                                <rect key="frame" x="162" y="332.66666666666669" width="90" height="23.333333333333314"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amor Pela Causa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCH-b4-DRU">
-                                <rect key="frame" x="98.5" y="346" width="123" height="23.5"/>
+                                <rect key="frame" x="145.66666666666666" y="364" width="122.99999999999997" height="23.666666666666686"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartilhamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O44-hf-Fzu">
-                                <rect key="frame" x="93.5" y="377.5" width="133" height="23.5"/>
+                                <rect key="frame" x="140.66666666666666" y="395.66666666666669" width="132.99999999999997" height="23.333333333333314"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conexão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRF-0M-kyS">
-                                <rect key="frame" x="128" y="409" width="64" height="23.5"/>
+                                <rect key="frame" x="175" y="427" width="64" height="23.666666666666686"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comprometimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BA3-gA-eRz">
-                                <rect key="frame" x="93.5" y="440.5" width="133" height="23.5"/>
+                                <rect key="frame" x="140.66666666666666" y="458.66666666666669" width="132.99999999999997" height="23.333333333333314"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desenvolvimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo5-7i-4bL">
-                                <rect key="frame" x="99.5" y="472" width="121" height="23.5"/>
+                                <rect key="frame" x="146.66666666666666" y="490" width="120.99999999999997" height="23.666666666666629"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pluralidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7A-Gg-P3B">
-                                <rect key="frame" x="119.5" y="503.5" width="81" height="23.5"/>
+                                <rect key="frame" x="166.66666666666666" y="521.66666666666663" width="81" height="23.333333333333371"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                             <constraint firstItem="Uo5-7i-4bL" firstAttribute="top" secondItem="BA3-gA-eRz" secondAttribute="bottom" constant="8" id="0Ah-2I-wEV"/>
                             <constraint firstItem="g82-kf-JJP" firstAttribute="top" secondItem="AnA-M8-ypY" secondAttribute="bottom" constant="8" id="7OH-KN-46Q"/>
                             <constraint firstItem="YVl-6l-Box" firstAttribute="leading" secondItem="4Mg-rP-RNI" secondAttribute="leading" constant="8" id="7sy-Rh-nF4"/>
-                            <constraint firstItem="Mz4-ec-QTm" firstAttribute="top" secondItem="4Mg-rP-RNI" secondAttribute="topMargin" constant="22" id="8Xi-Ae-fhH"/>
+                            <constraint firstItem="Mz4-ec-QTm" firstAttribute="top" secondItem="dl8-45-yP3" secondAttribute="top" constant="16" id="8Xi-Ae-fhH"/>
                             <constraint firstItem="BA3-gA-eRz" firstAttribute="top" secondItem="bRF-0M-kyS" secondAttribute="bottom" constant="8" id="BHZ-Tm-7IA"/>
                             <constraint firstItem="bRF-0M-kyS" firstAttribute="centerX" secondItem="4Mg-rP-RNI" secondAttribute="centerX" id="CRf-Vh-UtY"/>
                             <constraint firstItem="AnA-M8-ypY" firstAttribute="top" secondItem="YVl-6l-Box" secondAttribute="bottom" constant="8" id="Ghg-FR-2ft"/>
@@ -169,32 +169,32 @@
             <objects>
                 <viewController storyboardIdentifier="ActionsViewController" id="5Tp-hx-Vg3" customClass="ActionsViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r6Y-91-KJP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quem faz o Blumenau Social" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="iVc-pw-oMt">
-                                <rect key="frame" x="36" y="42" width="258" height="66.5"/>
+                                <rect key="frame" x="36" y="60" width="352" height="33.333333333333343"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFb-SZ-dCD">
-                                <rect key="frame" x="8" y="108.5" width="304" height="255.5"/>
+                                <rect key="frame" x="8" y="93.333333333333343" width="398" height="403.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="descColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossas Ações" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="Qwq-ux-8rh">
-                                <rect key="frame" x="88" y="372" width="144" height="33.5"/>
+                                <rect key="frame" x="135" y="504.66666666666669" width="144" height="33.333333333333314"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="38v-uv-bFw">
-                                <rect key="frame" x="8" y="405.5" width="304" height="88.5"/>
+                                <rect key="frame" x="8" y="538" width="398" height="250"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ulh-S5-EWO">
                                     <size key="itemSize" width="150" height="150"/>
@@ -204,7 +204,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="actionImageCell" id="glb-gD-qAN" customClass="ActionImageCollectionViewCell" customModule="Blumenau_Social" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-31" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="50" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
@@ -246,7 +246,7 @@
                             <constraint firstItem="Qwq-ux-8rh" firstAttribute="top" secondItem="TFb-SZ-dCD" secondAttribute="bottom" constant="8" id="p7T-b8-yGg"/>
                             <constraint firstItem="iVc-pw-oMt" firstAttribute="leading" secondItem="U9H-mX-hkC" secondAttribute="leading" constant="36" id="q8N-R6-Air"/>
                             <constraint firstItem="U9H-mX-hkC" firstAttribute="trailing" secondItem="TFb-SZ-dCD" secondAttribute="trailing" constant="8" id="w7v-2F-zEA"/>
-                            <constraint firstItem="iVc-pw-oMt" firstAttribute="top" secondItem="r6Y-91-KJP" secondAttribute="topMargin" constant="22" id="zgd-s1-7KK"/>
+                            <constraint firstItem="iVc-pw-oMt" firstAttribute="top" secondItem="U9H-mX-hkC" secondAttribute="top" constant="16" id="zgd-s1-7KK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U9H-mX-hkC"/>
                     </view>
@@ -263,11 +263,11 @@
             <objects>
                 <viewController storyboardIdentifier="InformationViewController" id="c5E-lc-TIz" customClass="InformationViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nkP-IM-me2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVT-UA-kU3">
-                                <rect key="frame" x="129.5" y="42" width="61" height="29"/>
+                                <rect key="frame" x="176.66666666666666" y="68" width="61" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="gan-qD-dsb"/>
                                 </constraints>
@@ -276,21 +276,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH0-Ew-Oo6">
-                                <rect key="frame" x="8" y="79" width="304" height="267"/>
+                                <rect key="frame" x="8" y="105" width="398" height="421"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="descColor"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solidariedade que marca" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="I4C-ji-ip2">
-                                <rect key="frame" x="8" y="354" width="304" height="33.5"/>
+                                <rect key="frame" x="8" y="534" width="398" height="33.333333333333371"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-clear-logo" translatesAutoresizingMaskIntoConstraints="NO" id="tZw-Wd-JJd">
-                                <rect key="frame" x="8" y="391.5" width="304" height="100"/>
+                                <rect key="frame" x="8" y="571.33333333333337" width="398" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="AbU-IH-hJz"/>
@@ -304,7 +304,7 @@
                             <constraint firstItem="tZw-Wd-JJd" firstAttribute="leading" secondItem="W0P-aj-onm" secondAttribute="leading" constant="8" id="W8o-ny-A70"/>
                             <constraint firstItem="W0P-aj-onm" firstAttribute="trailing" secondItem="RH0-Ew-Oo6" secondAttribute="trailing" constant="8" id="eVY-UN-6eu"/>
                             <constraint firstItem="W0P-aj-onm" firstAttribute="trailing" secondItem="I4C-ji-ip2" secondAttribute="trailing" constant="8" id="fV6-TJ-yXv"/>
-                            <constraint firstItem="OVT-UA-kU3" firstAttribute="top" secondItem="nkP-IM-me2" secondAttribute="topMargin" constant="22" id="ieh-uK-xEW"/>
+                            <constraint firstItem="OVT-UA-kU3" firstAttribute="topMargin" secondItem="W0P-aj-onm" secondAttribute="top" constant="32" id="ieh-uK-xEW"/>
                             <constraint firstItem="I4C-ji-ip2" firstAttribute="leading" secondItem="W0P-aj-onm" secondAttribute="leading" constant="8" id="kHz-O0-6fP"/>
                             <constraint firstItem="RH0-Ew-Oo6" firstAttribute="height" secondItem="nkP-IM-me2" secondAttribute="height" multiplier="0.47" id="oAc-9n-XDd"/>
                             <constraint firstItem="RH0-Ew-Oo6" firstAttribute="leading" secondItem="W0P-aj-onm" secondAttribute="leading" constant="8" id="qvr-Yq-aed"/>
@@ -327,11 +327,11 @@
             <objects>
                 <viewController storyboardIdentifier="ContactViewController" id="5Jz-bI-ccq" customClass="ContactViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vch-04-T6h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fale Conosco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvI-I6-fef">
-                                <rect key="frame" x="91" y="42" width="138" height="29"/>
+                                <rect key="frame" x="138.33333333333337" y="60" width="137.66666666666663" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="2jS-7h-MDJ"/>
                                 </constraints>
@@ -340,7 +340,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2D-nR-o05">
-                                <rect key="frame" x="8" y="79" width="304" height="30"/>
+                                <rect key="frame" x="8" y="97" width="398" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9lF-bs-oXS"/>
                                 </constraints>
@@ -349,7 +349,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05c-Zd-uj8">
-                                <rect key="frame" x="8" y="117" width="304" height="30"/>
+                                <rect key="frame" x="8" y="135" width="398" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1yK-Vg-oU1"/>
                                 </constraints>
@@ -358,7 +358,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-44-B8c">
-                                <rect key="frame" x="8" y="155" width="304" height="30"/>
+                                <rect key="frame" x="8" y="173" width="398" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hmX-Nh-NGU"/>
                                 </constraints>
@@ -367,24 +367,24 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJE-Ug-Kui">
-                                <rect key="frame" x="8" y="193" width="304" height="51"/>
+                                <rect key="frame" x="8" y="211" width="398" height="80.666666666666686"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="descColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koA-WK-b3W">
-                                <rect key="frame" x="8" y="252" width="304" height="42"/>
+                                <rect key="frame" x="8" y="299.66666666666669" width="398" height="42"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsd-JJ-x67">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="1"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="QhS-98-gd8"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a95-Hf-Vxk">
-                                        <rect key="frame" x="132" y="4.5" width="40" height="33"/>
+                                        <rect key="frame" x="179" y="4.3333333333333144" width="40" height="33"/>
                                         <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="15"/>
                                         <state key="normal" title="Enviar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -405,13 +405,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redes Sociais" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xli-WC-8Jr">
-                                <rect key="frame" x="8" y="303" width="304" height="23.5"/>
+                                <rect key="frame" x="8" y="350.66666666666669" width="398" height="23.666666666666686"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Bo3-5k-Yg1">
-                                <rect key="frame" x="94" y="330.5" width="132" height="50"/>
+                                <rect key="frame" x="141" y="378.33333333333331" width="132" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-Su-sSD">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -441,33 +441,33 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desenvolvedores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k28-Ae-r4M">
-                                <rect key="frame" x="8" y="389.5" width="304" height="23.5"/>
+                                <rect key="frame" x="8" y="437.33333333333331" width="398" height="23.666666666666686"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvN-JN-7fj">
-                                <rect key="frame" x="8" y="302" width="304" height="1"/>
+                                <rect key="frame" x="8" y="349.66666666666669" width="398" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="BcV-fh-Q7b"/>
                                 </constraints>
                             </view>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ew-Vo-lyq">
-                                <rect key="frame" x="8" y="388.5" width="304" height="1"/>
+                                <rect key="frame" x="8" y="436.33333333333331" width="398" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="QLf-mp-cm2"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="u93-pS-r1t">
-                                <rect key="frame" x="64" y="417" width="192.5" height="102"/>
+                                <rect key="frame" x="110.66666666666667" y="465" width="192.66666666666663" height="102"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bHB-Ta-fbs">
                                         <rect key="frame" x="0.0" y="0.0" width="73" height="102"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-Lw-ONL">
-                                                <rect key="frame" x="11.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="11.666666666666657" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="7Gr-CR-OZb"/>
                                                     <constraint firstAttribute="width" constant="50" id="DZI-d0-XKv"/>
@@ -484,7 +484,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alan Fabeni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8eC-yx-8Co">
-                                                <rect key="frame" x="4" y="84" width="64.5" height="18"/>
+                                                <rect key="frame" x="4.3333333333333286" y="84" width="64.333333333333329" height="18"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
@@ -492,10 +492,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ibq-Tk-ubk">
-                                        <rect key="frame" x="105" y="0.0" width="87.5" height="102"/>
+                                        <rect key="frame" x="104.99999999999997" y="0.0" width="87.666666666666657" height="102"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVT-Wx-qZN">
-                                                <rect key="frame" x="18.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="19" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="1Sh-fv-qmc"/>
                                                     <constraint firstAttribute="height" constant="50" id="iu4-Z7-WNl"/>
@@ -506,13 +506,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ilustrador" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7rj-t5-hJa">
-                                                <rect key="frame" x="18" y="58" width="51" height="18"/>
+                                                <rect key="frame" x="18.333333333333343" y="58" width="51" height="18"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thiago Bennertz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dsU-DE-dP2">
-                                                <rect key="frame" x="0.0" y="84" width="87.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="84" width="87.666666666666671" height="18"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
@@ -531,7 +531,7 @@
                             <constraint firstItem="sAA-hd-Ami" firstAttribute="trailing" secondItem="zJE-Ug-Kui" secondAttribute="trailing" constant="8" id="1vN-j7-BFC"/>
                             <constraint firstItem="zJE-Ug-Kui" firstAttribute="height" secondItem="vch-04-T6h" secondAttribute="height" multiplier="0.09" id="2Zl-rs-oeK"/>
                             <constraint firstItem="sAA-hd-Ami" firstAttribute="trailing" secondItem="05c-Zd-uj8" secondAttribute="trailing" constant="8" id="2qK-VB-uEt"/>
-                            <constraint firstItem="XvI-I6-fef" firstAttribute="top" secondItem="vch-04-T6h" secondAttribute="topMargin" constant="22" id="30Z-5i-isB"/>
+                            <constraint firstItem="XvI-I6-fef" firstAttribute="top" secondItem="sAA-hd-Ami" secondAttribute="top" constant="16" id="30Z-5i-isB"/>
                             <constraint firstItem="wvN-JN-7fj" firstAttribute="leading" secondItem="sAA-hd-Ami" secondAttribute="leading" constant="8" id="3GE-wo-MGe"/>
                             <constraint firstItem="k28-Ae-r4M" firstAttribute="top" secondItem="9Ew-Vo-lyq" secondAttribute="bottom" id="3ea-u7-K3O"/>
                             <constraint firstItem="u93-pS-r1t" firstAttribute="top" secondItem="k28-Ae-r4M" secondAttribute="bottom" constant="4" id="3es-uO-Bqc"/>

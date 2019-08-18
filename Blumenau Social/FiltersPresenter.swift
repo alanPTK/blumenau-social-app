@@ -9,13 +9,9 @@ class FiltersPresenter: NSObject {
     }
     
     func getFilters() {
-        delegate.showLoadingMessage(message: NSLocalizedString("Loading filters...", comment: ""))
-        
         if Utils.shared.shouldSyncInformation(information: Constants.FILTERS) {
             FilterService.getFilters(delegate: self)
-        } else {
-            delegate.hideLoadingMessage()
-        }        
+        }
     }
     
 }
@@ -23,12 +19,10 @@ class FiltersPresenter: NSObject {
 extension FiltersPresenter: FiltersServiceDelegate {
     
     func onFilterSuccess() {
-        delegate.hideLoadingMessage()
+        
     }
     
-    func onFilterFailure(errorMessage: String) {
-        delegate.hideLoadingMessage()
-        
+    func onFilterFailure(errorMessage: String) {                
         delegate.showErrorMessage(message: errorMessage)
     }
     

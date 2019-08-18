@@ -18,11 +18,11 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         setupView()
+        
+        filtersPresenter = FiltersPresenter(delegate: self)
                 
         institutionsPresenter = InstitutionsPresenter(delegate: self)
         institutionsPresenter?.getInstitutions()
-        
-        filtersPresenter = FiltersPresenter(delegate: self)
     }
     
     /* Configure the visual aspects of the view components */
@@ -71,6 +71,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
             
             self.institutionsPresenter?.searchInstitutions(selectedNeighborhoods: selectedNeighborhoods, selectedAreas: selectedAreas, selectedDonations: selectedDonations, selectedVolunteers: selectedVolunteers, days: [], periods: [], limit: 0)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setStatusBarBackgroundColor(UIColor.titleColor())
+    }
+    
+    func setStatusBarBackgroundColor(_ color: UIColor) {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = color
     }
 
 }
@@ -173,7 +182,9 @@ extension HomeViewController: InstitutionsDelegate {
         self.institutions = institutions
         
         cvInstitutions.reloadData()
-        
+    }
+    
+    func onInstitutionSynchronizationFinish() {
         filtersPresenter?.getFilters()
     }
     

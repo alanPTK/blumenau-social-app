@@ -97,6 +97,10 @@ class MatchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if preferences.profileIsCreated {
             vInfo.isHidden = true
+            
+            setStatusBarBackgroundColor(UIColor.titleColor())
+        } else {
+            setStatusBarBackgroundColor(UIColor.backgroundColor())
         }
     }
     
@@ -114,6 +118,11 @@ class MatchViewController: UIViewController {
         institutionEventViewController.selectedEvent = event
         
         present(institutionEventViewController, animated: true, completion: nil)
+    }
+    
+    func setStatusBarBackgroundColor(_ color: UIColor) {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = color
     }
 }
 

@@ -49,6 +49,8 @@ class InstitutionsPresenter {
         
         if Utils.shared.shouldSyncInformation(information: Constants.INSTITUTIONS) {
             InstitutionService.getInstitutions(delegate: self)
+            
+            delegate.onInstitutionSynchronizationFinish()
         } else {
             let institutions = self.institutionRepository.getAllInstitutions()
             

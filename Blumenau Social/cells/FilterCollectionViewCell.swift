@@ -30,9 +30,8 @@ class FilterCollectionViewCell: UICollectionViewCell {
     
     func loadAreaInformation(area: Area, selected: Bool) {
         lbName.text = area.name
-        
-        let imageName = String(format: "atuacao_%d", area.id)
-        ivIcon.image = UIImage(named: imageName)
+                
+        ivIcon.image = UIImage(named: area.image)
                 
         if selected {
             alpha = 1
@@ -44,8 +43,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     func loadNeighborhoodInformation(neighborhood: Neighborhood, selected: Bool) {
         lbName.text = neighborhood.name
         
-        let imageName = String(format: "bairro_%d", neighborhood.id)
-        ivIcon.image = UIImage(named: imageName)
+        ivIcon.image = UIImage(named: neighborhood.name)
         
         if selected {
             alpha = 1

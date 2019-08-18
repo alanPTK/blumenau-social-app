@@ -7,5 +7,6 @@ protocol InstitutionsDelegate {
     func showErrorMessage(message: String)
     func showInstitutions(institutions: [Institution])
     func showInstitutionsFromFilter(institutions: [Institution])
+    func onInstitutionSynchronizationFinish()
     
 }
