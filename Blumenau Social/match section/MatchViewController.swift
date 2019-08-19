@@ -11,17 +11,16 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var ivProfile: UIImageView!
     @IBOutlet weak var pcMatchingInstitutions: UIPageControl!
     @IBOutlet weak var cvMatchingInstitutions: UICollectionView!
-    @IBOutlet weak var cvEvents: UICollectionView!
-    @IBOutlet weak var pcEvents: UIPageControl!
     @IBOutlet weak var vInfo: UIView!
-    
+    @IBOutlet weak var tvDonations: UITableView!
     @IBOutlet weak var lbInfo: UILabel!
+    @IBOutlet weak var lbDonation: UILabel!
+    
     private var currentPage = 0
-    private var currentEventPage = 0
     private var matchingInstitutions: [Institution] = []
-    private var events: [InstitutionEvent] = []
     private let institutionRepository = InstitutionRepository()
     private var preferences = Preferences.shared
+    private var currentInstitution: Institution?
     
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
@@ -31,7 +30,9 @@ class MatchViewController: UIViewController {
         
         matchingInstitutions = institutionRepository.searchInstitutionsForMatch(neighborhood: preferences.userNeighborhood, causes: preferences.userInterests, days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         
-        events = institutionRepository.getAllEventsFromInstitutions(institutions: matchingInstitutions)        
+        currentInstitution = matchingInstitutions.first
+        tvDonations.reloadData()
+        
         
         setupView()
     }
@@ -39,6 +40,7 @@ class MatchViewController: UIViewController {
     /* Show the institution when the user touches the button */
     @objc func showMoreInfo(notification: Notification) {
         let institution = notification.object as! Institution
+        
         showInstitution(institution: institution)
     }
     
@@ -48,41 +50,32 @@ class MatchViewController: UIViewController {
             pcMatchingInstitutions.isHidden = true
         }
         
-        if events.count < 2 {
-            pcEvents.isHidden = true
-        }
-        
         pcMatchingInstitutions.numberOfPages = matchingInstitutions.count
         pcMatchingInstitutions.pageIndicatorTintColor = UIColor.descColor()
         pcMatchingInstitutions.currentPageIndicatorTintColor = UIColor.titleColor()
-        
-        pcEvents.numberOfPages = matchingInstitutions.count
-        pcEvents.pageIndicatorTintColor = UIColor.descColor()
-        pcEvents.currentPageIndicatorTintColor = UIColor.titleColor()
         
         lbTitle.text = NSLocalizedString("Institutions and events", comment: "")
         lbInfo.text = NSLocalizedString("Touch here to create a profile and find out which institutions that fit it", comment: "")
         lbInfo.isUserInteractionEnabled = true
         
+        lbDonation.text = NSLocalizedString("We need...", comment: "")
+        
         let tapInfoRecognizer = UITapGestureRecognizer(target: self, action: #selector(showProfile))
         vInfo.addGestureRecognizer(tapInfoRecognizer)        
         
         cvMatchingInstitutions.layer.cornerRadius = 8
-        cvEvents.layer.cornerRadius = 8
     }
     
     /* When the scrolling is finished, update the respectvily page control */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == cvMatchingInstitutions {
             currentPage = Int(round(scrollView.contentOffset.x / view.frame.width))
-        }
-        
-        if scrollView == cvEvents {
-            currentEventPage = Int(round(scrollView.contentOffset.x / view.frame.width))
+            currentInstitution = matchingInstitutions[currentPage]
+            
+            tvDonations.reloadData()
         }
         
         pcMatchingInstitutions.currentPage = currentPage
-        pcEvents.currentPage = currentEventPage
     }
 
     /* Show the profile screen */
@@ -134,8 +127,6 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
             if preferences.profileIsCreated {
                 return matchingInstitutions.count
             }
-        } else {
-            return events.count
         }
         
         return 0
@@ -152,16 +143,9 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.loadInformation(institution: currentInstitution)
             
             return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.EVENT_CARD_CELL_IDENTIFIER, for: indexPath) as! EventCardCollectionViewCell
-            
-            let currentEvent = events[indexPath.row]
-
-            cell.setupCell()
-            cell.loadEventInformation(event: currentEvent)
-            
-            return cell
         }
+        
+        return UICollectionViewCell()
     }
     
     /* Show the institution or event screen with the selected item */
@@ -169,15 +153,71 @@ extension MatchViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView.tag == MatchConstants.MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER {
             let selectedInstitution = matchingInstitutions[indexPath.row]
             showInstitution(institution: selectedInstitution)
-        } else {
-            let selectedEvent = events[indexPath.row]
-            showEvent(event: selectedEvent)
         }
     }
     
     /* Returns the size of the collection view item */
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+    }
+    
+}
+
+extension MatchViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if let count = currentInstitution?.donations.count {
+            return count
+        }
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TITLE_CELL_IDENTIFIER, for: indexPath)
+        let currentDonation = currentInstitution?.donations[indexPath.section]
+        
+        cell.contentView.backgroundColor = UIColor.titleColor()
+        
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        cell.textLabel?.text = currentDonation?.desc
+        
+        cell.layer.cornerRadius = 8
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.titleColor().cgColor
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 }
