@@ -5,7 +5,6 @@ class InitialProfileViewController: UIViewController {
     @IBOutlet weak var lbNameAndAge: UILabel!
     @IBOutlet weak var tvInfo: UITextView!
     @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var tfAge: UITextField!
     @IBOutlet weak var tfName: UITextField!
     
     private var views: [UIView] = []
@@ -21,14 +20,10 @@ class InitialProfileViewController: UIViewController {
         views.append(tvInfo)
         views.append(lbNameAndAge)
         views.append(tfName)
-        views.append(tfAge)
         
         changeAlpha(view: views.first!)
         
         tfName.text = preferences.userName
-        if preferences.userAge > 0 {
-            tfAge.text = String(format: "%d", preferences.userAge)
-        }
     }
     
     /* Configure the visual aspects of the view components */
@@ -36,7 +31,6 @@ class InitialProfileViewController: UIViewController {
         tvInfo.alpha = 0
         lbNameAndAge.alpha = 0
         tfName.alpha = 0
-        tfAge.alpha = 0
         
         UINavigationBar.appearance().barTintColor = UIColor.backgroundColor()
         
@@ -56,13 +50,6 @@ class InitialProfileViewController: UIViewController {
                 return
             } else {
                 preferences.userName = tfName.text!
-            }
-            
-            if (tfAge.text?.isEmpty)! {
-                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, fill your age before continuing", comment: ""), viewController: self)
-                return
-            } else {
-                preferences.userAge = Int(tfAge.text!)!
             }
         }
     }
@@ -94,10 +81,6 @@ extension InitialProfileViewController: UITextFieldDelegate {
     /* When the user touches the return button, go to the next text field */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == tfName {
-            tfAge.becomeFirstResponder()
-        }
-        
-        if textField == tfAge {
             view.endEditing(true)
         }
         

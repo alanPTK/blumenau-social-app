@@ -53,15 +53,6 @@ class Preferences {
         }
     }
     
-    var userAge: Int {
-        get {
-            return defaults.integer(forKey: "userAge")
-        }
-        set {
-            defaults.setValue(newValue, forKey: "userAge")
-        }
-    }
-    
     var userNeighborhood: Int {
         get {
             return defaults.integer(forKey: "userNeighborhood")

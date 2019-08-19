@@ -52,7 +52,7 @@
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primeiro, nos diga seu nome e sua idade" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spq-Bb-LoP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primeiro, nos diga seu nome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spq-Bb-LoP">
                                 <rect key="frame" x="8" y="340" width="359" height="19.5"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="14"/>
                                 <color key="textColor" name="titleColor"/>
@@ -67,17 +67,8 @@
                                     <outlet property="delegate" destination="uCl-we-A3Z" id="NvT-PC-aSc"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Idade" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aj6-vd-xl0">
-                                <rect key="frame" x="47" y="405.5" width="281" height="30"/>
-                                <color key="textColor" name="descColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="uCl-we-A3Z" id="tmC-lR-eZy"/>
-                                </connections>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha6-19-giU">
-                                <rect key="frame" x="155.5" y="443.5" width="64" height="32"/>
+                                <rect key="frame" x="155.5" y="405.5" width="64" height="32"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="14"/>
                                 <state key="normal" title="Prosseguir">
                                     <color key="titleColor" name="titleColor"/>
@@ -87,7 +78,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8O-HX-iQR">
-                                <rect key="frame" x="109.5" y="483.5" width="156" height="32"/>
+                                <rect key="frame" x="109.5" y="445.5" width="156" height="32"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="14"/>
                                 <state key="normal" title="Não quero criar um perfil">
                                     <color key="titleColor" name="titleColor"/>
@@ -102,18 +93,15 @@
                             <constraint firstItem="1aJ-9h-CTK" firstAttribute="trailing" secondItem="Spq-Bb-LoP" secondAttribute="trailing" constant="8" id="38E-yc-vSz"/>
                             <constraint firstItem="ha6-19-giU" firstAttribute="centerX" secondItem="qHY-qT-J5o" secondAttribute="centerX" id="4j5-HT-pJL"/>
                             <constraint firstItem="5Tg-k3-vSX" firstAttribute="leading" secondItem="1aJ-9h-CTK" secondAttribute="leading" constant="8" id="5Ks-0X-LHq"/>
-                            <constraint firstItem="aj6-vd-xl0" firstAttribute="centerX" secondItem="qHY-qT-J5o" secondAttribute="centerX" id="8FH-y9-Syt"/>
                             <constraint firstItem="5Zp-j3-gxJ" firstAttribute="top" secondItem="Spq-Bb-LoP" secondAttribute="bottom" constant="8" id="8d4-UT-eci"/>
-                            <constraint firstItem="ha6-19-giU" firstAttribute="top" secondItem="aj6-vd-xl0" secondAttribute="bottom" constant="8" id="E1N-9k-gar"/>
                             <constraint firstItem="Spq-Bb-LoP" firstAttribute="top" secondItem="5Tg-k3-vSX" secondAttribute="bottom" constant="8" id="F7A-BP-tva"/>
                             <constraint firstItem="H8O-HX-iQR" firstAttribute="centerX" secondItem="qHY-qT-J5o" secondAttribute="centerX" id="H2Q-0U-aca"/>
-                            <constraint firstItem="aj6-vd-xl0" firstAttribute="top" secondItem="5Zp-j3-gxJ" secondAttribute="bottom" constant="8" id="OvE-GJ-scH"/>
                             <constraint firstItem="5Zp-j3-gxJ" firstAttribute="centerX" secondItem="qHY-qT-J5o" secondAttribute="centerX" id="S1O-zo-1Vd"/>
                             <constraint firstItem="5Tg-k3-vSX" firstAttribute="top" secondItem="xM0-Bx-zue" secondAttribute="bottom" constant="8" id="X5N-g3-iKG"/>
                             <constraint firstItem="5Zp-j3-gxJ" firstAttribute="width" secondItem="qHY-qT-J5o" secondAttribute="width" multiplier="0.75" id="gBe-rV-m7T"/>
-                            <constraint firstItem="aj6-vd-xl0" firstAttribute="width" secondItem="5Zp-j3-gxJ" secondAttribute="width" id="guA-ZF-ZGg"/>
                             <constraint firstItem="xM0-Bx-zue" firstAttribute="top" secondItem="1aJ-9h-CTK" secondAttribute="top" id="jQt-nP-5ew"/>
                             <constraint firstItem="xM0-Bx-zue" firstAttribute="leading" secondItem="1aJ-9h-CTK" secondAttribute="leading" id="lyt-4n-GTV"/>
+                            <constraint firstItem="ha6-19-giU" firstAttribute="top" secondItem="5Zp-j3-gxJ" secondAttribute="bottom" constant="8" id="oeT-iW-bof"/>
                             <constraint firstItem="1aJ-9h-CTK" firstAttribute="trailing" secondItem="5Tg-k3-vSX" secondAttribute="trailing" constant="8" id="pad-2j-p8T"/>
                             <constraint firstItem="H8O-HX-iQR" firstAttribute="top" secondItem="ha6-19-giU" secondAttribute="bottom" constant="8" id="qJj-7o-82j"/>
                             <constraint firstItem="Spq-Bb-LoP" firstAttribute="leading" secondItem="1aJ-9h-CTK" secondAttribute="leading" constant="8" id="vK4-HI-gnS"/>
@@ -124,7 +112,6 @@
                     <navigationItem key="navigationItem" id="K19-Ny-gIm"/>
                     <connections>
                         <outlet property="lbNameAndAge" destination="Spq-Bb-LoP" id="wHu-FG-ewC"/>
-                        <outlet property="tfAge" destination="aj6-vd-xl0" id="u2e-fZ-YiG"/>
                         <outlet property="tfName" destination="5Zp-j3-gxJ" id="e5b-Ye-U34"/>
                         <outlet property="tvInfo" destination="5Tg-k3-vSX" id="5N9-AI-dDS"/>
                     </connections>
@@ -692,7 +679,7 @@
     <resources>
         <image name="image" width="1200" height="800"/>
         <namedColor name="backgroundColor">
-            <color red="0.82745098039215681" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9137254901960784" green="0.89803921568627454" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="descColor">
             <color red="0.010999999940395355" green="0.15000000596046448" blue="0.27000001072883606" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

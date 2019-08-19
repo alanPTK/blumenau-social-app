@@ -43,7 +43,7 @@ class FilterCollectionViewCell: UICollectionViewCell {
     func loadNeighborhoodInformation(neighborhood: Neighborhood, selected: Bool) {
         lbName.text = neighborhood.name
         
-        ivIcon.image = UIImage(named: neighborhood.name)
+        ivIcon.image = UIImage(named: neighborhood.image)
         
         if selected {
             alpha = 1
