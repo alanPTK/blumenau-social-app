@@ -13,6 +13,8 @@ class Institution: Object {
     @objc dynamic var volunteers: String = ""
     @objc dynamic var logo: String = ""
     @objc dynamic var neighborhood: Int = 0
+    @objc dynamic var latitude: Double = 0
+    @objc dynamic var longitude: Double = 0
     var days = List<InstitutionWorkingDay>()
     var periods = List<InstitutionWorkingPeriod>()
     var donations = List<InstitutionDonation>()

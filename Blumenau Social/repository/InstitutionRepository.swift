@@ -100,6 +100,8 @@ class InstitutionRepository: NSObject {
             institution.volunteers = institutionData.volunteers
             institution.neighborhood = institutionData.neighborhood
             institution.logo = institutionData.logo
+            institution.latitude = institutionData.latitude
+            institution.longitude = institutionData.longitude
 
             for donation in institutionData.donations {
                 let institutionDonation = InstitutionDonation()

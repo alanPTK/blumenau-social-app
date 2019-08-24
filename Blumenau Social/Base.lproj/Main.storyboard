@@ -23,40 +23,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T85-aT-o6Q">
-                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch here to create a profile and find institutions that are fit to you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-k1-pVo">
-                                        <rect key="frame" x="8" y="226" width="304" height="47"/>
-                                        <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
-                                        <color key="textColor" name="titleColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileRed" translatesAutoresizingMaskIntoConstraints="NO" id="rTD-aD-8Ps">
-                                        <rect key="frame" x="142.5" y="281" width="35" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="PJw-j7-oSK"/>
-                                            <constraint firstAttribute="height" constant="35" id="wNs-lQ-gSf"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" name="backgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="rTD-aD-8Ps" firstAttribute="top" secondItem="WlP-k1-pVo" secondAttribute="bottom" constant="8" id="FPR-Lo-Phz"/>
-                                    <constraint firstItem="WlP-k1-pVo" firstAttribute="centerX" secondItem="T85-aT-o6Q" secondAttribute="centerX" id="Y3c-F6-MQ6"/>
-                                    <constraint firstAttribute="trailing" secondItem="WlP-k1-pVo" secondAttribute="trailing" constant="8" id="cxv-iP-lXy"/>
-                                    <constraint firstItem="WlP-k1-pVo" firstAttribute="centerY" secondItem="T85-aT-o6Q" secondAttribute="centerY" id="uR1-t2-2hc"/>
-                                    <constraint firstItem="rTD-aD-8Ps" firstAttribute="centerX" secondItem="T85-aT-o6Q" secondAttribute="centerX" id="vCN-1Q-xwY"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need donations..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlM-5o-32e">
-                                <rect key="frame" x="8" y="342" width="304" height="23.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlM-5o-32e">
+                                <rect key="frame" x="8" y="334" width="304" height="23.5"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lVf-aZ-b4q">
-                                <rect key="frame" x="22" y="373.5" width="276" height="137.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lVf-aZ-b4q">
+                                <rect key="frame" x="22" y="365.5" width="276" height="149.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -107,9 +81,22 @@
                                             <action selector="showProfile:" destination="C5d-uN-UpF" eventType="touchUpInside" id="18d-nv-bSq"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieG-tP-gt7">
+                                        <rect key="frame" x="274" y="8" width="38" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Vqf-wt-yE5"/>
+                                            <constraint firstAttribute="width" constant="38" id="W1D-nS-TTU"/>
+                                        </constraints>
+                                        <state key="normal" image="map"/>
+                                        <connections>
+                                            <action selector="showInstitutionsMap:" destination="C5d-uN-UpF" eventType="touchUpInside" id="Rjx-g3-vJW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="titleColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ieG-tP-gt7" secondAttribute="trailing" constant="8" id="F7H-GF-Y4F"/>
+                                    <constraint firstItem="ieG-tP-gt7" firstAttribute="top" secondItem="6qD-3v-img" secondAttribute="top" constant="8" id="SM2-pf-pet"/>
                                     <constraint firstItem="yYD-tF-yt0" firstAttribute="leading" secondItem="6qD-3v-img" secondAttribute="leading" constant="8" id="qlc-z8-qdm"/>
                                     <constraint firstItem="yYD-tF-yt0" firstAttribute="top" secondItem="6qD-3v-img" secondAttribute="top" constant="8" id="wEZ-lN-U1w"/>
                                     <constraint firstAttribute="height" constant="84" id="ypq-gL-XuK"/>
@@ -138,7 +125,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDN-jB-ZiP">
                                                     <rect key="frame" x="4" y="1" width="268" height="236"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Institution name here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-xY-VqQ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Institution name here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-xY-VqQ">
                                                             <rect key="frame" x="8" y="8" width="252" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
                                                             <color key="textColor" name="titleColor"/>
@@ -285,6 +272,32 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="kRI-pz-UDa">
                                 <rect key="frame" x="8" y="305" width="304" height="37"/>
                             </pageControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T85-aT-o6Q">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch here to create a profile and find institutions that are fit to you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-k1-pVo">
+                                        <rect key="frame" x="8" y="226" width="304" height="47"/>
+                                        <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
+                                        <color key="textColor" name="titleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileRed" translatesAutoresizingMaskIntoConstraints="NO" id="rTD-aD-8Ps">
+                                        <rect key="frame" x="142.5" y="281" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="PJw-j7-oSK"/>
+                                            <constraint firstAttribute="height" constant="35" id="wNs-lQ-gSf"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="rTD-aD-8Ps" firstAttribute="top" secondItem="WlP-k1-pVo" secondAttribute="bottom" constant="8" id="FPR-Lo-Phz"/>
+                                    <constraint firstItem="WlP-k1-pVo" firstAttribute="centerX" secondItem="T85-aT-o6Q" secondAttribute="centerX" id="Y3c-F6-MQ6"/>
+                                    <constraint firstAttribute="trailing" secondItem="WlP-k1-pVo" secondAttribute="trailing" constant="8" id="cxv-iP-lXy"/>
+                                    <constraint firstItem="WlP-k1-pVo" firstAttribute="centerY" secondItem="T85-aT-o6Q" secondAttribute="centerY" id="uR1-t2-2hc"/>
+                                    <constraint firstItem="rTD-aD-8Ps" firstAttribute="centerX" secondItem="T85-aT-o6Q" secondAttribute="centerX" id="vCN-1Q-xwY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
@@ -293,7 +306,7 @@
                             <constraint firstItem="Vgg-SQ-rLb" firstAttribute="centerX" secondItem="n1q-ow-mmI" secondAttribute="centerX" id="6yP-CQ-c4m"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="top" secondItem="Vgg-SQ-rLb" secondAttribute="bottom" constant="4" id="9jS-UM-0zP"/>
                             <constraint firstItem="6qD-3v-img" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" id="JTx-7e-6Rq"/>
-                            <constraint firstItem="LlM-5o-32e" firstAttribute="top" secondItem="kRI-pz-UDa" secondAttribute="bottom" id="K4c-TE-dJx"/>
+                            <constraint firstItem="LlM-5o-32e" firstAttribute="top" secondItem="kRI-pz-UDa" secondAttribute="bottom" constant="-8" id="K4c-TE-dJx"/>
                             <constraint firstItem="kRI-pz-UDa" firstAttribute="top" secondItem="n1q-ow-mmI" secondAttribute="bottom" constant="-5" id="LWx-wl-W61"/>
                             <constraint firstItem="n1q-ow-mmI" firstAttribute="top" secondItem="jpR-Qr-9x5" secondAttribute="top" constant="52" id="OgJ-z9-XJV"/>
                             <constraint firstItem="LlM-5o-32e" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" constant="8" id="Oo2-8J-G2s"/>
@@ -308,7 +321,7 @@
                             <constraint firstItem="kRI-pz-UDa" firstAttribute="leading" secondItem="jpR-Qr-9x5" secondAttribute="leading" constant="8" id="dek-nS-FZJ"/>
                             <constraint firstAttribute="trailing" secondItem="6qD-3v-img" secondAttribute="trailing" id="gV1-9d-rR7"/>
                             <constraint firstItem="6qD-3v-img" firstAttribute="top" secondItem="jpR-Qr-9x5" secondAttribute="top" id="oaD-xf-V00"/>
-                            <constraint firstItem="jpR-Qr-9x5" firstAttribute="bottom" secondItem="lVf-aZ-b4q" secondAttribute="bottom" constant="8" id="ppj-rM-NQU"/>
+                            <constraint firstItem="jpR-Qr-9x5" firstAttribute="bottom" secondItem="lVf-aZ-b4q" secondAttribute="bottom" constant="4" id="ppj-rM-NQU"/>
                             <constraint firstItem="jpR-Qr-9x5" firstAttribute="trailing" secondItem="LlM-5o-32e" secondAttribute="trailing" constant="8" id="snX-Mt-UHM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jpR-Qr-9x5"/>
@@ -569,6 +582,7 @@
         <image name="close" width="512" height="512"/>
         <image name="institutions" width="30" height="30"/>
         <image name="mail" width="20" height="20"/>
+        <image name="map" width="60" height="60"/>
         <image name="match" width="30" height="30"/>
         <image name="phone" width="20" height="20"/>
         <image name="profile" width="72" height="72"/>

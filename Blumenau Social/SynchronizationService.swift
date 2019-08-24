@@ -56,6 +56,8 @@ struct InstitutionDecodable: Decodable {
     let volunteers: String
     let pictures: [String]
     let about: [String]
+    let latitude: Double
+    let longitude: Double
     //let about: [AboutDecodable]
 }
 

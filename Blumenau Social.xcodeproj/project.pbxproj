@@ -42,6 +42,7 @@
 		DB029F852207A3250073A4E7 /* InstitutionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */; };
 		DB029F872207B2A00073A4E7 /* EventDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F862207B2A00073A4E7 /* EventDelegate.swift */; };
 		DB029F892207B2B00073A4E7 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB029F882207B2B00073A4E7 /* EventPresenter.swift */; };
+		DB0C1D7C2311755900D0A813 /* InstitutionsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0C1D7B2311755900D0A813 /* InstitutionsMapViewController.swift */; };
 		DB10D8CC220BA88F0013E184 /* InstitutionDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */; };
 		DB10D8CE220BAAB10013E184 /* InstitutionRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CD220BAAB10013E184 /* InstitutionRepositoryTests.swift */; };
 		DB10D8D0220CA1B90013E184 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB10D8CF220CA1B90013E184 /* TestHelper.swift */; };
@@ -126,6 +127,7 @@
 		DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitutionsPresenter.swift; path = "institution section/InstitutionsPresenter.swift"; sourceTree = "<group>"; };
 		DB029F862207B2A00073A4E7 /* EventDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventDelegate.swift; path = "institution section/EventDelegate.swift"; sourceTree = "<group>"; };
 		DB029F882207B2B00073A4E7 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventPresenter.swift; path = "institution section/EventPresenter.swift"; sourceTree = "<group>"; };
+		DB0C1D7B2311755900D0A813 /* InstitutionsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionsMapViewController.swift; sourceTree = "<group>"; };
 		DB10D8C1220B83940013E184 /* BlumenauSocialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlumenauSocialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB10D8C5220B83940013E184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB10D8CB220BA88F0013E184 /* InstitutionDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstitutionDBTests.swift; sourceTree = "<group>"; };
@@ -208,6 +210,15 @@
 			name = events;
 			sourceTree = "<group>";
 		};
+		DB0C1D7D231195E400D0A813 /* institutions */ = {
+			isa = PBXGroup;
+			children = (
+				DB0C1D7B2311755900D0A813 /* InstitutionsMapViewController.swift */,
+				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
+			);
+			name = institutions;
+			sourceTree = "<group>";
+		};
 		DB10D8C2220B83940013E184 /* BlumenauSocialTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +269,7 @@
 		DB2A7C1321F1065F00C60B32 /* Blumenau Social */ = {
 			isa = PBXGroup;
 			children = (
+				DB0C1D7D231195E400D0A813 /* institutions */,
 				DB8F1DD92304BEA70035676A /* api */,
 				DB8EAB3921F3D0AF00E27F8D /* about */,
 				DB8EAB3521F3D03A00E27F8D /* cells */,
@@ -385,7 +397,6 @@
 				DB029F822207A3150073A4E7 /* InstitutionsDelegate.swift */,
 				DB029F842207A3250073A4E7 /* InstitutionsPresenter.swift */,
 				DB029F5D22061C8A0073A4E7 /* HomeViewController.swift */,
-				DB029F5C22061C8A0073A4E7 /* InstitutionViewController.swift */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -633,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB0C1D7C2311755900D0A813 /* InstitutionsMapViewController.swift in Sources */,
 				DB029F6A22061CA60073A4E7 /* ProfileInterestsViewController.swift in Sources */,
 				DB168E2F2209B85E00AF2A7C /* EventCardCollectionViewCell.swift in Sources */,
 				DB029F7922061CF90073A4E7 /* Constants.swift in Sources */,

@@ -927,6 +927,71 @@
             </objects>
             <point key="canvasLocation" x="2163" y="1195"/>
         </scene>
+        <!--Institutions Map View Controller-->
+        <scene sceneID="MGp-3B-2N3">
+            <objects>
+                <viewController storyboardIdentifier="InstitutionsMapViewController" id="v2M-Iq-0DC" customClass="InstitutionsMapViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K0c-fV-oyB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DTc-Ki-QGQ">
+                                <rect key="frame" x="8" y="86" width="359" height="573"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SP-yF-ZBZ">
+                                <rect key="frame" x="8" y="28" width="359" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suas instituições" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPh-fi-L3N">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="50"/>
+                                        <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWt-8o-KFE">
+                                        <rect key="frame" x="321" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PLE-Gn-AzO"/>
+                                            <constraint firstAttribute="width" constant="30" id="PPF-IS-eXT"/>
+                                        </constraints>
+                                        <state key="normal" image="close"/>
+                                        <connections>
+                                            <action selector="close:" destination="v2M-Iq-0DC" eventType="touchUpInside" id="QfC-dA-dBk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="titleColor"/>
+                                <constraints>
+                                    <constraint firstItem="OPh-fi-L3N" firstAttribute="top" secondItem="2SP-yF-ZBZ" secondAttribute="top" id="1QK-b2-SM6"/>
+                                    <constraint firstAttribute="height" constant="50" id="48e-9W-4vA"/>
+                                    <constraint firstItem="OPh-fi-L3N" firstAttribute="leading" secondItem="2SP-yF-ZBZ" secondAttribute="leading" id="7fY-AB-bZj"/>
+                                    <constraint firstAttribute="bottom" secondItem="OPh-fi-L3N" secondAttribute="bottom" id="GC1-ex-HPN"/>
+                                    <constraint firstItem="IWt-8o-KFE" firstAttribute="centerY" secondItem="2SP-yF-ZBZ" secondAttribute="centerY" id="WOz-YA-HHw"/>
+                                    <constraint firstAttribute="trailing" secondItem="OPh-fi-L3N" secondAttribute="trailing" id="gTh-nV-96J"/>
+                                    <constraint firstAttribute="trailing" secondItem="IWt-8o-KFE" secondAttribute="trailing" constant="8" id="xm7-0t-9JX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9JQ-um-ouq" firstAttribute="trailing" secondItem="DTc-Ki-QGQ" secondAttribute="trailing" constant="8" id="OL4-qG-5yX"/>
+                            <constraint firstItem="2SP-yF-ZBZ" firstAttribute="top" secondItem="9JQ-um-ouq" secondAttribute="top" constant="8" id="Rvq-Pd-UrQ"/>
+                            <constraint firstItem="9JQ-um-ouq" firstAttribute="bottom" secondItem="DTc-Ki-QGQ" secondAttribute="bottom" constant="8" id="cGT-k0-vwh"/>
+                            <constraint firstItem="9JQ-um-ouq" firstAttribute="trailing" secondItem="2SP-yF-ZBZ" secondAttribute="trailing" constant="8" id="ef3-RE-LoH"/>
+                            <constraint firstItem="DTc-Ki-QGQ" firstAttribute="leading" secondItem="9JQ-um-ouq" secondAttribute="leading" constant="8" id="mVy-wC-9Vt"/>
+                            <constraint firstItem="DTc-Ki-QGQ" firstAttribute="top" secondItem="2SP-yF-ZBZ" secondAttribute="bottom" constant="8" id="sBF-Rz-kFn"/>
+                            <constraint firstItem="2SP-yF-ZBZ" firstAttribute="leading" secondItem="9JQ-um-ouq" secondAttribute="leading" constant="8" id="wyF-m4-QPX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9JQ-um-ouq"/>
+                    </view>
+                    <connections>
+                        <outlet property="headerView" destination="2SP-yF-ZBZ" id="dVY-d3-d0z"/>
+                        <outlet property="institutionsMapView" destination="DTc-Ki-QGQ" id="2IG-IV-Kcr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRr-f5-fTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3165.5999999999999" y="1093.4032983508246"/>
+        </scene>
     </scenes>
     <resources>
         <image name="0xrosa" width="36.240001678466797" height="31.920000076293945"/>

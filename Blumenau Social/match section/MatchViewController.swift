@@ -86,6 +86,13 @@ class MatchViewController: UIViewController {
         present(navigationController, animated: true, completion: nil)
     }
     
+    @IBAction func showInstitutionsMap(_ sender: Any) {
+        let institutionsMapViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_MAP_VIEW_STORYBOARD_ID) as! InstitutionsMapViewController
+        
+        institutionsMapViewController.selectedInstitutions = matchingInstitutions        
+        present(institutionsMapViewController, animated: true, completion: nil)
+    }
+    
     /* When the view appears, hide the info view if the profile is already created */
     override func viewWillAppear(_ animated: Bool) {
         if preferences.profileIsCreated {
