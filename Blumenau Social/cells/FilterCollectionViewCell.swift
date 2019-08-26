@@ -41,7 +41,11 @@ class FilterCollectionViewCell: UICollectionViewCell {
     }
     
     func loadNeighborhoodInformation(neighborhood: Neighborhood, selected: Bool) {
-        lbName.text = neighborhood.name
+        if neighborhood.name == "Sem endereço físico" {
+            lbName.text = "Outro"
+        } else {
+            lbName.text = neighborhood.name
+        }
         
         ivIcon.image = UIImage(named: neighborhood.image)
         

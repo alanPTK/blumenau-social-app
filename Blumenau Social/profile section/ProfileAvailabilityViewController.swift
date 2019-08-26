@@ -110,6 +110,8 @@ class ProfileAvailabilityViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        setStatusBarBackgroundColor(UIColor.backgroundColor())
     }
     
     /* Go to the next view */
@@ -177,6 +179,11 @@ class ProfileAvailabilityViewController: UIViewController {
             let index = userSelectedPeriods.firstIndex(of: (view?.tag)!)
             userSelectedPeriods.remove(at: index!)
         }
+    }
+    
+    func setStatusBarBackgroundColor(_ color: UIColor) {
+        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = color
     }
 
 }

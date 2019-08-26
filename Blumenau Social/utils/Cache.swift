@@ -1,18 +1,8 @@
-//
-//  Cache.swift
-//  ClickBarao
-//
-//  Created by Alan Filipe Cardozo Fabeni on 18/07/19.
-//  Copyright © 2019 Alan Filipe Cardozo Fabeni. All rights reserved.
-//
-
 import Foundation
 
-enum CacheIdentificationKeys: String {
-    
+enum CacheIdentificationKeys: String {    
     case filterLastSync = "filterLastSync"
     case institutionLastSync = "institutionLastSync"
-    
 }
 
 class Cache {

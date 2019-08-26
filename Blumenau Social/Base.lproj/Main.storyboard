@@ -131,7 +131,7 @@
                                                             <color key="textColor" name="titleColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Information about the institution here, a short description, take info from the about, first item..." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKV-Lu-SEL">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Information about the institution here, a short description, take info from the about, first item..." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKV-Lu-SEL">
                                                             <rect key="frame" x="8" y="39.5" width="252" height="60"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -579,7 +579,7 @@
     <resources>
         <image name="about" width="30" height="30"/>
         <image name="app-clear-logo" width="460" height="505"/>
-        <image name="close" width="512" height="512"/>
+        <image name="close" width="36" height="36"/>
         <image name="institutions" width="30" height="30"/>
         <image name="mail" width="20" height="20"/>
         <image name="map" width="60" height="60"/>

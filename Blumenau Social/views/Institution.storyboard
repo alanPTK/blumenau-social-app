@@ -996,7 +996,7 @@
     <resources>
         <image name="0xrosa" width="36.240001678466797" height="31.920000076293945"/>
         <image name="checkmark" width="512" height="512"/>
-        <image name="close" width="512" height="512"/>
+        <image name="close" width="36" height="36"/>
         <image name="closeRed" width="512" height="512"/>
         <image name="collapse" width="512" height="512"/>
         <image name="mail" width="20" height="20"/>

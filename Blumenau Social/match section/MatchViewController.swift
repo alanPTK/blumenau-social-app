@@ -1,4 +1,5 @@
 import UIKit
+import StoreKit
 
 struct MatchConstants {
     static let MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER = 0
@@ -33,8 +34,13 @@ class MatchViewController: UIViewController {
         currentInstitution = matchingInstitutions.first
         tvDonations.reloadData()
         
-        
         setupView()
+        
+        if preferences.profileIsCreated {
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            }
+        }
     }
     
     /* Show the institution when the user touches the button */
@@ -225,6 +231,42 @@ extension MatchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentDonation = currentInstitution?.donations[indexPath.section]
+        
+        let alertController = UIAlertController(title: NSLocalizedString("How would you like to help ?", comment: ""), message: currentInstitution?.title, preferredStyle: .actionSheet)
+        
+        if let phone = currentInstitution?.phone {
+            let mainPhone = phone.components(separatedBy: "ou")[0]
+            let phoneText = NSLocalizedString("Call to", comment: "") + " " + mainPhone
+            let callAction = UIAlertAction(title: phoneText, style: .default) { (handler) in
+                guard let number = URL(string: "tel://" + mainPhone.replacingOccurrences(of: " ", with: "")) else { return }
+                UIApplication.shared.open(number)
+            }
+            alertController.addAction(callAction)
+        }
+        
+        if let email = currentInstitution?.mail {
+            let emailText = NSLocalizedString("Send an email", comment: "")
+            let emailAction = UIAlertAction(title: emailText, style: .default) { (handler) in
+                var mailSubject = ""
+                if let donationDesc = currentDonation?.desc {
+                    mailSubject = NSLocalizedString("Donation of", comment: "") + " " + donationDesc
+                } else {
+                    mailSubject = NSLocalizedString("Donation", comment: "")
+                }
+                self.sendEmailTo(recipients: [email], withSubject: mailSubject, message: NSLocalizedString("Hello, I would like to help with a donation.", comment: ""))
+            }
+            alertController.addAction(emailAction)
+        }
+        
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: nil)
+        
+        alertController.addAction(cancel)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
 }
