@@ -115,4 +115,13 @@ class Preferences {
             defaults.set(newValue, forKey: "eventRouteTipViewWasShown")
         }
     }
+    
+    var institutionMapTipViewWasShown: Bool {
+        get {
+            return defaults.bool(forKey: "institutionMapTipViewWasShown")
+        }
+        set {
+            defaults.set(newValue, forKey: "institutionMapTipViewWasShown")
+        }
+    }
 }

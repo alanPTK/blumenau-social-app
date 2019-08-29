@@ -44,10 +44,10 @@ class InstitutionsPresenter {
     }
     
     /* Load institutions from the web api */
-    func getInstitutions() {
+    func getInstitutions(forceSync: Bool) {
         delegate.showLoadingMessage(message: NSLocalizedString("Loading institutions...", comment: ""))
         
-        if Utils.shared.shouldSyncInformation(information: Constants.INSTITUTIONS) {
+        if Utils.shared.shouldSyncInformation(information: Constants.INSTITUTIONS) || forceSync {
             InstitutionService.getInstitutions(delegate: self)
             
             delegate.onInstitutionSynchronizationFinish()

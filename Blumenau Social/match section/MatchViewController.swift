@@ -1,5 +1,6 @@
 import UIKit
 import StoreKit
+import EasyTipView
 
 struct MatchConstants {
     static let MATCH_INSTITUTION_COLLECTION_VIEW_IDENTIFIER = 0
@@ -16,12 +17,14 @@ class MatchViewController: UIViewController {
     @IBOutlet weak var tvDonations: UITableView!
     @IBOutlet weak var lbInfo: UILabel!
     @IBOutlet weak var lbDonation: UILabel!
+    @IBOutlet weak var btShowMap: UIButton!
     
     private var currentPage = 0
     private var matchingInstitutions: [Institution] = []
     private let institutionRepository = InstitutionRepository()
     private var preferences = Preferences.shared
     private var currentInstitution: Institution?
+    private var tipView: EasyTipView?
     
     /* Initialize all the necessary information for the view */
     override func viewDidLoad() {
@@ -129,6 +132,28 @@ class MatchViewController: UIViewController {
     func setStatusBarBackgroundColor(_ color: UIColor) {
         guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
         statusBar.backgroundColor = color
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if preferences.profileIsCreated {
+            if !preferences.institutionMapTipViewWasShown {
+                var easyTipPreferences = EasyTipView.Preferences()
+                easyTipPreferences.drawing.font = UIFont(name: "VAGRoundedNext-Bold", size: 13)!
+                easyTipPreferences.drawing.foregroundColor = UIColor.titleColor()
+                easyTipPreferences.drawing.backgroundColor = UIColor.white
+                easyTipPreferences.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
+                
+                tipView = EasyTipView(text: NSLocalizedString("Toque aqui para localizar as suas instituições de forma mais fácil", comment: ""), preferences: easyTipPreferences, delegate: nil)
+                
+                tipView?.show(animated: true, forView: btShowMap, withinSuperview: self.view)
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(3000)) {
+                    self.tipView?.dismiss()
+                }
+                
+                preferences.institutionMapTipViewWasShown = true
+            }
+        }
     }
 }
 

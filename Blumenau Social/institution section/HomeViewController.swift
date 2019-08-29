@@ -10,9 +10,10 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var tfSearchInstitutes: UITextField!
     
     private let preferences = Preferences.shared
+    private let refreshControl = UIRefreshControl()
     private var institutionsPresenter: InstitutionsPresenter?
     private var filtersPresenter: FiltersPresenter?
-    private var institutions: [Institution] = []    
+    private var institutions: [Institution] = []
     
     /* Initialize all the necessary information for the view and load the information from the Api */
     override func viewDidLoad() {
@@ -23,7 +24,18 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         filtersPresenter = FiltersPresenter(delegate: self)
                 
         institutionsPresenter = InstitutionsPresenter(delegate: self)
-        institutionsPresenter?.getInstitutions()
+        institutionsPresenter?.getInstitutions(forceSync: false)
+        
+        cvInstitutions.refreshControl = refreshControl
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refreshInformation), for: .valueChanged)
+    }
+    
+    @objc func refreshInformation() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(500)) {
+            self.institutionsPresenter?.getInstitutions(forceSync: true)
+            self.refreshControl.endRefreshing()
+        }
     }
     
     /* Configure the visual aspects of the view components */

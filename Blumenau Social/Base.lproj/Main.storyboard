@@ -328,6 +328,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="match" selectedImage="match" id="CLz-51-jm2"/>
                     <connections>
+                        <outlet property="btShowMap" destination="ieG-tP-gt7" id="1jm-fZ-3HW"/>
                         <outlet property="cvMatchingInstitutions" destination="n1q-ow-mmI" id="PqZ-Hx-IRJ"/>
                         <outlet property="ivProfile" destination="rTD-aD-8Ps" id="ymv-E7-ttY"/>
                         <outlet property="lbDonation" destination="LlM-5o-32e" id="R31-az-dFr"/>
