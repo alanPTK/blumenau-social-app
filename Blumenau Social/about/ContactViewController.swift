@@ -90,7 +90,7 @@ class ContactViewController: UIViewController, UITextFieldDelegate {
         body.append("\n \n")
         body.append(tvText.text)
         
-        sendEmailTo(recipients: [email], withSubject: "", message: body)
+        sendEmailTo(recipients: ["contato@blumenausocial.org"], withSubject: "", message: body)
     }            
     
     /* Go to the Facebook profile when the user touches the button */
