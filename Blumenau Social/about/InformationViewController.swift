@@ -8,4 +8,7 @@ class InformationViewController: UIViewController {
         super.viewDidLoad()
     }        
 
+    @IBAction func click(_ sender: Any) {
+        
+    }
 }
