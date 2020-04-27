@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -24,11 +23,11 @@
             <objects>
                 <viewController storyboardIdentifier="MissionViewController" id="hLU-dB-6kH" customClass="MissionViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Mg-rP-RNI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossa Visão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mz4-ec-QTm">
-                                <rect key="frame" x="143" y="88" width="128" height="29"/>
+                                <rect key="frame" x="121" y="44" width="133" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="z5f-8K-Pn4"/>
                                 </constraints>
@@ -37,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ8-2Y-CnA">
-                                <rect key="frame" x="8" y="117" width="398" height="68"/>
+                                <rect key="frame" x="8" y="73" width="359" height="68"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="b4h-IQ-Fa5"/>
@@ -49,13 +48,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossa Missão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-B0-hRs">
-                                <rect key="frame" x="134.5" y="193" width="145" height="33.5"/>
+                                <rect key="frame" x="111.5" y="149" width="152" height="28"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVl-6l-Box">
-                                <rect key="frame" x="8" y="226.5" width="398" height="84"/>
+                                <rect key="frame" x="8" y="177" width="359" height="84"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="HeU-9A-kmC"/>
@@ -66,49 +65,49 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossos Valores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnA-M8-ypY">
-                                <rect key="frame" x="128.5" y="318.5" width="157" height="33"/>
+                                <rect key="frame" x="105" y="269" width="165.5" height="28"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voluntariado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g82-kf-JJP">
-                                <rect key="frame" x="162" y="359.5" width="90" height="24"/>
+                                <rect key="frame" x="140" y="305" width="95" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amor Pela Causa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCH-b4-DRU">
-                                <rect key="frame" x="145" y="391.5" width="124" height="23.5"/>
+                                <rect key="frame" x="121.5" y="333" width="132" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartilhamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O44-hf-Fzu">
-                                <rect key="frame" x="140.5" y="423" width="133" height="23.5"/>
+                                <rect key="frame" x="117" y="361" width="141.5" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conexão" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRF-0M-kyS">
-                                <rect key="frame" x="175" y="454.5" width="64" height="24"/>
+                                <rect key="frame" x="153.5" y="389" width="68.5" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comprometimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BA3-gA-eRz">
-                                <rect key="frame" x="140.5" y="486.5" width="133" height="23.5"/>
+                                <rect key="frame" x="116" y="417" width="143" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desenvolvimento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uo5-7i-4bL">
-                                <rect key="frame" x="146.5" y="518" width="121" height="23.5"/>
+                                <rect key="frame" x="122" y="445" width="131" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pluralidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7A-Gg-P3B">
-                                <rect key="frame" x="167" y="549.5" width="80" height="24"/>
+                                <rect key="frame" x="145" y="473" width="85.5" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
@@ -169,21 +168,21 @@
             <objects>
                 <viewController storyboardIdentifier="ActionsViewController" id="5Tp-hx-Vg3" customClass="ActionsViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r6Y-91-KJP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quem faz o Blumenau Social" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="iVc-pw-oMt">
-                                <rect key="frame" x="36" y="88" width="352" height="33.5"/>
+                                <rect key="frame" x="36" y="44" width="313" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFb-SZ-dCD">
-                                <rect key="frame" x="8" y="121.5" width="398" height="34"/>
+                                <rect key="frame" x="8" y="72" width="359" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="descColor"/>
-                                <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -211,11 +210,11 @@
             <objects>
                 <viewController storyboardIdentifier="InformationViewController" id="c5E-lc-TIz" customClass="InformationViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nkP-IM-me2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sobre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVT-UA-kU3">
-                                <rect key="frame" x="176.5" y="88" width="61" height="29"/>
+                                <rect key="frame" x="155.5" y="44" width="64.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="gan-qD-dsb"/>
                                 </constraints>
@@ -224,21 +223,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH0-Ew-Oo6">
-                                <rect key="frame" x="8" y="125" width="398" height="37"/>
+                                <rect key="frame" x="8" y="81" width="359" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="descColor"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solidariedade que marca" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="I4C-ji-ip2">
-                                <rect key="frame" x="8" y="170" width="398" height="33.5"/>
+                                <rect key="frame" x="8" y="123" width="359" height="28"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="24"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aprablu" translatesAutoresizingMaskIntoConstraints="NO" id="tZw-Wd-JJd">
-                                <rect key="frame" x="8" y="207.5" width="398" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app-clear-logo" translatesAutoresizingMaskIntoConstraints="NO" id="tZw-Wd-JJd">
+                                <rect key="frame" x="8" y="155" width="359" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="AbU-IH-hJz"/>
@@ -274,11 +273,11 @@
             <objects>
                 <viewController storyboardIdentifier="ContactViewController" id="5Jz-bI-ccq" customClass="ContactViewController" customModule="Blumenau_Social" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vch-04-T6h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fale Conosco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XvI-I6-fef">
-                                <rect key="frame" x="138" y="88" width="138" height="29"/>
+                                <rect key="frame" x="113.5" y="44" width="148.5" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="2jS-7h-MDJ"/>
                                 </constraints>
@@ -287,7 +286,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2D-nR-o05">
-                                <rect key="frame" x="8" y="125" width="398" height="30"/>
+                                <rect key="frame" x="8" y="81" width="359" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9lF-bs-oXS"/>
                                 </constraints>
@@ -296,7 +295,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05c-Zd-uj8">
-                                <rect key="frame" x="8" y="163" width="398" height="30"/>
+                                <rect key="frame" x="8" y="119" width="359" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1yK-Vg-oU1"/>
                                 </constraints>
@@ -305,7 +304,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUf-44-B8c">
-                                <rect key="frame" x="8" y="201" width="398" height="30"/>
+                                <rect key="frame" x="8" y="157" width="359" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hmX-Nh-NGU"/>
                                 </constraints>
@@ -314,24 +313,24 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zJE-Ug-Kui">
-                                <rect key="frame" x="8" y="239" width="398" height="80.5"/>
+                                <rect key="frame" x="8" y="195" width="359" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="descColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koA-WK-b3W">
-                                <rect key="frame" x="8" y="327.5" width="398" height="40"/>
+                                <rect key="frame" x="8" y="263" width="359" height="40"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tsd-JJ-x67">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="1"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="QhS-98-gd8"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a95-Hf-Vxk">
-                                        <rect key="frame" x="179" y="3.5" width="40" height="33"/>
+                                        <rect key="frame" x="158.5" y="5" width="42" height="30"/>
                                         <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="15"/>
                                         <state key="normal" title="Enviar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -352,13 +351,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redes Sociais" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xli-WC-8Jr">
-                                <rect key="frame" x="8" y="376.5" width="398" height="23.5"/>
+                                <rect key="frame" x="8" y="312" width="359" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="center" distribution="equalCentering" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Bo3-5k-Yg1">
-                                <rect key="frame" x="151" y="404" width="112" height="40"/>
+                                <rect key="frame" x="131.5" y="336" width="112" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOh-Su-sSD">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -388,33 +387,33 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desenvolvedores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k28-Ae-r4M">
-                                <rect key="frame" x="8" y="453" width="398" height="23.5"/>
+                                <rect key="frame" x="8" y="385" width="359" height="20"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="17"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvN-JN-7fj">
-                                <rect key="frame" x="8" y="375.5" width="398" height="1"/>
+                                <rect key="frame" x="8" y="311" width="359" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="BcV-fh-Q7b"/>
                                 </constraints>
                             </view>
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ew-Vo-lyq">
-                                <rect key="frame" x="8" y="452" width="398" height="1"/>
+                                <rect key="frame" x="8" y="384" width="359" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="QLf-mp-cm2"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="u93-pS-r1t">
-                                <rect key="frame" x="111" y="480.5" width="192.5" height="102"/>
+                                <rect key="frame" x="85.5" y="409" width="204" height="102"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bHB-Ta-fbs">
-                                        <rect key="frame" x="0.0" y="0.0" width="73" height="102"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="102"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-Lw-ONL">
-                                                <rect key="frame" x="11.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="13.5" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="7Gr-CR-OZb"/>
                                                     <constraint firstAttribute="width" constant="50" id="DZI-d0-XKv"/>
@@ -424,14 +423,14 @@
                                                     <action selector="goToLinkedin:" destination="5Jz-bI-ccq" eventType="touchUpInside" id="g45-dL-exc"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programador" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ccJ-k2-5Pt">
-                                                <rect key="frame" x="0.0" y="58" width="73" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Programador" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ccJ-k2-5Pt">
+                                                <rect key="frame" x="0.0" y="58" width="76.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alan Fabeni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8eC-yx-8Co">
-                                                <rect key="frame" x="4" y="84" width="64.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Alan Fabeni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8eC-yx-8Co">
+                                                <rect key="frame" x="4" y="86.5" width="68.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
@@ -439,10 +438,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ibq-Tk-ubk">
-                                        <rect key="frame" x="105" y="0.0" width="87.5" height="102"/>
+                                        <rect key="frame" x="108.5" y="0.0" width="95.5" height="102"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVT-Wx-qZN">
-                                                <rect key="frame" x="18.5" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="23" y="0.0" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="1Sh-fv-qmc"/>
                                                     <constraint firstAttribute="height" constant="50" id="iu4-Z7-WNl"/>
@@ -452,14 +451,14 @@
                                                     <action selector="goToLinkedin:" destination="5Jz-bI-ccq" eventType="touchUpInside" id="eyf-Qp-C3W"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ilustrador" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7rj-t5-hJa">
-                                                <rect key="frame" x="18" y="58" width="51" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ilustrador" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7rj-t5-hJa">
+                                                <rect key="frame" x="20.5" y="58" width="55" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thiago Bennertz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dsU-DE-dP2">
-                                                <rect key="frame" x="0.0" y="84" width="87.5" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thiago Bennertz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dsU-DE-dP2">
+                                                <rect key="frame" x="0.0" y="86.5" width="95.5" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Light" family="VAG Rounded Next" pointSize="13"/>
                                                 <color key="textColor" name="descColor"/>
                                                 <nil key="highlightedColor"/>
@@ -531,7 +530,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="aprablu" width="415" height="358"/>
+        <image name="app-clear-logo" width="460" height="505"/>
         <image name="facebook" width="512" height="512"/>
         <image name="instagram" width="512" height="512"/>
         <image name="linkedin" width="512" height="512"/>

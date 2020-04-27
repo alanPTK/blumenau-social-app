@@ -1,13 +1,9 @@
 import UIKit
 import RealmSwift
 
-struct MatchInstitution {
-    var id: Int = 0
-    var causesSum: Int = 0
-    var neighSum: Int = 0
-    var daysSum: Int = 0
-    var periodsSum: Int = 0
-    var totalSum: Int = 0
+struct MatchedInstitution {
+    var institution: Institution
+    var points: Int
 }
 
 class InstitutionRepository: NSObject {
@@ -192,63 +188,63 @@ class InstitutionRepository: NSObject {
     /* Save or update the institution in the database */
     func saveInstitution(_ institution: Institution) {
         try! realm.write {
-            realm.add(institution, update: true)
+            realm.add(institution, update: .all)
         }
     }
     
     /* Save or update the about in the database */
     func saveAbout(_ about: InstitutionAbout) {
         try! realm.write {
-            realm.add(about, update: true)
+            realm.add(about, update: .all)
         }
     }
     
     /* Save or update the cause in the database */
     func saveCause(_ cause: InstitutionCause) {
         try! realm.write {
-            realm.add(cause, update: true)
+            realm.add(cause, update: .all)
         }
     }
     
     /* Save or update the event in the database */
     func saveEvent(_ event: InstitutionEvent) {
         try! realm.write {
-            realm.add(event, update: true)
+            realm.add(event, update: .all)
         }
     }
     
     /* Save or update the volunteer type in the database */
     func saveVolunteerType(_ volunteerType: InstitutionVolunteerType) {
         try! realm.write {
-            realm.add(volunteerType, update: true)
+            realm.add(volunteerType, update: .all)
         }
     }
     
     /* Save or update the donation type in the database */
     func saveDonationType(_ donationType: InstitutionDonationType) {
         try! realm.write {
-            realm.add(donationType, update: true)
+            realm.add(donationType, update: .all)
         }
     }
     
     /* Save or update the donation in the database */
     func saveDonation(_ donation: InstitutionDonation) {
         try! realm.write {
-            realm.add(donation, update: true)
+            realm.add(donation, update: .all)
         }
     }
     
     /* Save or update the working day in the database */
     func saveWorkingDay(_ workingDay: InstitutionWorkingDay) {
         try! realm.write {
-            realm.add(workingDay, update: true)
+            realm.add(workingDay, update: .all)
         }
     }
     
     /* Save or update the working period in the database */
     func saveWorkingPeriod(_ workingPeriod: InstitutionWorkingPeriod) {
         try! realm.write {
-            realm.add(workingPeriod, update: true)
+            realm.add(workingPeriod, update: .all)
         }
     }
     
@@ -280,58 +276,46 @@ class InstitutionRepository: NSObject {
     
     /* Search institutions that match the user profile */
     func searchInstitutionsForMatch(neighborhood: Int, causes: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
-        var neighborhoodInstitutions: [Institution] = []
-        var workingTimeInstitutions: [Institution] = []
-        var causesInstitutions: [Institution] = []
+        let institutions = Array(realm.objects(Institution.self))
+        var matchedInstitutions: [MatchedInstitution] = []
+        var institutionsToReturn: [Institution] = []
+                        
+        let causePredicate = NSPredicate(format: "id IN %@", causes)
+        let daysPredicate = NSPredicate(format: "id IN %@", days)
+        let periodsPredicate = NSPredicate(format: "id IN %@", periods)
         
-        let neighborhoodPredicate = NSPredicate(format: "neighborhood == %d", neighborhood)
-        
-        let causePredicate = NSPredicate(format: "ANY causes.id IN %@", causes)
-        
-        let daysPredicate = NSPredicate(format: "ANY days.id IN %@", days)
-        let periodsPredicate = NSPredicate(format: "ANY periods.id IN %@", periods)
-        let workingTimePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [daysPredicate, periodsPredicate])
-        
-        var fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate])
-        
-        neighborhoodInstitutions = Array(realm.objects(Institution.self).filter(fullPredicate))
-        
-        if neighborhoodInstitutions.count > 5 {
-            fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [neighborhoodPredicate, workingTimePredicate])
-            workingTimeInstitutions = Array(realm.objects(Institution.self).filter(fullPredicate))
+        for institution in institutions {
+            var points = 0
             
-            if workingTimeInstitutions.count > 5 {
-                fullPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate, workingTimePredicate])
-                causesInstitutions = Array(realm.objects(Institution.self).filter(fullPredicate))
-                
-                if causesInstitutions.count > 5 {
-                    if causesInstitutions.count > limit {
-                        return Array(causesInstitutions[0..<limit])
-                    } else {
-                        return Array(causesInstitutions)
-                    }
-                } else {
-                    if workingTimeInstitutions.count > limit {
-                        return Array(workingTimeInstitutions[0..<limit])
-                    } else {
-                        return Array(workingTimeInstitutions)
-                    }
-                }
+            if institution.neighborhood == neighborhood {
+                points += 5
             }
+                        
+            let causes = institution.causes.filter(causePredicate)
+            points += causes.count * 5
+                            
+            let days = institution.days.filter(daysPredicate)
+            points += Int(days.count / 2)
+            
+            let periods = institution.periods.filter(periodsPredicate)
+            points += Int(periods.count / 2)
+                        
+            matchedInstitutions.append(MatchedInstitution(institution: institution, points: points))
         }
         
-        if neighborhoodInstitutions.count < 5 {
-            fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [neighborhoodPredicate, causePredicate])
-            causesInstitutions = Array(realm.objects(Institution.self).filter(fullPredicate))
-            
-            if causesInstitutions.count > limit {
-                return Array(causesInstitutions[0..<limit])
-            } else {
-                return Array(causesInstitutions)
-            }
+        matchedInstitutions.sort {
+            $0.points > $1.points
         }
         
-        return neighborhoodInstitutions
+        for matchedInstitution in matchedInstitutions {
+            institutionsToReturn.append(matchedInstitution.institution)
+        }
+        
+        if institutionsToReturn.count > 5 {
+            institutionsToReturn = Array(institutionsToReturn[0..<5])
+        }
+                                
+        return institutionsToReturn
     }
     
     /* Search institutions with the title, donation, volunteers that are in the text parameter */

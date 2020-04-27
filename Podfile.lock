@@ -3,11 +3,11 @@ PODS:
   - IHKeyboardAvoiding (4.3)
   - IQKeyboardManager (6.2.0)
   - Nuke (7.5.1)
-  - Realm (3.11.1):
-    - Realm/Headers (= 3.11.1)
-  - Realm/Headers (3.11.1)
-  - RealmSwift (3.11.1):
-    - Realm (= 3.11.1)
+  - Realm (3.20.0):
+    - Realm/Headers (= 3.20.0)
+  - Realm/Headers (3.20.0)
+  - RealmSwift (3.20.0):
+    - Realm (= 3.20.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -16,27 +16,29 @@ DEPENDENCIES:
   - IQKeyboardManager
   - Nuke (~> 7.0)
   - RealmSwift
+  - RealmSwift (~> 3.20.0)
   - SVProgressHUD (~> 2.2)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - EasyTipView
     - IHKeyboardAvoiding
     - IQKeyboardManager
     - Nuke
+    - SVProgressHUD
+  trunk:
     - Realm
     - RealmSwift
-    - SVProgressHUD
 
 SPEC CHECKSUMS:
   EasyTipView: 1515544456d6e943240012e9be5d25d1bb766603
   IHKeyboardAvoiding: e6a8f06434baf4c3b45825c3eedb35cea5d0d76b
   IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
   Nuke: 3814db501e55f17951451839c726ffd91641e9a5
-  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
-  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
+  RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: cbe824f5bdb92a4ba106a6ee016c5a5cad3a60ca
+PODFILE CHECKSUM: 06e9df9b2a3dc34ae165554566211cbdacbc707a
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.9.1

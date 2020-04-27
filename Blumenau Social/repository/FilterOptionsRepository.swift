@@ -42,28 +42,28 @@ class FilterOptionsRepository: NSObject {
     /* Save or update the area in the database */
     func saveArea(_ area: Area) {
         try! realm.write {
-            realm.add(area, update: true)
+            realm.add(area, update: .all)
         }
     }
     
     /* Save or update the donation in the database */
     func saveDonation(_ donation: Donation) {
         try! realm.write {
-            realm.add(donation, update: true)
+            realm.add(donation, update: .all)
         }
     }
     
     /* Save or update the volunteer in the database */
     func saveVolunteer(_ volunteer: Volunteer) {
         try! realm.write {
-            realm.add(volunteer, update: true)
+            realm.add(volunteer, update: .all)
         }
     }
     
     /* Save or update the neighborhood in the database */
     func saveNeighborhood(_ neighborhood: Neighborhood) {
         try! realm.write {
-            realm.add(neighborhood, update: true)
+            realm.add(neighborhood, update: .all)
         }
     }
     

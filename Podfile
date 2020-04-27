@@ -6,7 +6,7 @@ target 'Blumenau Social' do
   use_frameworks!
 
   # Pods for Blumenau Social    
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 3.20.0'
   pod 'IHKeyboardAvoiding'
   pod 'IQKeyboardManager'
   pod 'Nuke', '~> 7.0'  
