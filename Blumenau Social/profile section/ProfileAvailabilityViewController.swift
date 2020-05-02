@@ -27,6 +27,8 @@ class ProfileAvailabilityViewController: UIViewController {
     @IBOutlet weak var lbMorning: UILabel!
     @IBOutlet weak var lbAfternoon: UILabel!
     @IBOutlet weak var lbNight: UILabel!
+    @IBOutlet weak var vAll: UIView!
+    @IBOutlet weak var lbAll: UILabel!
     
     private var selectedDays: [Component] = []
     private var selectedPeriods: [Component] = []
@@ -94,6 +96,19 @@ class ProfileAvailabilityViewController: UIViewController {
             index+=1
         }
         
+        vAll.tag = 0
+        vAll.layer.borderWidth = 1.0
+        vAll.layer.borderColor = UIColor.titleColor().cgColor
+        vAll.layer.cornerRadius = 8
+        vAll.alpha = 0.5
+        
+        lbAll.textColor = UIColor.titleColor()
+        lbAll.isUserInteractionEnabled = true
+        lbAll.tag = 0
+        
+        let touchAllOption = UITapGestureRecognizer(target: self, action: #selector(touchAll))
+        lbAll.addGestureRecognizer(touchAllOption)
+        
         userSelectedDays = preferences.userDays
         userSelectedPeriods = preferences.userPeriods
         
@@ -126,7 +141,6 @@ class ProfileAvailabilityViewController: UIViewController {
     /* Before going to the next view, check if the days and periods are filled and warn the user if not */
     func availabilityIsSelected() -> Bool {
         if userSelectedDays.isEmpty || userSelectedPeriods.isEmpty {
-            
             return false
         } else {
             preferences.userDays = userSelectedDays
@@ -147,6 +161,46 @@ class ProfileAvailabilityViewController: UIViewController {
         }
                 
         Utils.shared.showDefaultAlertWithMessage(message: message, viewController: self)
+    }
+    
+    @objc func touchAll(tapGesture: UITapGestureRecognizer) {
+        let shouldSelect = lbAll.tag == 0 ? true : false
+        lbAll.tag = shouldSelect ? 1 : 0
+        
+        if shouldSelect {
+            vAll.alpha = 1
+        } else {
+            vAll.alpha = 0.5
+        }
+                
+        for selectedDay in selectedDays {
+            let tag = selectedDay.label?.tag
+            if shouldSelect {
+                selectedDay.container?.alpha = 1
+                
+                userSelectedDays.append(tag ?? 0)
+            } else {
+                selectedDay.container?.alpha = 0.5
+                
+                let index = userSelectedDays.firstIndex(of: tag ?? 0)
+                userSelectedDays.remove(at: index!)
+            }
+        }
+        
+        for selectedPeriods in selectedPeriods {
+            let tag = selectedPeriods.label?.tag
+            
+            if shouldSelect {
+                selectedPeriods.container?.alpha = 1
+                
+                userSelectedPeriods.append(tag ?? 0)
+            } else {
+                selectedPeriods.container?.alpha = 0.5
+                
+                let index = userSelectedPeriods.firstIndex(of: tag ?? 0)
+                userSelectedPeriods.remove(at: index!)
+            }
+        }
     }
     
     /* When the user touches a day component */

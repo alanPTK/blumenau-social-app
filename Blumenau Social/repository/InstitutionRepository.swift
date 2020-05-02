@@ -287,12 +287,12 @@ class InstitutionRepository: NSObject {
         for institution in institutions {
             var points = 0
             
-            if institution.neighborhood == neighborhood {
-                points += 5
-            }
-                        
             let causes = institution.causes.filter(causePredicate)
             points += causes.count * 5
+            
+            if institution.neighborhood == neighborhood {
+                points += 2
+            }
                             
             let days = institution.days.filter(daysPredicate)
             points += Int(days.count / 2)

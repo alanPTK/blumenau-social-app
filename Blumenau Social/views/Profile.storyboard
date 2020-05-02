@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -495,6 +495,26 @@
                                     <constraint firstItem="HCj-fz-Lve" firstAttribute="top" secondItem="F6s-XP-EWc" secondAttribute="top" id="yNL-7b-HkG"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-aS-fbM">
+                                <rect key="frame" x="62.5" y="394" width="250" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODOS OS DIAS E PERÍODOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUS-rx-dAr">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" name="descColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="SUS-rx-dAr" firstAttribute="leading" secondItem="G3a-aS-fbM" secondAttribute="leading" id="7Dt-2f-dFC"/>
+                                    <constraint firstAttribute="height" constant="50" id="BRD-Ff-wpt"/>
+                                    <constraint firstAttribute="trailing" secondItem="SUS-rx-dAr" secondAttribute="trailing" id="Tqr-Jw-PGF"/>
+                                    <constraint firstAttribute="bottom" secondItem="SUS-rx-dAr" secondAttribute="bottom" id="cM4-xf-03J"/>
+                                    <constraint firstAttribute="width" constant="250" id="gDC-h4-46W"/>
+                                    <constraint firstItem="SUS-rx-dAr" firstAttribute="top" secondItem="G3a-aS-fbM" secondAttribute="top" id="nIl-3V-aap"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
@@ -502,6 +522,7 @@
                             <constraint firstItem="W9i-AX-w3r" firstAttribute="centerX" secondItem="GwX-dB-aoH" secondAttribute="centerX" id="2lT-K1-55b"/>
                             <constraint firstItem="Glr-vg-lXC" firstAttribute="leading" secondItem="nW0-gp-Nta" secondAttribute="leading" constant="8" id="6fa-kp-RFI"/>
                             <constraint firstItem="ZEe-FE-Jx3" firstAttribute="centerX" secondItem="GwX-dB-aoH" secondAttribute="centerX" id="8Cz-Cd-9QF"/>
+                            <constraint firstItem="G3a-aS-fbM" firstAttribute="centerX" secondItem="GwX-dB-aoH" secondAttribute="centerX" id="9xl-VI-odk"/>
                             <constraint firstItem="nW0-gp-Nta" firstAttribute="trailing" secondItem="IVg-Iq-m2m" secondAttribute="trailing" constant="8" id="B0i-Lh-phB"/>
                             <constraint firstItem="nW0-gp-Nta" firstAttribute="trailing" secondItem="MYL-OS-H1Z" secondAttribute="trailing" constant="8" id="DO7-Lz-sIR"/>
                             <constraint firstItem="ZEe-FE-Jx3" firstAttribute="top" secondItem="MYL-OS-H1Z" secondAttribute="bottom" constant="8" id="FNJ-56-lOY"/>
@@ -514,6 +535,7 @@
                             <constraint firstItem="68o-6B-IXL" firstAttribute="top" secondItem="nW0-gp-Nta" secondAttribute="top" constant="8" id="eM7-3Z-EMS"/>
                             <constraint firstItem="IVg-Iq-m2m" firstAttribute="top" secondItem="68o-6B-IXL" secondAttribute="bottom" constant="8" id="enu-ml-UBA"/>
                             <constraint firstItem="ZEe-FE-Jx3" firstAttribute="leading" secondItem="nW0-gp-Nta" secondAttribute="leading" constant="8" id="l11-NM-wSD"/>
+                            <constraint firstItem="G3a-aS-fbM" firstAttribute="top" secondItem="ZEe-FE-Jx3" secondAttribute="bottom" constant="32" id="mvt-Wb-LGi"/>
                             <constraint firstItem="nW0-gp-Nta" firstAttribute="trailing" secondItem="F6s-XP-EWc" secondAttribute="trailing" id="qSO-ag-aOT"/>
                             <constraint firstItem="nW0-gp-Nta" firstAttribute="bottom" secondItem="F6s-XP-EWc" secondAttribute="bottom" id="qy2-h6-Wmc"/>
                             <constraint firstItem="68o-6B-IXL" firstAttribute="leading" secondItem="nW0-gp-Nta" secondAttribute="leading" constant="8" id="vvp-nA-dNJ"/>
@@ -524,6 +546,7 @@
                     </view>
                     <connections>
                         <outlet property="lbAfternoon" destination="WCS-CQ-na4" id="rDi-7h-2PN"/>
+                        <outlet property="lbAll" destination="SUS-rx-dAr" id="EcI-w3-rUI"/>
                         <outlet property="lbFriday" destination="53j-d4-seS" id="Bhj-wC-pyv"/>
                         <outlet property="lbMonday" destination="7By-OR-1pl" id="qz4-aL-RJa"/>
                         <outlet property="lbMorning" destination="1Ed-hL-xbI" id="n1U-Bk-0zQ"/>
@@ -534,6 +557,7 @@
                         <outlet property="lbTuesday" destination="3hi-a1-8Ee" id="D5m-qd-ran"/>
                         <outlet property="lbWednesday" destination="Kw3-h6-DIA" id="6Vi-TK-v3T"/>
                         <outlet property="vAfternoon" destination="yA9-lu-Rcc" id="s0E-LR-HgY"/>
+                        <outlet property="vAll" destination="G3a-aS-fbM" id="BAq-7z-Esl"/>
                         <outlet property="vFriday" destination="Yn5-fT-FPG" id="z8Z-nN-zAD"/>
                         <outlet property="vMonday" destination="4JS-Sp-q7N" id="5XX-rh-0Bi"/>
                         <outlet property="vMorning" destination="ymj-yf-4Zf" id="FHX-Tw-cNd"/>
