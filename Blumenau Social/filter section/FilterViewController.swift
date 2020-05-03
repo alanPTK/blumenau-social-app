@@ -39,6 +39,7 @@ class FilterViewController: UIViewController {
     private var selectedVolunteers: [FilterOption] = []
     private var selectedNeighborhoods: [FilterOption] = []
     private var filterOptionsViewController: FilterOptionsViewController?
+    private var preferences = Preferences.shared
     
     public var onDone:((_ selectedNeighborhoods: [FilterOption], _ selectedVolunteers: [FilterOption], _ selectedDonations: [FilterOption], _ selectedAreas: [FilterOption]) -> ())?
 
@@ -63,6 +64,8 @@ class FilterViewController: UIViewController {
         for neighborhood in filterOptionsRepository.getAllNeighborhoods() {
             neighborhoods.append(FilterOption(name: neighborhood.name, id: neighborhood.id, image: neighborhood.image))
         }
+        
+        preferences.showNeighborhoodsView = true
     }
     
     /* Configure the visual aspects of the view components */

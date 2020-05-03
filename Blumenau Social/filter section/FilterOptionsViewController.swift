@@ -10,6 +10,7 @@ class FilterOptionsViewController: UIViewController {
     var filterOptions: [FilterOption] = []
     var selectedOption: Int = 0
     private var selectedFiltersOptions: [FilterOption] = []
+    private var preferences = Preferences.shared
     
     var onDone:((_ selectedFilterOptions: [FilterOption], _ selectedOption: Int) -> ())?
     
@@ -42,11 +43,33 @@ class FilterOptionsViewController: UIViewController {
     @IBAction func finishSelection(_ sender: Any) {
         onDone?(selectedFiltersOptions, selectedOption)
         
+        preferences.showNeighborhoodsView = false
+        
         dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setStatusBarBackgroundColor(UIColor.backgroundColor())
+        
+        if selectedOption == FilterConstants.NEIGHBORHOODS {
+            if preferences.showNeighborhoodsView {
+                let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Ficou em dúvida sobre a sua região ?", comment: ""), preferredStyle: .alert)
+                let yesAction = UIAlertAction(title: NSLocalizedString("Sim", comment: ""), style: .default) { (action) in
+                    let neighborhoodsViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.NEIGHBORHOODS_VIEW_STORYBOARD_ID) as! NeighborhoodsViewController
+                    
+                    self.present(neighborhoodsViewController, animated: true, completion: nil)
+                }
+                
+                let noAction = UIAlertAction(title: NSLocalizedString("Não", comment: ""), style: .destructive, handler: nil)
+                
+                alertController.addAction(yesAction)
+                alertController.addAction(noAction)
+                
+                present(alertController, animated: true, completion: nil)
+                
+                preferences.showNeighborhoodsView = false
+            }
+        }
     }
     
     func setStatusBarBackgroundColor(_ color: UIColor) {

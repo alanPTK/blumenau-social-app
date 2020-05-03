@@ -66,6 +66,7 @@
 		DB2A7C3521F15C8100C60B32 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB2A7C3421F15C8100C60B32 /* Localizable.strings */; };
 		DB373E1021FFB56900FE02E0 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */; };
 		DB3BE4FB21F4EB9C00B7170F /* FullImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */; };
+		DB43EAF7245F87EF00FF9DC2 /* NeighborhoodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB43EAF6245F87EF00FF9DC2 /* NeighborhoodsViewController.swift */; };
 		DB8F1DDB2304BEC20035676A /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DDA2304BEC20035676A /* FilterService.swift */; };
 		DB8F1DDF2304C9430035676A /* FiltersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DDE2304C9430035676A /* FiltersPresenter.swift */; };
 		DB8F1DE12304C9510035676A /* FiltersDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8F1DE02304C9510035676A /* FiltersDelegate.swift */; };
@@ -155,6 +156,7 @@
 		DB2A7C3421F15C8100C60B32 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageViewController.swift; sourceTree = "<group>"; };
+		DB43EAF6245F87EF00FF9DC2 /* NeighborhoodsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeighborhoodsViewController.swift; sourceTree = "<group>"; };
 		DB8F1DDA2304BEC20035676A /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		DB8F1DDE2304C9430035676A /* FiltersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersPresenter.swift; sourceTree = "<group>"; };
 		DB8F1DE02304C9510035676A /* FiltersDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersDelegate.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				DB957CC621F1EF7600E195D6 /* MissionViewController.swift */,
 				DB3BE4FA21F4EB9C00B7170F /* FullImageViewController.swift */,
 				DB373E0F21FFB56900FE02E0 /* ContactViewController.swift */,
+				DB43EAF6245F87EF00FF9DC2 /* NeighborhoodsViewController.swift */,
 			);
 			path = about;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				DB029F5522061C6D0073A4E7 /* CauseCollectionViewCell.swift in Sources */,
 				DB029F7022061CB20073A4E7 /* InstitutionRepository.swift in Sources */,
 				DB029F832207A3150073A4E7 /* InstitutionsDelegate.swift in Sources */,
+				DB43EAF7245F87EF00FF9DC2 /* NeighborhoodsViewController.swift in Sources */,
 				DB029F7D22073BE10073A4E7 /* UserDB.swift in Sources */,
 				DB8F1DE52304E88B0035676A /* Cache.swift in Sources */,
 				DB029F5F22061C8A0073A4E7 /* InformationViewController.swift in Sources */,
@@ -892,6 +896,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RGKH9LP28R;
 				INFOPLIST_FILE = "Blumenau Social/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -899,6 +904,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabeni.bnu-social";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -912,6 +918,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = RGKH9LP28R;
 				INFOPLIST_FILE = "Blumenau Social/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -919,6 +926,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.fabeni.bnu-social";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

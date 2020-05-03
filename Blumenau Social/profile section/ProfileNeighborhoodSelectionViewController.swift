@@ -22,6 +22,8 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
     @IBAction func showProfileAvailability(_ sender: Any) {
         if neighborhoodIsSelected() {
             performSegue(withIdentifier: "showProfileAvailability", sender: nil)
+            
+            preferences.showNeighborhoodsView = true
         } else {
             Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""), viewController: self)
         }
@@ -37,6 +39,26 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if preferences.showNeighborhoodsView {
+            let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Ficou em dúvida sobre a sua região ?", comment: ""), preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: NSLocalizedString("Sim", comment: ""), style: .default) { (action) in
+                let neighborhoodsViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.NEIGHBORHOODS_VIEW_STORYBOARD_ID) as! NeighborhoodsViewController
+                
+                self.present(neighborhoodsViewController, animated: true, completion: nil)
+            }
+            
+            let noAction = UIAlertAction(title: NSLocalizedString("Não", comment: ""), style: .destructive, handler: nil)
+            
+            alertController.addAction(yesAction)
+            alertController.addAction(noAction)
+            
+            present(alertController, animated: true, completion: nil)
+            
+            preferences.showNeighborhoodsView = false
+        }
     }
 
 }

@@ -24,6 +24,12 @@ class InstitutionService: NSObject {
                     return
                 }
                 
+//                do {
+//                    try JSONDecoder().decode(InstitutionsDecodable.self, from: data)
+//                } catch let error {
+//                    print(error)
+//                }
+                
                 guard let institutions = try? JSONDecoder().decode(InstitutionsDecodable.self, from: data) else {
                     return
                 }

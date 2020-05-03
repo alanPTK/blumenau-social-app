@@ -14,6 +14,15 @@ class Preferences {
         }
     }
     
+    var showNeighborhoodsView: Bool {
+        get {
+            return defaults.bool(forKey: "showNeighborhoodsView")
+        }
+        set {
+            defaults.set(newValue, forKey: "showNeighborhoodsView")
+        }
+    }
+    
     var institutionsAreSynchronized: Bool {
         get {
             return defaults.bool(forKey: "institutionsAreSynchronized")

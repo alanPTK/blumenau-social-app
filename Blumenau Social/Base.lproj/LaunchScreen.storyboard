@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,26 +14,26 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="ymu-Jw-XDe">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bridge_logo_blumenau_social" translatesAutoresizingMaskIntoConstraints="NO" id="ymu-Jw-XDe">
+                                <rect key="frame" x="32" y="0.0" width="256" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versão 1.3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-IR-Jf7">
-                                <rect key="frame" x="8" y="843" width="398" height="11"/>
+                                <rect key="frame" x="8" y="549" width="304" height="11"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <color key="textColor" name="titleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.82745098039215681" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ymu-Jw-XDe" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="5a2-1k-1Wc"/>
-                            <constraint firstItem="ymu-Jw-XDe" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="HmT-0U-WZ9"/>
+                            <constraint firstItem="ymu-Jw-XDe" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="32" id="HmT-0U-WZ9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Le-IR-Jf7" secondAttribute="trailing" constant="8" id="U9I-QZ-GfZ"/>
                             <constraint firstItem="7Le-IR-Jf7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="ZTY-Ib-Yi9"/>
-                            <constraint firstAttribute="trailing" secondItem="ymu-Jw-XDe" secondAttribute="trailing" id="pVw-Ip-Lbm"/>
+                            <constraint firstAttribute="trailing" secondItem="ymu-Jw-XDe" secondAttribute="trailing" constant="32" id="pVw-Ip-Lbm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Le-IR-Jf7" secondAttribute="bottom" constant="8" id="wuP-fe-cqf"/>
                             <constraint firstAttribute="bottom" secondItem="ymu-Jw-XDe" secondAttribute="bottom" id="yvl-hX-ERa"/>
                         </constraints>
@@ -47,7 +46,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash_screen" width="1080" height="1920"/>
+        <image name="bridge_logo_blumenau_social" width="228" height="51"/>
         <namedColor name="titleColor">
             <color red="0.019607843137254902" green="0.37647058823529411" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -20,6 +20,7 @@ struct Constants {
     static let INITIAL_VIEW_STORYBOARD_ID = "initialViewController"
     static let EVENT_VIEW_STORYBOARD_ID = "EventViewController"
     static let INSTITUTION_MAP_VIEW_STORYBOARD_ID = "InstitutionsMapViewController"
+    static let NEIGHBORHOODS_VIEW_STORYBOARD_ID = "NeighborhoodsViewController"    
     
     //storyboard identifiers
     static let MAIN_STORYBOARD_NAME = "Main"

@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
         filtersPresenter = FiltersPresenter(delegate: self)
                 
         institutionsPresenter = InstitutionsPresenter(delegate: self)
-        institutionsPresenter?.getInstitutions(forceSync: false)
+        institutionsPresenter?.getInstitutions(forceSync: true)
         
         cvInstitutions.refreshControl = refreshControl
         refreshControl.tintColor = .white
