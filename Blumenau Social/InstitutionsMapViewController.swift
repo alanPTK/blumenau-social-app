@@ -22,18 +22,11 @@ class InstitutionsMapViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setStatusBarBackgroundColor(UIColor.backgroundColor())
-        
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -26.9187, longitude: -49.066), span: span)
         
         institutionsMapView.setRegion(region, animated: true)
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
+    }        
     
     func setupView() {
         headerView.layer.cornerRadius = 8

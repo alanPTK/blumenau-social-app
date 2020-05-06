@@ -29,17 +29,7 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
         }
         
         pcAbout.currentPage = currentPage
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        setStatusBarBackgroundColor(UIColor.backgroundColor())
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
+    }            
 
     /* Initialize the view components and load the views in the scrollview */
     func setupView() {

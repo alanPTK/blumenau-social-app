@@ -49,13 +49,12 @@ class FilterOptionsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        setStatusBarBackgroundColor(UIColor.backgroundColor())
-        
         if selectedOption == FilterConstants.NEIGHBORHOODS {
             if preferences.showNeighborhoodsView {
                 let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Ficou em dúvida sobre a sua região ?", comment: ""), preferredStyle: .alert)
                 let yesAction = UIAlertAction(title: NSLocalizedString("Sim", comment: ""), style: .default) { (action) in
                     let neighborhoodsViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.NEIGHBORHOODS_VIEW_STORYBOARD_ID) as! NeighborhoodsViewController
+                    neighborhoodsViewController.modalPresentationStyle = .fullScreen
                     
                     self.present(neighborhoodsViewController, animated: true, completion: nil)
                 }
@@ -70,12 +69,7 @@ class FilterOptionsViewController: UIViewController {
                 preferences.showNeighborhoodsView = false
             }
         }
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
+    }        
 }
 
 extension FilterOptionsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {

@@ -78,22 +78,15 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
     /* Presents the institution search view */
     @objc func searchInstitutions() {
         let filterViewController = UIStoryboard(name: Constants.FILTER_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.FILTER_VIEW_STORYBOARD_ID) as! FilterViewController
+        filterViewController.modalPresentationStyle = .fullScreen
+        
         present(filterViewController, animated: true, completion: nil)
         
         filterViewController.onDone = {(selectedNeighborhoods: [FilterOption], selectedVolunteers: [FilterOption], selectedDonations: [FilterOption], selectedAreas: [FilterOption]) -> () in
             
             self.institutionsPresenter?.searchInstitutions(selectedNeighborhoods: selectedNeighborhoods, selectedAreas: selectedAreas, selectedDonations: selectedDonations, selectedVolunteers: selectedVolunteers, days: [], periods: [], limit: 0)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        setStatusBarBackgroundColor(UIColor.titleColor())
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
+    }    
 
 }
 
@@ -128,6 +121,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         let selectedInstitution = institutions[indexPath.row]
         
         institutionInformationViewController.currentInstitution = selectedInstitution
+        institutionInformationViewController.modalPresentationStyle = .fullScreen
         
         present(institutionInformationViewController, animated: true, completion: nil)
     }

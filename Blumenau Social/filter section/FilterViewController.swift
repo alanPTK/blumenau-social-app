@@ -101,16 +101,7 @@ class FilterViewController: UIViewController {
                     break
             }
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        setStatusBarBackgroundColor(UIColor.backgroundColor())
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
+    }        
 }
 
 extension FilterViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

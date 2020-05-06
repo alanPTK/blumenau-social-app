@@ -24,8 +24,6 @@ class InitialProfileViewController: UIViewController {
         changeAlpha(view: views.first!)
         
         tfName.text = preferences.userName
-        
-        setStatusBarBackgroundColor(UIColor.backgroundColor())
     }
     
     /* Configure the visual aspects of the view components */
@@ -75,12 +73,7 @@ class InitialProfileViewController: UIViewController {
     /* Dismiss the view if the user don't want to create a profile */
     @IBAction func cancelProfile(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
-    }
+    }        
 }
 
 extension InitialProfileViewController: UITextFieldDelegate {

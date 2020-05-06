@@ -92,13 +92,17 @@ class MatchViewController: UIViewController {
         let initialProfileViewController = UIStoryboard(name: Constants.PROFILE_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INITIAL_PROFILE_VIEW_STORYBOARD_ID)
         
         let navigationController = UINavigationController(rootViewController: initialProfileViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+                
         present(navigationController, animated: true, completion: nil)
     }
     
     @IBAction func showInstitutionsMap(_ sender: Any) {
         let institutionsMapViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_MAP_VIEW_STORYBOARD_ID) as! InstitutionsMapViewController
         
-        institutionsMapViewController.selectedInstitutions = matchingInstitutions        
+        institutionsMapViewController.selectedInstitutions = matchingInstitutions
+        institutionsMapViewController.modalPresentationStyle = .fullScreen
+        
         present(institutionsMapViewController, animated: true, completion: nil)
     }
     
@@ -106,10 +110,6 @@ class MatchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if preferences.profileIsCreated {
             vInfo.isHidden = true
-            
-            setStatusBarBackgroundColor(UIColor.titleColor())
-        } else {
-            setStatusBarBackgroundColor(UIColor.backgroundColor())
         }
     }
     
@@ -117,6 +117,7 @@ class MatchViewController: UIViewController {
     func showInstitution(institution: Institution) {
         let institutionInformationViewController = UIStoryboard(name: Constants.INSTITUTION_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.INSTITUTION_VIEW_STORYBOARD_ID) as! InstitutionViewController
         institutionInformationViewController.currentInstitution = institution
+        institutionInformationViewController.modalPresentationStyle = .fullScreen
         
         present(institutionInformationViewController, animated: true, completion: nil)
     }
@@ -127,11 +128,6 @@ class MatchViewController: UIViewController {
         institutionEventViewController.selectedEvent = event
         
         present(institutionEventViewController, animated: true, completion: nil)
-    }
-    
-    func setStatusBarBackgroundColor(_ color: UIColor) {
-        guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-        statusBar.backgroundColor = color
     }
     
     override func viewDidAppear(_ animated: Bool) {
