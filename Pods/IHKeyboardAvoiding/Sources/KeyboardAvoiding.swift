@@ -59,7 +59,8 @@ import UIKit
     class func didChange(_ notification: Foundation.Notification) {
         var isKeyBoardShowing = false
         // isKeyBoardShowing and is it merged and docked.
-        let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
+        
+        let isPortrait =  UIApplication.shared.statusBarOrientation.isPortrait
         // get the keyboard & window frames
         
         let keyboardFrame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
@@ -271,7 +272,7 @@ import UIKit
     }
     
     public class func removeTriggerView(_ triggerView: UIView) {
-        if let index = triggerViews.index(of: triggerView) {
+        if let index = triggerViews.firstIndex(of: triggerView) {
             self.triggerViews.remove(at: index)
         }
     }

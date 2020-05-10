@@ -40,8 +40,8 @@ class UserRepository: NSObject {
     
     /* Save or update the user event in the database */
     func saveUserEvent(_ userEvent: UserEvent) {
-        try! realm.write {
-            realm.add(userEvent, update: true)
+        try! realm.write {            
+            realm.add(userEvent, update: .all)
         }
     }
     

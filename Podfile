@@ -15,6 +15,6 @@ target 'Blumenau Social' do
   
   target 'BlumenauSocialTests' do
     inherit! :search_paths
-    pod 'RealmSwift'
+    pod 'RealmSwift', '~> 3.20.0'
   end
 end
