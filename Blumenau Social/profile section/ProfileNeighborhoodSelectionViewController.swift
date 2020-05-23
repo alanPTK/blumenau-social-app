@@ -21,7 +21,7 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
     /* Go to the next screen */
     @IBAction func showProfileAvailability(_ sender: Any) {
         if neighborhoodIsSelected() {
-            performSegue(withIdentifier: "showProfileAvailability", sender: nil)
+            performSegue(withIdentifier: "showProfileInterests", sender: nil)
             
             preferences.showNeighborhoodsView = true
         } else {

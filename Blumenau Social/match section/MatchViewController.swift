@@ -110,6 +110,10 @@ class MatchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if preferences.profileIsCreated {
             vInfo.isHidden = true
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Entre em contato com a instituição para verificar a compatibilidade de agenda.", comment: ""), viewController: self)
+            }
         }
     }
     

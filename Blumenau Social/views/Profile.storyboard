@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -222,7 +222,7 @@
                         <viewLayoutGuide key="safeArea" id="o0Z-dF-SNt"/>
                     </view>
                     <connections>
-                        <segue destination="0lC-dK-JOy" kind="show" identifier="showProfileAvailability" id="daW-Pr-aH1"/>
+                        <segue destination="ICU-fZ-QfN" kind="show" identifier="showProfileInterests" id="axj-XM-tap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MqK-pm-FXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,13 +238,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione todos os dias da semana que você tem disponibilidade" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68o-6B-IXL">
-                                <rect key="frame" x="8" y="52" width="359" height="35"/>
+                                <rect key="frame" x="8" y="8" width="359" height="35"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="15"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IVg-Iq-m2m">
-                                <rect key="frame" x="8" y="95" width="359" height="50"/>
+                                <rect key="frame" x="8" y="51" width="359" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4JS-Sp-q7N">
                                         <rect key="frame" x="0.0" y="0.0" width="113" height="50"/>
@@ -308,7 +308,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Glr-vg-lXC">
-                                <rect key="frame" x="8" y="153" width="359" height="50"/>
+                                <rect key="frame" x="8" y="109" width="359" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ysY-TN-Gg4">
                                         <rect key="frame" x="0.0" y="0.0" width="113" height="50"/>
@@ -370,7 +370,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="W9i-AX-w3r">
-                                <rect key="frame" x="131" y="211" width="113" height="50"/>
+                                <rect key="frame" x="131" y="167" width="113" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-qh-xbY">
                                         <rect key="frame" x="0.0" y="0.0" width="113" height="50"/>
@@ -397,13 +397,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selecione os periodos do dia que você tem disponibilidade" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYL-OS-H1Z">
-                                <rect key="frame" x="8" y="269" width="359" height="35"/>
+                                <rect key="frame" x="8" y="225" width="359" height="35"/>
                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="15"/>
                                 <color key="textColor" name="descColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZEe-FE-Jx3">
-                                <rect key="frame" x="8" y="312" width="359" height="50"/>
+                                <rect key="frame" x="8" y="268" width="359" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymj-yf-4Zf">
                                         <rect key="frame" x="0.0" y="0.0" width="113" height="50"/>
@@ -496,7 +496,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3a-aS-fbM">
-                                <rect key="frame" x="62.5" y="394" width="250" height="50"/>
+                                <rect key="frame" x="62.5" y="350" width="250" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODOS OS DIAS E PERÍODOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUS-rx-dAr">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
@@ -567,12 +567,11 @@
                         <outlet property="vThursday" destination="ysY-TN-Gg4" id="uIs-sr-YVp"/>
                         <outlet property="vTuesday" destination="QXj-YS-5uh" id="kud-ek-d3J"/>
                         <outlet property="vWednesday" destination="j1i-J5-R9m" id="BKo-AY-Zxp"/>
-                        <segue destination="ICU-fZ-QfN" kind="show" identifier="showProfileInterests" id="aFG-5y-slM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0i-tk-qAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4241.25" y="15.845070422535212"/>
+            <point key="canvasLocation" x="3383" y="697"/>
         </scene>
         <!--Profile Interests View Controller-->
         <scene sceneID="VIS-2W-F7H">
@@ -675,10 +674,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2j7-dO-GbA"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KS6-Sj-rYT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDu-DO-GXG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5038.125" y="15.845070422535212"/>
+            <point key="canvasLocation" x="4246" y="16"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="buX-xR-vB9">

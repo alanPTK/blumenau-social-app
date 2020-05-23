@@ -281,8 +281,8 @@ class InstitutionRepository: NSObject {
         var institutionsToReturn: [Institution] = []
                         
         let causePredicate = NSPredicate(format: "id IN %@", causes)
-        let daysPredicate = NSPredicate(format: "id IN %@", days)
-        let periodsPredicate = NSPredicate(format: "id IN %@", periods)
+        //let daysPredicate = NSPredicate(format: "id IN %@", days)
+        //let periodsPredicate = NSPredicate(format: "id IN %@", periods)
         
         for institution in institutions {
             var points = 0
@@ -294,11 +294,11 @@ class InstitutionRepository: NSObject {
                 points += 2
             }
                             
-            let days = institution.days.filter(daysPredicate)
-            points += Int(days.count / 2)
+            //let days = institution.days.filter(daysPredicate)
+            //points += Int(days.count / 2)
             
-            let periods = institution.periods.filter(periodsPredicate)
-            points += Int(periods.count / 2)
+            //let periods = institution.periods.filter(periodsPredicate)
+            //points += Int(periods.count / 2)
                         
             matchedInstitutions.append(MatchedInstitution(institution: institution, points: points))
         }
