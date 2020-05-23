@@ -320,10 +320,10 @@ class InstitutionRepository: NSObject {
     
     /* Search institutions with the title, donation, volunteers that are in the text parameter */
     func searchInstitutions(text: String) -> Array<Institution> {
-        let titlePredicate = NSPredicate(format: "title contains [c] %@", text)
-        let volunteerPredicate = NSPredicate(format: "volunteers contains [c] %@", text)
-        let scopePredicate = NSPredicate(format: "scope contains [c] %@", text)
-        let donationPredicate = NSPredicate(format: "ANY donations.desc contains [c] %@", text)
+        let titlePredicate = NSPredicate(format: "title contains [cd] %@", text)
+        let volunteerPredicate = NSPredicate(format: "volunteers contains [cd] %@", text)
+        let scopePredicate = NSPredicate(format: "scope contains [cd] %@", text)
+        let donationPredicate = NSPredicate(format: "ANY donations.desc contains [cd] %@", text)
         
         let fullPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [titlePredicate, volunteerPredicate, donationPredicate, scopePredicate])
         

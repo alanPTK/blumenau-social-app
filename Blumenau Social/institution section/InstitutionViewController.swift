@@ -178,14 +178,37 @@ class InstitutionViewController: UIViewController {
     /* When the user taps the address, open the Maps application with the institution location */
     @objc func showInstitutionLocation() {
         if let address = lbAddress.text {
-            Utils.shared.openLocation(address: address)
+            Utils.shared.copyToPasteboard(string: address)
+            
+            Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Endereço copiado.", comment: ""), viewController: self)
         }        
     }
     
     /* When the user taps the phone, make a call */
     @objc func callInstitution() {
         if let phone = lbPhone.text {
-            Utils.shared.callPhoneNumber(phoneNumber: phone)
+            print("!! phone \(phone) !!")
+            let phones = phone.components(separatedBy: "ou")
+            print("!! phones \(phones) !!")
+            
+            if phones.count > 1 {
+                let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Para qual telefone você deseja ligar ?", comment: ""), preferredStyle: .actionSheet)
+                
+                for phone in phones {
+                    let phoneAction = UIAlertAction(title: phone, style: .default) { (action) in
+                        Utils.shared.callPhoneNumber(phoneNumber: phone)
+                    }
+                    
+                    alertController.addAction(phoneAction)
+                }
+                
+                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancelar", comment: ""), style: .destructive, handler: nil)
+                alertController.addAction(cancelAction)
+                
+                present(alertController, animated: true, completion: nil)
+            } else {
+                Utils.shared.callPhoneNumber(phoneNumber: phone)
+            }
         }                
     }
     

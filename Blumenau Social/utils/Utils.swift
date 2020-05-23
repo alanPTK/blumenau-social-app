@@ -31,7 +31,8 @@ class Utils {
     }
     
     func callPhoneNumber(phoneNumber: String) {
-        if let number = URL(string: "tel://" + phoneNumber) {
+        let formattedNumber = phoneNumber.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: " ", with: "")
+        if let number = URL(string: "tel://" + formattedNumber) {
             UIApplication.shared.open(number)
         }
     }
@@ -42,6 +43,10 @@ class Utils {
         if let locationURL = URL(string: location) {
             UIApplication.shared.open(locationURL)
         }
+    }
+    
+    func copyToPasteboard(string: String) {
+        UIPasteboard.general.string = string                
     }
     
     func applyBlurTo(image: UIImage) -> UIImage {
