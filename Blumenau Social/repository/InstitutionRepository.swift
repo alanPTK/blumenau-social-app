@@ -91,6 +91,7 @@ class InstitutionRepository: NSObject {
             institution.phone = institutionData.phone
             institution.mail = institutionData.mail
             institution.responsible = institutionData.responsible
+            institution.whatsapp = institutionData.whatsapp
             institution.workingHours = institutionData.working_hours
             institution.scope = institutionData.scope
             institution.volunteers = institutionData.volunteers

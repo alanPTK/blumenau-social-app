@@ -77,6 +77,7 @@ class InstitutionViewController: UIViewController {
     @IBOutlet weak var lbPhone: UILabel!
     @IBOutlet weak var lbAddress: UILabel!
     @IBOutlet weak var lbResponsibleTitle: UILabel!
+    @IBOutlet weak var lbWhatsApp: UILabel!
     
     @IBOutlet weak var vMainInformation: UIView!
     @IBOutlet weak var vContactInformation: UIView!
@@ -143,6 +144,14 @@ class InstitutionViewController: UIViewController {
         
         let underlinePhoneText = NSAttributedString(string: (currentInstitution?.phone)!, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
         lbPhone.attributedText = underlinePhoneText
+        
+        lbWhatsApp.text = currentInstitution?.whatsapp
+        lbWhatsApp.textColor = UIColor.descColor()
+        lbWhatsApp.font = UIFont.boldSystemFont(ofSize: lbWhatsApp.font.pointSize)
+        lbWhatsApp.isUserInteractionEnabled = true
+        
+        let underlineWhatsAppText = NSAttributedString(string: (currentInstitution?.whatsapp)!, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
+        lbWhatsApp.attributedText = underlineWhatsAppText        
         
         lbEmail.text = currentInstitution?.mail
         lbEmail.textColor = UIColor.descColor()

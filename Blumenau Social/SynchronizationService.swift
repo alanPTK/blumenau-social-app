@@ -43,6 +43,7 @@ struct InstitutionDecodable: Decodable {
     let phone: String
     let mail: String
     let responsible: String
+    let whatsapp: String    
     let working_hours: String
     let days: [Int]
     let periods: [Int]

@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -264,7 +264,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fb-G1-McR">
-                                        <rect key="frame" x="8" y="136" width="304" height="190"/>
+                                        <rect key="frame" x="8" y="136" width="304" height="220"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rua" translatesAutoresizingMaskIntoConstraints="NO" id="v2h-uz-n1R">
                                                 <rect key="frame" x="8" y="14" width="20" height="20"/>
@@ -274,46 +274,59 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rua José Fischer, 439 - Escola Agrícola " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNd-Of-AzF">
-                                                <rect key="frame" x="32" y="6" width="264" height="36"/>
+                                                <rect key="frame" x="36" y="6" width="260" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Cjg-2N-FQ0">
-                                                <rect key="frame" x="8" y="52" width="20" height="20"/>
+                                                <rect key="frame" x="8" y="46" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="0KJ-KQ-yrE"/>
                                                     <constraint firstAttribute="width" constant="20" id="zJP-7K-KKA"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(47) 3327-0484" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzE-VS-52c">
-                                                <rect key="frame" x="32" y="53" width="264" height="18"/>
+                                                <rect key="frame" x="36" y="47" width="260" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail" translatesAutoresizingMaskIntoConstraints="NO" id="DFg-YZ-1Jw">
-                                                <rect key="frame" x="8" y="90" width="20" height="20"/>
+                                                <rect key="frame" x="8" y="110" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="8sG-Tf-ReR"/>
                                                     <constraint firstAttribute="height" constant="20" id="Yks-qH-Anw"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abam@abamonline.org.br" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nz4-EU-IfT">
-                                                <rect key="frame" x="36" y="91" width="260" height="18"/>
+                                                <rect key="frame" x="36" y="111" width="260" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Responsável" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLR-Mq-zM3">
-                                                <rect key="frame" x="8" y="118" width="288" height="16.5"/>
+                                                <rect key="frame" x="8" y="138" width="288" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="VAGRoundedNext-Bold" family="VAG Rounded Next" pointSize="14"/>
                                                 <color key="textColor" name="titleColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sr. Edson Carlos de Jesus e Edineia Alessandra Marchetti - Interventores da ABAM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GGC-Bz-cww">
-                                                <rect key="frame" x="8" y="136.5" width="288" height="50.5"/>
+                                                <rect key="frame" x="8" y="156.5" width="288" height="50.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whatsapp" translatesAutoresizingMaskIntoConstraints="NO" id="Iuo-pb-T7w">
+                                                <rect key="frame" x="8" y="78" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Oec-El-nOj"/>
+                                                    <constraint firstAttribute="width" constant="20" id="V88-3e-0Q9"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(47) 3327-0484" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbg-7R-SCU">
+                                                <rect key="frame" x="36" y="79" width="112.5" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -321,31 +334,35 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="DFg-YZ-1Jw" firstAttribute="leading" secondItem="1fb-G1-McR" secondAttribute="leading" constant="8" id="1G4-kj-3cx"/>
-                                            <constraint firstItem="XNd-Of-AzF" firstAttribute="leading" secondItem="v2h-uz-n1R" secondAttribute="trailing" constant="4" id="1n7-lD-0AP"/>
+                                            <constraint firstItem="XNd-Of-AzF" firstAttribute="leading" secondItem="v2h-uz-n1R" secondAttribute="trailing" constant="8" id="1n7-lD-0AP"/>
                                             <constraint firstItem="v2h-uz-n1R" firstAttribute="top" secondItem="1fb-G1-McR" secondAttribute="top" constant="14" id="2ZV-Vi-CoZ"/>
                                             <constraint firstItem="Nz4-EU-IfT" firstAttribute="leading" secondItem="DFg-YZ-1Jw" secondAttribute="trailing" constant="8" id="4CG-cl-lqs"/>
-                                            <constraint firstItem="Cjg-2N-FQ0" firstAttribute="top" secondItem="v2h-uz-n1R" secondAttribute="bottom" constant="18" id="4uQ-Bj-1Yu"/>
+                                            <constraint firstItem="Cjg-2N-FQ0" firstAttribute="top" secondItem="v2h-uz-n1R" secondAttribute="bottom" constant="12" id="4uQ-Bj-1Yu"/>
                                             <constraint firstAttribute="trailing" secondItem="XNd-Of-AzF" secondAttribute="trailing" constant="8" id="7BY-gm-e6j"/>
                                             <constraint firstItem="XNd-Of-AzF" firstAttribute="centerY" secondItem="v2h-uz-n1R" secondAttribute="centerY" id="CKa-RZ-tQX"/>
+                                            <constraint firstItem="Iuo-pb-T7w" firstAttribute="top" secondItem="Cjg-2N-FQ0" secondAttribute="bottom" constant="12" id="Jbo-ap-Esx"/>
+                                            <constraint firstItem="Wbg-7R-SCU" firstAttribute="leading" secondItem="Iuo-pb-T7w" secondAttribute="trailing" constant="8" id="LFN-ro-PTT"/>
                                             <constraint firstItem="Nz4-EU-IfT" firstAttribute="centerY" secondItem="DFg-YZ-1Jw" secondAttribute="centerY" id="P4C-Je-u1v"/>
                                             <constraint firstAttribute="trailing" secondItem="MzE-VS-52c" secondAttribute="trailing" constant="8" id="Qa0-sd-Ml0"/>
                                             <constraint firstItem="v2h-uz-n1R" firstAttribute="leading" secondItem="1fb-G1-McR" secondAttribute="leading" constant="8" id="Qe2-Qi-Fcp"/>
-                                            <constraint firstItem="MzE-VS-52c" firstAttribute="leading" secondItem="Cjg-2N-FQ0" secondAttribute="trailing" constant="4" id="ZfY-Ag-MdE"/>
+                                            <constraint firstItem="Wbg-7R-SCU" firstAttribute="centerY" secondItem="Iuo-pb-T7w" secondAttribute="centerY" id="W8L-oR-c86"/>
+                                            <constraint firstItem="MzE-VS-52c" firstAttribute="leading" secondItem="Cjg-2N-FQ0" secondAttribute="trailing" constant="8" id="ZfY-Ag-MdE"/>
                                             <constraint firstItem="GGC-Bz-cww" firstAttribute="top" secondItem="jLR-Mq-zM3" secondAttribute="bottom" constant="2" id="cdq-M9-6ek"/>
                                             <constraint firstAttribute="trailing" secondItem="Nz4-EU-IfT" secondAttribute="trailing" constant="8" id="cpQ-x8-bgH"/>
+                                            <constraint firstItem="Iuo-pb-T7w" firstAttribute="leading" secondItem="1fb-G1-McR" secondAttribute="leading" constant="8" id="gLP-YH-mvE"/>
                                             <constraint firstAttribute="trailing" secondItem="jLR-Mq-zM3" secondAttribute="trailing" constant="8" id="hkb-a6-pQy"/>
                                             <constraint firstItem="MzE-VS-52c" firstAttribute="centerY" secondItem="Cjg-2N-FQ0" secondAttribute="centerY" id="nPE-8s-1gj"/>
                                             <constraint firstAttribute="trailing" secondItem="GGC-Bz-cww" secondAttribute="trailing" constant="8" id="nef-EF-5zW"/>
                                             <constraint firstItem="Cjg-2N-FQ0" firstAttribute="leading" secondItem="1fb-G1-McR" secondAttribute="leading" constant="8" id="qM9-sB-fqj"/>
                                             <constraint firstItem="jLR-Mq-zM3" firstAttribute="leading" secondItem="1fb-G1-McR" secondAttribute="leading" constant="8" id="sIs-hi-hH6"/>
-                                            <constraint firstAttribute="height" constant="190" id="te9-yK-k6v"/>
-                                            <constraint firstItem="DFg-YZ-1Jw" firstAttribute="top" secondItem="Cjg-2N-FQ0" secondAttribute="bottom" constant="18" id="x4F-Pg-eAg"/>
+                                            <constraint firstAttribute="height" constant="220" id="te9-yK-k6v"/>
+                                            <constraint firstItem="DFg-YZ-1Jw" firstAttribute="top" secondItem="Iuo-pb-T7w" secondAttribute="bottom" constant="12" id="x4F-Pg-eAg"/>
                                             <constraint firstItem="jLR-Mq-zM3" firstAttribute="top" secondItem="DFg-YZ-1Jw" secondAttribute="bottom" constant="8" id="xd2-aN-smu"/>
                                             <constraint firstItem="GGC-Bz-cww" firstAttribute="leading" secondItem="1fb-G1-McR" secondAttribute="leading" constant="8" id="zlJ-jG-hnj"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-2O-FUA">
-                                        <rect key="frame" x="8" y="334" width="304" height="128"/>
+                                        <rect key="frame" x="8" y="364" width="304" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horário de funcionamento" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRq-Tg-Qvt">
                                                 <rect key="frame" x="8" y="8" width="255" height="20"/>
@@ -388,7 +405,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAd-Io-7dB">
-                                        <rect key="frame" x="8" y="470" width="304" height="150"/>
+                                        <rect key="frame" x="8" y="500" width="304" height="150"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sfz-b0-6Vs">
                                                 <rect key="frame" x="8" y="8" width="288" height="134"/>
@@ -467,7 +484,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaA-sw-BtS">
-                                        <rect key="frame" x="8" y="628" width="304" height="128"/>
+                                        <rect key="frame" x="8" y="658" width="304" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Atuação" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZO-MX-vra">
                                                 <rect key="frame" x="8" y="8" width="255" height="20"/>
@@ -577,7 +594,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHB-dU-3NO">
-                                        <rect key="frame" x="8" y="764" width="304" height="256"/>
+                                        <rect key="frame" x="8" y="794" width="304" height="256"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doações" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxK-cb-5oy">
                                                 <rect key="frame" x="8" y="8" width="255" height="20"/>
@@ -641,7 +658,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-9Z-Xpo">
-                                        <rect key="frame" x="8" y="1028" width="304" height="128"/>
+                                        <rect key="frame" x="8" y="1058" width="304" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precisamos de voluntários" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXG-0e-ujG">
                                                 <rect key="frame" x="8" y="8" width="255" height="20"/>
@@ -684,7 +701,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-3Y-eai">
-                                        <rect key="frame" x="8" y="1164" width="304" height="256"/>
+                                        <rect key="frame" x="8" y="1194" width="304" height="256"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eventos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRo-b4-Klt">
                                                 <rect key="frame" x="8" y="8" width="255" height="20"/>
@@ -748,7 +765,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrU-cb-z3D">
-                                        <rect key="frame" x="8" y="1428" width="304" height="230"/>
+                                        <rect key="frame" x="8" y="1458" width="304" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotos da instituição" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGM-08-H5D">
                                                 <rect key="frame" x="8" y="8" width="255" height="20"/>
@@ -894,6 +911,7 @@
                         <outlet property="lbSubtitle" destination="3kK-A8-zXh" id="6i4-5n-jVj"/>
                         <outlet property="lbTitle" destination="ccU-BA-D5f" id="Vr2-fb-nx7"/>
                         <outlet property="lbVolunteers" destination="UXG-0e-ujG" id="IPl-cC-pHV"/>
+                        <outlet property="lbWhatsApp" destination="Wbg-7R-SCU" id="MGC-cg-1h1"/>
                         <outlet property="lbWorkingHours" destination="pRq-Tg-Qvt" id="qls-pP-RHE"/>
                         <outlet property="lcAboutHeight" destination="cgn-dm-6Zh" id="t4H-Cw-1fZ"/>
                         <outlet property="lcContactInformationHeight" destination="te9-yK-k6v" id="9vi-gy-Q4Y"/>
@@ -998,12 +1016,13 @@
         <image name="close" width="36" height="36"/>
         <image name="closeRed" width="512" height="512"/>
         <image name="collapse" width="512" height="512"/>
-        <image name="mail" width="20" height="20"/>
-        <image name="phone" width="20" height="20"/>
+        <image name="mail" width="56" height="56"/>
+        <image name="phone" width="512" height="512"/>
         <image name="routes2" width="192" height="192"/>
-        <image name="rua" width="20" height="20"/>
+        <image name="rua" width="56" height="56"/>
         <image name="share" width="480" height="480"/>
         <image name="star" width="480" height="480"/>
+        <image name="whatsapp" width="56" height="56"/>
         <namedColor name="backgroundColor">
             <color red="0.9137254901960784" green="0.89803921568627454" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

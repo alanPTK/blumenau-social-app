@@ -6,6 +6,7 @@ class Institution: Object {
     @objc dynamic var subtitle: String = ""
     @objc dynamic var address: String = ""
     @objc dynamic var phone: String = ""
+    @objc dynamic var whatsapp: String = ""
     @objc dynamic var mail: String = ""
     @objc dynamic var responsible: String = ""
     @objc dynamic var workingHours: String = ""
