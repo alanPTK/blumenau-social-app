@@ -276,7 +276,7 @@ class InstitutionRepository: NSObject {
     }
     
     /* Search institutions that match the user profile */
-    func searchInstitutionsForMatch(neighborhood: Int, causes: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
+    func searchInstitutionsForMatch(neighborhoods: [Int], causes: [Int], days: [Int], periods: [Int], limit: Int) -> [Institution] {
         let institutions = Array(realm.objects(Institution.self))
         var matchedInstitutions: [MatchedInstitution] = []
         var institutionsToReturn: [Institution] = []
@@ -291,9 +291,9 @@ class InstitutionRepository: NSObject {
             let causes = institution.causes.filter(causePredicate)
             points += causes.count * 5
             
-            if institution.neighborhood == neighborhood {
+            if neighborhoods.contains(institution.neighborhood) {
                 points += 2
-            }
+            }                        
                             
             //let days = institution.days.filter(daysPredicate)
             //points += Int(days.count / 2)

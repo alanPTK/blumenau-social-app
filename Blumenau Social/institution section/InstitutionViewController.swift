@@ -151,7 +151,7 @@ class InstitutionViewController: UIViewController {
         lbWhatsApp.isUserInteractionEnabled = true
         
         let underlineWhatsAppText = NSAttributedString(string: (currentInstitution?.whatsapp)!, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
-        lbWhatsApp.attributedText = underlineWhatsAppText        
+        lbWhatsApp.attributedText = underlineWhatsAppText
         
         lbEmail.text = currentInstitution?.mail
         lbEmail.textColor = UIColor.descColor()
@@ -178,6 +178,9 @@ class InstitutionViewController: UIViewController {
         let locationTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showInstitutionLocation))
         lbAddress.addGestureRecognizer(locationTapGestureRecognizer)
         
+        let whatsAppTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openWhatsApp))
+        lbWhatsApp.addGestureRecognizer(whatsAppTapGestureRecognizer)
+        
         if currentInstitution?.responsible.isEmpty ?? true {
             lbResponsible.isHidden = true
             lbResponsibleTitle.isHidden = true
@@ -193,13 +196,17 @@ class InstitutionViewController: UIViewController {
         }        
     }
     
+    @objc func openWhatsApp() {
+        if let whatsAppNumber = lbWhatsApp.text {
+            Utils.shared.openWhatsApp(phoneNumber: whatsAppNumber)
+        }
+    }
+    
     /* When the user taps the phone, make a call */
     @objc func callInstitution() {
         if let phone = lbPhone.text {
-            print("!! phone \(phone) !!")
             let phones = phone.components(separatedBy: "ou")
-            print("!! phones \(phones) !!")
-            
+                        
             if phones.count > 1 {
                 let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Para qual telefone você deseja ligar ?", comment: ""), preferredStyle: .actionSheet)
                 

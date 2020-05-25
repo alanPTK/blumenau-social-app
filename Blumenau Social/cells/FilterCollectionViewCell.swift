@@ -34,9 +34,9 @@ class FilterCollectionViewCell: UICollectionViewCell {
         ivIcon.image = UIImage(named: area.image)
                 
         if selected {
-            alpha = 1
+            ivIcon.alpha = 1
         } else {
-            alpha = 0.5
+            ivIcon.alpha = 0.3
         }
     }
     
@@ -50,9 +50,9 @@ class FilterCollectionViewCell: UICollectionViewCell {
         ivIcon.image = UIImage(named: neighborhood.image)
         
         if selected {
-            alpha = 1
+            ivIcon.alpha = 1
         } else {            
-            alpha = 0.5
+            ivIcon.alpha = 0.3
         }
     }
     

@@ -62,12 +62,15 @@ class Preferences {
         }
     }
     
-    var userNeighborhood: Int {
+    var userNeighborhoods: [Int] {
         get {
-            return defaults.integer(forKey: "userNeighborhood")
+            if let userNeighborhoods = defaults.array(forKey: "userNeighborhoods") {
+                return userNeighborhoods as! [Int]
+            }
+            return []
         }
         set {
-            defaults.setValue(newValue, forKey: "userNeighborhood")
+            defaults.setValue(newValue, forKey: "userNeighborhoods")
         }
     }
     

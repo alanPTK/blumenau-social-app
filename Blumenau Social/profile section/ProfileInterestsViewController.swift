@@ -60,7 +60,7 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
     
     /* Returns the number of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (areas?.count)!
+        return areas?.count ?? 0
     }
     
     /* Show the information in the cell */
@@ -87,17 +87,13 @@ extension ProfileInterestsViewController: UICollectionViewDelegate, UICollection
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
         let selectedArea = areas![indexPath.row]
         
-        if selectedCell.alpha <= CGFloat(0.5) {
-            selectedCell.alpha = 1.0
-            
+        let index = selectedAreas.firstIndex(of: selectedArea)
+        if index == nil {
+            selectedCell.ivIcon.alpha = 1.0
             selectedAreas.append(selectedArea)
         } else {
-            selectedCell.alpha = 0.5
-            
-            let index = selectedAreas.firstIndex(of: selectedArea)
-            if (index != nil) {
-                selectedAreas.remove(at: index!)
-            }                        
+            selectedCell.ivIcon.alpha = 0.3
+            selectedAreas.remove(at: index!)
         }
     }
     

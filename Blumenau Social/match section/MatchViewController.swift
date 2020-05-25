@@ -32,7 +32,7 @@ class MatchViewController: UIViewController {
                 
         NotificationCenter.default.addObserver(self, selector: #selector(showMoreInfo), name: NSNotification.Name("showMoreInfo"), object: nil)
         
-        matchingInstitutions = institutionRepository.searchInstitutionsForMatch(neighborhood: preferences.userNeighborhood, causes: preferences.userInterests, days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
+        matchingInstitutions = institutionRepository.searchInstitutionsForMatch(neighborhoods: preferences.userNeighborhoods, causes: preferences.userInterests, days: preferences.userDays, periods: preferences.userPeriods, limit: 5)
         
         currentInstitution = matchingInstitutions.first
         tvDonations.reloadData()

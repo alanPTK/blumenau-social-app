@@ -4,8 +4,8 @@ import RealmSwift
 class ProfileNeighborhoodSelectionViewController: UIViewController {
     
     private var neighborhoods: Results<Neighborhood>?
-    private let filterOptionsRepository = FilterOptionsRepository()
-    private var selectedNeighborhood: Neighborhood?
+    private let filterOptionsRepository = FilterOptionsRepository()    
+    private var selectedNeighborhoods: [Neighborhood] = []
     private var preferences = Preferences.shared
     
     /* Initialize all the necessary information for the view */
@@ -15,14 +15,21 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         setupView()
         
         neighborhoods = filterOptionsRepository.getAllNeighborhoods()
-        selectedNeighborhood = filterOptionsRepository.getNeighborhoodWithId(id: Preferences.shared.userNeighborhood)
+        
+        for neighborhoodId in preferences.userNeighborhoods {
+            if let neighborhood = filterOptionsRepository.getNeighborhoodWithId(id: neighborhoodId) {
+                selectedNeighborhoods.append(neighborhood)
+            }
+        }                
     }
     
     /* Go to the next screen */
     @IBAction func showProfileAvailability(_ sender: Any) {
-        if neighborhoodIsSelected() {
-            performSegue(withIdentifier: "showProfileInterests", sender: nil)
+        if neighborhoodsAreSelected() {
+            let ids = selectedNeighborhoods.map { $0.id }            
+            preferences.userNeighborhoods = ids
             
+            performSegue(withIdentifier: "showProfileInterests", sender: nil)
             preferences.showNeighborhoodsView = true
         } else {
             Utils.shared.showDefaultAlertWithMessage(message: NSLocalizedString("Please, select your neighborhood before continuing", comment: ""), viewController: self)
@@ -35,15 +42,16 @@ class ProfileNeighborhoodSelectionViewController: UIViewController {
         
         let titleAttribute = [NSAttributedString.Key.foregroundColor: UIColor.titleColor()]
         
-        navigationItem.title = NSLocalizedString("In which neighborhood do you live ?", comment: "")
+        navigationItem.title = NSLocalizedString("In which neighborhoods would you like to help ?", comment: "")
         navigationController?.navigationBar.titleTextAttributes = titleAttribute
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-    
+
+
     override func viewDidAppear(_ animated: Bool) {
         if preferences.showNeighborhoodsView {
-            let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Ficou em dúvida sobre a sua região ?", comment: ""), preferredStyle: .alert)
+            let alertController = UIAlertController(title: NSLocalizedString("Atenção", comment: ""), message: NSLocalizedString("Ficou em dúvida sobre as regiões ?", comment: ""), preferredStyle: .alert)
             let yesAction = UIAlertAction(title: NSLocalizedString("Sim", comment: ""), style: .default) { (action) in
                 let neighborhoodsViewController = UIStoryboard(name: Constants.MAIN_STORYBOARD_NAME, bundle: nil).instantiateViewController(withIdentifier: Constants.NEIGHBORHOODS_VIEW_STORYBOARD_ID) as! NeighborhoodsViewController
                 neighborhoodsViewController.modalPresentationStyle = .fullScreen
@@ -68,7 +76,7 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
     
     /* Returns the number of cells that the collection view should show */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (neighborhoods?.count)!
+        return neighborhoods?.count ?? 0
     }
     
     /* Show the cell information */
@@ -78,14 +86,16 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
         
         filterCell.setupCell()
         
-        filterCell.loadNeighborhoodInformation(neighborhood: currentNeighborhood, selected: preferences.userNeighborhood == currentNeighborhood.id)
+        let index = selectedNeighborhoods.firstIndex(of: currentNeighborhood)
         
-        return filterCell
+        filterCell.loadNeighborhoodInformation(neighborhood: currentNeighborhood, selected: index != nil)
+        
+        return filterCell                                
     }
     
     /* Before going to the next screen, check if a neighborhood is selected */
-    func neighborhoodIsSelected() -> Bool  {
-        if selectedNeighborhood == nil {
+    func neighborhoodsAreSelected() -> Bool  {
+        if selectedNeighborhoods.count == 0 {
             return false
         }
         return true
@@ -99,20 +109,15 @@ extension ProfileNeighborhoodSelectionViewController: UICollectionViewDataSource
     /* Check if the neighborhood is selected and highlight it to the user */
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
+        let selectedNeighborhood = neighborhoods![indexPath.row]
         
-        for indexPath in collectionView.indexPathsForVisibleItems {
-            let selectedCell = collectionView.cellForItem(at: indexPath) as! FilterCollectionViewCell
-                        
-            selectedCell.alpha = 0.5
-        }
-        
-        if selectedCell.alpha <= CGFloat(0.5) {
-            selectedCell.alpha = 1.0
-            
-            selectedNeighborhood = neighborhoods![indexPath.row]
-            preferences.userNeighborhood = (selectedNeighborhood?.id)!
+        let index = selectedNeighborhoods.firstIndex(of: selectedNeighborhood)
+        if index == nil {
+            selectedCell.ivIcon.alpha = 1.0            
+            selectedNeighborhoods.append(selectedNeighborhood)
         } else {
-            selectedCell.alpha = 0.5
+            selectedCell.ivIcon.alpha = 0.3
+            selectedNeighborhoods.remove(at: index!)
         }
     }    
     

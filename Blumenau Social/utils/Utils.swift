@@ -37,6 +37,21 @@ class Utils {
         }
     }
     
+    func openWhatsApp(phoneNumber: String) {
+        var formattedNumber = phoneNumber.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: " ", with: "")
+        formattedNumber = "55"+formattedNumber
+        
+        if let appURL = URL(string: "https://api.whatsapp.com/send?phone=\(formattedNumber)") {
+            if UIApplication.shared.canOpenURL(appURL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(appURL, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(appURL)
+                }
+            }
+        }
+    }
+    
     func openLocation(address: String) {
         let location = String(format: "http://maps.apple.com/?address=%@", address)
         
