@@ -1,5 +1,4 @@
 import UIKit
-import StoreKit
 import EasyTipView
 
 struct MatchConstants {
@@ -38,12 +37,6 @@ class MatchViewController: UIViewController {
         tvDonations.reloadData()
         
         setupView()
-        
-        if preferences.profileIsCreated {
-            if #available(iOS 10.3, *) {
-                SKStoreReviewController.requestReview()
-            }
-        }
     }
     
     /* Show the institution when the user touches the button */

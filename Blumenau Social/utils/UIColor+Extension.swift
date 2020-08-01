@@ -7,7 +7,7 @@ extension UIColor {
     
     //f01644 -> hexa
     class func titleColor() -> UIColor {
-        return UIColor(red: 5.0/255.0, green: 96.0/255.0, blue: 89.0/255.0, alpha: 1)
+        return UIColor(red: 48.0/255.0, green: 114.0/255.0, blue: 156.0/255.0, alpha: 1)
     }
     
     class func descColor() -> UIColor {

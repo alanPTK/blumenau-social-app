@@ -1,4 +1,5 @@
 import UIKit
+import StoreKit
 
 class AboutViewController: UIViewController, UIScrollViewDelegate {
 
@@ -18,6 +19,12 @@ class AboutViewController: UIViewController, UIScrollViewDelegate {
         svAbout.delegate = self
         
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        }
     }
     
     /* When the scrolling is finished, update the page control */
